@@ -61,12 +61,62 @@ Tooling API ApexLog
   * Un objeto custom en el lado de "Detail" no puede tener colas.
 - **Lookup:** Relación que permite que un registro hijo dependa de un registro padre
 
+## Apex
 
+### Tipos
+Los primitive data types son:
+- **Boolean:** `Boolean`
+- **Date:** `Date`
+- **Date and Time:** `Datetime`
+- **Number:** `Decimal`, `Double`, `Integer`, `Long`
+- **String:** `String`
+- **Time:** `Time`
+- **ID:** `ID`
+  
+  Estos tipos no necsitan ser instanciados, ya que son primitivos.
+### Cosas de queries
+Database.query
+- **Database.query:** Permite hacer queries dinámicas
+- **Database.queryLocator:** Permite hacer queries dinámicas y soporta más de 50,000 registros
+
+### Anotaciones
+- **@future:** Permite ejecutar un método de forma asíncrona
+- **@isTest:** Indica que el método es un test
+- **@TestVisible:** Indica que el método es visible para los tests
+- **@AuraEnabled:** Indica que el método es visible para los componentes de Lightning
+- **@InvocableMethod:** Indica que el método es visible para los Flows
+
+### Testing
+- **System.assert:** Permite hacer aserciones
+- **System.assertEquals:** Permite hacer aserciones
+- **System.assertNotEquals:** Permite hacer aserciones
+
+### Exception
+
+Que es una excepción?
+- Una excepción es un error que ocurre en tiempo de ejecución
+- Las excepciones pueden ser atrapadas y manejadas
+- Las excepciones pueden ser lanzadas
+- Las excepciones pueden ser lanzadas por el sistema o por el usuario
+  
+Tipos de excepciones
+- **DMLException:** Excepción que ocurre cuando hay un error en una operación de DML
+- TODO rellenar
+- 
 ## Flows 
-
-Funciones importantes de Flows
+### Condiciones de Flows
+- Only when a record is created
+- Only when a record is updated
+- Only when a record is updated to meet the condition requirements
+  
+### Funciones importantes de Flows
 - Update Records
   * Permite actualizar registros de un objeto seleccionando los campos que se quieren actualizar
 - Create Records
 - Delete Records
 - Get Records
+
+Custom Events
+
+// 
+this.eventData = event.detail;
