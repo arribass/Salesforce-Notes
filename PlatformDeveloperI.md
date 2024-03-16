@@ -1,3 +1,10 @@
+# Salesforce Platform Developer I
+
+## Introducción
+## To-do
+- [ ] Organizar por temas 
+- [ ] Audit fields ¿q son?
+- [ ] 
 ### LÍMITES
 
 Informacion sobre los límites de Salesforce en la documentación oficial [Salesforce Governor Limits](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_gov_limits.htm)
@@ -74,6 +81,49 @@ Los primitive data types son:
 - **ID:** `ID`
   
   Estos tipos no necsitan ser instanciados, ya que son primitivos.
+### Bucles
+- **For:** Bucle que se ejecuta un número determinado de veces
+- **While:** Bucle que se ejecuta mientras se cumpla una condición
+- **Do-While:** Bucle que se ejecuta al menos una vez y luego se ejecuta mientras se cumpla una condición
+
+### Clases que se pueden usar
+- Database
+* **Database:** Clase que permite hacer operaciones de DML
+- JSON
+- Math
+- System
+  * **System:** Clase que permite hacer operaciones de sistema
+- Metadata
+- Schema
+- Test
+  
+### Orden de ejecución salesforce
+- Before Trigger
+- Validation Rules
+- Save to the database (no commit)
+- After Trigger
+- Assignment Rules
+- Auto-Response Rules
+- Workflow Field Updates
+- before and after triggers one more time
+- Escalation Rules
+- Parent Rollup Summary Fields
+- Criteria Based Sharing Rules
+- Commit to the database all DML operations
+- Post-commit logic
+  
+### Tipos de clases
+- **Standard:** Clases que vienen por defecto en Salesforce
+- **Custom:** Clases que se pueden crear
+
+- **Abstract:** Clases que no se pueden instanciar
+    * No se pueden instanciar
+    * Se pueden usar para heredar
+    * Se pueden usar para implementar interfaces
+- Virtual
+    * Se pueden instanciar
+    * Se pueden usar para heredar
+    * Se pueden usar para implementar interfaces
 ### Cosas de queries
 Database.query
 - **Database.query:** Permite hacer queries dinámicas
@@ -90,6 +140,10 @@ Database.query
 - **System.assert:** Permite hacer aserciones
 - **System.assertEquals:** Permite hacer aserciones
 - **System.assertNotEquals:** Permite hacer aserciones
+### Colecciones
+- **List:** Colección que permite almacenar varios elementos
+- **Set:** Colección que permite almacenar varios elementos sin duplicados
+- **Map:** Colección que permite almacenar varios elementos con clave-valor
 
 ### Exception
 
@@ -108,6 +162,17 @@ Tipos de excepciones
 - Only when a record is created
 - Only when a record is updated
 - Only when a record is updated to meet the condition requirements
+
+### Elementos de Flows
+- **Action:** Elemento que permite hacer una acción
+- **Assignment:** Elemento que permite asignar un valor a una variable
+- **Choice:** Elemento que permite tomar decisiones
+- **Collection:** Elemento que permite almacenar varios elementos
+- **Data:** Elemento que permite almacenar datos
+- **Loop:** Elemento que permite hacer bucles
+- **Screen:** Elemento que permite mostrar una pantalla
+- **Subflow:** Elemento que permite llamar a otro flow
+- **Text Template:** Elemento que permite mostrar texto
   
 ### Funciones importantes de Flows
 - Update Records
@@ -120,3 +185,100 @@ Custom Events
 
 // 
 this.eventData = event.detail;
+
+## Modelo Vista Controlador
+
+Añadir foto de MVC
+
+### Modelo
+- **Modelo:** Representa los datos y las reglas de negocio
+### Vista	
+- **Vista:** Representa la interfaz de usuario
+### Controlador
+- **Controlador:** Representa la lógica de negocio
+## Importación y Exportación de Datos
+### Importación
+- **Data Import Wizard:** Permite importar datos de forma sencilla
+- **Data Loader:** Permite importar datos de forma masiva
+### Exportación
+- **Data Export:** Permite exportar datos de forma sencilla
+
+## Testing 
+Cuanta cobertura de código se necesita?
+- 75% de cobertura de código para clases Apex
+- 1% de cobertura de código para triggers
+Donde se puede hacer Run All 
+- Developer Console
+- Setup Apex Classes
+  
+## To-do
+
+- getRecord() vs getRecords()
+  * getRecord() -> Devuelve un solo registro
+  * getRecords() -> Devuelve varios registros ???? 
+
+## Field deletion
+- Cuando se elimina un campo de un objeto
+No se puede borrar un campo si está en uso en:
+- Fórmulas
+- Cláusulas de búsqueda
+- Workflow field updates
+
+## Restricciones al ser multitenant
+- Tiempo de ejecución de SOQL (10 segundos)
+- Tiempo de ejecución de CPU (10 segundos)
+- Número de registros devueltos por una consulta SOQL (10,000)
+
+## Seguridad
+- **OWD:** Permite definir la visibilidad de los registros
+
+XSS Threats
+- JSINHTMLENCODE()
+  * Evita que se ejecute código JavaScript
+- HTMLENCODE()
+  * Evita que se ejecute código HTML
+- JSENCODE()
+  * Evita que se ejecute código JavaScript 
+
+## Einstein
+- **Einstein:** Permite hacer inteligencia artificial en Salesforce
+Next Best Action
+
+## Ant Migration Tool
+**Ant Migration Tool:** Permite migrar metadatos de Salesforce
+- Metadata Component Member
+- Metadata Component Type
+
+## Code Builder
+**Code Builder:** Permite escribir código en Salesforce
+- Apex
+- Lightning Web Components
+- Visualforce
+
+## Salesforce DX
+**Salesforce DX:** Permite desarrollar en Salesforce
+- Salesforce Extensions Pack
+  * Ejecutar consultas SOQL
+  * Desplegar componentes de metadata
+  * Lanzar Apex tests
+- Version Control Systems
+- Salesforce CLI 
+
+## Sharing 
+- **With sharing:** Permite que se apliquen las reglas de seguridad de Salesforce
+Without sharing
+- **Without sharing:** No aplica las reglas de seguridad de Salesforce
+
+## Excepciones
+- No podemos obtener debug logs de Time-Based Workflow porque se ejecutan en un contexto de sistema.
+
+## Pregruntas
+- ¿Qué es un campo de fórmula?
+  * Un campo que calcula un valor en función de otros campos
+
+
+## Referencias
+
+Creado por [Adrián Arribas](https://www.linkedin.com/in/adrian-arribas/) para la preparación del examen de Salesforce Platform Developer I 
+
+## Salesforce Extension Pack
