@@ -1,19 +1,30 @@
 # Salesforce Platform Developer I
-
-## Introducción
 ## To-do
 - [ ] Organizar por temas 
 - [ ] Audit fields ¿q son?
-- [ ] 
+- [ ] Que es un campo de fórmula
+
+## Introducción
+El examen de Salesforce Platform Developer I es un examen que evalúa los conocimientos de un desarrollador de Salesforce. En este documento se recogen los conceptos más importantes que se deben conocer para aprobar el examen.
+
+| Concepto  | Descripción |
+| ---       | ---         |
+| Puntuación| 68%         |
+| Tiempo    | 105 minutos |
+| Preguntas | 60          |
 ### LÍMITES
 
 Informacion sobre los límites de Salesforce en la documentación oficial [Salesforce Governor Limits](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_gov_limits.htm)
 
-- `queryLocator`: 10,000 tuplas
-- `queryMore`: 2,000 tuplas
-- `@future`: 50
-- `@future` (con `callout`): 10
-- `@future` (con `callout` y `batch`): 5
+
+| Límite | Valor |
+| ---    | ---   |
+| `queryLocator` | 10,000 |
+| `queryMore` | 2,000 |
+| `@future` | 50 |
+| `@future` (con `callout`) | 10 |
+| `@future` (con `callout` y `batch`) | 5 |
+
 
 ### Interfaz de Usuario
 
@@ -59,6 +70,9 @@ Lightning Message Service
 
 Tooling API ApexLog
 - **ApexLog:** Permite ver los logs de Apex
+  - Partes de un log
+    - HEADER
+    - 
 
 ## Relaciones
 
@@ -276,9 +290,25 @@ Without sharing
 - ¿Qué es un campo de fórmula?
   * Un campo que calcula un valor en función de otros campos
 
-
-## Referencias
-
-Creado por [Adrián Arribas](https://www.linkedin.com/in/adrian-arribas/) para la preparación del examen de Salesforce Platform Developer I 
+## Variables
+- old y new
+  * old -> Valores antiguos
+  * new -> Valores nuevos
+- prior y after
+  * prior -> Valores antiguos
+  * after -> Valores nuevos
 
 ## Salesforce Extension Pack
+## Dev hub
+  que es?
+  - **Dev Hub:** Permite desarrollar en Salesforce
+  - **Dev Hub:** Permite crear Scratch Orgs
+  - **Dev Hub:** Permite crear Sandboxes
+## Salesforce CLI
+  que es?
+  - **Salesforce CLI:** Permite ejecutar comandos de Salesforce
+  - **Salesforce CLI:** Permite ejecutar comandos de Salesforce DX
+  - **Salesforce CLI:** Permite ejecutar comandos de Salesforce Extensions
+## Referencias
+Creado por [Adrián Arribas](https://www.linkedin.com/in/adrian-arribas/) para la preparación del examen de Salesforce Platform Developer I 
+
