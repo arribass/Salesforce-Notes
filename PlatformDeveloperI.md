@@ -313,7 +313,7 @@ Without sharing
 ## Excepciones
 - No podemos obtener debug logs de Time-Based Workflow porque se ejecutan en un contexto de sistema.
 
-## Pregruntas
+## Preguntas
 - ¿Qué es un campo de fórmula?
   * Un campo que calcula un valor en función de otros campos
 
@@ -433,6 +433,10 @@ Lightning Message Service
   - View
 ### Aura Components
 Permite aprender los conceptos de los componentes de Aura
+
+Orden de firing 
+  - Init
+    - Empieza desde el componente inermost y va hacia afuera.
 #### Eventos
 - Application Event
 - Component Event
@@ -451,7 +455,25 @@ Permite aprender los conceptos de los componentes de Aura
   */
 @import "c/style.css";
 ```
-
+### Bundles 
+- **Bundle:** Permite agrupar varios elementos
+  - Component
+    - Component
+    - Controller
+    - Design
+    - Documentation
+    - Renderer
+    - Helper
+    - SVG  
+  - Application
+    - Application
+    - Controller
+    - Design
+    - Documentation
+    - Renderer
+    - Helper
+    - SVG
+  - Demas
 ### CSRF
 - **CSRF:** Cross-Site Request Forgery
   - Que es: Ataque que permite que un atacante realice acciones en nombre de un usuario
@@ -460,6 +482,12 @@ Como evitarlo en Salesforce
 - **CSRF Token:** Permite evitar que se realicen ataques CSRF
   - mas info [CSRF Token](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_csrf.htm)
 ### Visualforce
+
+Security.stripInaccessible como usar
+- **Security.stripInaccessible:** Permite quitar los campos a los que el usuario no tiene acceso
+  - mas info [Security.stripInaccessible](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_with_security_stripinaccessible.htm)
+    - Devuelve tipo SObjectAccessDecision 
+      - Recuperar las tuplas -> getRecords()
 ### todo HERE
 - Custom Property Editors
 - 
