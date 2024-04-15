@@ -12,19 +12,13 @@ El examen de Salesforce Platform Developer I es un examen que evalúa los conoci
 | Puntuación| 68%         |
 | Tiempo    | 105 minutos |
 | Preguntas | 60          |
-### LÍMITES
 
-Informacion sobre los límites de Salesforce en la documentación oficial [Salesforce Governor Limits](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_gov_limits.htm)
-
-
-| Límite | Valor |
-| ---    | ---   |
-| `queryLocator` | 10,000 |
-| `queryMore` | 2,000 |
-| `@future` | 50 |
-| `@future` (con `callout`) | 10 |
-| `@future` (con `callout` y `batch`) | 5 |
-
+## Topics
+Reorganizar por temas
+### Developer Fundamentals
+### Process Automation and Logic
+### User Interface
+### Testing, Debugging, and Deployment
 
 ### Interfaz de Usuario
 
@@ -32,7 +26,7 @@ Metodos utiles para Visualforce
 - **Apex:** `detail` -> Muestra los detalles de un registro
 - **renderAs:** Imprime la página
 - `getSelected()` records
-- 
+  
 Standard controller methods
 - **Apex:** `save` -> Guarda el registro
 - **Apex:** `cancel` -> Cancela la edición
@@ -71,9 +65,27 @@ Lightning Message Service
 Tooling API ApexLog
 - **ApexLog:** Permite ver los logs de Apex
   - Partes de un log
-    - HEADER
-    - 
+    - Header
+    - LogLines
+    - Execution Units
+    - Code Units
+### Logs levels
+- NONE
+- ERROR
+- WARN
+- INFO
+- DEBUG
+- FINE
+- FINER
+- FINEST
 
+**Traced entities:** Permite ver las entidades que se han trazado
+  - Automated Process
+  - Platform Integration
+  - User
+  - Apex Class
+  - Apex Trigger
+  - 
 ## Relaciones
 
 - **Master-Detail:** Relación que permite que un registro hijo dependa de un registro padre
@@ -85,7 +97,8 @@ Tooling API ApexLog
 ## Apex
 
 ### Tipos
-Los primitive data types son:
+#### Primitives:
+Estos tipos no necsitan ser instanciados.
 - **Boolean:** `Boolean`
 - **Date:** `Date`
 - **Date and Time:** `Datetime`
@@ -93,8 +106,12 @@ Los primitive data types son:
 - **String:** `String`
 - **Time:** `Time`
 - **ID:** `ID`
-  
-  Estos tipos no necsitan ser instanciados, ya que son primitivos.
+
+#### Collections
+- **List:** `List`
+- **Set:** `Set`
+- **Map:** `Map`
+
 ### Bucles
 - **For:** Bucle que se ejecuta un número determinado de veces
 - **While:** Bucle que se ejecuta mientras se cumpla una condición
@@ -217,12 +234,18 @@ Añadir foto de MVC
 ### Exportación
 - **Data Export:** Permite exportar datos de forma sencilla
 
+todo tabla con numero de registros que se pueden exportar segun el tipo de licencia
+
 ## Testing 
 Cuanta cobertura de código se necesita?
 - 75% de cobertura de código para clases Apex
 - 1% de cobertura de código para triggers
 Donde se puede hacer Run All 
 - Developer Console
+- Capabilities:
+  - Develop a Visualforce page
+  - View and examine debug logs
+  - Execute anonymous Apex code
 - Setup Apex Classes
   
 ## To-do
@@ -244,9 +267,9 @@ No se puede borrar un campo si está en uso en:
 - Número de registros devueltos por una consulta SOQL (10,000)
 
 ## Seguridad
-- **OWD:** Permite definir la visibilidad de los registros
-
-XSS Threats
+- **OWD: Organization Wide Defaults** Permite definir la visibilidad de los registros
+### A nivel de codio
+#### XSS Threats
 - JSINHTMLENCODE()
   * Evita que se ejecute código JavaScript
 - HTMLENCODE()
@@ -257,7 +280,11 @@ XSS Threats
 ## Einstein
 - **Einstein:** Permite hacer inteligencia artificial en Salesforce
 Next Best Action
-
+- ** Einstein Activity Capture:** Permite capturar las actividades de los usuarios
+  - ermite capturar las actividades de los usuarios de Gmail
+  - Permite capturar las actividades de los usuarios de Office 365
+  - Permite capturar las actividades de los usuarios de Exchange
+  - 
 ## Ant Migration Tool
 **Ant Migration Tool:** Permite migrar metadatos de Salesforce
 - Metadata Component Member
@@ -309,6 +336,143 @@ Without sharing
   - **Salesforce CLI:** Permite ejecutar comandos de Salesforce
   - **Salesforce CLI:** Permite ejecutar comandos de Salesforce DX
   - **Salesforce CLI:** Permite ejecutar comandos de Salesforce Extensions
+## WorkBench
+  que es?
+  - **WorkBench:** Permite hacer operaciones de Salesforce
+  - **WorkBench:** Permite hacer operaciones de Salesforce DX
+  - **WorkBench:** Permite hacer operaciones de Salesforce Extensions
+  - Insertar registros
+  - Actualizar registros
+  - Borrar registros
+  - Ejecutar SOQL y SOSL
+  - REST API 
+  - Describe Metadata and data
+## Developer Console
+que podemos ver y hacer 
+- **Developer Console:** Permite hacer operaciones de Salesforce
+- **Developer Console:** Permite hacer operaciones de Salesforce DX
+- Customizable
+
+### Que tabs podemos ver
+- Logs
+- Tests
+- Checkpoints: Contienen lo siguiente:
+  - Namespace
+  - Class
+  - Line
+  - Date
+- Query Editor
+- Progress
+- Problems
+![Tabs de Developer Console](image.png)
 ## Referencias
 Creado por [Adrián Arribas](https://www.linkedin.com/in/adrian-arribas/) para la preparación del examen de Salesforce Platform Developer I 
 
+## Checkpoin Inspector
+- **Checkpoint Inspector:** Permite ver los checkpoints de un Flow
+- **Checkpoint Inspector:** Permite ver los checkpoints de un Process Builder
+- **Checkpoint Inspector:** Permite ver los checkpoints de un Workflow
+- **Checkpoint Inspector:** Permite ver los checkpoints de un Flow Builder
+- **Checkpoint Inspector:** Permite ver los checkpoints de Apex Code
+
+## Temas
+
+### Developer Fundamentals
+- **Developer Fundamentals:** Permite aprender los conceptos básicos de Salesforce
+### Process Automation and Logic
+### User Interface
+### Testing, Debugging, and Deployment
+- Dividido en 4 Objetivos
+  * Testing
+  * Debugging
+  * Deployment
+  * Performance
+### Anonymous Code
+- **Anonymous Code:** Permite ejecutar código anónimo en Salesforce
+- Se ejecuta como el usuario que lo ejecuta
+
+### Visual Studio Code Salesforce DX
+- Apex Unit Tests can be executed from the Code Editor
+- Updates from other developers can be tracked and retrieved from a central repository
+- Metadata components from the org can be modifies
+
+## Debug logs set flags
+## Scheduled Jobs and Apex Jobs 
+## Performance -> Execution Units debug logs
+## Debug level
+
+
+## User Interface
+- **User Interface:** Permite aprender los conceptos de la interfaz de usuario de Salesforce
+### Lightning Web Components
+Compuestos por los siguientes elementos
+- **HTML:** Permite definir la estructura de la página UI
+- **CSS:** Permite definir el estilo de la página
+- **JavaScript:** Permite definir la lógica de la página
+- **XML:** Permite definir los metadatos de la página
+
+Ventajas de usar un Framerwork:
+- Event Driven Architecture
+  - Permite que los componentes se comuniquen entre sí
+  - Better for decoupling components
+  - Device Aware Capabilities and Cross Browser Compatibility
+
+todo colocar esto en algun sitio
+
+Lanzar una query apex corre en system mode por defecto 
+Las DML operations corren en user mode por defecto
+
+Lightning Message Service
+- **LMS:** Permite la comunicación entre componentes de Lightning Web Components y Aura Components
+  
+  ```
+  import sampleChange from '@salesforce/messageChannel/SampleMessageChannel__c';
+  ```
+- Visualforce Overrides: Permite sobreescribir la interfaz de usuario de Salesforce
+  - Edit
+  - View
+### Aura Components
+Permite aprender los conceptos de los componentes de Aura
+#### Eventos
+- Application Event
+- Component Event
+- Bubble Event
+  - Configuracion de Bubble Event
+  - Bubble Event: true
+  - Composed: false 
+    - De esta manera no se propaga a través de Shadow DOM 
+- Capture Event
+- System Event
+
+<!-- Como importar un CSS -->
+```
+/**
+  * @description CSS file
+  */
+@import "c/style.css";
+```
+
+### CSRF
+- **CSRF:** Cross-Site Request Forgery
+  - Que es: Ataque que permite que un atacante realice acciones en nombre de un usuario
+
+Como evitarlo en Salesforce
+- **CSRF Token:** Permite evitar que se realicen ataques CSRF
+  - mas info [CSRF Token](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_csrf.htm)
+### Visualforce
+### todo HERE
+- Custom Property Editors
+- 
+## Anexo
+### Limites
+
+Informacion sobre los límites de Salesforce en la documentación oficial [Salesforce Governor Limits](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_gov_limits.htm)
+
+
+| Límite | Valor |
+| ---    | ---   |
+| `queryLocator` | 10,000 |
+| `queryMore` | 2,000 |
+| `@future` | 50 |
+| `@future` (con `callout`) | 10 |
+| `@future` (con `callout` y `batch`) | 5 |
