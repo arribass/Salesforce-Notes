@@ -31,11 +31,90 @@ El examen de Salesforce Platform Developer I es un examen que evalúa los conoci
 | Preguntas | 60          |
 
 ## Topics
-### User Interface
-#### LWC
+### User Interface 
+
+Aqui va el tema de seguridad Injections, XSS, CSRF, etc
+
+HTMLEncode
+
+StripInaccessible
+
+Sharing 
+
+Enforce
+#### Lightning Web Components
+Compuestos por los siguientes elementos
+- **HTML:** Permite definir la estructura de la página UI
+  - No es necesario si se trata de un Service Component
+- **CSS:** Permite definir el estilo de la página [Optional]
+- **JavaScript:** Permite definir la lógica de la página
+- **XML:** Permite definir los metadatos de la página
+- **SVG:** Permite definir gráficos vectoriales
+
+Ventajas de usar un Framework Lightning Component:
+- Event Driven Architecture
+  - Permite que los componentes se comuniquen entre sí
+  - Better for decoupling components
+  - Device Aware Capabilities and Cross Browser Compatibility
+
+todo colocar esto en algun sitio
+
+Lanzar una query apex corre en system mode por defecto 
+Las DML operations corren en user mode por defecto
+
+Lightning Message Service
+- **LMS:** Permite la comunicación entre componentes de Lightning Web Components y Aura Components
+  
+  ```
+  import sampleChange from '@salesforce/messageChannel/SampleMessageChannel__c';
+
+  this.tabId = message.tabId;
+  ```
+- Visualforce Overrides: Permite sobreescribir la interfaz de usuario de Salesforce
+  - Edit
+  - View
+
+Lightning Style Sheets
+- **LSS:** Permite personalizar el estilo de los componentes de Lightning
+<!-- snippetde codigo -->
+```
+<apex:page standardController="Account" lightningStylesheets="true">
+  <body class="slds-vf-scope">
+    <apex:form>
+      <apex:inputField value="{!Account.Name}"/>
+      <apex:commandButton action="{!save}" value="Save"/>
+    </apex:form>
+  </body>
+</apex:page>
+```
+
+##### Como usar wire en LWC
+<!-- snippet de wire account-->
+```
+import { LightningElement, wire } from 'lwc';
+import { getRecord } from 'lightning/uiRecordApi';
+import ACCOUNT_OBJECT from '@salesforce/schema/Account';
+import NAME_FIELD from '@salesforce/schema/Account.Name';
+
+export default class AccountRecord extends LightningElement {
+  accountId;
+  handleAccountIdChange(event) {
+    this.accountId = event.target.value;
+  }
+
+  @wire(getRecord, { recordId: $accountId, fields: [NAME_FIELD] })
+  account;
+}
+```
+
+Security.stripInaccessible como usar
+- **Security.stripInaccessible:** Permite quitar los campos a los que el usuario no tiene acceso
+  - mas info [Security.stripInaccessible](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_with_security_stripinaccessible.htm)
+    - Devuelve tipo SObjectAccessDecision 
+      - Recuperar las tuplas -> getRecords()
+
 Targets LWC
 
-% SNIPPET
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
@@ -48,7 +127,7 @@ Targets LWC
     </targets>
 </LightningComponentBundle>
 ```
-#### VISUALFORCE 
+#### Visualforce 
 
 Metodos utiles para Visualforce
 - **Apex:** `detail` -> Muestra los detalles de un registro
@@ -71,40 +150,314 @@ Standard controller methods
 - **Apex:** `edit` -> Edita el registro
 - **Apex:** `quickSave` -> Guarda el registro
 - **Apex:** `list`-> Lista los registros
+
+Para añadir visualforce a un layout necesitamos:
+
+- Standard Controller
+- Controller Extension
+- ApexPages.StandardController
+
+<!-- snippet -->
+Visualforce Page
+```
+<apex:page standardController="Case" extensions"CaseLogicExtension">
+```
+Controlador Apex
+```
+public class CaseLogicExtension {
+  public CaseLogicExtension(ApexPages.StandardController controller) {
+    Case c = (Case)controller.getRecord();
+  }
+}
+```
+#### Aura
+##### Aura Components
+Permite aprender los conceptos de los componentes de Aura
+
+Orden de firing 
+  - Init
+    - Empieza desde el componente inermost y va hacia afuera.
+##### Eventos
+- Application Event
+- Component Event
+- Bubble Event
+  - Configuracion de Bubble Event
+  - Bubble Event: true
+  - Composed: false 
+    - De esta manera no se propaga a través de Shadow DOM 
+- Capture Event
+- System Event
+
+<!-- Como importar un CSS -->
+```
+/**
+  * @description CSS file
+  */
+@import "c/style.css";
+```
+
+<!-- Como hacer un componente con valor editable por usuario -->
+```
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+  <aura:attribute name="message" type="String" default="Hello, World!" />
+  <lightning:input type="text" label="Message" value="{!v.message}" />
+</aura:component>
+```
+<!-- design component -->
+```
+<design:component>
+  <design:attribute name="message" label="Message" description="The message to display" />
+</design:component>
+```
+
+#### Seguridad
+#####  CSRF
+- **CSRF:** Cross-Site Request Forgery
+  - Que es: Ataque que permite que un atacante realice acciones en nombre de un usuario
+
+Como evitarlo en Salesforce
+- **CSRF Token:** Permite evitar que se realicen ataques CSRF
+  - mas info [CSRF Token](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_csrf.htm)
+
+- **OWD: Organization Wide Defaults** Permite definir la visibilidad de los registros
+##### XSS Threats
+- JSINHTMLENCODE()
+  * Evita que se ejecute código JavaScript
+- HTMLENCODE()
+  * Evita que se ejecute código HTML
+- JSENCODE()
+  * Evita que se ejecute código JavaScript 
+
 ### Developer Fundamentals
+Preguntas sobre codigo, objetos, relaciones, etc
+#### Herramientas de Salesforce
+##### Einstein
+- **Einstein:** Permite hacer inteligencia artificial en Salesforce
+Next Best Action
+- ** Einstein Activity Capture:** Permite capturar las actividades de los usuarios
+  - ermite capturar las actividades de los usuarios de Gmail
+  - Permite capturar las actividades de los usuarios de Office 365
+  - Permite capturar las actividades de los usuarios de Exchange
+  - 
+##### Ant Migration Tool
+**Ant Migration Tool:** Permite migrar metadatos de Salesforce
+- Metadata Component Member
+- Metadata Component Type
+
+##### DX
+#### Schema Builder
+- **Schema Builder:** Permite ver los objetos de Salesforce
+  - **Schema Builder:** Permite ver los campos de un objeto
+  - **Schema Builder:** Permite ver las relaciones
+
+- Filter to display only objects of interest
+- The map can be used to navigate to objects of interest
+- Hide relationships to improve performance
+
+#### AppExchange
+- **AppExchange:** Permite instalar aplicaciones de Salesforce
+  - Permite instalar componentes de Salesforce
+  - Permite instalar flujos de Salesforce
+  - Permite instalar integraciones de Salesforce
+  - Permite instalar soluciones de Salesforce
+#### Field deletion
+- Cuando se elimina un campo de un objeto
+No se puede borrar un campo si está en uso en:
+- Fórmulas
+- Cláusulas de búsqueda
+- Workflow field updates
+
+#### Sharing 
+- **With sharing:** Permite que se apliquen las reglas de seguridad de Salesforce
+Without sharing
+- **Without sharing:** No aplica las reglas de seguridad de Salesforce
+- **Inherited sharing:** Hereda las reglas de seguridad de Salesforce
+
+#### Object Manager
+- **Object Manager:** Permite gestionar los objetos de Salesforce
+  - Permite crear objetos
+  - Permite editar objetos
+  - Permite eliminar objetos
+  - Permite ver los campos de un objeto
+  - Permite ver las relaciones de un objeto
+
+#### Apex
+
+Cosas de apex
+
+Getter and setter que son como se usan
+- **Getter:** Permite obtener el valor de una variable
+- **Setter:** Permite establecer el valor de una variable
+  - Uso de DML en setter
+<!-- Snippet de getter and setter  -->
+
+```
+private String name;
+TODO
+```
+##### Tipos
+###### Primitives:
+Estos tipos no necsitan ser instanciados.
+- **Boolean:** `Boolean`
+- **Date:** `Date`
+- **Date and Time:** `Datetime`
+- **Number:** `Decimal`, `Double`, `Integer`, `Long`
+- **String:** `String`
+- **Time:** `Time`
+- **ID:** `ID`
+- **Enum:** `Enum`
+
+<!-- snippet como declarar -->
+```
+Boolean isActive = true;
+Date today = Date.today();
+Datetime now = Datetime.now();
+Decimal amount = 100.0;
+Double pi = 3.14159265;
+Integer count = 10;
+Long bigNumber = 1000000000;
+String name = 'Hello, World!';
+Time now = Time.now();
+ID recordId = '0012w00000Q8Z2AAK';
+Enum day {MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY};
+```
+
+
+###### Collections
+- **List:** `List`
+- **Set:** `Set`
+  - Permite almacenar varios elementos sin duplicados
+- **Map:** `Map`
+  - Permite almacenar varios elementos con clave-valor
+
+##### Bucles
+- **For:** Bucle que se ejecuta un número determinado de veces
+- **While:** Bucle que se ejecuta mientras se cumpla una condición
+- **Do-While:** Bucle que se ejecuta al menos una vez y luego se ejecuta mientras se cumpla una condición
+ <!-- Snippet -->
+```
+for (Integer i = 0; i < 10; i++) {
+  System.debug(i);
+}
+```
+##### Anotaciones
+- **@future:** Permite ejecutar un método de forma asíncrona
+  - Estos metodos deben ser void
+  - No permiten sobrepasar los limites de Salesforce
+- **@isTest:** Indica que el método es un test
+- **@TestVisible:** Indica que el método es visible para los tests
+- **@AuraEnabled:** Indica que el método es visible para los componentes de Lightning
+- **@InvocableMethod:** Indica que el método es visible para los Flows
+
+
+##### Tipos de clases
+- **Standard:** Clases que vienen por defecto en Salesforce
+- **Custom:** Clases que se pueden crear
+
+- **Abstract:** Clases que no se pueden instanciar
+    * No se pueden instanciar
+    * Se pueden usar para heredar
+    * Se pueden usar para implementar interfaces
+- Virtual
+    * Se pueden instanciar
+    * Se pueden usar para heredar
+    * Se pueden usar para implementar interfaces
+
+<!-- tabla resuemtn -->
+
+| Clase | Instanciable | Heredable | Interfaces |
+| ---   | ---          | ---       | ---        |
+| Standard | Si | Si | Si |
+| Custom | Si | Si | Si |
+| Abstract | No | Si | Si |
+| Virtual | Si | Si | Si |
+
+##### Clases Utiles
+###### Database
+* **Database:** Clase que permite hacer operaciones de DML
+
+Database.insert
+
+SaveResult
+
+Index share
+- JSON
+- Math
+- System
+  * **System:** Clase que permite hacer operaciones de sistema
+- Metadata
+- Schema
+- Test
+- 
+Database.query
+- **Database.query:** Permite hacer queries dinámicas
+- **Database.queryLocator:** Permite hacer queries dinámicas y soporta más de 50,000 registros
+- 
+
+###### Crypto
+- **Crypto:** Permite encriptar y desencriptar datos
+<!-- Snippet -->
+```
+Blob cryptoKey = Crypto.generateAesKey(256);
+Blob data = Blob.valueOf('Hello, World!');
+Blob encryptedData = Crypto.encrypt('AES256', cryptoKey, data);
+Blob decryptedData = Crypto.decrypt('AES256', cryptoKey, encryptedData);
+
+System.assertEquals(data, decryptedData);
+```
 
 #### Modelo Vista Controlador
 
 Añadir foto de MVC
 
-### Modelo
+##### Modelo
 - **Modelo:** Representa los datos y las reglas de negocio
-### Vista	
+##### Vista	
 - **Vista:** Representa la interfaz de usuario
-### Controlador
+##### Controlador
 - **Controlador:** Representa la lógica de negocio
-## Importación y Exportación de Datos
-### Importación
+
+#### Relaciones
+
+- **Master-Detail:** Relación que permite que un registro hijo dependa de un registro padre
+  * Si se elimina el registro padre, se eliminan los registros hijos
+  * Un objeto custom no puede estar en el lado de "Master" con un objeto estándar
+  * Un objeto custom en el lado de "Detail" no puede tener colas.
+  * El hijo hereda el sharing del padre
+  * El hijo hereda los security settings del padre
+  * El propietario del padre se asigna al hijo automáticamente
+  * El propietario del hijo no se puede cambiar
+  * El hijo no puede tener sus propias sharing rules
+- **Lookup:** Relación que permite que un registro hijo dependa de un registro padre
+  * Si se elimina el registro padre, no se eliminan los registros hijos
+  * Un objeto custom puede estar en el lado de "Master" con un objeto estándar
+  * Un objeto custom en el lado de "Detail" puede tener colas.
+- **Hierarchical:** Relación que permite que un registro hijo dependa de un registro padre
+  * Si se elimina el registro padre, se eliminan los registros hijos
+  * Un objeto custom no puede estar en el lado de "Master" con un objeto estándar
+  * Un objeto custom en el lado de "Detail" no puede tener colas.
+- **Indirect Lookup:** Relación que permite que un registro hijo dependa de un registro padre
+  * Si se elimina el registro padre, no se eliminan los registros hijos
+  * Un objeto custom puede estar en el lado de "Master" con un objeto estándar
+  * Un objeto custom en el lado de "Detail" puede tener colas.
+
+<!-- Tabla resumen -->
+
+| Relación | Master-Detail | Lookup | Hierarchical | Indirect Lookup |
+| ---      | ---           | ---    | ---          | ---             |
+| Eliminación de registros hijos | Si | No | Si | No |
+| Objeto custom en el lado de "Master" con objeto estándar | No | Si | No | Si |
+| Objeto custom en el lado de "Detail" con colas | No | Si | No | Si |
+#### Importación y Exportación de Datos
+##### Importación
 - **Data Import Wizard:** Permite importar datos de forma sencilla
 - **Data Loader:** Permite importar datos de forma masiva
-### Exportación
+##### Exportación
 - **Data Export:** Permite exportar datos de forma sencilla
-- 
-**Developer Fundamentals:** Permite aprender los conceptos básicos de Salesforce
-
-Tipos de sandboxes
-
-- **Developer:** Permite desarrollar en Salesforce
-- **Developer Pro:** Permite desarrollar en Salesforce
-- **Partial:** Permite desarrollar en Salesforce
-  - TODO algo de info aqui
-- **Full:** Permite desarrollar en Salesforce
-  - Perfomance testing
-  - Load testing
-  - Staging
+- **Developer Fundamentals:** Permite aprender los conceptos básicos de Salesforce
 
 
-que es merge 
+Merge
 
 - **Merge:** Permite combinar varios registros en uno solo
   - merge accountList;
@@ -135,6 +488,7 @@ When merging sObject records, consider the following rules and guidelines:
 - Using the Apex merge operation, field values on the master record always supersede the corresponding field values on the records to be merged. To preserve a merged record field value, simply set this field value on the master sObject before performing the merge.
 - External ID fields can’t be used with merge.
 ### Process Automation and Logic
+
 #### Flows 
 Los flows pueden acceder datos de Salesforce y de otros sistemas
 
@@ -193,10 +547,82 @@ Sirve para saber si el flujo tiene suficiente cobertura de pruebas
 La visibilidad de los componentes se puede controlar con las siguientes propiedades
 - **Visibility:** Permite controlar la visibilidad de un componente
 - **Accessibility:** Permite controlar la accesibilidad de un componente
+##### Order de ejecución de Flows
+##### Flow Orchestration
+- **Flow Orchestration:** Permite orquestar varios Flows
+##### Extra sobre flows
+- Custom Property Editors
+  - Used as a custom user interface for configuring the properties of the component
+- automaticOutputVariables
+  - Que es
+    - Access stored variables in flow builder via JS
 
 ### Testing, Debugging, and Deployment
+- Dividido en 4 Objetivos
+  * Testing
+  * Debugging
+  * Deployment
+  * Performance
 
+Cosas de API etc<>
+Cosas sobre los packages etc sandboxes
+#### Testing 
+
+Donde ejecutar todos los tests:
+- Selecting Run All Tests in the Developer Console
+- Using the Run All Tests button on the Apex Classes page in Salesforce Setup
+
+Unit tests cannot perform callouts to external services. To test callouts, use a mock callout test.
+
+Unit tests can't send emails.
+
+Unit tests can test single and bulk actions.
+
+- **System.assert:** Permite hacer aserciones
+- **System.assertEquals:** Permite hacer aserciones
+- **System.assertNotEquals:** Permite hacer aserciones
+
+Tienen acceso a:
+- Profiles
+- Users
+- Record Types
+Cuanta cobertura de código se necesita?
+- 75% de cobertura de código para clases Apex
+- 1% de cobertura de código para triggers
+Donde se puede hacer Run All 
+- Developer Console
+- Capabilities:
+  - Develop a Visualforce page
+  - View and examine debug logs
+  - Execute anonymous Apex code
+- Setup Apex Classes
   
+
+  Skip code coverage
+  - New Run menu item in the Developer Console
+  - Apex Test Execution page in Setup
+  - 
+#### Deployments
+deployments can be scripted and scheduled using the Salesforce CLI
+change sets are cloud based and do not require files to be downloaded locally
+#### Tipos de sandboxes
+
+- **Developer:** Permite desarrollar en Salesforce
+- **Developer Pro:** Permite desarrollar en Salesforce
+- **Partial:** Permite desarrollar en Salesforce
+  - TODO algo de info aqui
+- **Full:** Permite desarrollar en Salesforce
+  - Perfomance testing
+  - Load testing
+  - Staging
+#### Como distribuir un paquete comercial en AppExchange
+what do you need to distrubute a commercial package on the AppExchange
+
+- Partner Developer Edition to manage all the source code 
+- Developer Edition to create the package
+
+Developer Pro or Partial Copy cannot be used to distribute a commercial package on the AppExchange
+
 ## App Builder
 ### Componentes
 - **Standard:** Componentes que vienen por defecto en Salesforce
@@ -250,108 +676,6 @@ Tooling API ApexLog
   - Apex Class
   - Apex Trigger
   
-## Relaciones
-
-- **Master-Detail:** Relación que permite que un registro hijo dependa de un registro padre
-  * Si se elimina el registro padre, se eliminan los registros hijos
-  * Un objeto custom no puede estar en el lado de "Master" con un objeto estándar
-  * Un objeto custom en el lado de "Detail" no puede tener colas.
-  * El hijo hereda el sharing del padre
-  * El hijo hereda los security settings del padre
-  * El propietario del padre se asigna al hijo automáticamente
-  * El propietario del hijo no se puede cambiar
-  * El hijo no puede tener sus propias sharing rules
-- **Lookup:** Relación que permite que un registro hijo dependa de un registro padre
-  * Si se elimina el registro padre, no se eliminan los registros hijos
-  * Un objeto custom puede estar en el lado de "Master" con un objeto estándar
-  * Un objeto custom en el lado de "Detail" puede tener colas.
-- **Hierarchical:** Relación que permite que un registro hijo dependa de un registro padre
-  * Si se elimina el registro padre, se eliminan los registros hijos
-  * Un objeto custom no puede estar en el lado de "Master" con un objeto estándar
-  * Un objeto custom en el lado de "Detail" no puede tener colas.
-- **Indirect Lookup:** Relación que permite que un registro hijo dependa de un registro padre
-  * Si se elimina el registro padre, no se eliminan los registros hijos
-  * Un objeto custom puede estar en el lado de "Master" con un objeto estándar
-  * Un objeto custom en el lado de "Detail" puede tener colas.
-
-<!-- Tabla resumen -->
-
-| Relación | Master-Detail | Lookup | Hierarchical | Indirect Lookup |
-| ---      | ---           | ---    | ---          | ---             |
-| Eliminación de registros hijos | Si | No | Si | No |
-| Objeto custom en el lado de "Master" con objeto estándar | No | Si | No | Si |
-| Objeto custom en el lado de "Detail" con colas | No | Si | No | Si |
-
-## Apex
-
-Cosas de apex
-
-Getter and setter que son como se usan
-- **Getter:** Permite obtener el valor de una variable
-- **Setter:** Permite establecer el valor de una variable
-  - Uso de DML en setter
-<!-- Snippet de getter and setter  -->
-
-```
-private String name;
-TODO
-```
-### Tipos
-#### Primitives:
-Estos tipos no necsitan ser instanciados.
-- **Boolean:** `Boolean`
-- **Date:** `Date`
-- **Date and Time:** `Datetime`
-- **Number:** `Decimal`, `Double`, `Integer`, `Long`
-- **String:** `String`
-- **Time:** `Time`
-- **ID:** `ID`
-- **Enum:** `Enum`
-
-<!-- snippet como declarar -->
-```
-Boolean isActive = true;
-Date today = Date.today();
-Datetime now = Datetime.now();
-Decimal amount = 100.0;
-Double pi = 3.14159265;
-Integer count = 10;
-Long bigNumber = 1000000000;
-String name = 'Hello, World!';
-Time now = Time.now();
-ID recordId = '0012w00000Q8Z2AAK';
-Enum day {MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY};
-```
-
-
-#### Collections
-- **List:** `List`
-- **Set:** `Set`
-  - Permite almacenar varios elementos sin duplicados
-- **Map:** `Map`
-  - Permite almacenar varios elementos con clave-valor
-
-### Bucles
-- **For:** Bucle que se ejecuta un número determinado de veces
-- **While:** Bucle que se ejecuta mientras se cumpla una condición
-- **Do-While:** Bucle que se ejecuta al menos una vez y luego se ejecuta mientras se cumpla una condición
-
-### Clases que se pueden usar
-- Database
-* **Database:** Clase que permite hacer operaciones de DML
-
-Database.insert
-
-SaveResult
-
-Index share
-- JSON
-- Math
-- System
-  * **System:** Clase que permite hacer operaciones de sistema
-- Metadata
-- Schema
-- Test
   
 ### Orden de ejecución salesforce
 - Before Trigger
@@ -367,67 +691,7 @@ Index share
 - Criteria Based Sharing Rules
 - Commit to the database all DML operations
 - Post-commit logic
-  
-### Tipos de clases
-- **Standard:** Clases que vienen por defecto en Salesforce
-- **Custom:** Clases que se pueden crear
 
-- **Abstract:** Clases que no se pueden instanciar
-    * No se pueden instanciar
-    * Se pueden usar para heredar
-    * Se pueden usar para implementar interfaces
-- Virtual
-    * Se pueden instanciar
-    * Se pueden usar para heredar
-    * Se pueden usar para implementar interfaces
-
-<!-- tabla resuemtn -->
-
-| Clase | Instanciable | Heredable | Interfaces |
-| ---   | ---          | ---       | ---        |
-| Standard | Si | Si | Si |
-| Custom | Si | Si | Si |
-| Abstract | No | Si | Si |
-| Virtual | Si | Si | Si |
-
-### Cosas de queries
-Database.query
-- **Database.query:** Permite hacer queries dinámicas
-- **Database.queryLocator:** Permite hacer queries dinámicas y soporta más de 50,000 registros
-
-### Anotaciones
-- **@future:** Permite ejecutar un método de forma asíncrona
-  - Estos metodos deben ser void
-  - No permiten sobrepasar los limites de Salesforce
-- **@isTest:** Indica que el método es un test
-- **@TestVisible:** Indica que el método es visible para los tests
-- **@AuraEnabled:** Indica que el método es visible para los componentes de Lightning
-- **@InvocableMethod:** Indica que el método es visible para los Flows
-
-### Testing
-
-Donde ejecutar todos los tests:
-- Selecting Run All Tests in the Developer Console
-- Using the Run All Tests button on the Apex Classes page in Salesforce Setup
-
-Unit tests cannot perform callouts to external services. To test callouts, use a mock callout test.
-
-Unit tests can't send emails.
-
-Unit tests can test single and bulk actions.
-
-- **System.assert:** Permite hacer aserciones
-- **System.assertEquals:** Permite hacer aserciones
-- **System.assertNotEquals:** Permite hacer aserciones
-### Colecciones
-- **List:** Colección que permite almacenar varios elementos
-- **Set:** Colección que permite almacenar varios elementos sin duplicados
-- **Map:** Colección que permite almacenar varios elementos con clave-valor
-
-Tienen acceso a:
-- Profiles
-- Users
-- Record Types
 ### Exception
 
 Que es una excepción?
@@ -457,20 +721,6 @@ this.eventData = event.detail;
 this.eventData = event.detail.value;
 this.eventData = event.detail.recordId;
 
-
-
-<!-- Que mas -->
-### Crypt and decrypt
-- **Crypto:** Permite encriptar y desencriptar datos
-<!-- Snippet -->
-```
-Blob cryptoKey = Crypto.generateAesKey(256);
-Blob data = Blob.valueOf('Hello, World!');
-Blob encryptedData = Crypto.encrypt('AES256', cryptoKey, data);
-Blob decryptedData = Crypto.decrypt('AES256', cryptoKey, encryptedData);
-
-System.assertEquals(data, decryptedData);
-```
 #### Schema
 - **Schema:** Permite obtener información de los objetos de Salesforce
 <!-- Snippet -->
@@ -515,22 +765,6 @@ The number of records to be loaded
 If the data needs to be loaded multiple times
 If the object is supported by the Data Import tool
 
-## Testing 
-Cuanta cobertura de código se necesita?
-- 75% de cobertura de código para clases Apex
-- 1% de cobertura de código para triggers
-Donde se puede hacer Run All 
-- Developer Console
-- Capabilities:
-  - Develop a Visualforce page
-  - View and examine debug logs
-  - Execute anonymous Apex code
-- Setup Apex Classes
-  
-
-  Skip code coverage
-  - New Run menu item in the Developer Console
-  - Apex Test Execution page in Setup
 
 ### Heap Tab
 - **Heap Tab:** Permite ver el uso de memoria de un proceso
@@ -551,41 +785,12 @@ Test data
   * getRecord() -> Devuelve un solo registro
   * getRecords() -> Devuelve varios registros ???? 
 
-## Field deletion
-- Cuando se elimina un campo de un objeto
-No se puede borrar un campo si está en uso en:
-- Fórmulas
-- Cláusulas de búsqueda
-- Workflow field updates
+
 
 ## Restricciones al ser multitenant
 - Tiempo de ejecución de SOQL (10 segundos)
 - Tiempo de ejecución de CPU (10 segundos)
 - Número de registros devueltos por una consulta SOQL (10,000)
-
-## Seguridad
-- **OWD: Organization Wide Defaults** Permite definir la visibilidad de los registros
-### A nivel de codio
-#### XSS Threats
-- JSINHTMLENCODE()
-  * Evita que se ejecute código JavaScript
-- HTMLENCODE()
-  * Evita que se ejecute código HTML
-- JSENCODE()
-  * Evita que se ejecute código JavaScript 
-
-## Einstein
-- **Einstein:** Permite hacer inteligencia artificial en Salesforce
-Next Best Action
-- ** Einstein Activity Capture:** Permite capturar las actividades de los usuarios
-  - ermite capturar las actividades de los usuarios de Gmail
-  - Permite capturar las actividades de los usuarios de Office 365
-  - Permite capturar las actividades de los usuarios de Exchange
-  - 
-## Ant Migration Tool
-**Ant Migration Tool:** Permite migrar metadatos de Salesforce
-- Metadata Component Member
-- Metadata Component Type
 
 ## Code Builder
 **Code Builder:** Permite escribir código en Salesforce
@@ -601,12 +806,6 @@ Next Best Action
   * Lanzar Apex tests
 - Version Control Systems
 - Salesforce CLI 
-
-## Sharing 
-- **With sharing:** Permite que se apliquen las reglas de seguridad de Salesforce
-Without sharing
-- **Without sharing:** No aplica las reglas de seguridad de Salesforce
-- **Inherited sharing:** Hereda las reglas de seguridad de Salesforce
 
 ## Excepciones
 - No podemos obtener debug logs de Time-Based Workflow porque se ejecutan en un contexto de sistema.
@@ -671,18 +870,6 @@ Creado por [Adrián Arribas](https://www.linkedin.com/in/adrian-arribas/) para l
 - **Checkpoint Inspector:** Permite ver los checkpoints de un Flow Builder
 - **Checkpoint Inspector:** Permite ver los checkpoints de Apex Code
 
-## Temas
-
-### Developer Fundamentals
-- **Developer Fundamentals:** Permite aprender los conceptos básicos de Salesforce
-### Process Automation and Logic
-### User Interface
-### Testing, Debugging, and Deployment
-- Dividido en 4 Objetivos
-  * Testing
-  * Debugging
-  * Deployment
-  * Performance
 ### Anonymous Code
 - **Anonymous Code:** Permite ejecutar código anónimo en Salesforce
 - Se ejecuta como el usuario que lo ejecuta
@@ -702,80 +889,17 @@ Creado por [Adrián Arribas](https://www.linkedin.com/in/adrian-arribas/) para l
 
 ## User Interface
 - **User Interface:** Permite aprender los conceptos de la interfaz de usuario de Salesforce
-### Lightning Web Components
-Compuestos por los siguientes elementos
-- **HTML:** Permite definir la estructura de la página UI
-  - No es necesario si se trata de un Service Component
-- **CSS:** Permite definir el estilo de la página [Optional]
-- **JavaScript:** Permite definir la lógica de la página
-- **XML:** Permite definir los metadatos de la página
-- **SVG:** Permite definir gráficos vectoriales
 
-Ventajas de usar un Framework Lightning Component:
-- Event Driven Architecture
-  - Permite que los componentes se comuniquen entre sí
-  - Better for decoupling components
-  - Device Aware Capabilities and Cross Browser Compatibility
 
-todo colocar esto en algun sitio
 
-Lanzar una query apex corre en system mode por defecto 
-Las DML operations corren en user mode por defecto
-
-Lightning Message Service
-- **LMS:** Permite la comunicación entre componentes de Lightning Web Components y Aura Components
-  
-  ```
-  import sampleChange from '@salesforce/messageChannel/SampleMessageChannel__c';
-
-  this.tabId = message.tabId;
-  ```
-- Visualforce Overrides: Permite sobreescribir la interfaz de usuario de Salesforce
-  - Edit
-  - View
-
-Lightning Style Sheets
-- **LSS:** Permite personalizar el estilo de los componentes de Lightning
-<!-- snippetde codigo -->
-```
-<apex:page standardController="Account" lightningStylesheets="true">
-  <body class="slds-vf-scope">
-    <apex:form>
-      <apex:inputField value="{!Account.Name}"/>
-      <apex:commandButton action="{!save}" value="Save"/>
-    </apex:form>
-  </body>
-</apex:page>
-```
-
-#### Como usar wire en LWC
-<!-- snippet de wire account-->
-```
-import { LightningElement, wire } from 'lwc';
-import { getRecord } from 'lightning/uiRecordApi';
-import ACCOUNT_OBJECT from '@salesforce/schema/Account';
-import NAME_FIELD from '@salesforce/schema/Account.Name';
-
-export default class AccountRecord extends LightningElement {
-  accountId;
-  handleAccountIdChange(event) {
-    this.accountId = event.target.value;
-  }
-
-  @wire(getRecord, { recordId: $accountId, fields: [NAME_FIELD] })
-  account;
-}
-```
-
-#### Como evitar el SOQL Injection
-- **SOQL Injection:** Ataque que permite que un atacante ejecute código en Salesforce
-  - Usar bind variables
-<!-- Vulnerabilidades -->
 #### Vulnerabilidades
 SOQL Injection
 - **SOQL Injection:** Ataque que permite que un atacante ejecute código en Salesforce
   - Usar bind variables con ':variable'
-<!-- Snippet -->
+##### Como evitar el SOQL Injection
+###### **SOQL Injection:** Ataque que permite que un atacante ejecute código en Salesforce
+  - Usar bind variables
+
 ```
 String name = 'Hello, World!';
 List<Account> accounts = [SELECT Id, Name FROM Account WHERE Name = :name];
@@ -849,44 +973,6 @@ public static List<Account> getAccounts() {
 Use Static Resources to store the library
 then use ltng:require to load the library
 
-### Aura Components
-Permite aprender los conceptos de los componentes de Aura
-
-Orden de firing 
-  - Init
-    - Empieza desde el componente inermost y va hacia afuera.
-#### Eventos
-- Application Event
-- Component Event
-- Bubble Event
-  - Configuracion de Bubble Event
-  - Bubble Event: true
-  - Composed: false 
-    - De esta manera no se propaga a través de Shadow DOM 
-- Capture Event
-- System Event
-
-<!-- Como importar un CSS -->
-```
-/**
-  * @description CSS file
-  */
-@import "c/style.css";
-```
-
-<!-- Como hacer un componente con valor editable por usuario -->
-```
-<aura:component implements="flexipage:availableForAllPageTypes" access="global">
-  <aura:attribute name="message" type="String" default="Hello, World!" />
-  <lightning:input type="text" label="Message" value="{!v.message}" />
-</aura:component>
-```
-<!-- design component -->
-```
-<design:component>
-  <design:attribute name="message" label="Message" description="The message to display" />
-</design:component>
-```
 ### Bundles 
 
 Quizas aqui hacer una tabla con los tipos de bundles
@@ -909,13 +995,8 @@ Quizas aqui hacer una tabla con los tipos de bundles
     - Helper
     - SVG
   - Lightning Com
-### CSRF
-- **CSRF:** Cross-Site Request Forgery
-  - Que es: Ataque que permite que un atacante realice acciones en nombre de un usuario
 
-Como evitarlo en Salesforce
-- **CSRF Token:** Permite evitar que se realicen ataques CSRF
-  - mas info [CSRF Token](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_csrf.htm)
+  
 ### Visualforce
 
 Security.stripInaccessible como usar
@@ -923,12 +1004,7 @@ Security.stripInaccessible como usar
   - mas info [Security.stripInaccessible](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_with_security_stripinaccessible.htm)
     - Devuelve tipo SObjectAccessDecision 
       - Recuperar las tuplas -> getRecords()
-### todo HERE ESTO VA A FLOWS
-- Custom Property Editors
-  - Used as a custom user interface for configuring the properties of the component
-- automaticOutputVariables
-  - Que es
-    - Access stored variables in flow builder via JS
+
 ## Anexo
 ### Limites
 
@@ -972,14 +1048,6 @@ Donde podemos usar Visualforce
 
 No hacer modificaciones en trigger after insert/update porque puede causar un error de recursión.  
 
-## Object Manager
-- **Object Manager:** Permite gestionar los objetos de Salesforce
-  - Permite crear objetos
-  - Permite editar objetos
-  - Permite eliminar objetos
-  - Permite ver los campos de un objeto
-  - Permite ver las relaciones de un objeto
-
 Campos formula field consideraciones
 - No permite Long/Rich Text Area/
 - isFormulaTreatNullNumberAsZero() -> Para saver si un campo de formula trata los valores nulos como cero 
@@ -995,21 +1063,6 @@ Cross Object Formula Field
   - Can pull fields from objects 10 relationships away
   - Can pull data from a record even if the user does not have access to it
   - Can pull fields from master-detail or lookup relationships
-## Schema Builder
-- **Schema Builder:** Permite ver los objetos de Salesforce
-  - **Schema Builder:** Permite ver los campos de un objeto
-  - **Schema Builder:** Permite ver las relaciones
-
-- Filter to display only objects of interest
-- The map can be used to navigate to objects of interest
-- Hide relationships to improve performance
-
-### AppExchange
-- **AppExchange:** Permite instalar aplicaciones de Salesforce
-  - Permite instalar componentes de Salesforce
-  - Permite instalar flujos de Salesforce
-  - Permite instalar integraciones de Salesforce
-  - Permite instalar soluciones de Salesforce
 
 Pueden incluir sopporte y mantenimiento
 
@@ -1021,20 +1074,6 @@ Polyglot persistence
   - Permite usar bases de datos NoSQL
   - Permite usar bases de datos en memoria
   - Permite usar bases de datos de gráficos
-
-
-deployments can be scripted and scheduled using the Salesforce CLI
-change sets are cloud based and do not require files to be downloaded locally
-
-
-what do you need to distrubute a commercial package on the AppExchange
-
-- Partner Developer Edition to manage all the source code 
-- Developer Edition to create the package
-
-Developer Pro or Partial Copy cannot be used to distribute a commercial package on the AppExchange
-
-
 
 
 WORKFLOW RULES QUE SON
@@ -1125,8 +1164,6 @@ IFRAME RESOURCE
 
 
 transient keyword
-
-order of flows
 
 
 ## Preguntas
