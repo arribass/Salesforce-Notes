@@ -5,6 +5,7 @@
 | ---     | ---   | ---   | ---         |
 | 1.0     | 29/04/2024  | Adrián Arribas | Documento de estudio para el examen de Salesforce Platform Developer I (Sin organizar)|
 | 1.1     | 29/04/2024  | Adrián Arribas |Organizado y añadido cosas de Examenes FoF|
+| 1.2     | 16/09/2024  | Adrián Arribas |Añadida la guía de estudio.|
 
 ## Status estudio
 
@@ -24,213 +25,160 @@
 ## Introducción
 El examen de Salesforce Platform Developer I es un examen que evalúa los conocimientos de un desarrollador de Salesforce. En este documento se recogen los conceptos más importantes que se deben conocer para aprobar el examen.
 
+Por una parte los topics son resumenes o transcripciones de la guia de estudio de focus on force y mas adelante hay respuestas concretas a las preguntas test ademas de un banco de preguntas que he hecho yo.
+
 | Concepto  | Descripción |
 | ---       | ---         |
 | Puntuación| 68%         |
 | Tiempo    | 105 minutos |
 | Preguntas | 60          |
 
-## Topics
-### User Interface 
+## Indice 
 
-Aqui va el tema de seguridad Injections, XSS, CSRF, etc
+- Dev Fundamentals
+  - Multit  enant etc
+  - 
+- Process Automation and Logic ( Declarative, Apex, Advanced)
+- User Interface
+- Testing, Debugging and Deployment
 
-HTMLEncode
 
-StripInaccessible
+## Developer Fundamentals
 
-Sharing 
 
-Enforce
-#### Lightning Web Components
-Compuestos por los siguientes elementos
-- **HTML:** Permite definir la estructura de la página UI
-  - No es necesario si se trata de un Service Component
-- **CSS:** Permite definir el estilo de la página [Optional]
-- **JavaScript:** Permite definir la lógica de la página
-- **XML:** Permite definir los metadatos de la página
-- **SVG:** Permite definir gráficos vectoriales
+### Study Guide 
+Introduction
 
-Ventajas de usar un Framework Lightning Component:
-- Event Driven Architecture
-  - Permite que los componentes se comuniquen entre sí
-  - Better for decoupling components
-  - Device Aware Capabilities and Cross Browser Compatibility
+Salesforce is built upon a multi-tenant architecture and consists of features and characteristics such as cloud computing, shared system resources,automatic system updates, and metadata-driven kernel. In effect, development in this environment impose different considerations compared to traditional development.
 
-todo colocar esto en algun sitio
+Salesforce generally follows the Model-View-Controller (MVC) architecture where each layer presents specific aspects pertaining to application development.
 
-Lanzar una query apex corre en system mode por defecto 
-Las DML operations corren en user mode por defecto
+Solutions can be developed in the platform using several built-in declarative tools. For more complex requirements, programmatic tools are available such as Apex and Visualforce. The Lightning Component framework, which is a UI framework, can be used for building custom Lightning components to deliver responsive and efficient event-driven applications.
 
-Lightning Message Service
-- **LMS:** Permite la comunicación entre componentes de Lightning Web Components y Aura Components
+Multitenant 
+
+It features shared system resources and usage limitations
+#### Cloud Computing
+
+Lighthning platforms is a PaaS that is bult for cloud computing and based on the multitenant architecture.
+
+1. Web Based Platform
+2. Focused Development
+3. No software ins
+#### Shared Resources
+1. All Customers share the same computing power, custom-designed database, data storage and core features.
+2. Salesforce monitors code execution and has various governor and resource limits associated with code execution
+3. Resources such as CPU Usage, queries and records returned are limited per customer to ensure optimal performance.
+
+*System Updates*
+- System Updates
+
+Automatic Seamless Upgrades are rolled out three times a Year Spring,Summer and Winter
+- Shared Environment
+
+All customers automatically get the same updates at the same time throughout the year
+
+- Release Preview
+
+Sandboxes are upgraded before production so that the changes can be previewed and tested.
+
+*Metadata Driven Kernel*
+
+Arch
+
+There is a clear separation between the runtime database engine(kernel), tenant data and metadata, which allows easy upgrades.
+
+Deployment
+
+Deployment of new or updated metadata components to production is strictly managed. Unit tests must cover 75% of the application's source code for deployment to production.
+
+Los recursos son compartidos para todos los usuarios, potencia de computo, custo  design database y funcionalidades core.
+
+Ejecucion de codigo monitorizada para mantener los governor limits y los resource limits.
+
+El uso de CPU, queries y tuplas devueltas son limitados por cliente para asegurar un rendimiento optimo.
+- Cloud Computing
+
+Restricciones al ser multitenant
+
+- Tiempo de ejecución de SOQL (10 segundos)
+- Tiempo de ejecución de CPU (10 segundos)
+- Número de registros devueltos por una consulta SOQL (10,000)
+
+MVC
+
+En desarrollo de Apps, el MVC es un patrón de arquitacture que seapara la capa de negocio con la capa de datos y la presentacion al usuarios
+
+Capas:
+
+- Model
   
-  ```
-  import sampleChange from '@salesforce/messageChannel/SampleMessageChannel__c';
+Representa la estructura de los objetos a traves de los sObjects, fields y clases Apex
+- View
 
-  this.tabId = message.tabId;
-  ```
-- Visualforce Overrides: Permite sobreescribir la interfaz de usuario de Salesforce
-  - Edit
-  - View
+Representa la capa de presetnacion que son las pages y components
+- Controller
 
-Lightning Style Sheets
-- **LSS:** Permite personalizar el estilo de los componentes de Lightning
-<!-- snippetde codigo -->
-```
-<apex:page standardController="Account" lightningStylesheets="true">
-  <body class="slds-vf-scope">
-    <apex:form>
-      <apex:inputField value="{!Account.Name}"/>
-      <apex:commandButton action="{!save}" value="Save"/>
-    </apex:form>
-  </body>
-</apex:page>
-```
+Represents the business Logic, declarativo o programatico. Custom controller or extensions are written in Apex Classes.
 
-##### Como usar wire en LWC
-<!-- snippet de wire account-->
-```
-import { LightningElement, wire } from 'lwc';
-import { getRecord } from 'lightning/uiRecordApi';
-import ACCOUNT_OBJECT from '@salesforce/schema/Account';
-import NAME_FIELD from '@salesforce/schema/Account.Name';
+Model
 
-export default class AccountRecord extends LightningElement {
-  accountId;
-  handleAccountIdChange(event) {
-    this.accountId = event.target.value;
-  }
+App Manager
 
-  @wire(getRecord, { recordId: $accountId, fields: [NAME_FIELD] })
-  account;
-}
-```
+- nav bar
 
-Security.stripInaccessible como usar
-- **Security.stripInaccessible:** Permite quitar los campos a los que el usuario no tiene acceso
-  - mas info [Security.stripInaccessible](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_with_security_stripinaccessible.htm)
-    - Devuelve tipo SObjectAccessDecision 
-      - Recuperar las tuplas -> getRecords()
 
-Targets LWC
+#### Lightning Component Framework
 
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
-    <apiVersion>52.0</apiVersion>
-    <isExposed>true</isExposed>
-    <targets>
-        <target>lightning__AppPage</target>
-        <target>lightning__RecordPage</target>
-        <target>lightning__HomePage</target>
-    </targets>
-</LightningComponentBundle>
-```
-#### Visualforce 
+A UI framework that allows building SPAs with dynamic and responsive User Interfaces in Salesforce.
+- JavaScript on client side
+- Apex in server side
 
-Metodos utiles para Visualforce
-- **Apex:** `detail` -> Muestra los detalles de un registro
-- **renderAs:** Imprime la página
-- `getSelected()` records para obtener las filas seleccionadas
+There are 2 programming language models
 
-Useful controllers:
-- Standard Controller
-- Standard List Controller
-  - A dynamic list of records can be loaded on the page
-- Standard set Controller
-  - getCompleteResult() 
-    - returns FALSE if the controller wont be able to process all the returned records
-- Custom Controller
-  
-Standard controller methods
-- **Apex:** `save` -> Guarda el registro
-- **Apex:** `cancel` -> Cancela la edición
-- **Apex:** `delete` -> Elimina el registro
-- **Apex:** `edit` -> Edita el registro
-- **Apex:** `quickSave` -> Guarda el registro
-- **Apex:** `list`-> Lista los registros
+- Aura components
+- LWC
 
-Para añadir visualforce a un layout necesitamos:
+Benefits:
+- Device awareness
+- Cross Browser Compatibility
+- Out of the box components
+- Customizing Lightning Experience
 
-- Standard Controller
-- Controller Extension
-- ApexPages.StandardController
+About Performance it utilizes Stateful Client using JS and stateless server (apex) The client call the server only when absolutely necessary, which results in fewer calls to the server and more responsive and efficient apps.
 
-<!-- snippet -->
-Visualforce Page
-```
-<apex:page standardController="Case" extensions"CaseLogicExtension">
-```
-Controlador Apex
-```
-public class CaseLogicExtension {
-  public CaseLogicExtension(ApexPages.StandardController controller) {
-    Case c = (Case)controller.getRecord();
-  }
-}
-```
-#### Aura
-##### Aura Components
-Permite aprender los conceptos de los componentes de Aura
+Lightning components utilize Event-driven arch. Components are capable of listening to events and responding accordingly.
 
-Orden de firing 
-  - Init
-    - Empieza desde el componente inermost y va hacia afuera.
-##### Eventos
-- Application Event
-- Component Event
-- Bubble Event
-  - Configuracion de Bubble Event
-  - Bubble Event: true
-  - Composed: false 
-    - De esta manera no se propaga a través de Shadow DOM 
-- Capture Event
-- System Event
+The USAGE may vary for different Contexts. For example they can be added as custom tabs in lightning Experience and the Salesforce Mobile App.
+<w>
 
-<!-- Como importar un CSS -->
-```
-/**
-  * @description CSS file
-  */
-@import "c/style.css";
-```
+#### App Manager Page 24
 
-<!-- Como hacer un componente con valor editable por usuario -->
-```
-<aura:component implements="flexipage:availableForAllPageTypes" access="global">
-  <aura:attribute name="message" type="String" default="Hello, World!" />
-  <lightning:input type="text" label="Message" value="{!v.message}" />
-</aura:component>
-```
-<!-- design component -->
-```
-<design:component>
-  <design:attribute name="message" label="Message" description="The message to display" />
-</design:component>
-```
+An app is a group of tabs that work as a unit. In Salesforce both Lightning and Classic apps can be created and customized to serve specific functions in Salesforce.
 
-#### Seguridad
-#####  CSRF
-- **CSRF:** Cross-Site Request Forgery
-  - Que es: Ataque que permite que un atacante realice acciones en nombre de un usuario
+- App Contents
 
-Como evitarlo en Salesforce
-- **CSRF Token:** Permite evitar que se realicen ataques CSRF
-  - mas info [CSRF Token](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_csrf.htm)
+Classic Apps contain standard and custom tabs, which can include standard and custom object tabs, Visualforce tabs, Lightning component tabs, Canvas apps and web apps. On the other hand, Lightning apps contain everything from the Classic apps list, plus they can contain Lightning Page tabs and utilities like Sales Dialer.
 
-- **OWD: Organization Wide Defaults** Permite definir la visibilidad de los registros
-##### XSS Threats
-- JSINHTMLENCODE()
-  * Evita que se ejecute código JavaScript
-- HTMLENCODE()
-  * Evita que se ejecute código HTML
-- JSENCODE()
-  * Evita que se ejecute código JavaScript 
+- Creation Apps
 
-### Developer Fundamentals
+A Lightning App can be created by navigating to App Manager in Setup
+
+- New Lightning App Wizard
+
+ASDA
+
+- Navigation Bar
+
+---
 Preguntas sobre codigo, objetos, relaciones, etc
+
 #### Herramientas de Salesforce
+##### Code Builder
+- Permite escribir código en Salesforce
+  - Apex
+  - Lightning Web Components
+  - Visualforce
 ##### Einstein
 - **Einstein:** Permite hacer inteligencia artificial en Salesforce
 Next Best Action
@@ -238,7 +186,6 @@ Next Best Action
   - ermite capturar las actividades de los usuarios de Gmail
   - Permite capturar las actividades de los usuarios de Office 365
   - Permite capturar las actividades de los usuarios de Exchange
-  - 
 ##### Ant Migration Tool
 **Ant Migration Tool:** Permite migrar metadatos de Salesforce
 - Metadata Component Member
@@ -288,13 +235,8 @@ Cosas de apex
 Getter and setter que son como se usan
 - **Getter:** Permite obtener el valor de una variable
 - **Setter:** Permite establecer el valor de una variable
-  - Uso de DML en setter
-<!-- Snippet de getter and setter  -->
+  - Se pueden usar DMl operations en un setter
 
-```
-private String name;
-TODO
-```
 ##### Tipos
 ###### Primitives:
 Estos tipos no necsitan ser instanciados.
@@ -307,21 +249,23 @@ Estos tipos no necsitan ser instanciados.
 - **ID:** `ID`
 - **Enum:** `Enum`
 
-<!-- snippet como declarar -->
-```
-Boolean isActive = true;
-Date today = Date.today();
-Datetime now = Datetime.now();
-Decimal amount = 100.0;
-Double pi = 3.14159265;
-Integer count = 10;
-Long bigNumber = 1000000000;
-String name = 'Hello, World!';
-Time now = Time.now();
-ID recordId = '0012w00000Q8Z2AAK';
-Enum day {MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY};
-```
+<!-- CLASE snippet como declarar -->
 
+```
+public class MyClass {
+  Boolean isActive = true;
+  Date today = Date.today();
+  Datetime now = Datetime.now();
+  Decimal amount = 100.0;
+  Double pi = 3.14159265;
+  Integer count = 10;
+  Long bigNumber = 1000000000;
+  String name = 'Hello, World!';
+  Time now = Time.now();
+  ID recordId = '0012w00000Q8Z2AAK';
+  Enum day {MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY};
+}
+```
 
 ###### Collections
 - **List:** `List`
@@ -557,6 +501,202 @@ La visibilidad de los componentes se puede controlar con las siguientes propieda
   - Que es
     - Access stored variables in flow builder via JS
 
+### User Interface 
+Aqui va el tema de seguridad Injections, XSS, CSRF, etc
+
+HTMLEncode
+
+StripInaccessible
+
+Sharing 
+
+Enforce
+#### Lightning Web Components
+Compuestos por los siguientes elementos
+- **HTML:** Permite definir la estructura de la página UI
+  - No es necesario si se trata de un Service Component
+- **CSS:** Permite definir el estilo de la página [Optional]
+- **JavaScript:** Permite definir la lógica de la página
+- **XML:** Permite definir los metadatos de la página
+- **SVG:** Permite definir gráficos vectoriales
+
+Ventajas de usar un Framework Lightning Component:
+- Event Driven Architecture
+  - Permite que los componentes se comuniquen entre sí
+  - Better for decoupling components
+  - Device Aware Capabilities and Cross Browser Compatibility
+
+todo colocar esto en algun sitio
+
+Lanzar una query apex corre en system mode por defecto 
+Las DML operations corren en user mode por defecto
+
+Lightning Message Service
+- **LMS:** Permite la comunicación entre componentes de Lightning Web Components y Aura Components
+  
+  ```
+  import sampleChange from '@salesforce/messageChannel/SampleMessageChannel__c';
+
+  this.tabId = message.tabId;
+  ```
+- Visualforce Overrides: Permite sobreescribir la interfaz de usuario de Salesforce
+  - Edit
+  - View
+
+Lightning Style Sheets
+- **LSS:** Permite personalizar el estilo de los componentes de Lightning
+<!-- snippetde codigo -->
+```
+<apex:page standardController="Account" lightningStylesheets="true">
+  <body class="slds-vf-scope">
+    <apex:form>
+      <apex:inputField value="{!Account.Name}"/>
+      <apex:commandButton action="{!save}" value="Save"/>
+    </apex:form>
+  </body>
+</apex:page>
+```
+
+##### Como usar wire en LWC
+<!-- snippet de wire account-->
+```
+import { LightningElement, wire } from 'lwc';
+import { getRecord } from 'lightning/uiRecordApi';
+import ACCOUNT_OBJECT from '@salesforce/schema/Account';
+import NAME_FIELD from '@salesforce/schema/Account.Name';
+
+export default class AccountRecord extends LightningElement {
+  accountId;
+  handleAccountIdChange(event) {
+    this.accountId = event.target.value;
+  }
+
+  @wire(getRecord, { recordId: $accountId, fields: [NAME_FIELD] })
+  account;
+}
+```
+
+Security.stripInaccessible como usar
+- **Security.stripInaccessible:** Permite quitar los campos a los que el usuario no tiene acceso
+  - mas info [Security.stripInaccessible](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_with_security_stripinaccessible.htm)
+    - Devuelve tipo SObjectAccessDecision 
+      - Recuperar las tuplas -> getRecords()
+
+Targets LWC
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+</LightningComponentBundle>
+```
+#### Visualforce 
+
+Metodos utiles para Visualforce
+- **Apex:** `detail` -> Muestra los detalles de un registro
+- **renderAs:** Imprime la página
+- `getSelected()` records para obtener las filas seleccionadas
+
+Useful controllers:
+- Standard Controller
+- Standard List Controller
+  - A dynamic list of records can be loaded on the page
+- Standard set Controller
+  - getCompleteResult() 
+    - returns FALSE if the controller wont be able to process all the returned records
+- Custom Controller
+  
+Standard controller methods
+- **Apex:** `save` -> Guarda el registro
+- **Apex:** `cancel` -> Cancela la edición
+- **Apex:** `delete` -> Elimina el registro
+- **Apex:** `edit` -> Edita el registro
+- **Apex:** `quickSave` -> Guarda el registro
+- **Apex:** `list`-> Lista los registros
+
+Para añadir visualforce a un layout necesitamos:
+
+- Standard Controller
+- Controller Extension
+- ApexPages.StandardController
+
+<!-- snippet -->
+Visualforce Page
+```
+<apex:page standardController="Case" extensions"CaseLogicExtension">
+```
+Controlador Apex
+```
+public class CaseLogicExtension {
+  public CaseLogicExtension(ApexPages.StandardController controller) {
+    Case c = (Case)controller.getRecord();
+  }
+}
+```
+#### Aura
+##### Aura Components
+Permite aprender los conceptos de los componentes de Aura
+
+Orden de firing 
+  - Init
+    - Empieza desde el componente inermost y va hacia afuera.
+##### Eventos
+- Application Event
+- Component Event
+- Bubble Event
+  - Configuracion de Bubble Event
+  - Bubble Event: true
+  - Composed: false 
+    - De esta manera no se propaga a través de Shadow DOM 
+- Capture Event
+- System Event
+
+<!-- Como importar un CSS -->
+```
+/**
+  * @description CSS file
+  */
+@import "c/style.css";
+```
+
+<!-- Como hacer un componente con valor editable por usuario -->
+```
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+  <aura:attribute name="message" type="String" default="Hello, World!" />
+  <lightning:input type="text" label="Message" value="{!v.message}" />
+</aura:component>
+```
+<!-- design component -->
+```
+<design:component>
+  <design:attribute name="message" label="Message" description="The message to display" />
+</design:component>
+```
+
+#### Seguridad
+#####  CSRF
+- **CSRF:** Cross-Site Request Forgery
+  - Que es: Ataque que permite que un atacante realice acciones en nombre de un usuario
+
+Como evitarlo en Salesforce
+- **CSRF Token:** Permite evitar que se realicen ataques CSRF
+  - mas info [CSRF Token](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_csrf.htm)
+
+- **OWD: Organization Wide Defaults** Permite definir la visibilidad de los registros
+##### XSS Threats
+- JSINHTMLENCODE()
+  * Evita que se ejecute código JavaScript
+- HTMLENCODE()
+  * Evita que se ejecute código HTML
+- JSENCODE()
+  * Evita que se ejecute código JavaScript 
+
 ### Testing, Debugging, and Deployment
 - Dividido en 4 Objetivos
   * Testing
@@ -622,7 +762,9 @@ what do you need to distrubute a commercial package on the AppExchange
 - Developer Edition to create the package
 
 Developer Pro or Partial Copy cannot be used to distribute a commercial package on the AppExchange
+##### Devops
 
+devops center +github account for tracking changes and managing deployments and testing across the orgs
 ## App Builder
 ### Componentes
 - **Standard:** Componentes que vienen por defecto en Salesforce
@@ -788,15 +930,15 @@ Test data
 
 
 ## Restricciones al ser multitenant
+
+Que es multitenant? 
+
+4 claves
+
 - Tiempo de ejecución de SOQL (10 segundos)
 - Tiempo de ejecución de CPU (10 segundos)
 - Número de registros devueltos por una consulta SOQL (10,000)
 
-## Code Builder
-**Code Builder:** Permite escribir código en Salesforce
-- Apex
-- Lightning Web Components
-- Visualforce
 
 ## Salesforce DX
 **Salesforce DX:** Permite desarrollar en Salesforce
@@ -860,8 +1002,6 @@ que podemos ver y hacer
 - Progress
 - Problems
 ![Tabs de Developer Console](image.png)
-## Referencias
-Creado por [Adrián Arribas](https://www.linkedin.com/in/adrian-arribas/) para la preparación del examen de Salesforce Platform Developer I 
 
 ## Checkpoin Inspector
 - **Checkpoint Inspector:** Permite ver los checkpoints de un Flow
@@ -889,8 +1029,6 @@ Creado por [Adrián Arribas](https://www.linkedin.com/in/adrian-arribas/) para l
 
 ## User Interface
 - **User Interface:** Permite aprender los conceptos de la interfaz de usuario de Salesforce
-
-
 
 #### Vulnerabilidades
 SOQL Injection
@@ -1020,19 +1158,17 @@ Informacion sobre los límites de Salesforce en la documentación oficial [Sales
 | `@future` (con `callout` y `batch`) | 5 |
 
 
-
+### Consideraciones
 <!-- Preguntas y respuestas -->
 
 The Salesforce Administrator at Cosmic Mobile has configured the Next Best Action component to display recommendations to its customer service representatives (CSRs) regarding phone plans. When a CSR accepts a recommendation for a customer who wants to upgrade to a certain plan, a flow is launched to process the upgrade. If the offer is rejected, the flow needs to perform a different action. How can a Salesforce Administrator meet this requirement?
 
-a 
- Build a single flow to perform an action that is used when a recommendation is accepted or rejected                                            
-b
- Enable 'Launch Flow on Rejection' for the Next Best Action component in Lightning App Builder                                            
+a Build a single flow to perform an action that is used when a recommendation is accepted or rejected                                            
+b Enable 'Launch Flow on Rejection' for the Next Best Action component in Lightning App Builder                                            
 
 A recommendation can only invoke one and the same flow when it is either accepted or rejected by the user. By default, a recommendation only launches the flow when it is accepted. To also launch the flow when it is rejected, a Decision element is added to the flow that specifically uses an "isRecommendationAccepted" boolean variable for determining whether the recommendation that launched it was approved or rejected, and then perform the necessary logic in the flow accordingly. Also, the 'Launch Flow on Rejection' settings for the Next Best Action component must be enabled in Lightning App Builder.
 
-$contentAssetGlobal puede contener imagenes, archivos de texto, videos, etc.
+dolar contentAssetGlobal puede contener imagenes, archivos de texto, videos, etc.
 - JavaScript
 - CSS
 - Images
@@ -1043,8 +1179,6 @@ Donde podemos usar Visualforce
  - Standard Page Layout
 
 @salesforce/customPermission scoped module to check if a user has a custom permission
-
-
 
 No hacer modificaciones en trigger after insert/update porque puede causar un error de recursión.  
 
@@ -1075,11 +1209,7 @@ Polyglot persistence
   - Permite usar bases de datos en memoria
   - Permite usar bases de datos de gráficos
 
-
 WORKFLOW RULES QUE SON
-
-
-
 
 Snippet de standard controller con recordSetVar
 
@@ -1103,6 +1233,7 @@ public with sharing class AccountController {
   }
 }
 ```
+
 No params
 
 cosas
@@ -1135,7 +1266,6 @@ UpdateRecords from the uiRecordApi module to update records
 ```
 import { updateRecord } from 'lightning/uiRecordApi';
 ```
-
 #### cometD que es?
 - **CometD:** Permite hacer comunicación en tiempo real en Salesforce
   -  Permite hacer comunicación en tiempo real en Aura Components
@@ -1172,3 +1302,6 @@ Aqui tienes una lista de preguntas que te pueden ayudar a preparar el examen de 
 
 - ¿Qué es un campo de fórmula?
   * Un campo que calcula un valor en función de otros campos
+
+## Referencias
+Creado por [Adrián Arribas](https://www.linkedin.com/in/adrian-arribas/) para la preparación del examen de Salesforce Platform Developer I 
