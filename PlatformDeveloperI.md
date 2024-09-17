@@ -160,16 +160,25 @@ An app is a group of tabs that work as a unit. In Salesforce both Lightning and 
 
 Classic Apps contain standard and custom tabs, which can include standard and custom object tabs, Visualforce tabs, Lightning component tabs, Canvas apps and web apps. On the other hand, Lightning apps contain everything from the Classic apps list, plus they can contain Lightning Page tabs and utilities like Sales Dialer.
 
-- Creation Apps
+- Creating Apps
 
-A Lightning App can be created by navigating to App Manager in Setup
+A Lightning App can be created by navigating to App Manager in Setup. Once an app is created, it can be extended by adding objects and fields, using automation, defining Access Settings, adding Users, etc... Lightning App Builder can be used to update the app branding, navigation, and other options, and manage the Lightning pages assigned to the app.
 
 - New Lightning App Wizard
 
-ASDA
+When creating a new Lightning app using the App Manager, the app can be given a name, its primary color and logo can be set, app description can be added, and the type of navigation (standard or console) can be set. Form factors available for the app can be selected. The items that appear in the navigation bar can be selected. Utility items, like Recent Items, Notes, Dialer, To do list, and Open CTI, can be added to the utility bar. The app can be assigned to user profiles.
 
-- Navigation Bar
+❖NAVIGATION BAR
 
+The item at the top of the list in the navigation bar becomes the app’s landing page on both desktop and mobile. The order of the items determines the default objects shown in the Top Results page on the search results page.
+
+Declarative Tools
+
+Programatic Tools
+
+Data Import,Export and Management
+
+![alt text](image-1.png)
 ---
 Preguntas sobre codigo, objetos, relaciones, etc
 
