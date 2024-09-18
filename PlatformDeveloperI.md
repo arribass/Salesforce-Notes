@@ -18,9 +18,6 @@
 | Process Automation and Logic | 88.89% |
 
 ## To-do
-- [ ] Organizar por temas 
-- [ ] Audit fields ¿q son?
-- [ ] Que es un campo de fórmula
 
 ## Introducción
 El examen de Salesforce Platform Developer I es un examen que evalúa los conocimientos de un desarrollador de Salesforce. En este documento se recogen los conceptos más importantes que se deben conocer para aprobar el examen.
@@ -32,6 +29,13 @@ Por una parte los topics son resumenes o transcripciones de la guia de estudio d
 | Puntuación| 68%         |
 | Tiempo    | 105 minutos |
 | Preguntas | 60          |
+
+| Syllabus                          | Weightage |
+| ---                               | ---       |
+|Developer Fundamentals	            |23%        |
+|Process Automation and Logic       |30%        |
+|User Interface	                    |25%        |
+|Testing, Debugging, and Deployment |22%        |
 
 ## Indice 
 
@@ -55,22 +59,36 @@ Salesforce generally follows the Model-View-Controller (MVC) architecture where 
 
 Solutions can be developed in the platform using several built-in declarative tools. For more complex requirements, programmatic tools are available such as Apex and Visualforce. The Lightning Component framework, which is a UI framework, can be used for building custom Lightning components to deliver responsive and efficient event-driven applications.
 
-Multitenant 
 
-It features shared system resources and usage limitations
+Salesforce Multitenant Architecture consist of the following key elements and features:
+![alt text](image-3.png)
+
 #### Cloud Computing
 
 Lighthning platforms is a PaaS that is bult for cloud computing and based on the multitenant architecture.
 
 1. Web Based Platform
+
+Resources are accesed via Internet using a browser
+
 2. Focused Development
-3. No software ins
+
+Underlying IT mechanism do not need to b
+
+3. Developer Console
+
+An Integrated DevelopmentEnvironment (IDE) may be used
+
+4. No software installation
+
+No client software is required for access and development
+
 #### Shared Resources
 1. All Customers share the same computing power, custom-designed database, data storage and core features.
 2. Salesforce monitors code execution and has various governor and resource limits associated with code execution
 3. Resources such as CPU Usage, queries and records returned are limited per customer to ensure optimal performance.
 
-*System Updates*
+#### System Updates
 - System Updates
 
 Automatic Seamless Upgrades are rolled out three times a Year Spring,Summer and Winter
@@ -82,51 +100,51 @@ All customers automatically get the same updates at the same time throughout the
 
 Sandboxes are upgraded before production so that the changes can be previewed and tested.
 
-*Metadata Driven Kernel*
+#### Metadata Driven Kernel
 
-Arch
+Arch: There is a clear separation between the runtime database engine(kernel), tenant data and metadata, which allows easy upgrades.
 
-There is a clear separation between the runtime database engine(kernel), tenant data and metadata, which allows easy upgrades.
+Deployment: Deployment of new or updated metadata components to production is strictly managed. Unit tests must cover 75% of the application's source code for deployment to production.
 
-Deployment
+### Governor Limits
 
-Deployment of new or updated metadata components to production is strictly managed. Unit tests must cover 75% of the application's source code for deployment to production.
+Governor limits ensures tenants do not monopolize shared resources. If exceeded, these limits throw exceptions that cannot be handled and should always be taken in account during developing.
 
-Los recursos son compartidos para todos los usuarios, potencia de computo, custo  design database y funcionalidades core.
+![alt text](image-4.png)
 
-Ejecucion de codigo monitorizada para mantener los governor limits y los resource limits.
+MVC Architecture
 
-El uso de CPU, queries y tuplas devueltas son limitados por cliente para asegurar un rendimiento optimo.
-- Cloud Computing
 
-Restricciones al ser multitenant
+In application development, the MVC is an architectural pattern that separates the data layer from thebusiness logic and how the data is presented in the user interface.
 
-- Tiempo de ejecución de SOQL (10 segundos)
-- Tiempo de ejecución de CPU (10 segundos)
-- Número de registros devueltos por una consulta SOQL (10,000)
+❖CONTROLLER represents the business logic, either declarative or programmatic. Custom controllers and controller extensions are written as Apex classes.
 
-MVC
+It includes the following Components:
 
-En desarrollo de Apps, el MVC es un patrón de arquitacture que seapara la capa de negocio con la capa de datos y la presentacion al usuarios
+- Standard Objects
+- Custom Objects
+- Object Fields
+- Object Relationships
+- Apex Classes (Data)
 
-Capas:
+❖VIEW represents the presentation layer which consists of pages and components.
 
-- Model
-  
-Representa la estructura de los objetos a traves de los sObjects, fields y clases Apex
-- View
+It includes the following Components:
 
-Representa la capa de presetnacion que son las pages y components
-- Controller
+- Standard Pages
+- Visualforce Pages
+- Visualforce Components
+- Custom Tabs
+- Page Layouts
 
-Represents the business Logic, declarativo o programatico. Custom controller or extensions are written in Apex Classes.
+❖MODEL represents the structure of the data through sObjects, fields, and Apex classes.
 
-Model
+It includes the following Components:
 
-App Manager
-
-- nav bar
-
+- Standard Controllers
+- Custom Controllers (Apex)
+- Extensions (Apex)
+- Declarative Rules & Tools (Apex Triggers, Validation Rules, Flows, etc.).
 
 #### Lightning Component Framework
 
@@ -134,10 +152,7 @@ A UI framework that allows building SPAs with dynamic and responsive User Interf
 - JavaScript on client side
 - Apex in server side
 
-There are 2 programming language models
-
-- Aura components
-- LWC
+There are 2 programming language models: Aura components and LWC. They both can coexist and interoperate on a page.
 
 Benefits:
 - Device awareness
@@ -145,12 +160,20 @@ Benefits:
 - Out of the box components
 - Customizing Lightning Experience
 
-About Performance it utilizes Stateful Client using JS and stateless server (apex) The client call the server only when absolutely necessary, which results in fewer calls to the server and more responsive and efficient apps.
+About Performance it utilizes Stateful Client using JS and stateless server (Apex) The client call the server only when absolutely necessary, which results in fewer calls to the server and more responsive and efficient apps.
 
 Lightning components utilize Event-driven arch. Components are capable of listening to events and responding accordingly.
 
 The USAGE may vary for different Contexts. For example they can be added as custom tabs in lightning Experience and the Salesforce Mobile App.
-<w>
+
+The Lightning Component Framework is not strictly based on the MVC architecture. Aura and Lightning web components follow the MVCC (Model-View-Controller-Controller) pattern.
+
+- MODEL represents the database (sObjects,fields, and Apex classes).
+- VIEW represents the Lightning component. Ithas the .cmp suffix and contains markup. The markup contains text and/or references to other components.
+- CONTROLLER (SERVER-SIDE) The Apex controller on the server side is used to perform database operations. The JavaScript controller is used to call methods in the Apex controller.
+- CONTROLLER (CLIENT-SIDE) The JavaScript controller on the client side is used to perform client-side operations and also acts as the intermediary between the server and the UI.
+
+![alt text](image-5.png)
 
 #### App Manager Page 24
 
@@ -179,7 +202,7 @@ Programatic Tools
 Data Import,Export and Management
 
 ![alt text](image-1.png)
----
+---![alt text](image-2.png)
 Preguntas sobre codigo, objetos, relaciones, etc
 
 #### Herramientas de Salesforce
