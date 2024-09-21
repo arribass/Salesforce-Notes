@@ -195,9 +195,131 @@ When creating a new Lightning app using the App Manager, the app can be given a 
 
 The item at the top of the list in the navigation bar becomes the app’s landing page on both desktop and mobile. The order of the items determines the default objects shown in the Top Results page on the search results page.
 
-Declarative Tools
+#### Declarative Tools
 
-Programatic Tools
+Salesforce provides various declarative tools that can be used to build and extend apps.
+
+**AUTOMATION**
+
+Included tools for automating business processes:
+- Flow Builder
+- Process Builder
+- Approval Process
+- Workflow Rule
+
+
+##### AUTOMATION
+
+Declarative automation tools can implement simple or complex processes.
+
+PROCESS BUILDER
+
+**Process Builder** performs immediate or time-based actionswhen a record is created, a record is updated, or a platformevent occurs. It is capable of performing actions conditionallybased on a single or multiple if/then statements.
+
+Process Builder supports the following operations:
+1. Creating new records
+2. Updating any related record
+3. Invoking Apex code
+4. Creating a Chatter post
+5. Sending an email alert
+6. Submitting a record for approval
+7. Launching a flow or another process
+8. Sending a custom notification
+
+FLOW BUILDER
+
+**Flow Builder** can be used to automate a guided visual experience or start a business process from a User Interaction, process, schedule, platform Event or record changes. Flows can also be invoked trough Apex and vice-versa.
+
+Flows can be used, for example, in the following:
+1. Creating new records
+2. Deleting records
+3. Launching another flow
+4. Updating any record
+5. Sending an email alert
+6. Sending a custom notification
+7. Invoking Apex code
+8. Submitting a record for approval
+9. Creating a Chatter post
+10. Sending an outbound message
+
+APPROVAL PROCESS
+
+An **approval process** can be used to submit a record for approval when a user clicks a button or link or when a flow or process submits a record for approval.
+1. Creating new tasks
+2. Sending an email alert
+3. Updating the original record or its parent
+4. Sending an outbound message
+
+WORKFLOW RULE
+
+A **Workflow rule** can be used to implement a business process that consists of a single if/then statement. It can be triggered when a record is created or updated, and supports both immediate and time-based actions.
+
+1. Creating new tasks
+2. Sending an email alert
+3. Updating the original record or its parent
+4. Sending an outbound message
+
+
+TABLA COMPARATIVA
+
+| Acción                              | Process Builder | Flow Builder | Approval Process | Workflow Rule |
+|--------------------------------------|-----------------|--------------|------------------|---------------|
+| Crear nuevos registros               | ✓               | ✓            | ✗                | ✗             |
+| Eliminar registros                   | ✗               | ✓            | ✗                | ✗             |
+| Actualizar registros                 | ✓ (relacionados) | ✓ (cualquier) | ✓ (original o padre) | ✓ (original o padre) |
+| Invocar código Apex                  | ✓               | ✓            | ✗                | ✗             |
+| Crear publicación en Chatter         | ✓               | ✓            | ✗                | ✗             |
+| Enviar alerta de correo              | ✓               | ✓            | ✓                | ✓             |
+| Enviar una notificación personalizada | ✓               | ✓            | ✗                | ✗             |
+| Enviar mensaje saliente              | ✗               | ✓            | ✓                | ✓             |
+| Lanzar flujo u otro proceso          | ✓               | ✓            | ✗                | ✗             |
+| Enviar registro para aprobación      | ✓               | ✓            | ✗ (inicia proceso) | ✗             |
+| Crear nuevas tareas                  | ✗               | ✗            | ✓                | ✓             |
+
+##### SHARING AND SECURITY
+
+Features such as profiles, permission sets and org-wide defaults can be used to control sharing and security.
+
+Sharing and security features can be utilized to expose different data sets to different sets of users in Salesforce.
+
+❖PROFILES & PERMISSION SETS Profiles and permission sets can be used to specify the objects and fieldsthat users can access as well as user permissions that control what tasks users can perform and what features they can access.
+
+❖RECORD ACCESS Access to records can be controlled by specifying organization-wide default sharing settings. Additional access to records can be provided using features such as sharing rules, role hierarchy, manual sharing, and teams.
+
+
+##### BUSINESS LOGIC AND VALIDATION
+
+**Formula fields** and **Roll-up summary fields** can be used to calculate field values. **Validation rules** can be used to enforce data quality
+
+Declarative features can be used to automate the calculation and validation of field values.
+
+FORMULA FIELDS 
+
+A formula field can be used to automatically calculate the value of a field based on other fields, expressions, or values. A data type can be selected while building a formula field. The formula specified in the field can contain references to the values of fields, operators, functions, literal values, or other formulas.
+
+ROLL-UP SUMMARY FIELDS
+
+A roll-up summary field is used to automatically calculate the value of a field on a parent record based on the values of a field on child records. For example, the sum of the values of a custom field named ‘Amount__c’ on child records can be displayed on the parent record.
+
+VALIDATION RULES
+
+A validation rule can be used to verify that the data entered by a user on a record meets the standards before the record is saved.
+
+##### USER INTERFACE
+
+There are various tools available to create UI such as **App Manager**, **Lightning App Builder** and **Quick Actions**.
+
+##### DATA MANAGEMENT
+
+**Data Import Wizard** and **Data Loader** can be used to insert and update multiple records. Data Loader can also be used to export and delete records.
+
+##### ANALYTICS
+
+**Reports** and **Dashboards** can be built to help users analyze the data. They also can be added to folder for better management.
+
+
+
+#### Programatic Tools
 
 Data Import,Export and Management
 
