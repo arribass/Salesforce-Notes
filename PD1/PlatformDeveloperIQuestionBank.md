@@ -1,4 +1,8 @@
-### Pregunta 1:
+Este documento contiene una batería de preguntas para el examen de PDI, no estan ponderadas asi que es posible que haya mas de un topic que de otros.
+
+Autor: Adrian Arribas
+
+## Pregunta 1:
 
 Dado el siguiente código de la clase `ItemController`, ¿qué ocurrirá cuando se ejecute el método `populate()`?
 
