@@ -577,5 +577,71 @@ Send Email is a Flow Core Action used to send an automated email, just like the 
 
 ## User Interface
 
+Visualforce page uses a markup language that is similar to HTML and supports common types of web content including HTML.
+
+1. **HTML** code can be added to Visualforce pages, HTML tags are generated automatically by Visualforce, generated HTML tags can be overridden, and inline **CSS** can be defined for them.
+2. **CSS Stylesheets** can be added via `<apex:stylesheet>`, sheets are uploaded as static resources and referenced using the `$Resource` variable. The `styleClass` attribute defines the name of the style class.
+3. **JavaScript** can be added via `<apex:includeScript>`. Also loaded as a static resource, the `script` tags can be used to access functions, and the `$Resource` variable can be used to access the file.
+4. Other components such as `<apex:image>` can be loaded as a static resource or from URL maps and `iframe`.
+
+
+HTML en Visualforce
+```
+<apex:page>
+    <h1>Welcome to Visualforce!</h1>
+    <p>This is a paragraph of text using standard HTML within a Visualforce page.</p>
+
+    <!-- Usando una tabla HTML -->
+    <table border="1">
+        <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+        </tr>
+        <tr>
+            <td>Row 1, Cell 1</td>
+            <td>Row 1, Cell 2</td>
+        </tr>
+    </table>
+</apex:page>
+```
+CSS en Visualforce usando apex:stylesheet
+```
+<apex:page>
+    <!-- Referencia a un recurso estático CSS -->
+    <apex:stylesheet value="{!$Resource.MyStylesheet}" />
+
+    <!-- Ejemplo de uso de una clase de estilo -->
+    <div class="myStyleClass">
+        This text is styled using a custom CSS class.
+    </div>
+
+    <!-- CSS en línea -->
+    <style>
+        .inlineStyle {
+            color: red;
+            font-size: 18px;
+        }
+    </style>
+
+    <p class="inlineStyle">This is an inline styled paragraph.</p>
+</apex:page>
+```
+JavaScript en Visualforce usando apex:includeScript
+```
+<apex:page>
+    <!-- Incluir un archivo JavaScript desde recursos estáticos -->
+    <apex:includeScript value="{!$Resource.MyJavaScriptFile}" />
+
+    <!-- JavaScript en línea -->
+    <script>
+        function showAlert() {
+            alert('This is an alert from JavaScript!');
+        }
+    </script>
+
+    <!-- Botón para activar la función JavaScript -->
+    <apex:commandButton value="Click Me" onclick="showAlert();" />
+</apex:page>
+```
 ## Testing, Debugging and Deployment
 
