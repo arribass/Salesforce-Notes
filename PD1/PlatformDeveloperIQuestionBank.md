@@ -138,4 +138,58 @@ Using inline CSS or copy-pasting CSS does not promote code reuse and can result 
 
 ---
 
-# 
+### Question 1
+A Salesforce administrator is required to define a custom field on the User object that would record a user's secondary manager in a matrix organizational structure. Which relationship type should be used to achieve this?
+
+- **Objective**: Developer Fundamentals  
+- **Detailed Objective**: Given a scenario, determine, create, and access the appropriate data model including objects, fields, relationships, and external IDs.
+
+**Options**:
+- A. Lookup
+- B. None of these options
+- C. Master-detail
+- D. Hierarchical
+
+**Correct Answer**:  
+D. Hierarchical
+
+**Explanation**:  
+Lookup and master-detail relationships are not available on the User object. The User object can only be linked with itself, which is possible by using a hierarchical relationship.
+
+### Question 2
+Before code can be deployed to production, which of the following must be true?
+
+- **Objective**: Testing, Debugging, and Deployment  
+- **Detailed Objective**: Write and execute tests for triggers, controllers, classes, flows, and processes using various sources of test data.
+
+**Options Choose 2**:
+- A. At least 75% of Apex code in triggers must be covered by unit tests
+- B. At least 75% of Apex code must be covered by unit tests
+- C. All classes and triggers must compile successfully
+- D. Test methods and test classes must be counted as part of code coverage
+
+**Correct Answers**:  
+B. At least 75% of Apex code must be covered by unit tests  
+C. All classes and triggers must compile successfully
+
+**Explanation**:  
+At least 75% of your Apex code must be covered by unit tests, and all of those tests must complete successfully. Every trigger must have some test coverage, and all classes and triggers must compile successfully.
+
+### Question 3
+Which of the following is true regarding custom setting data?
+
+- **Objective**: Process Automation and Logic  
+- **Detailed Objective**: Given a scenario, follow best practices to write Apex classes and triggers.
+
+**Options**:
+- A. Custom setting data can be accessed by formula fields, validation rules, Apex, and Visualforce pages
+- B. Custom setting data cannot be queried using SOQL
+- C. Custom setting data needs to be queried once using SOQL and then it is stored in the cache
+- D. Custom setting data can be stored using three custom setting types
+
+**Correct Answer**:  
+A. Custom setting data can be accessed by formula fields, validation rules, Apex, and Visualforce pages
+
+**Explanation**:  
+Custom setting data is exposed in the application cache, which avoids repeated queries to the database. Hierarchy custom settings can be accessed using the `$Setup` variable, and list settings can only be accessed via Apex or API calls.
+
