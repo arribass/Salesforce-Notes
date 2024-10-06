@@ -208,3 +208,51 @@ Custom setting data is exposed in the application cache, which avoids repeated q
 
 **Detailed Objective**: Given a scenario, display content or modify Salesforce data using a Visualforce page and the appropriate controllers or extensions as needed.
 
+### Question
+
+Given the controller run this 
+
+MyController ctrl = new MyController();ctrl.logCount();
+
+**[Aquí va la pregunta]**
+
+```
+public class MyController()
+{
+    public Integer count() {
+        get {
+
+        }
+        set private;
+    }
+
+    public MyController(){
+
+    }
+
+    public logCount(){
+        
+    }
+}
+```
+
+**Objective**: User Interface
+
+**Detailed Objective**: Given a scenario, display content or modify Salesforce data using a Visualforce page and the appropriate controllers or extensions as needed.
+
+**Options:**
+
+- A. [Opción A]
+- B. [Opción B]
+- C. [Opción C]
+- D. [Opción D]
+- [Añade más opciones si es necesario]
+
+**Answer:**  
+[Respuesta correcta]
+
+---
+
+### Explanation:
+
+[Aquí va la explicación de la respuesta correcta]

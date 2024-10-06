@@ -484,6 +484,8 @@ Including object, fields, relationships and External IDs
 
 ## Process Automation and Logic
 
+### Identify the capabilities of the Declarative Process automation features
+
 > **_1_** In Winter ’23 and Summer ’23, the creation of new workflow rules and processes have been blocked respectively. Their creation is only allowed in Developer Edition orgs for use in managed packages.
 
 > **_2_** Active workflow rules and processes in the org continue to operate normally. Any existing workflow rule or process can be edited,  deactivated, and/or activated.
@@ -575,7 +577,31 @@ ADDITIONAL EMAILS p to five more email addresses can be added for recipients who
 ‘SEND EMAIL’ FLOW CORE ACTION
 Send Email is a Flow Core Action used to send an automated email, just like the Email Alert Action. It is set up within Flow Builder, unlike the Email Alert action which is created outside and used in a Flow.It can be configured to log emailsautomatically to a record's Activity Timeline and use Lightning and Classic email templates in combination with merge fields.
 
+### Given a scenario, use declarative functionality  and Apex together to automate business logic
+
+### Declare variables, constants, methods and use modifiers and Apex interfaces.
+
+### Given a scenario use and apply Apex control flow statements
+
+### Given a scenario write SOSL , SOQL and DML statements in Apex
+
+### Exercises 
+
+Advanced Topics
+
+### Given a scenario, follow best practices to write Apex classes and triggers.
+
+### Given a scenario, identify the implications of governor limits on Apex transactions
+
+### Describe the relationship between Apex transactions, the save order of execution, and the potential for recursion and/or cascading
+
+### Implement exception handling in Apex, including custom exceptions as needed
+
+### Knowledge Check
+
 ## User Interface
+
+### Given a scenario, display content or modify Salesforce data using a Visualforce page and the appropiate controllers or extensions as needed
 
 Visualforce page uses a markup language that is similar to HTML and supports common types of web content including HTML.
 
@@ -643,5 +669,129 @@ JavaScript en Visualforce usando apex:includeScript
     <apex:commandButton value="Click Me" onclick="showAlert();" />
 </apex:page>
 ```
-## Testing, Debugging and Deployment
 
+
+Iframe: Can be used to display an external website in SF
+- `<apex:iframe>` creates an inline frame
+- **Source**: The external websource or URL can be specified using the src attribute.
+- **Size**: Can be specified via width and height
+- **External**: Visualforce pages can be loaded in **trusted** external domains by enabling clickjack protection for customer Visualforce pages in **Session Settings** in Setup
+
+to-do snippet here
+
+Map: Javascript based maps can be displayed using Visualforce.
+- `<apex:map>` component is used to define the map canvas for creating a map based on a third-party mapping service.
+- **JS CODE**
+- **INFO WINDOWS**
+- **MAP MARKERS**
+- **ENABLE SETTING**
+
+to-do snippet here
+
+Chart: 
+
+Global Data: It can be referenced using Visualforce Expression Syntax to be evaluated. For example {\!$User.FirstName}, etc. Also Static Resources can be uploaded separately as standalone files or as an archive such as a zip file, and referenced in a Visualforce page like this {\$Resource.\<resourceName>}. 
+
+You can combine this with URLFOR function in conjunction with $Resource global variable to reference a static resource that is contained in an archive. For example, URLFOR(\$Resource.<resourceName>, 'images/icons/white.png') this returns the URL to a specific image in the zip file.
+
+Snippet for the code
+```
+<apex:outputTextvalue="{!$Profile.Name}" /><apex:outputTextvalue="{!$UserRole.Name}"/>
+```
+Detail Page:
+
+Strantard detail page from Page Layout can be easily displayed using <apex:detail> component.
+
+Some data from detail can be removed using different attributes. Subject controls the object displayed
+
+```
+<apex:pagestandardController="Account"lightningStylesheets="true"><apex:detailsubject="{!Account.Id}"/></apex:page>
+```
+
+![alt text](image-25.png)
+
+Related Lists Data:
+You can show Related list two ways: 
+- <apex:detail relatedList="true">
+    Controller decides
+- <apex:relatedList list="Opportunities" />
+    Specify Object
+
+Visualforce provides several components to display data in table format. Two common components are:
+
+\<apex:column>: Defines a column within a table.
+\<apex:pageBlockTable>: Displays a table in the context of a page block, used for organizing data.
+When working with relationships between objects, you can merge fields across multiple levels of related objects. 
+
+Related Data
+
+Visualforce allows you to traverse up to 5 levels in a parent-child relationship using merge fields. This means you can pull data from related objects like this:
+
+```
+{!contact.Account.Owner.FirstName}
+```
+TABLE COMPONENT
+
+The <apex:pageBlockTable> components are used to display rows of records in a table, for example, and use standard platform styling.
+- ROW AS A RECORD A new row will be constructed for each record in the list during the iteration.
+- COLUMN AS A FIELDThe <apex:column>component uses the variable to retrieve the value of a specified fieldin the record.
+- VAR ATTRIBUTE The var attribute is used to assign each record in the list to a variable.
+- VALUE ATTRIBUTEThe value attribute is used to set the listof records that <apex:pageBlockTable> can work with
+
+#### VisualForce Controllers
+![alt text](image-26.png)
+
+There are 2 types:
+- Standard
+- Custom
+
+Custom controllers run in system mode and they run in system mode by default that can be changed by enforcing sharing on it by using keyword [WITH SHARING]
+
+They can be initialized via sObject or queryLocator
+
+How to declare a Custom Controller
+```
+todo snippet
+```
+You can load thirparties such as with staticResources
+
+Visualforce pages can be renderes as pdf with renderAs='pdf'
+Reference vs value variables 
+
+### Describe the Lightning Component framework, its benefits, and the types of content that can be contained in a Lightning web component
+
+### Given a scenario, prevent user interface and data access security vulnerabilities
+
+PAGE 32 
+
+Enforcing Security for Object and Fields
+
+Object-level and field-level permissions can be enforced through code by explicitly using sObject and field describe result methods. The following describes some of these methods.
+
+
+OBJECT-LEVEL❖isAccessible()- returns true if current user can accessthe object.❖isCreateable()- returns true if current user can create records of the object.❖isUpdateable()- returns true if current user can update records of the object.❖isDeletable() - returns true if current user can delete records of the object.E.g: check if user has Delete permission on Lead object:Schema.sObjectType.Lead.isDeletable()
+
+FIELD-LEVEL❖isAccessible()- returns true if current user can access the field of a record.❖isCreateable()- returns true if current user can set the value of the field for a new record.❖isUpdateable()- returns true if current usercan update the value of the field for an existing record.E.g: check if user can update the Company field on the Lead object:Schema.sObjectType.Lead.fields.Company.isUpdateable()
+
+### Given a scenario, display and use a custom user interface components, including Lightning Components, Flow, and Visualforce
+
+### Describe the use cases and best practices for Lightning Web Component events
+
+### Given a scenario, implement Apex to work with various types of page components, including Lightning Components, Flow, Next Best Actions, etc.
+
+
+Dynamic Forms allow to break details into fields and sections
+
+
+
+## Testing, Debugging and Deployment 
+
+### Write and execute tests for triggers, controllers, classes flows and processes using various sources of data
+
+### Knowdlegde Check
+
+### Describe how to approach debugging system issues and monitoring flows, processes, and asynchronous and batch jobs, etc.
+
+### Given a scenario, know how and when to use the Salesforce Developer tools such as Salesforce DX, Salesforce CLI, and Developer Console
+
+### Describe the environments, requirements, and process for deploying code and associated configurations
