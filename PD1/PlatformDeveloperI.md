@@ -751,7 +751,7 @@ They can be initialized via sObject or queryLocator
 
 How to declare a Custom Controller
 ```
-todo snippet
+to-do snippet
 ```
 You can load thirparties such as with staticResources
 

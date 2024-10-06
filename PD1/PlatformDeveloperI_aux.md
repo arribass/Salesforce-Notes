@@ -579,7 +579,7 @@ change sets are cloud based and do not require files to be downloaded locally
 - **Developer:** Permite desarrollar en Salesforce
 - **Developer Pro:** Permite desarrollar en Salesforce
 - **Partial:** Permite desarrollar en Salesforce
-  - TODO algo de info aqui
+  - TO-DO algo de info aqui
 - **Full:** Permite desarrollar en Salesforce
   - Perfomance testing
   - Load testing
@@ -729,7 +729,7 @@ Basic data import  ???
 
 Revisar
 
-todo tabla con numero de registros que se pueden exportar segun el tipo de licencia
+to-do tabla con numero de registros que se pueden exportar segun el tipo de licencia
 Consideraciones
 
 The number of records to be loaded
