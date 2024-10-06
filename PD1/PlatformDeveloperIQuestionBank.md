@@ -193,3 +193,18 @@ A. Custom setting data can be accessed by formula fields, validation rules, Apex
 **Explanation**:  
 Custom setting data is exposed in the application cache, which avoids repeated queries to the database. Hierarchy custom settings can be accessed using the `$Setup` variable, and list settings can only be accessed via Apex or API calls.
 
+### A PageReference is a reference to an instantiation of a page. Which of the following are valid means of referencing or instantiating a PageReference? Choose 2 answers.
+
+- A. ApexPages.Page().existingPageName;
+- B. PageReference pageRef = new PageReference('URL');
+- C. PageReference.page('URL');
+- D. Page.existingPageName;
+
+#### Respuestas correctas:
+- B. PageReference pageRef = new PageReference('URL');
+- D. Page.existingPageName;
+
+**Objective**: User Interface
+
+**Detailed Objective**: Given a scenario, display content or modify Salesforce data using a Visualforce page and the appropriate controllers or extensions as needed.
+
