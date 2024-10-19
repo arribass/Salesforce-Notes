@@ -1,12 +1,12 @@
 # Salesforce Platform Developer I
 <!-- Versiones -->
 <!-- tabla de versiones -->
-| Version | Fecha | Autor | Descripción |
-| ---     | ---   | ---   | ---         |
-| 1.0     | 29/04/2024  | Adrián Arribas | Documento de estudio para el examen de Salesforce Platform Developer I (Sin organizar)|
-| 1.1     | 29/04/2024  | Adrián Arribas |Organizado y añadido cosas de Examenes FoF|
-| 1.2     | 16/09/2024  | Adrián Arribas |Añadida la guía de estudio.|
-| 1.2     | 23/09/2024  | Adrián Arribas |Terminado Dev Fundamentals Topic I.|
+| Version | Fecha | Descripción |
+| ---     | ---      | ---         |
+| 0.1     | 29/04/2024   | Documento de estudio para el examen de Salesforce Platform Developer I (Sin organizar)|
+| 0.2     | 29/04/2024   |Organizado y añadido cosas de Examenes FoF|
+| 0.3     | 16/09/2024   |Añadida la guía de estudio.|
+| 0.4     | 23/09/2024   |Terminado Dev Fundamentals Topic I.|
 
 ## Status estudio
 
