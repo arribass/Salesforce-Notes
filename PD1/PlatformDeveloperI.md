@@ -61,7 +61,7 @@ Solutions can be developed in the platform using several built-in declarative to
 
 
 Salesforce Multitenant Architecture consist of the following key elements and features:
-![alt text](imgs/image-3.png)
+![alt text](image-3.png)
 
 #### Cloud Computing
 
@@ -110,7 +110,7 @@ Deployment: Deployment of new or updated metadata components to production is st
 
 Governor limits ensures tenants do not monopolize shared resources. If exceeded, these limits throw exceptions that cannot be handled and should always be taken in account during developing.
 
-![alt text](imgs/image-4.png)
+![alt text](image-4.png)
 
 MVC Architecture
 
@@ -172,7 +172,7 @@ The Lightning Component Framework is not strictly based on the MVC architecture.
 - CONTROLLER (SERVER-SIDE) The Apex controller on the server side is used to perform database operations. The JavaScript controller is used to call methods in the Apex controller.
 - CONTROLLER (CLIENT-SIDE) The JavaScript controller on the client side is used to perform client-side operations and also acts as the intermediary between the server and the UI.
 
-![alt text](imgs/image-5.png)
+![alt text](image-5.png)
 
 #### App Manager Page 24
 
@@ -194,36 +194,36 @@ Creating an App
 
 When creating a new Lightning App, the App Name and Developer Name are required. Other details such as its description and branding can also be specified.
 
-![alt text](imgs/image-10.png)
+![alt text](image-10.png)
 
 
 In the App Options configuration page, the navigation style and form factors that the app will support are specified. Other options are related to setup and personalization settings.
 
-![alt text](imgs/image-9.png)
+![alt text](image-9.png)
 
 In the App Options configuration page, the navigation styleand form factorsthat the app will support are specified. 
 
-![alt text](imgs/image-11.png)
+![alt text](image-11.png)
 
 The navigation style determines the personalization settings available for the App
 
-![alt text](imgs/image-12.png)
+![alt text](image-12.png)
 
 Utility Items can be added to a utility bar, which is a feature that is only available to desktop devices.
 
-![alt text](imgs/image-13.png)
+![alt text](image-13.png)
 
 The items that are added to the Selected Itemscolumn will appear in the navigation bar of the Lightning App.
 
-![alt text](imgs/image-14.png)
+![alt text](image-14.png)
 
 The Navigation Rules option, which is only available when using the Console navigation style, determines whether records are opened as a workspace tab or subtab of another record.
 
-![alt text](imgs/image-15.png)
+![alt text](image-15.png)
 
 Profiles are assigned to the Lightning App by adding them to the Selected Profilescolumn. Only users assigned to these profiles will be able to access the Lightning App.
 
-![alt text](imgs/image-16.png)
+![alt text](image-16.png)
 
 
 
@@ -244,7 +244,7 @@ Lightning App Builder is a declarative tool that can be utilized to create and c
 
 Lightning App Builder can be used to build Lightning pages for using Standard, Custom and Third-party Lightning components.
 
-![alt text](imgs/image-17.png)
+![alt text](image-17.png)
 #### Declarative Tools
 
 Salesforce provides various declarative tools that can be used to build and extend apps.
@@ -370,7 +370,7 @@ Lightning App Builder can be used for building and customizing single-page apps,
 QUICK ACTIONS
 Object-specific and global quick actions can be created to allow users to invoke custom functionality when using the UI. For example, they can use a quick action to quickly send an email to a customer.
 
-![alt text](imgs/image-6.png)
+![alt text](image-6.png)
 
 ##### DATA MANAGEMENT
 
@@ -445,7 +445,7 @@ The following Apex class contains an invocable method which can beinvoked from d
 
 If the label attribute of the Apex invocable method is not defined, the Apex class nameis specified in the Apex action type
 
-![alt text](imgs/image-7.png)
+![alt text](image-7.png)
 
 The programmatic features offered by Salesforce include Apex, Visualforce and Lightning Components which are used when a required functionality cannot be achieved using declarative tools
 
@@ -502,11 +502,11 @@ account opp es lookup pero tiene propiedades de master detail permite rollips
   
 Declarative Features
 
-![alt text](imgs/image-18.png)
+![alt text](image-18.png)
 
 **Workflow Rule** acts as a single if/then statement manner and is used to automate approval processes in an org.
 
-![alt text](imgs/image-19.png)
+![alt text](image-19.png)
 
 They can be evaluated in 3 cases:
 - Created
@@ -517,15 +517,15 @@ They can be evaluated in 3 cases:
 
 Approval processes provide the same set of workflow actions as the workflow rule.
 
-![alt text](imgs/image-20.png)
+![alt text](image-20.png)
 
 Diagram for all the capablities and tools Approvals offers
 
-![alt text](imgs/image-24.png)
+![alt text](image-24.png)
 
 **Process Builder** can perform actions based on multiple if/then statements.
 
-![alt text](imgs/image-21.png)
+![alt text](image-21.png)
 
 Allows comunication via Platform Events. A process publish and other one subscribes to it allowing the comunication
 Called Event Process
@@ -539,8 +539,8 @@ Other Capabilities
 **Flow Builder** can perform actions based on multiple if/then statements and more advanced Logic. Basically it overrides
 any other automation except for approvals.(which thay can invoke too)
 
-![alt text](imgs/image-22.png)
-![alt text](imgs/image-23.png)
+![alt text](image-22.png)
+![alt text](image-23.png)
 
 
 The Automation Lightning App allows flow admins to efficiently view, monitor, create, and manage flows, offering enhanced features like list views, search, filters, and access to learning resources.
@@ -602,6 +602,33 @@ Distributye entre todos los objetos
 Formato de fechas YYYY-MM-DD
 
 cual es el tipo de return de una SOSL en apex
+
+como hacer queries de picklist de values
+Separated values by ; means AND and includes can be used with comma
+
+```
+// Childs that only FavoriteDessert is Fruits
+List<Child> results1 = [SELECT Name FROM Child__c WHERE FavoriteDessert__c = 'Fruits']
+
+// Childs that only FavoriteDessert selected are Fruits AND Chocolate
+List<Child> results2 = [SELECT Name FROM Child__c WHERE FavoriteDessert__c = 'Fruits;Chocolate']
+
+// Childs that FavoriteDessert selected are Fruits AND Chocolate at least
+List<Child> results3 = [SELECT Name FROM Child__c WHERE FavoriteDessert__c INCLUDES ('Fruits;Chocolate')]
+
+// Childs that FavoriteDessert selected are Fruits OR Chocolate at least
+List<Child> results4 = [SELECT Name FROM Child__c WHERE FavoriteDessert__c INCLUDES ('Fruits','Chocolate')]
+
+// Childs that FavoriteDessert selected are Pie AND Ice Cream at least or Cake
+List<Child> results5 = [SELECT Name FROM Child__c WHERE FavoriteDessert__c INCLUDES ('Pie;Ice Cream','Chocolate')]
+```
+
+Valores que hay en el sistema
+![alt text](image-28.png)
+
+Ejecucion del codigo
+
+![alt text](image-30.png)
 ### Exercises 
 
 Advanced Topics
@@ -734,7 +761,7 @@ Some data from detail can be removed using different attributes. Subject control
 <apex:pagestandardController="Account"lightningStylesheets="true"><apex:detailsubject="{!Account.Id}"/></apex:page>
 ```
 
-![alt text](imgs/image-25.png)
+![alt text](image-25.png)
 
 Related Lists Data:
 You can show Related list two ways: 
@@ -766,7 +793,7 @@ The $<apex:pageBlockTable$> components are used to display rows of records in a 
 
 Como alternativa se puede usar $<apex:dataTable$>
 #### VisualForce Controllers
-![alt text](imgs/image-26.png)
+![alt text](image-26.png)
 
 There are 2 types:
 - Standard
