@@ -41,8 +41,6 @@ Por una parte los topics son resumenes o transcripciones de la guia de estudio d
 ## Indice 
 
 - Dev Fundamentals
-  - Multit  enant etc
-  - 
 - Process Automation and Logic ( Declarative, Apex, Advanced)
 - User Interface
 - Testing, Debugging and Deployment
@@ -50,7 +48,7 @@ Por una parte los topics son resumenes o transcripciones de la guia de estudio d
 
 ## Developer Fundamentals
 
-### Study Guide 
+### Understande Multi-tenant concepts and design frameworks, such as MVC arquitecture and Lightning Component Framework
 Introduction
 
 Salesforce is built upon a multi-tenant architecture and consists of features and characteristics such as cloud computing, shared system resources,automatic system updates, and metadata-driven kernel. In effect, development in this environment impose different considerations compared to traditional development.
@@ -473,20 +471,30 @@ Salesforce also offers a wide range of useful APIs that can be used in different
 - APEX SOAP APISimilar to Apex REST API, Apex SOAP API allows Apex classes to be exposed and invoked by external application as SOAP web services. Use this API when it is required to run Apex code from an external application via SOAP API.
 - TOOLING APITooling API provides the ability to write SOQL query for many metadata types in an org. This API provides SOAP and REST interfaces and can be used in creating custom Lightning Platform development tools or apps. 
 
-### Identify Scenarios - Programatic vs Declarative
+### Given an scenario, identify common usea cases and best practices for declarative vs Programatic customizations, including Governor limits, formula fields, and Roll-up summaries
+
+
+
+Rollup summaries allow calculations (SUM, COUNT, MIN, MAX) on related records in master-detail relationships. When rolling up currency fields, the master record's currency is used, ensuring consistent currency values.
+
+The lookup relationship between Account and Opportunity behaves like a master-detail in some aspects where the Account is the master, allowing rollup summaries and also cascade deletion. This means that when an Account is deleted, all related Opportunities can be automatically deleted as well, similar to how it works in a master-detail relationship. Also Account for an Opportunity is not required.
+
+
 ### Identify Scenarios - Given a scenario, determine, create, and access the appropriate data model including objects, fields, relationships, and external IDs.
 
 Including object, fields, relationships and External IDs
 
 Schema.DescribeTabSetResult
 
-### Identify Scenarios - Options and Considerations on Importing and Exporting Data
-### TO-DO REORGANIZAR
+get digits para obtener por ejemplo Number(16,2)
 
 rollupsumaries topic
 ROLLup sumarias for currencies master record currency applies
 
 account opp es lookup pero tiene propiedades de master detail permite rollips
+
+### Identify Scenarios - Options and Considerations on Importing and Exporting Data
+
 
 ## Process Automation and Logic
 
@@ -594,17 +602,49 @@ to-do declarar todas las variables
 
 ### Given a scenario write SOSL , SOQL and DML statements in Apex
 
-to-do
-SOSL LIMIT X
+A SOQL query is the equivalent of a Select SQL statement and searches through the org database. SOSL is a programmatic way of performing a text-based search against the search index.
 
-Distributye entre todos los objetos
+Whether you use SOQL or SOSL depends on whether you know which objects or fields you want to search, plus other considerations.
 
-Formato de fechas YYYY-MM-DD
+Use SOQL when you know which objects the data resides in, and you want to:
+- Retrieve data from a single object or from multiple objects that are related to one another.
+- Count the number of records that meet specified criteria.
+- Sort results as part of the query.
+- Retrieve data from number, date, or checkbox fields.
 
-cual es el tipo de return de una SOSL en apex
+Use SOSL when you don’t know which object or field the data resides in, and you want to:
+- Retrieve data for a specific term that you know exists within a field. Because SOSL can tokenize multiple terms within a field and build a search index from this, SOSL searches are faster and can return more relevant results.
+- Retrieve multiple objects and fields efficiently where the objects might or might not be related to one another.
+- Retrieve data for a particular division in an organization using the divisions feature.
+- Retrieve data that’s in Chinese, Japanese, Korean, or Thai. Morphological tokenization for CJKT terms helps ensure accurate results.
 
-como hacer queries de picklist de values
-Separated values by ; means AND and includes can be used with comma
+In SOSL, the LIMIT is distributed evenly among the objects. If you query Account and Contact with LIMIT 100, 50 results will be returned from each.
+
+```
+FIND 'searchTerm' IN ALL FIELDS 
+RETURNING Account(Name), Contact(FirstName, LastName) 
+LIMIT 100
+```
+We can query SOSL using Apex code like this
+```
+List<List<SObject>> searchList = [FIND 'map*' IN ALL FIELDS RETURNING Account (Id, Name), Contact, Opportunity, Lead];
+Account [] accounts = ((List<Account>)searchList[0]);
+Contact [] contacts = ((List<Contact>)searchList[1]);
+Opportunity [] opportunities = ((List<Opportunity>)searchList[2]);
+Lead [] leads = ((List<Lead>)searchList[3]);
+```
+
+Return type is a List of List SObject since every list will be a independ result for each SObject.
+
+About the date format
+
+Field Type	| Format |	Example
+| ---  | ---|--- | 
+date	|YYYY-MM-DD	| 1999-01-01
+dateTime | - YYYY-MM-DDThh:mm:ss+hh:mm<br/> - YYYY-MM-DDThh:mm:ss-hh:mm<br/> - YYYY-MM-DDThh:mm:ssZ  | - 1999-01-01T23:01:01+01:00<br/> - 1999-01-01T23:01:01-08:00<br/> - 1999-01-01T23:01:01Z
+
+
+Querying picklist values
 
 ```
 // Childs that only FavoriteDessert is Fruits
@@ -623,11 +663,10 @@ List<Child> results4 = [SELECT Name FROM Child__c WHERE FavoriteDessert__c INCLU
 List<Child> results5 = [SELECT Name FROM Child__c WHERE FavoriteDessert__c INCLUDES ('Pie;Ice Cream','Chocolate')]
 ```
 
-Valores que hay en el sistema
+Records on the system
 ![alt text](image-28.png)
 
-Ejecucion del codigo
-
+Code Execution
 ![alt text](image-30.png)
 ### Exercises 
 
