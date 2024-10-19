@@ -245,7 +245,6 @@ Lightning App Builder is a declarative tool that can be utilized to create and c
 Lightning App Builder can be used to build Lightning pages for using Standard, Custom and Third-party Lightning components.
 
 ![alt text](image-17.png)
-
 #### Declarative Tools
 
 Salesforce provides various declarative tools that can be used to build and extend apps.
@@ -475,12 +474,19 @@ Salesforce also offers a wide range of useful APIs that can be used in different
 - TOOLING APITooling API provides the ability to write SOQL query for many metadata types in an org. This API provides SOAP and REST interfaces and can be used in creating custom Lightning Platform development tools or apps. 
 
 ### Identify Scenarios - Programatic vs Declarative
-### Identify Scenarios - Determine, create and access appropiate data model
+### Identify Scenarios - Given a scenario, determine, create, and access the appropriate data model including objects, fields, relationships, and external IDs.
 
 Including object, fields, relationships and External IDs
 
-### Identify Scenarios - Options and Considerations on Importing and Exporting Data
+Schema.DescribeTabSetResult
 
+### Identify Scenarios - Options and Considerations on Importing and Exporting Data
+### TO-DO REORGANIZAR
+
+rollupsumaries topic
+ROLLup sumarias for currencies master record currency applies
+
+account opp es lookup pero tiene propiedades de master detail permite rollips
 
 ## Process Automation and Logic
 
@@ -579,17 +585,37 @@ Send Email is a Flow Core Action used to send an automated email, just like the 
 
 ### Given a scenario, use declarative functionality  and Apex together to automate business logic
 
+Llamar apex desde flow hay q poner anotacon de InvocableMethod
 ### Declare variables, constants, methods and use modifiers and Apex interfaces.
+
+to-do declarar todas las variables
 
 ### Given a scenario use and apply Apex control flow statements
 
 ### Given a scenario write SOSL , SOQL and DML statements in Apex
 
+to-do
+SOSL LIMIT X
+
+Distributye entre todos los objetos
+
+Formato de fechas YYYY-MM-DD
+
+cual es el tipo de return de una SOSL en apex
 ### Exercises 
 
 Advanced Topics
 
 ### Given a scenario, follow best practices to write Apex classes and triggers.
+to-do
+
+Como definir correctamente una clase apex. Access modifier si , defintion modifier no
+
+Definir clase estatica como, metodos estaticos etc
+
+Todas las anotaciones
+
+to-do safe navigation
 
 ### Given a scenario, identify the implications of governor limits on Apex transactions
 
@@ -732,12 +758,13 @@ Visualforce allows you to traverse up to 5 levels in a parent-child relationship
 ```
 TABLE COMPONENT
 
-The <apex:pageBlockTable> components are used to display rows of records in a table, for example, and use standard platform styling.
+The $<apex:pageBlockTable$> components are used to display rows of records in a table, for example, and use standard platform styling.
 - ROW AS A RECORD A new row will be constructed for each record in the list during the iteration.
 - COLUMN AS A FIELDThe <apex:column>component uses the variable to retrieve the value of a specified fieldin the record.
 - VAR ATTRIBUTE The var attribute is used to assign each record in the list to a variable.
 - VALUE ATTRIBUTEThe value attribute is used to set the listof records that <apex:pageBlockTable> can work with
 
+Como alternativa se puede usar $<apex:dataTable$>
 #### VisualForce Controllers
 ![alt text](image-26.png)
 
@@ -752,14 +779,23 @@ They can be initialized via sObject or queryLocator
 How to declare a Custom Controller
 ```
 to-do snippet
+
+recordar que si se definen 2 controller el primero manda sobre el resto
 ```
 You can load thirparties such as with staticResources
 
 Visualforce pages can be renderes as pdf with renderAs='pdf'
 Reference vs value variables 
 
+Profiles and roles can be consulted as global info
+
 ### Describe the Lightning Component framework, its benefits, and the types of content that can be contained in a Lightning web component
 
+
+Aura aplication can have standalone URL
+
+standalone = true?
+vs component
 ### Given a scenario, prevent user interface and data access security vulnerabilities
 
 PAGE 32 
@@ -775,8 +811,12 @@ FIELD-LEVEL❖isAccessible()- returns true if current user can access the field 
 
 ### Given a scenario, display and use a custom user interface components, including Lightning Components, Flow, and Visualforce
 
-### Describe the use cases and best practices for Lightning Web Component events
 
+Que es wire  
+
+Importante que el accountid se pasa con dolar $ 
+### Describe the use cases and best practices for Lightning Web Component events
+to-do aqui leer el topic
 ### Given a scenario, implement Apex to work with various types of page components, including Lightning Components, Flow, Next Best Actions, etc.
 
 
@@ -788,10 +828,24 @@ Dynamic Forms allow to break details into fields and sections
 
 ### Write and execute tests for triggers, controllers, classes flows and processes using various sources of data
 
+@testVisible for methods
+
+Datos disponibles en test
+
+record types, profiles y users
 ### Knowdlegde Check
 
 ### Describe how to approach debugging system issues and monitoring flows, processes, and asynchronous and batch jobs, etc.
 
+Trace falgs y debug logs
+
 ### Given a scenario, know how and when to use the Salesforce Developer tools such as Salesforce DX, Salesforce CLI, and Developer Console
 
 ### Describe the environments, requirements, and process for deploying code and associated configurations
+
+to-do sandbox types
+
+pueden crear managed packages:
+
+- Developer Edition
+- Partner developer edition

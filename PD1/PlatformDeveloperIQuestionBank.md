@@ -217,21 +217,31 @@ MyController ctrl = new MyController();ctrl.logCount();
 **[Aquí va la pregunta]**
 
 ```
-public class MyController()
-{
-    public Integer count() {
+public class MyController {
+    public Integer count {
         get {
-
+            if (count == null) {
+                System.debug('set count');
+                count = 10;
+            } else {
+                System.debug('increment count');
+                count++;
+            }
+            return count;
         }
-        set private;
+        private set;
     }
 
-    public MyController(){
-
+    public MyController() {
+        System.debug('constructor begins');
+        if (count == null) {
+            count = 20;
+        }
+        System.debug('constructor ends');
     }
 
-    public logCount(){
-        
+    public void logCount() {
+        System.debug('The value of count is ' + count);
     }
 }
 ```
@@ -242,17 +252,34 @@ public class MyController()
 
 **Options:**
 
-- A. [Opción A]
-- B. [Opción B]
-- C. [Opción C]
-- D. [Opción D]
-- [Añade más opciones si es necesario]
+- A. 21
+- B. 10
+- C. 11
+- D. 20
 
 **Answer:**  
-[Respuesta correcta]
+- C. 11
 
 ---
 
 ### Explanation:
 
-[Aquí va la explicación de la respuesta correcta]
+![alt text](image-27.png)
+
+## Metadata information about certain custom apps in a Salesforce org is required in order to render them in the user interface of a mobile app. Which of the following can be used by a developer to return the metadata for this requirement?
+
+Choose 1 answer:
+
+1. **A.** `Schema.DescribeAppResult[] r = Schema.describeApps();`
+2. **B.** `Schema.DescribeTabResult[] r = Schema.describeTabs();`
+3. **C.** `Schema.DescribeSObjectResult[] r = Schema.describeSObjects();`
+4. **D.** `Schema.DescribeTabSetResult[] r = Schema.describeTabs();`
+
+**Correct answer:**
+
+- **D.** `Schema.DescribeTabSetResult[] r = Schema.describeTabs();`
+
+---
+
+**Objective:** Developer Fundamentals  
+**Detailed Objective:** Given a scenario, determine, create, and access the appropriate data model including objects, fields, relationships, and external IDs.
