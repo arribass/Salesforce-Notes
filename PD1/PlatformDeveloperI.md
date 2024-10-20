@@ -429,7 +429,7 @@ Visualforce is a framework that can be used to build custom UI, mainly for SF Cl
 Using apex
 
 // An Apex class is allowed to have one (1) invocable method 
-```
+``` C++
 public classCustomBusinessLogic {
   @InvocableMethod
   public static void processAccounts() {
@@ -607,7 +607,7 @@ Apex is a strongly typed language and its important to know how to declare them.
 
 
 Example of Apex variables declaration
-```
+``` java
 public class myOuterClass {
    public myMethod(){
         // How to
@@ -643,13 +643,13 @@ Use SOSL when you don’t know which object or field the data resides in, and yo
 
 In SOSL, the LIMIT is distributed evenly among the objects. If you query Account and Contact with LIMIT 100, 50 results will be returned from each.
 
-```
+``` SQL
 FIND 'searchTerm' IN ALL FIELDS 
 RETURNING Account(Name), Contact(FirstName, LastName) 
 LIMIT 100
 ```
 We can query SOSL using Apex code like this
-```
+``` Python
 List<List<SObject>> searchList = [FIND 'map*' IN ALL FIELDS RETURNING Account (Id, Name), Contact, Opportunity, Lead];
 Account [] accounts = ((List<Account>)searchList[0]);
 Contact [] contacts = ((List<Contact>)searchList[1]);
@@ -669,7 +669,7 @@ dateTime | - YYYY-MM-DDThh:mm:ss+hh:mm<br/> - YYYY-MM-DDThh:mm:ss-hh:mm<br/> - Y
 
 Querying picklist values
 
-```
+``` Python
 // Childs that only FavoriteDessert is Fruits
 List<Child> results1 = [SELECT Name FROM Child__c WHERE FavoriteDessert__c = 'Fruits']
 
@@ -694,7 +694,7 @@ Code Execution
 
 It's important to understand how Database.insert and SaveResult work when allOrNone is set to false. In this scenario, partial inserts are allowed, meaning some records may succeed while others fail. The SaveResult object provides the status for each record, and you can check the indexes of the results to handle any errors or successes accordingly.
 
-```
+``` Java
 List<Account> accounts = new List<Account>{
     new Account(Name='Account 1'),
     new Account(Name=null) // Causa un error
@@ -719,7 +719,7 @@ Advanced Topics
 ### Given a scenario, follow best practices to write Apex classes and triggers.
 
 This is the syntax for an Apex class definition:
-```
+``` C++
 private | public | global 
 [virtual | abstract | with sharing | without sharing] 
 class ClassName [implements InterfaceNameList] [extends ClassName] 
@@ -738,7 +738,7 @@ Interface, Abstract and Virtual
 Interface
 An Interface is a collection of unimplemented methods that must be implemented.
 
-```
+``` C++
 public interface Worker{
    // Method's signature
    DoubleincreaseWorkerSallary(Double currentSalarry);
@@ -770,7 +770,7 @@ Abstract classes must be overriden and contains only signatures.
 - Cannot be instantiated
 - Private access modifies cannot be used since child wont have access to it.
 
-```
+``` C++
 //Abstract Parent class
 public abstract class TestAbstractClass {
 
@@ -788,7 +788,7 @@ public abstract class TestAbstractClass {
 }
 ```
 
-```
+``` C++
 public class ExampleClass extends TestAbstractClass {
 
    ExampleClass(String test1, String test2) {
@@ -808,7 +808,7 @@ Virtual
 Virtual classes have a body and can be overriden
 - Can be instantiated
 
-```
+``` C++
 private virtual class TestVirtualClass {
    
    protected String test1;
@@ -827,7 +827,7 @@ private virtual class TestVirtualClass {
 }
 ```
 
-```
+``` C++
 public class ExampleClass extends TestVirtualClass {
    
    ExampleClass(String test1, String test2) {
@@ -844,14 +844,31 @@ public class ExampleClass extends TestVirtualClass {
 Definir clase estatica como, metodos estaticos etc
 Todas las anotaciones
 
-to-do safe navigation
+
+Use the safe navigation operator (?.) to replace explicit, sequential checks for null references. This operator short-circuits expressions that attempt to operate on a null value and returns null instead of throwing a NullPointerException.
+
+Examples for safe navigation operator
+
+``` C++
+// Previous code checking for nulls
+results = [SELECT Name FROM Account WHERE Id = :accId];
+if (results.size() == 0) { // Account was deleted
+    return null;
+}
+return results[0].Name;
+```
+You can substitute the previous code with a single row.
+``` SQL
+// New code using the safe navigation operator
+return [SELECT Name FROM Account WHERE Id = :accId]?.Name;
+```
 
 ### Given a scenario, identify the implications of governor limits on Apex transactions
 
 What counts as a DML for limits
 
 We can perform some DML ops and check the limits and the DML performed for the current transaction using the system Class Limits methods.
-```
+``` SQL
 delete listOfsObject // 1 statement
 Database.emptyRecycleBin(listOfsObject) // 1 statement
 
@@ -881,7 +898,7 @@ Visualforce page uses a markup language that is similar to HTML and supports com
 
 
 HTML en Visualforce
-```
+```HTML
 <apex:page>
     <h1>Welcome to Visualforce!</h1>
     <p>This is a paragraph of text using standard HTML within a Visualforce page.</p>
@@ -900,7 +917,7 @@ HTML en Visualforce
 </apex:page>
 ```
 CSS en Visualforce usando apex:stylesheet
-```
+``` HTML
 <apex:page>
     <!-- Referencia a un recurso estático CSS -->
     <apex:stylesheet value="{!$Resource.MyStylesheet}" />
@@ -922,7 +939,7 @@ CSS en Visualforce usando apex:stylesheet
 </apex:page>
 ```
 JavaScript en Visualforce usando apex:includeScript
-```
+``` HTML
 <apex:page>
     <!-- Incluir un archivo JavaScript desde recursos estáticos -->
     <apex:includeScript value="{!$Resource.MyJavaScriptFile}" />
@@ -945,8 +962,9 @@ Iframe: Can be used to display an external website in SF
 - **Source**: The external websource or URL can be specified using the src attribute.
 - **Size**: Can be specified via width and height
 - **External**: Visualforce pages can be loaded in **trusted** external domains by enabling clickjack protection for customer Visualforce pages in **Session Settings** in Setup
-
-to-do snippet here
+``` HTML
+<apex:iframe src="https://amazon.com" scrolling="true" id="theIframe"/>
+```
 
 Map: Javascript based maps can be displayed using Visualforce.
 - `<apex:map>` component is used to define the map canvas for creating a map based on a third-party mapping service.
@@ -954,8 +972,14 @@ Map: Javascript based maps can be displayed using Visualforce.
 - **INFO WINDOWS**
 - **MAP MARKERS**
 - **ENABLE SETTING**
-
-to-do snippet here
+``` HTML
+<apex:page standardController="Account">
+    <!-- Display the address on a map -->
+    <apex:map width="600px" height="400px" mapType="roadmap" zoomLevel="17"
+    center="{!Account.BillingStreet},{!Account.BillingCity},{!Account.BillingState}">
+    </apex:map>
+</apex:page>
+```
 
 Chart: 
 
@@ -964,7 +988,7 @@ Global Data: It can be referenced using Visualforce Expression Syntax to be eval
 You can combine this with URLFOR function in conjunction with $Resource global variable to reference a static resource that is contained in an archive. For example, URLFOR(\$Resource.<resourceName>, 'images/icons/white.png') this returns the URL to a specific image in the zip file.
 
 Snippet for the code
-```
+``` HTML
 <apex:outputTextvalue="{!$Profile.Name}" /><apex:outputTextvalue="{!$UserRole.Name}"/>
 ```
 Detail Page:
@@ -973,7 +997,7 @@ Strantard detail page from Page Layout can be easily displayed using <apex:detai
 
 Some data from detail can be removed using different attributes. Subject controls the object displayed
 
-```
+```HTML
 <apex:pagestandardController="Account"lightningStylesheets="true"><apex:detailsubject="{!Account.Id}"/></apex:page>
 ```
 
@@ -1029,7 +1053,7 @@ How to declare a Custom Controller
 User's permissions and field-level security do not apply.
 
 Apex and Visualforce code for a Custom Controller
-```
+``` C++
 public class MyController {
 
     private final Account account;
@@ -1049,7 +1073,7 @@ public class MyController {
     }
 }
 ```
-```
+``` HTML
 <apex:page controller="MyController" tabStyle="Account">
     <apex:form>
         <apex:pageBlock title="Congratulations {!$User.FirstName}">
@@ -1075,7 +1099,7 @@ Profiles and roles can be consulted as global info
 
 
 Aura aplication can have standalone URL so it can be consulted independently
-```
+``` HTML
 <aura:application>
   <c:myComponent />
 </aura:application>
@@ -1084,7 +1108,7 @@ Aura aplication can have standalone URL so it can be consulted independently
 Some times users might be unable to access something due to the need of a custom permission, you can give them access to it by importing the customPermission like this
 
 Example to give vissibility for a report
-```
+``` C++
 // app.js
 import { LightningElement } from "lwc";
 import hasViewReport from "@salesforce/customPermission/acme__ViewReport";
@@ -1098,7 +1122,7 @@ export default class App extends LightingElement {
 
 Display it on SPA
 
-```
+``` HTML
 <!--– app.html -->
 <template>
   <common-view></common-view>
@@ -1141,7 +1165,7 @@ E.g: check if user can update the Company field on the Lead object:Schema.sObjec
 to-do
 Que es wire  
 
-```
+``` 
 @wire getRecord 
 ```
 Importante que el accountid se pasa con dolar $ 
