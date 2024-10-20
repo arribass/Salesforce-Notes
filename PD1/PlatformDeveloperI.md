@@ -471,8 +471,6 @@ Salesforce also offers a wide range of useful APIs that can be used in different
 
 ### Given an scenario, identify common usea cases and best practices for declarative vs Programatic customizations, including Governor limits, formula fields, and Roll-up summaries
 
-
-
 Rollup summaries allow calculations (SUM, COUNT, MIN, MAX) on related records in master-detail relationships. When rolling up currency fields, the master record's currency is used, ensuring consistent currency values.
 
 The lookup relationship between Account and Opportunity behaves like a master-detail in some aspects where the Account is the master, allowing rollup summaries and also cascade deletion. This means that when an Account is deleted, all related Opportunities can be automatically deleted as well, similar to how it works in a master-detail relationship. Also Account for an Opportunity is not required.
@@ -623,6 +621,118 @@ public class myOuterClass {
 }
 ```
 
+### Given a scenario use and apply Apex control flow statements
+
+### Given a scenario write SOSL , SOQL and DML statements in Apex
+
+A SOQL query is the equivalent of a Select SQL statement and searches through the org database. SOSL is a programmatic way of performing a text-based search against the search index.
+
+Whether you use SOQL or SOSL depends on whether you know which objects or fields you want to search, plus other considerations.
+
+Use SOQL when you know which objects the data resides in, and you want to:
+- Retrieve data from a single object or from multiple objects that are related to one another.
+- Count the number of records that meet specified criteria.
+- Sort results as part of the query.
+- Retrieve data from number, date, or checkbox fields.
+
+Use SOSL when you don’t know which object or field the data resides in, and you want to:
+- Retrieve data for a specific term that you know exists within a field. Because SOSL can tokenize multiple terms within a field and build a search index from this, SOSL searches are faster and can return more relevant results.
+- Retrieve multiple objects and fields efficiently where the objects might or might not be related to one another.
+- Retrieve data for a particular division in an organization using the divisions feature.
+- Retrieve data that’s in Chinese, Japanese, Korean, or Thai. Morphological tokenization for CJKT terms helps ensure accurate results.
+
+In SOSL, the LIMIT is distributed evenly among the objects. If you query Account and Contact with LIMIT 100, 50 results will be returned from each.
+
+```
+FIND 'searchTerm' IN ALL FIELDS 
+RETURNING Account(Name), Contact(FirstName, LastName) 
+LIMIT 100
+```
+We can query SOSL using Apex code like this
+```
+List<List<SObject>> searchList = [FIND 'map*' IN ALL FIELDS RETURNING Account (Id, Name), Contact, Opportunity, Lead];
+Account [] accounts = ((List<Account>)searchList[0]);
+Contact [] contacts = ((List<Contact>)searchList[1]);
+Opportunity [] opportunities = ((List<Opportunity>)searchList[2]);
+Lead [] leads = ((List<Lead>)searchList[3]);
+```
+
+Return type is a List of List SObject since every list will be a independ result for each SObject.
+
+About the date format
+
+Field Type	| Format |	Example
+| ---  | ---|--- | 
+date	|YYYY-MM-DD	| 1999-01-01
+dateTime | - YYYY-MM-DDThh:mm:ss+hh:mm<br/> - YYYY-MM-DDThh:mm:ss-hh:mm<br/> - YYYY-MM-DDThh:mm:ssZ  | - 1999-01-01T23:01:01+01:00<br/> - 1999-01-01T23:01:01-08:00<br/> - 1999-01-01T23:01:01Z
+
+
+Querying picklist values
+
+```
+// Childs that only FavoriteDessert is Fruits
+List<Child> results1 = [SELECT Name FROM Child__c WHERE FavoriteDessert__c = 'Fruits']
+
+// Childs that only FavoriteDessert selected are Fruits AND Chocolate
+List<Child> results2 = [SELECT Name FROM Child__c WHERE FavoriteDessert__c = 'Fruits;Chocolate']
+
+// Childs that FavoriteDessert selected are Fruits AND Chocolate at least
+List<Child> results3 = [SELECT Name FROM Child__c WHERE FavoriteDessert__c INCLUDES ('Fruits;Chocolate')]
+
+// Childs that FavoriteDessert selected are Fruits OR Chocolate at least
+List<Child> results4 = [SELECT Name FROM Child__c WHERE FavoriteDessert__c INCLUDES ('Fruits','Chocolate')]
+
+// Childs that FavoriteDessert selected are Pie AND Ice Cream at least or Cake
+List<Child> results5 = [SELECT Name FROM Child__c WHERE FavoriteDessert__c INCLUDES ('Pie;Ice Cream','Chocolate')]
+```
+
+Records on the system
+![alt text](image-28.png)
+
+Code Execution
+![alt text](image-30.png)
+
+It's important to understand how Database.insert and SaveResult work when allOrNone is set to false. In this scenario, partial inserts are allowed, meaning some records may succeed while others fail. The SaveResult object provides the status for each record, and you can check the indexes of the results to handle any errors or successes accordingly.
+
+```
+List<Account> accounts = new List<Account>{
+    new Account(Name='Account 1'),
+    new Account(Name=null) // Causa un error
+};
+
+// Insertar cuentas con allOrNone = false
+Database.SaveResult[] results = Database.insert(accounts, false);
+
+// Revisar resultados
+for (Database.SaveResult result : results) {
+    if (result.isSuccess()) {
+        System.debug('Cuenta insertada con éxito: ' + result.getId());
+    } else {
+        System.debug('Error: ' + result.getErrors()[0].getMessage());
+    }
+}
+```
+### Exercises 
+
+Advanced Topics
+
+### Given a scenario, follow best practices to write Apex classes and triggers.
+
+This is the syntax for an Apex class definition:
+```
+private | public | global 
+[virtual | abstract | with sharing | without sharing] 
+class ClassName [implements InterfaceNameList] [extends ClassName] 
+{ 
+// The body of the class
+}
+```
+
+- Either public or global modifier has to be used
+- A class + 'className' is required
+- Definition Modifiers (virtual,abstract,...) are eligible
+- Extensions or implementations are eligible
+
 Interface, Abstract and Virtual 
 
 Interface
@@ -731,126 +841,22 @@ public class ExampleClass extends TestVirtualClass {
 }
 ```
 
-### Given a scenario use and apply Apex control flow statements
-
-### Given a scenario write SOSL , SOQL and DML statements in Apex
-
-A SOQL query is the equivalent of a Select SQL statement and searches through the org database. SOSL is a programmatic way of performing a text-based search against the search index.
-
-Whether you use SOQL or SOSL depends on whether you know which objects or fields you want to search, plus other considerations.
-
-Use SOQL when you know which objects the data resides in, and you want to:
-- Retrieve data from a single object or from multiple objects that are related to one another.
-- Count the number of records that meet specified criteria.
-- Sort results as part of the query.
-- Retrieve data from number, date, or checkbox fields.
-
-Use SOSL when you don’t know which object or field the data resides in, and you want to:
-- Retrieve data for a specific term that you know exists within a field. Because SOSL can tokenize multiple terms within a field and build a search index from this, SOSL searches are faster and can return more relevant results.
-- Retrieve multiple objects and fields efficiently where the objects might or might not be related to one another.
-- Retrieve data for a particular division in an organization using the divisions feature.
-- Retrieve data that’s in Chinese, Japanese, Korean, or Thai. Morphological tokenization for CJKT terms helps ensure accurate results.
-
-In SOSL, the LIMIT is distributed evenly among the objects. If you query Account and Contact with LIMIT 100, 50 results will be returned from each.
-
-```
-FIND 'searchTerm' IN ALL FIELDS 
-RETURNING Account(Name), Contact(FirstName, LastName) 
-LIMIT 100
-```
-We can query SOSL using Apex code like this
-```
-List<List<SObject>> searchList = [FIND 'map*' IN ALL FIELDS RETURNING Account (Id, Name), Contact, Opportunity, Lead];
-Account [] accounts = ((List<Account>)searchList[0]);
-Contact [] contacts = ((List<Contact>)searchList[1]);
-Opportunity [] opportunities = ((List<Opportunity>)searchList[2]);
-Lead [] leads = ((List<Lead>)searchList[3]);
-```
-
-Return type is a List of List SObject since every list will be a independ result for each SObject.
-
-About the date format
-
-Field Type	| Format |	Example
-| ---  | ---|--- | 
-date	|YYYY-MM-DD	| 1999-01-01
-dateTime | - YYYY-MM-DDThh:mm:ss+hh:mm<br/> - YYYY-MM-DDThh:mm:ss-hh:mm<br/> - YYYY-MM-DDThh:mm:ssZ  | - 1999-01-01T23:01:01+01:00<br/> - 1999-01-01T23:01:01-08:00<br/> - 1999-01-01T23:01:01Z
-
-
-Querying picklist values
-
-```
-// Childs that only FavoriteDessert is Fruits
-List<Child> results1 = [SELECT Name FROM Child__c WHERE FavoriteDessert__c = 'Fruits']
-
-// Childs that only FavoriteDessert selected are Fruits AND Chocolate
-List<Child> results2 = [SELECT Name FROM Child__c WHERE FavoriteDessert__c = 'Fruits;Chocolate']
-
-// Childs that FavoriteDessert selected are Fruits AND Chocolate at least
-List<Child> results3 = [SELECT Name FROM Child__c WHERE FavoriteDessert__c INCLUDES ('Fruits;Chocolate')]
-
-// Childs that FavoriteDessert selected are Fruits OR Chocolate at least
-List<Child> results4 = [SELECT Name FROM Child__c WHERE FavoriteDessert__c INCLUDES ('Fruits','Chocolate')]
-
-// Childs that FavoriteDessert selected are Pie AND Ice Cream at least or Cake
-List<Child> results5 = [SELECT Name FROM Child__c WHERE FavoriteDessert__c INCLUDES ('Pie;Ice Cream','Chocolate')]
-```
-
-Records on the system
-![alt text](image-28.png)
-
-Code Execution
-![alt text](image-30.png)
-
-It's important to understand how Database.insert and SaveResult work when allOrNone is set to false. In this scenario, partial inserts are allowed, meaning some records may succeed while others fail. The SaveResult object provides the status for each record, and you can check the indexes of the results to handle any errors or successes accordingly.
-
-```
-List<Account> accounts = new List<Account>{
-    new Account(Name='Account 1'),
-    new Account(Name=null) // Causa un error
-};
-
-// Insertar cuentas con allOrNone = false
-Database.SaveResult[] results = Database.insert(accounts, false);
-
-// Revisar resultados
-for (Database.SaveResult result : results) {
-    if (result.isSuccess()) {
-        System.debug('Cuenta insertada con éxito: ' + result.getId());
-    } else {
-        System.debug('Error: ' + result.getErrors()[0].getMessage());
-    }
-}
-```
-### Exercises 
-
-Advanced Topics
-
-### Given a scenario, follow best practices to write Apex classes and triggers.
-to-do
-
-This is the syntax for an Apex class definition:
-```
-private | public | global 
-[virtual | abstract | with sharing | without sharing] 
-class ClassName [implements InterfaceNameList] [extends ClassName] 
-{ 
-// The body of the class
-}
-```
-
-- Either public or global modifier has to be used
-- A class + 'className' is required
-- Definition Modifiers (virtual,abstract,...) are eligible
-- Extensions or implementations are eligible
-
-
 Definir clase estatica como, metodos estaticos etc
 Todas las anotaciones
 
 to-do safe navigation
 
 ### Given a scenario, identify the implications of governor limits on Apex transactions
+
+What counts as a DML for limits
+
+We can perform some DML ops and check the limits and the DML performed for the current transaction using the system Class Limits methods.
+```
+delete listOfsObject // 1 statement
+Database.emptyRecycleBin(listOfsObject) // 1 statement
+
+System.debug(Limits.getDMLStatements() + 'out of' + Limits.getLimitDMLStatements() + ' DML Statements used');
+```
 
 ### Describe the relationship between Apex transactions, the save order of execution, and the potential for recursion and/or cascading
 
@@ -1135,6 +1141,9 @@ E.g: check if user can update the Company field on the Lead object:Schema.sObjec
 to-do
 Que es wire  
 
+```
+@wire getRecord 
+```
 Importante que el accountid se pasa con dolar $ 
 
 NavigationMixin correct usage añadir snippet
@@ -1186,6 +1195,12 @@ to-do2 repasar con chatgpt
 You can consult checkpoints in developer console and given information is namespace, class, line and date for the checkpoint
 
 ![alt text](image-31.png)
+
+Workbench
+- Describe metadata and data
+- REST Api
+- Executing SOSL and SOQL
+
 
 ### Describe the environments, requirements, and process for deploying code and associated configurations
 
