@@ -801,6 +801,27 @@ Records on the system
 
 Code Execution
 ![alt text](image-30.png)
+
+It's important to understand how Database.insert and SaveResult work when allOrNone is set to false. In this scenario, partial inserts are allowed, meaning some records may succeed while others fail. The SaveResult object provides the status for each record, and you can check the indexes of the results to handle any errors or successes accordingly.
+
+```
+List<Account> accounts = new List<Account>{
+    new Account(Name='Account 1'),
+    new Account(Name=null) // Causa un error
+};
+
+// Insertar cuentas con allOrNone = false
+Database.SaveResult[] results = Database.insert(accounts, false);
+
+// Revisar resultados
+for (Database.SaveResult result : results) {
+    if (result.isSuccess()) {
+        System.debug('Cuenta insertada con éxito: ' + result.getId());
+    } else {
+        System.debug('Error: ' + result.getErrors()[0].getMessage());
+    }
+}
+```
 ### Exercises 
 
 Advanced Topics
@@ -838,6 +859,7 @@ to-do safe navigation
 
 ### Implement exception handling in Apex, including custom exceptions as needed
 
+In case of unhandled exception on DML full transaction is rolled back even successful ones. Setpoints can be used.
 ### Knowledge Check
 
 ## User Interface
@@ -1052,6 +1074,34 @@ Aura aplication can have standalone URL so it can be consulted independently
   <c:myComponent />
 </aura:application>
 ```
+
+Some times users might be unable to access something due to the need of a custom permission, you can give them access to it by importing the customPermission like this
+
+Example to give vissibility for a report
+```
+// app.js
+import { LightningElement } from "lwc";
+import hasViewReport from "@salesforce/customPermission/acme__ViewReport";
+
+export default class App extends LightingElement {
+  get isReportVisible() {
+    return hasViewReport;
+  }
+}
+```
+
+Display it on SPA
+
+```
+<!--– app.html -->
+<template>
+  <common-view></common-view>
+
+  <template lwc:if={isReportVisible}>
+    <c-expense-report></c-expense-report>
+  </template>
+</template>
+```
 ### Given a scenario, prevent user interface and data access security Vulnerabilities
 
 What is XSS
@@ -1082,15 +1132,18 @@ FIELD-LEVEL
 E.g: check if user can update the Company field on the Lead object:Schema.sObjectType.Lead.fields.Company.isUpdateable()
 
 ### Given a scenario, display and use a custom user interface components, including Lightning Components, Flow, and Visualforce
-
+to-do
 Que es wire  
 
 Importante que el accountid se pasa con dolar $ 
+
+NavigationMixin correct usage añadir snippet
 ### Describe the use cases and best practices for Lightning Web Component events
 to-do aqui leer el topic
 
 Types of Events:
 
+To expose an event within a Custom Page use event and schema to-do
 
 ### Given a scenario, implement Apex to work with various types of page components, including Lightning Components, Flow, Next Best Actions, etc.
 
@@ -1111,9 +1164,28 @@ record types, profiles y users
 
 ### Describe how to approach debugging system issues and monitoring flows, processes, and asynchronous and batch jobs, etc.
 
-Trace falgs y debug logs
+What is the Platform Integration User
+
+A User created automatically by Salesforce that cannot be maintained. Some internal SF Apps run their business process as it.
+It appears in audit fields when:
+- Einstein Bot creates a case
+- When Einstein writes prediction data to records that it is evaluating
+- Data is syncronized via Salesforce Integration Cloud
+
+Automated process associated with the Process Builder, Workflow Rules and Assignment Rules cannot be traced by using a debug log by setting up a trace flag on the PIU.
+
+Audit fields are:
+Created Date, Last Modified Date, Created By, Last Modified By.
+
+
+Trace flags y debug logs
 
 ### Given a scenario, know how and when to use the Salesforce Developer tools such as Salesforce DX, Salesforce CLI, and Developer Console
+to-do2 repasar con chatgpt 
+
+You can consult checkpoints in developer console and given information is namespace, class, line and date for the checkpoint
+
+![alt text](image-31.png)
 
 ### Describe the environments, requirements, and process for deploying code and associated configurations
 
