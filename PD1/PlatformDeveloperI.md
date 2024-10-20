@@ -18,8 +18,6 @@
 | Testing, Debugging, and Deployment | 76.92% |
 | Process Automation and Logic | 88.89% |
 
-## To-do
-
 ## Introducción
 El examen de Salesforce Platform Developer I es un examen que evalúa los conocimientos de un desarrollador de Salesforce. En este documento se recogen los conceptos más importantes que se deben conocer para aprobar el examen.
 
@@ -594,9 +592,144 @@ Send Email is a Flow Core Action used to send an automated email, just like the 
 ### Given a scenario, use declarative functionality  and Apex together to automate business logic
 
 Llamar apex desde flow hay q poner anotacon de InvocableMethod
+
 ### Declare variables, constants, methods and use modifiers and Apex interfaces.
 
-to-do declarar todas las variables
+Apex is a strongly typed language and its important to know how to declare them. The types available are the next ones:
+
+- ```Primitives``` (Integer, Double, Long, Date, Datetime, String, ID, or Boolean)
+- ```sObject``` both Standard and Custom
+- ```Collections``` such as
+  - Lists
+  - Set of Primitives
+  - Maps for Primitive-Primitive, sObject or Collection
+- ```Enumerations``` typed list of values
+- ```Apex Classes``` instantiation for both User Defined or System Supplied
+- ```null``` that can be assigned to any variable
+
+
+Example of Apex variables declaration
+```
+public class myOuterClass {
+   public myMethod(){
+        // How to
+        Integer i = 0;
+        String str;
+        List<String> strList;
+        Set<String> s;
+        Map<ID, String> m;
+        public enum Season {WINTER, SPRING, SUMMER, FALL}
+   }
+}
+```
+
+Interface, Abstract and Virtual 
+
+Interface
+An Interface is a collection of unimplemented methods that must be implemented.
+
+```
+public interface Worker{
+   // Method's signature
+   DoubleincreaseWorkerSallary(Double currentSalarry);
+}
+
+// SEIDOR
+public class SEIDORWorker implements Worker{
+   public Double DoubleincreaseWorkerSallary(Double currentSalarry) {
+      return currentSalarry * 0.01;
+   }
+}
+
+// SEIDOR
+public class NTSWorker implements Worker{
+   public Double DoubleincreaseWorkerSallary(Double currentSalarry) {
+      return currentSalarry * 0.1;
+   }
+}
+
+// Because each class implements Worker interface, we can do something like that:
+Worker SEIDORWorker = new SEIDORWorkerWorker();
+Worker NTSWorker = new NTSWorkerWorker();
+```
+
+Abstract
+
+Abstract classes must be overriden and contains only signatures.
+- Abstract can Contain both Virtual and Abstract methods
+- Cannot be instantiated
+- Private access modifies cannot be used since child wont have access to it.
+
+```
+//Abstract Parent class
+public abstract class TestAbstractClass {
+
+    protected String test1;
+    public String test2;
+
+    TestAbstractClass() {}
+
+    TestAbstractClass(String test1, String test2) {
+       this.test1 = test1;
+       this.test2 = test2;
+    }
+
+    abstract public String myAbstractMethod();
+}
+```
+
+```
+public class ExampleClass extends TestAbstractClass {
+
+   ExampleClass(String test1, String test2) {
+     //Abstract class constructor can use super. 
+     //Remember! Abstract class cannot be initialized, 
+     //so this is the only scenario when we can use abstract class constructor!
+      super(test1, test2);
+   }
+
+   public String myAbstractMethod() {
+      return 'Abstract method implemented in child class!';
+   }
+}
+```
+Virtual
+
+Virtual classes have a body and can be overriden
+- Can be instantiated
+
+```
+private virtual class TestVirtualClass {
+   
+   protected String test1;
+   public String test2;
+
+   TestVirtualClass() {}
+
+   TestVitrualClass(Strint test1, String test2) {
+       this.test1 = test1;
+       this.test2 = test2;
+   }
+
+   public virtual String myVirtualMethod() {
+      return 'virtual method from virtual class';
+   }
+}
+```
+
+```
+public class ExampleClass extends TestVirtualClass {
+   
+   ExampleClass(String test1, String test2) {
+      //Virtual class constructor can use super. 
+      super(test1, test2);
+   }
+
+   public override String myVirtualMethod() {
+      return 'Virtual method overridden in child class!';
+   }  
+}
+```
 
 ### Given a scenario use and apply Apex control flow statements
 
@@ -675,10 +808,23 @@ Advanced Topics
 ### Given a scenario, follow best practices to write Apex classes and triggers.
 to-do
 
-Como definir correctamente una clase apex. Access modifier si , defintion modifier no
+This is the syntax for an Apex class definition:
+```
+private | public | global 
+[virtual | abstract | with sharing | without sharing] 
+class ClassName [implements InterfaceNameList] [extends ClassName] 
+{ 
+// The body of the class
+}
+```
+
+- Either public or global modifier has to be used
+- A class + 'className' is required
+- Definition Modifiers (virtual,abstract,...) are eligible
+- Extensions or implementations are eligible
+
 
 Definir clase estatica como, metodos estaticos etc
-
 Todas las anotaciones
 
 to-do safe navigation
@@ -686,6 +832,9 @@ to-do safe navigation
 ### Given a scenario, identify the implications of governor limits on Apex transactions
 
 ### Describe the relationship between Apex transactions, the save order of execution, and the potential for recursion and/or cascading
+
+ Infographic for Order of Execution
+![alt text](image-29.png)
 
 ### Implement exception handling in Apex, including custom exceptions as needed
 
@@ -831,10 +980,16 @@ The $<apex:pageBlockTable$> components are used to display rows of records in a 
 - VALUE ATTRIBUTEThe value attribute is used to set the listof records that <apex:pageBlockTable> can work with
 
 Como alternativa se puede usar $<apex:dataTable$>
+
 #### VisualForce Controllers
+
+A Visualforce controller is a set of instructions that specify what happens when a user interact with the components specified in associated Visaulforce makeup. Controllers also provide access to the data that should be displayed in a page, and can modify component behavior.
+
+Controller are available for every object that can be queried using the LP API.
+
 ![alt text](image-26.png)
 
-There are 2 types:
+There are 2 main types:
 - Standard
 - Custom
 
@@ -843,11 +998,44 @@ Custom controllers run in system mode and they run in system mode by default tha
 They can be initialized via sObject or queryLocator
 
 How to declare a Custom Controller
-```
-to-do snippet
+User's permissions and field-level security do not apply.
 
-recordar que si se definen 2 controller el primero manda sobre el resto
+Apex and Visualforce code for a Custom Controller
 ```
+public class MyController {
+
+    private final Account account;
+
+    public MyController() {
+        account = [SELECT Id, Name, Site FROM Account 
+                   WHERE Id = :ApexPages.currentPage().getParameters().get('id')];
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public PageReference save() {
+        update account;
+        return null;
+    }
+}
+```
+```
+<apex:page controller="MyController" tabStyle="Account">
+    <apex:form>
+        <apex:pageBlock title="Congratulations {!$User.FirstName}">
+            You belong to Account Name: <apex:inputField value="{!account.name}"/>
+            <apex:commandButton action="{!save}" value="save"/>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
+```
+
+A controller extension is to-do
+
+recordar que si se definen 2 controller extension el leftmost primero manda sobre el resto
+
 You can load thirparties such as with staticResources
 
 Visualforce pages can be renderes as pdf with renderAs='pdf'
@@ -858,36 +1046,56 @@ Profiles and roles can be consulted as global info
 ### Describe the Lightning Component framework, its benefits, and the types of content that can be contained in a Lightning web component
 
 
-Aura aplication can have standalone URL
+Aura aplication can have standalone URL so it can be consulted independently
+```
+<aura:application>
+  <c:myComponent />
+</aura:application>
+```
+### Given a scenario, prevent user interface and data access security Vulnerabilities
 
-standalone = true?
-vs component
-### Given a scenario, prevent user interface and data access security vulnerabilities
+What is XSS
+Salesforce implements filters that screen out harmful characters as an antiXSS defense. Nearly all tags escape the XSS vulnerable characters but it can be disabled with escape='false'
+
+Custom JS is not protected by Force.com as developer may customize their pages with script commands.
 
 PAGE 32 
 
-Enforcing Security for Object and Fields
+#### Enforcing Security for Object and Fields
 
 Object-level and field-level permissions can be enforced through code by explicitly using sObject and field describe result methods. The following describes some of these methods.
 
 
-OBJECT-LEVEL❖isAccessible()- returns true if current user can accessthe object.❖isCreateable()- returns true if current user can create records of the object.❖isUpdateable()- returns true if current user can update records of the object.❖isDeletable() - returns true if current user can delete records of the object.E.g: check if user has Delete permission on Lead object:Schema.sObjectType.Lead.isDeletable()
+OBJECT-LEVEL
+- ❖isAccessible()- returns true if current user can access the object.
+- ❖isCreateable()- returns true if current user can create records of the object.-
+- ❖isUpdateable()- returns true if current user can update records of the object.-
+- ❖isDeletable() - returns true if current user can delete records of the object.
 
-FIELD-LEVEL❖isAccessible()- returns true if current user can access the field of a record.❖isCreateable()- returns true if current user can set the value of the field for a new record.❖isUpdateable()- returns true if current usercan update the value of the field for an existing record.E.g: check if user can update the Company field on the Lead object:Schema.sObjectType.Lead.fields.Company.isUpdateable()
+E.g: check if user has Delete permission on Lead object:Schema.sObjectType.Lead.isDeletable()
+
+FIELD-LEVEL
+- ❖isAccessible()- returns true if current user can access the field of a record.
+- ❖isCreateable()- returns true if current user can set the value of the field for a new record.
+- ❖isUpdateable()- returns true if current usercan update the value of the field for an existing record.
+ 
+E.g: check if user can update the Company field on the Lead object:Schema.sObjectType.Lead.fields.Company.isUpdateable()
 
 ### Given a scenario, display and use a custom user interface components, including Lightning Components, Flow, and Visualforce
-
 
 Que es wire  
 
 Importante que el accountid se pasa con dolar $ 
 ### Describe the use cases and best practices for Lightning Web Component events
 to-do aqui leer el topic
+
+Types of Events:
+
+
 ### Given a scenario, implement Apex to work with various types of page components, including Lightning Components, Flow, Next Best Actions, etc.
 
 
 Dynamic Forms allow to break details into fields and sections
-
 
 
 ## Testing, Debugging and Deployment 
@@ -909,9 +1117,17 @@ Trace falgs y debug logs
 
 ### Describe the environments, requirements, and process for deploying code and associated configurations
 
-to-do sandbox types
+There are four types of sandboxes:
+- Developer
+- Developer Pro
+- Partial Copy Sandbox
+- Full Sandbox
 
-pueden crear managed packages:
+Sandbox Type | Refresh Interval | Storage Limit | What’s Copied | Sandbox Templates
+|-|-|-|-|-|
+|Developer |1 Day| 200MB for each Data and File|Metadata Only| Not Available|
+|Developer Pro|1 Day| 1GB for each Data and File|Metadata Only| Not Available|
+|Partial Copy Sandbox |5 Days| 5GB for  Data and File same as Production|Metadata and sample data| Required|
+|Full Sandbox |29    Days| Same as Production| Everything |Available|
 
-- Developer Edition
-- Partner developer edition
+Which organizations can create managed packages?
