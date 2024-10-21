@@ -623,6 +623,27 @@ public class myOuterClass {
 
 ### Given a scenario use and apply Apex control flow statements
 
+Semantica de if else
+
+The conditional statement in Apex works similarly to Java.
+```
+if ([Boolean_condition]) 
+    // Statement 1
+else
+    // Statement 2
+```
+
+```python
+Integer x, sign;
+// Your code
+if (x <= 0) {
+    if (x == 0) {
+           sign = 0; 
+    } else  {
+           sign = -1;
+    }
+}
+```
 ### Given a scenario write SOSL , SOQL and DML statements in Apex
 
 A SOQL query is the equivalent of a Select SQL statement and searches through the org database. SOSL is a programmatic way of performing a text-based search against the search index.
@@ -712,6 +733,18 @@ for (Database.SaveResult result : results) {
     }
 }
 ```
+
+Using SOQL for loop
+
+```Java
+String s = 'Acme';
+for (Account a : [SELECT Id, Name from Account
+                  where Name LIKE :(s+'%')]) {
+    // Your code
+}
+```
+
+SOQL for loops differ from standard SOQL statements because of the method they use to retrieve sObjects. While the standard queries discussed in SOQL and SOSL Queries can retrieve either the count of a query or a number of object records, SOQL for loops retrieve all sObjects, using efficient chunking with calls to the query and queryMore methods of SOAP API. Developers can avoid the limit on heap size by using a SOQL for loop to process query results that return multiple records. However, this approach can result in more CPU cycles being used. See Total heap size.
 ### Exercises 
 
 Advanced Topics
@@ -1097,6 +1130,10 @@ Profiles and roles can be consulted as global info
 
 ### Describe the Lightning Component framework, its benefits, and the types of content that can be contained in a Lightning web component
 
+Lightning Component Bundle contains:
+- JS Code
+- SVG File
+- CSS File
 
 Aura aplication can have standalone URL so it can be consulted independently
 ``` HTML
@@ -1141,6 +1178,20 @@ Custom JS is not protected by Force.com as developer may customize their pages w
 
 PAGE 32 
 
+Useful Methods
+
+Securely fetch images
+- IMAGEPROXYURL allows secure retrieval of external iamges and prevents unauthorized request for user credentials
+
+Use
+
+```
+<apex:image id="salesforce-twitter" 
+    value="{!IMAGEPROXYURL("https://pbs.twimg.com/profile_images/1014182734606897153/JfveQU3Z_400x400.jpg")}" 
+alt="Salesforce on Twitter" />
+```
+Can be used on src too
+
 #### Enforcing Security for Object and Fields
 
 Object-level and field-level permissions can be enforced through code by explicitly using sObject and field describe result methods. The following describes some of these methods.
@@ -1162,37 +1213,317 @@ FIELD-LEVEL
 E.g: check if user can update the Company field on the Lead object:Schema.sObjectType.Lead.fields.Company.isUpdateable()
 
 ### Given a scenario, display and use a custom user interface components, including Lightning Components, Flow, and Visualforce
-to-do
-Que es wire  
 
-``` 
-@wire getRecord 
+**Dynamic Forms vs Page Layouts: When to Use Each**
+Dynamic Forms: Use when you need to configure field and section visibility based on specific conditions (like user roles or record data). This allows for a more flexible and dynamic user experience by showing or hiding fields as needed.
+
+Page Layouts: Use when you need to assign different layouts to different profiles. Page Layouts are more static and control the overall structure of the page, but they do not offer conditional visibility of fields.
+
+Dynamic Forms provide more flexibility, while Page Layouts are useful for broader profile-based control.
+
+
+aura:attribute + design attribute
+``` html
+<design:component label="Hello World">
+    <design:attribute name="subject" label="Subject" description="Name of the person you want to greet" />
+    <design:attribute name="greeting" label="Greeting" />
+</design:component>
 ```
-Importante que el accountid se pasa con dolar $ 
+.cmp
+``` html
+<aura:application>
+    <aura:attribute name="subject" type="String" default="world"/>
+    Hello {!v.subject}!
+</aura:application>
+```
 
-NavigationMixin correct usage añadir snippet
+¿Qué es @wire y el uso de getRecord?
+@wire es una función en Lightning Web Components (LWC) que se utiliza para obtener datos de Salesforce de manera reactiva. Con @wire, los datos se pasan automáticamente a la propiedad o función definida cuando la variable o los parámetros cambian.
+
+El uso de @wire getRecord es común para obtener un registro de Salesforce de manera reactiva. Se utiliza con Apex o Lightning Data Service (LDS) para recuperar registros.
+
+``` javascript
+import { LightningElement, wire } from 'lwc';
+import { getRecord } from 'lightning/uiRecordApi';
+import ACCOUNT_ID_FIELD from '@salesforce/schema/Account.Id';
+
+export default class AccountInfo extends LightningElement {
+    accountId = '001xxxxxxxxxxxx';
+    
+    @wire(getRecord, { recordId: '$accountId', fields: [ACCOUNT_ID_FIELD] })
+    account;
+}
+```
+
+Importante: El prefijo $ indica que el valor de accountId es reactivo, lo que significa que cualquier cambio en accountId actualizará automáticamente los datos recuperados por @wire.
+
+Importancia del uso de **Value Providers** (v y c)
+En Aura Components, los Value Providers (v y c) se utilizan para acceder y trabajar con valores y controladores:
+
+- v (View Model): Proporciona acceso a los atributos de un componente (los valores que se definen en el archivo .cmp).
+
+Ejemplo:
+
+```xml
+<aura:attribute name="accountId" type="String" />
+<lightning:input value="{!v.accountId}" />
+```
+- c (Controller Actions): Proporciona acceso a los controladores de cliente definidos en el archivo de controlador JavaScript del componente, que se utilizan para ejecutar acciones desde el lado del cliente.
+
+Ejemplo:
+```xml
+<lightning:button label="Save" onclick="{!c.handleSave}" />
+```
+Estos Value Providers son clave para vincular los datos y la lógica en los componentes Aura.
+
+
+**NavigationMixin** se utiliza en Lightning Web Components (LWC) para navegar entre páginas en Salesforce, como registros, listas, y más, directamente desde el código.
+
+Ejemplo de Código: Navegar a un registro
+```javascript
+
+import { LightningElement } from 'lwc';
+import { NavigationMixin } from 'lightning/navigation';
+
+export default class NavigateToRecord extends NavigationMixin(LightningElement) {
+    navigateToRecordView() {
+        // Navegar a un registro específico
+        this[NavigationMixin.Navigate]({
+            type: 'standard__recordPage',
+            attributes: {
+                recordId: '001xxxxxxxxxxxx',  // ID del registro
+                objectApiName: 'Account',    // Nombre del objeto
+                actionName: 'view'           // Acción: ver el registro
+            }
+        });
+    }
+}
+```
+Explicación:
+Importación de NavigationMixin: Lo necesitas para usar las funciones de navegación.
+Uso de Navigate: this[NavigationMixin.Navigate]() te permite ir a un registro específico.
+Parámetros:
+type: El tipo de página, en este caso una página de registro (standard__recordPage).
+attributes: Contiene el ID del registro (recordId), el objeto (objectApiName), y la acción (en este caso, view para ver el registro).
+
 ### Describe the use cases and best practices for Lightning Web Component events
 to-do aqui leer el topic
 
 Types of Events:
+- Application Event
+  - When you want to communicate two independent events (meaning they have no parent-child relationship)
+
+Create the Event
+```
+<aura:event type=”APPLICATION” description=”Event template”>
+
+ <aura:attribute name=”parameter” type=”string”/> //declare the string attribute that you want to pass
+
+</aura:event>
+```
+Register the Event
+```
+/Component code
+
+<aura:registerEvent name=”cmpEvent” type=”c:Event_Name”/> // register the event
+
+<aura:attribute name=” UserName” type=”string”/> // attribute to be set as parameter value
+
+<lightning:input type=”text” name=”Name” label=” User Name” value=”{!v.UserName }”/> //taking input from the user
+
+<button onclick=”{!c.passParameter }”>Next</button> // call the JS controller method  to fire the event when the button is clicked
+
+// JS Controller code
+
+({   passParameter :function(component,event,helper) {
+
+        var evt = $A.get(“e.c:Event_Name “); // get the event instance created in step 1
+
+        evt.setParams({“parameter” : component.get(“v. UserName“)});  //set the parameter value as User Name
+
+        evt.fire(); // fire the event
+
+    }
+
+})
+```
+
+Now handle the fired event inside receiver B as shown below
+```
+// Component code
+
+<aura:handler event=”c:Event_Name ” action=”{!c.receiveParameter}”/> // handle the event fired by A by calling the JS controller method
+
+// JS Controller code
+
+({
+
+receiveParameter: function(component,event,helper) {
+
+    var valueRecieved = event.getParam(“parameter”);  //get the parameter value from event.  Now you can do your logic with the received value
+
+}
+
+})
+```
+
+Note that any component that has a handler for the firing event can receive the parameter from the event if the event type is ‘Application’.
+Component Event when 
+- When you want to propagate from child to parent
+- Sender will be the child and parent receiver
+
+Step 1: Create the event with the event type as ‘Component’.
+```
+<aura:event type=”COMPONENT” description=”Event template” >         
+
+<aura:attribute name=”parameter” type=”String”/> // declare the string attribute that you want to pass
+
+</aura:event>
+```
+Step 2:  Register the event in the sender component (child) and fire the event using the below code
+```
+// Component code
+
+<aura:component >
+
+   <aura:registerEvent name=”cmpEvent” type=”c:Event_Name “/>  // register the event
+
+<button onclick=”{!c.passParameter }”>Next</button> // call the JS controller method to fire the event when the button is clicked
+
+</aura:component>
+
+// JS Controller code
+
+({
+
+passParameter: function(cmp, event,helper) {
+
+var evt = $A.get(“e.c:Event_Name “); // get the event instance created in step 1
+
+evt .setParams({“parameter” : “A component event fired me “});  //set the parameter value
+
+evt .fire();  // fire the event
+
+   }
+
+})
+```
+Step 3:
+```
+// Component code
+
+   <aura:handler name=”cmpEvent” event=”c:Event_Name” action=”{!c.receiveParameter}”/>  // handle the event fired by A by calling the JS controller method
+
+// JS Controller code
+
+({
+
+receiveParameter: function(cmp, event) {
+
+   var valueRecieved = event.getParam(“parameter”);  //get the parameter value
+
+//The value received will be “A component event fired me”
+
+   }
+
+})
+```
+Otros aspectos de los events
+> Bubble Event
+>
+> Event.bubbles 
+>
+> A Boolean value indicating whether the event bubbles up through the DOM or not. Defaults to false.
+
+> Event.composed
+>
+> A Boolean value indicating whether the event can pass through the shadow boundary. Defaults to false.
+
+
+> System Event
+>
+>The framework fires several system events during its lifecycle.
+You can handle these events in your Lightning apps or components, and within the Salesforce mobile app.
+Remember that events load from the innermost component
+> AuraChild > AuraParent > MyAuraApplication
 
 To expose an event within a Custom Page use event and schema to-do
 
 ### Given a scenario, implement Apex to work with various types of page components, including Lightning Components, Flow, Next Best Actions, etc.
 
-
 Dynamic Forms allow to break details into fields and sections
-
 
 ## Testing, Debugging and Deployment 
 
 ### Write and execute tests for triggers, controllers, classes flows and processes using various sources of data
 
+Running test on the Dev Console offers an Overall Code Coverage panel with percentage of coverage for each class, allows to [Rerun Failed Tests], and if there are multiple classes on the run, test are run async.
+
+The suite manager allows to create a test suite with selected test classes but not methods.
+
 @testVisible for methods
 
-Datos disponibles en test
+Datos disponibles en test:
+- record types
+- profiles 
+- users
 
-record types, profiles y users
+Available methods for testing if errors are added to sObject
+```
+a.addError('Error','Error');
+System.assertEquals(a.hasErrors(),true);
+List<Database.Error> errors = a.getErrors();
+
+errors.size() -> 1
+```
+Classe Assert o System.assert
+
+Comparación Breve: System.assert vs Assert
+System.assert:
+
+Se usa para validar condiciones simples en pruebas.
+Métodos básicos: assert(), assertEquals(), y assertNotEquals().
+Ideal para pruebas rápidas y sencillas.
+Assert:
+
+Diseñada específicamente para escribir pruebas estructuradas.
+Ofrece más métodos como equals(), notEquals(), isTrue(), y isFalse().
+Más flexible y detallada para casos de prueba complejos.
+En resumen, Assert ofrece más herramientas y es preferida para pruebas más completas y avanzadas.
+
+Ejemplo de System.assert
+apex
+
+```java
+@isTest
+public class TestSystemAssert {
+    @isTest
+    static void testMethod() {
+        Integer result = 10;
+        System.assert(result == 10, 'El valor debería ser 10');
+        System.assertEquals(10, result, 'Los valores no coinciden');
+    }
+}
+```
+Ejemplo de Assert
+
+```java
+@isTest
+public class TestAssertClass {
+    @isTest
+    static void testMethod() {
+        Integer expected = 10;
+        Integer actual = 5 + 5;
+        
+        // Verifica que los valores sean iguales
+        Assert.equals(expected, actual, 'El valor esperado no coincide con el actual');
+        
+        // Verifica que la condición sea verdadera
+        Assert.isTrue(expected == actual, 'La condición debería ser verdadera');
+    }
+}
+```
+
 ### Knowdlegde Check
 
 ### Describe how to approach debugging system issues and monitoring flows, processes, and asynchronous and batch jobs, etc.
@@ -1210,6 +1541,15 @@ Automated process associated with the Process Builder, Workflow Rules and Assign
 Audit fields are:
 Created Date, Last Modified Date, Created By, Last Modified By.
 
+Debug Log categories are the next ones:
+- Apex Code
+- Apex Profilin
+- Callout
+- Database
+- System
+- Validation
+- Visualforce
+- Workflow
 
 Trace flags y debug logs
 
