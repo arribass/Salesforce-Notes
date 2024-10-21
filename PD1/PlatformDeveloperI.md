@@ -182,6 +182,7 @@ Classic Apps contain standard and custom tabs, which can include standard and cu
 
 A Lightning App can be created by navigating to App Manager in Setup. Once an app is created, it can be extended by adding objects and fields, using automation, defining Access Settings, adding Users, etc... Lightning App Builder can be used to update the app branding, navigation, and other options, and manage the Lightning pages assigned to the app.
 
+Can contain Standard components and GLobal Actions
 - New Lightning App Wizard
 
 When creating a new Lightning app using the App Manager, the app can be given a name, its primary color and logo can be set, app description can be added, and the type of navigation (standard or console) can be set. Form factors available for the app can be selected. The items that appear in the navigation bar can be selected. Utility items, like Recent Items, Notes, Dialer, To do list, and Open CTI, can be added to the utility bar. The app can be assigned to user profiles.
@@ -1214,6 +1215,10 @@ E.g: check if user can update the Company field on the Lead object:Schema.sObjec
 
 ### Given a scenario, display and use a custom user interface components, including Lightning Components, Flow, and Visualforce
 
+Retrive data from Payload.
+
+Hay que leer bien la estructura del JSON que emite el lightning message channel
+
 **Dynamic Forms vs Page Layouts: When to Use Each**
 Dynamic Forms: Use when you need to configure field and section visibility based on specific conditions (like user roles or record data). This allows for a more flexible and dynamic user experience by showing or hiding fields as needed.
 
@@ -1552,6 +1557,10 @@ Debug Log categories are the next ones:
 - Workflow
 
 Trace flags y debug logs
+
+Trace Flags are assigned to debug levels to activate debug logs for users and Apex Classes and Triggers
+
+They contain debug level, start and end time and log type
 
 ### Given a scenario, know how and when to use the Salesforce Developer tools such as Salesforce DX, Salesforce CLI, and Developer Console
 to-do2 repasar con chatgpt 
