@@ -7,16 +7,7 @@
 | 0.2     | 29/04/2024   |Organizado y añadido cosas de Examenes FoF|
 | 0.3     | 16/09/2024   |Añadida la guía de estudio.|
 | 0.4     | 23/09/2024   |Terminado Dev Fundamentals Topic I.|
-
-## Status estudio
-
-<!-- TABLA -->
-| Tema | Porcentaje |
-| ---  | ---        |
-| User Interface | 53% |
-| Developer Fundamentals | 64.29% |
-| Testing, Debugging, and Deployment | 76.92% |
-| Process Automation and Logic | 88.89% |
+|1.0|22/10/2024| Aprobado examen con 74%|
 
 ## Introducción
 El examen de Salesforce Platform Developer I es un examen que evalúa los conocimientos de un desarrollador de Salesforce. En este documento se recogen los conceptos más importantes que se deben conocer para aprobar el examen.
@@ -36,13 +27,20 @@ Por una parte los topics son resumenes o transcripciones de la guia de estudio d
 |User Interface	                    |25%        |
 |Testing, Debugging, and Deployment |22%        |
 
+<!-- TABLA -->
+| Tema | Porcentaje |
+| ---  | ---        |
+| User Interface | 53% |
+| Developer Fundamentals | 64.29% |
+| Testing, Debugging, and Deployment | 76.92% |
+| Process Automation and Logic | 88.89% |
+
 ## Indice 
 
 - Dev Fundamentals
 - Process Automation and Logic ( Declarative, Apex, Advanced)
 - User Interface
 - Testing, Debugging and Deployment
-
 
 ## Developer Fundamentals
 
