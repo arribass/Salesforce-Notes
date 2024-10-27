@@ -39,3 +39,9 @@ Status
 | Data Modeling and Management          | 0%         |
 | User Interface                        | 0%         |
 | App Deployment                        | 0%         | 
+
+## Business Logic and Process Automation
+## Salesforce Fundamentals  
+## Data Modeling and Management
+## User Interface
+## App Deployment
