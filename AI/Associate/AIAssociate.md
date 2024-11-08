@@ -102,6 +102,56 @@ For AI Associate you **DONT** need to know how to implement these tools into you
 - Einstein Discovery needs at least 400 rows with outcome values to build a model, more than one driving variables, and the more relevant historical data, the better.
 
 ## AI Fundamentals
+
+There is different kind of intelligences. Some AIs are good for one task but they are inept for others.
+
+**Numeric Predictions**
+- Is the customer likely to renew their subscription?
+- Are you at risk for a medical condition?
+- Will there be high demand on the power grid this evening?
+
+**Classification**
+First step in taking action to derive value generally.
+- Is this plant edible or poisonous?
+- Is this email phishing or legitimate?
+
+**Robotic Navigation**
+Navigate a changing environment.
+
+**Supply Chain Optimization**
+Optimize a supply chain.
+
+**Language Processing**
+Natural Language Processing (NLP) converts words into structured information.
+
+**Terms**
+
+- **Machine Learning**: Computers learn through data patterns, not explicitly defined algorithms.
+  
+- **Data**: 
+  - Structured Data (e.g., Spreadsheets) vs Unstructured (Text, Audio, Images).
+  
+- **Learning**: 
+  - Supervised vs Unsupervised Learning.
+
+- **Neural Networks**: Systems mimicking human brain structures.
+
+- **Natural Language Understanding and Processing (NLU, NLP, NLG)**:
+  - NLP vs NLU: NLP processes language, while NLU focuses on understanding context.
+  - **BONUS**: NLU enhances human-machine interaction.
+
+- **Named Entity Recognition (NER)**: Identifies specific entities within text.
+
+- **Deep Learning**: Large neural networks for complex pattern recognition.
+
+**Common Concerns on Generative AI**
+- Hallucinations
+- Data Security
+- Plagiarism
+- User Spoofing
+- Sustainability
+
+
 ## Data for AI
 BIAS
 ## Ethical Considerations of AI
@@ -148,11 +198,11 @@ Automation vs Augmentation... finding the balance
 Develop right sized models
 
 ### Trusted AI Principles
+
 1. Responsible
 2. Accountable
 3. Transparent
 4. Empowering
 5. Inclusive
-
 
 ![alt text](image.png)
