@@ -153,7 +153,34 @@ Natural Language Processing (NLP) converts words into structured information.
 
 
 ## Data for AI
-BIAS
+
+**What is Data**
+
+Data are individual facts, or items of information. A collection of data is a collections of facts.
+
+Quantitative vs Qualitative 
+
+- Quantitative: Data expressed in numbers (e.g., statistics, measurements) used for objective analysis.
+
+- Qualitative: Descriptive data capturing characteristics or qualities (e.g., country of origin, name, hair color). It provides insights through subjective interpretation, not numeric measurement.
+  - Ordinal: Can be ordered such as case priority
+  - Nominal: Cannot be ordered for example the Contact salutation picklist
+
+Good Data Traits
+
+| **Característica**          | **Descripción**                                                                                                                        |
+|-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **High Volume**             | A large amount of relevant, available data means that there’s a better chance you'll have what you need to answer your questions.                                      |
+| **Historical**              | Data that goes back in time allows you to see how the present situation arose due to patterns that have arisen over time, such as looking at sales trends over the last 10 years to see increases or decreases. |
+| **Consistent**              | As things change, data should be adjusted for consistency. Salary and price data adjusted for inflation is a good example of this.                                    |
+| **Multivariate**            | Data should contain both quantitative (numerically measurable) and qualitative (characteristic, not numerically measurable) variables. The more variables in the data, the more you can discover from it. |
+| **Atomic**                  | The more finely detailed the data, the more you are able to examine it at various levels of detail.                                                                   |
+| **Clean**                   | For data to be useful, it should be accurate, complete, and free from errors.                                                                                        |
+| **Clear**                   | Data should be written in terms that can be easily understood, not in code. For example, housing values “single family” is much easier to understand than “1Fam”.     |
+| **Dimensionally Structured**| An accessible way to structure data is to organize it into two types: Dimensions (qualitative values) and Measures (quantitative values). This is the organizational structure Tableau uses when interpreting data. |
+| **Richly Segmented**        | Groups, based on similar characteristics, should be built into data for easier analysis. For example, data about movies could be grouped by genre (action, science fiction, romance, comedy, and so on). |
+| **Of Known Pedigree**       | In order to trust the data, you should know its background—where it comes from and how it has since been altered.                                                     |
+
 ## Ethical Considerations of AI
 
 When talking about inclusive design of AI we think about 3 things:
