@@ -181,6 +181,25 @@ Good Data Traits
 | **Richly Segmented**        | Groups, based on similar characteristics, should be built into data for easier analysis. For example, data about movies could be grouped by genre (action, science fiction, romance, comedy, and so on). |
 | **Of Known Pedigree**       | In order to trust the data, you should know its background—where it comes from and how it has since been altered.                                                     |
 
+**Data Aggregation**
+
+Data can be aggregated
+| **Aggregation Function** | **Description**                                                                                                                    |
+|--------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| **Sum**                  | Calculates the total sum of a set of values. Useful for obtaining overall totals, like total sales or revenue.                     |
+| **Mean**                 | Calculates the average value of a data set. Helps determine the central tendency, such as the average price of products.           |
+| **Minimum**              | Finds the lowest value in a data set. Useful for identifying the smallest value, like the shortest delivery time.                  |
+| **Maximum**              | Finds the highest value in a data set. Helps identify the largest value, like the highest sale of the month.                       |
+| **Count**                | Counts the number of elements in a data set. Useful for understanding frequency or quantity, such as the number of orders.         |
+| **Median**               | Finds the central value in an ordered data set, splitting it into two equal halves. Useful in data analysis when the mean may be skewed by outliers. |
+
+
+**Data visualization con Tableau**
+
+Bonus
+
+Get Granular
+
 ## Ethical Considerations of AI
 
 When talking about inclusive design of AI we think about 3 things:
