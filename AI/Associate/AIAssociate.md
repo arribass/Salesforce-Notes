@@ -1,6 +1,7 @@
 # Salesforce AI Associate
 <!-- Versiones -->
-<!-- tabla de versiones -->
+## Autor: Adrian Arribas
+Basado en este video: https://www.youtube.com/watch?v=bzFOLG0GzMA
 | Version | Fecha | Descripción |
 | ---     | ---      | ---         |
 | 0.1     | 29/04/2024   | Documento de estudio para el examen de Salesforce AI Associate|
@@ -93,7 +94,6 @@ Next Best Actions are Ruled Based and Predictive Models that provide anyone in y
 Allows business to generate personalized and relevant content by grounding LLMS(Large Language Models) in their CRM data safely and securely using conversational intelligence to help you close deals faster, resolve service inquiries faster etc...
 
 For AI Associate you **DONT** need to know how to implement these tools into your platform but why would you use them and the circumstances.
-
 
 ### Bonus Tips
 
