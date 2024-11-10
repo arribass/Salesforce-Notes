@@ -2,6 +2,7 @@
 <!-- Versiones -->
 ## Autor: Adrian Arribas
 Basado en este video: https://www.youtube.com/watch?v=bzFOLG0GzMA
+Preguntas de examen aqui: https://www.examtopics.com/exams/salesforce/certified-ai-associate/view/1/
 | Version | Fecha | Descripción |
 | ---     | ---      | ---         |
 | 0.1     | 29/04/2024   | Documento de estudio para el examen de Salesforce AI Associate|
