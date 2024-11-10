@@ -154,19 +154,19 @@ Natural Language Processing (NLP) converts words into structured information.
 
 ## Data for AI
 
-**What is Data**
+### What is Data
 
 Data are individual facts, or items of information. A collection of data is a collections of facts.
 
-Quantitative vs Qualitative 
+**Quantitative vs Qualitative** 
 
-- Quantitative: Data expressed in numbers (e.g., statistics, measurements) used for objective analysis.
+- **Quantitative**: Data expressed in numbers (e.g., statistics, measurements) used for objective analysis.
 
-- Qualitative: Descriptive data capturing characteristics or qualities (e.g., country of origin, name, hair color). It provides insights through subjective interpretation, not numeric measurement.
+- **Qualitative**: Descriptive data capturing characteristics or qualities (e.g., country of origin, name, hair color). It provides insights through subjective interpretation, not numeric measurement.
   - Ordinal: Can be ordered such as case priority
   - Nominal: Cannot be ordered for example the Contact salutation picklist
 
-Good Data Traits
+### Good Data Traits
 
 | **Característica**          | **Descripción**                                                                                                                        |
 |-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -183,7 +183,7 @@ Good Data Traits
 
 **Data Aggregation**
 
-Data can be aggregated
+Data can be aggregated by different groups or categories
 | **Aggregation Function** | **Description**                                                                                                                    |
 |--------------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | **Sum**                  | Calculates the total sum of a set of values. Useful for obtaining overall totals, like total sales or revenue.                     |
@@ -193,12 +193,52 @@ Data can be aggregated
 | **Count**                | Counts the number of elements in a data set. Useful for understanding frequency or quantity, such as the number of orders.         |
 | **Median**               | Finds the central value in an ordered data set, splitting it into two equal halves. Useful in data analysis when the mean may be skewed by outliers. |
 
+### BIAS Types
 
-**Data visualization con Tableau**
+- Association Bias: Data labeled based on stereotypes (e.g., "toys for girls" = dolls, "toys for boys" = action figures), reinforcing biased categories.
+- Confirmation Bias: Data reinforces pre-existing ideas (e.g., online recommendations based on past purchases, which further shape future choices and reinforce stereotypes).
+- Automation Bias: A system's values are imposed on others, such as AI in a beauty contest favoring certain features due to biased training data (e.g., mostly white women), or Kodak’s historical use of a white employee for photo calibration.
+- Societal Bias: Historical prejudices, like redlining, are reflected in data, influencing modern decision-making (e.g., using zip codes in algorithms could indirectly factor in race or socioeconomic status).
+- Survivorship Bias: Focusing only on the success stories or those who survived a process, neglecting those who didn’t (e.g., hiring practices where only successful candidates are considered).
+- Interaction Bias: Humans intentionally or unintentionally influence AI systems, creating biased results (e.g., teaching chatbots bad language).
 
-Bonus
+**Data Visualization with Tableau: Tools and Features**
 
-Get Granular
+1. **Tableau Desktop**  
+   - The primary tool for creating interactive visualizations and dashboards on PC/Mac.
+   - Connects to a wide variety of data sources (databases, files, web, etc.).
+   - Advanced analysis and customization features for visualizations.
+
+2. **Tableau Server / Tableau Online**  
+   - Tableau Server is an enterprise collaboration platform where users can share, edit, and collaborate on visualizations and dashboards.
+   - Tableau Online is the cloud-based version of Tableau Server, allowing users to access dashboards from anywhere.
+
+3. **Tableau Mobile**  
+   - Mobile app for iOS and Android, enabling users to interact with dashboards created in Tableau.
+   - Provides features for visualization, data exploration, and real-time alerts.
+
+4. **Tableau Prep**  
+   - A tool designed for preparing data before analysis.
+   - Allows for data cleaning, transformation, and combination in a visual manner, simplifying the preparation process.
+
+5. **Tableau Public**  
+   - A free version of Tableau that allows users to create and publish visualizations to the web.
+   - Ideal for personal, academic, or public-facing projects.
+
+6. **Tableau Bridge**  
+   - A tool that securely connects local data with Tableau Online, enabling data synchronization in the cloud without needing to move the data.
+
+7. **Tableau Extensions**  
+   - Allows integration of additional functionalities within Tableau, such as custom actions, widgets, and extended capabilities through APIs and community-created extensions.
+
+8. **Tableau Hyper**  
+   - Tableau’s high-performance database engine, used for handling large volumes of data quickly and efficiently.
+
+
+Bonus from Video
+
+
+Get Granular on data by having atomic and individualized data.
 
 ## Ethical Considerations of AI
 
@@ -220,10 +260,24 @@ Focus on whats universally important to all humans
 
 1. Accuracy 
 
-Balance:
-- Accuracy
-- Precision
-- Recall
+1. **Accuracy**  
+   - **Definition**: The proportion of correct predictions (both true positives and true negatives) out of all predictions made.
+   - **Formula**:  
+     Accuracy = (True Positives + True Negatives) / Total Predictions
+   - **Usage**: Accuracy is often used as a general measure of model performance, but it can be misleading when the dataset is imbalanced.
+
+2. **Precision**  
+   - **Definition**: The proportion of true positive predictions out of all the positive predictions made by the model. It measures the accuracy of the positive predictions.
+   - **Formula**:  
+     Precision = True Positives / (True Positives + False Positives)
+   - **Usage**: Precision is particularly important when the cost of false positives is high (e.g., in spam email detection, where misclassifying a legitimate email as spam is costly).
+
+3. **Recall**  
+   - **Definition**: The proportion of true positive predictions out of all actual positives in the dataset. It measures how well the model identifies all relevant instances.
+   - **Formula**:  
+     Recall = True Positives / (True Positives + False Negatives)
+   - **Usage**: Recall is crucial when the cost of false negatives is high (e.g., in medical diagnostics, where missing a positive case is risky).
+
 
 1. Safety
 
