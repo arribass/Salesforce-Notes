@@ -50,11 +50,22 @@ Decide on:
 
 Apex Email Handler
 ## Data Modeling and Management
-## Given a scenario determine the appropriate data model
+
+
+### Given a scenario determine the appropriate data model
+
+Person Account cannot have hierarchical structure
 ### Given a scenario, determine the considerations when selecting or changing a field data type
+
+All Types of fields:
+
 
 Case Picklist to Multipicklist
 values retain
+
+### Given a scenario, determine the options and considerations when importing and exporting data, including the capabilities of external data sources.
+
+Loading restricted picklist
 
 ## User Interface
 
