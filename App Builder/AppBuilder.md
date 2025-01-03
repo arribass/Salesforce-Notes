@@ -49,6 +49,11 @@ Decide on:
 
 
 Apex Email Handler
+
+### Identify the features and capabilities available when creating reports, report types and dashboards
+
+Snapshots que son
+
 ## Data Modeling and Management
 
 
@@ -77,7 +82,9 @@ Sandbox Refreshing
 - Interval
 
 ### Given a scenario, determine the appropriate deployment plan
+
 What is staging
+
 ### Given a set of business requirements, recommend a solution for key milestones and considerations when managing the application lifecycle and various types of sandboxes
 
 Release Environments:
@@ -90,11 +97,21 @@ Release Environments:
 Logging on to Sandbox environments
 
 Sandbox Templates
-### Given a case, demonstrate knowledge, viability and troubleshooting when using change sets
+### Given a use case, demonstrate knowledge, viability and troubleshooting when using change sets
 
 Inbound and outbound 
 
 production org
+
+Best Practices for change sets
+1. Deploy all dependent components
+2. Add permissions and access settings to outbound change set
+3. Clone a change set to add dependent components to an uploaded change set
+4. Use distinct names for global publisher layouts and Outlook publisher layouts
+5. Plan deployments around maintenance schedule
+6. Validate change sets before deployment
+7. View component details
+
 ### Describe the capabilities and consideration when using change set
 Quick deploy
 run specified tests
