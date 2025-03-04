@@ -74,6 +74,8 @@ Loading restricted picklist
 
 ## User Interface
 
+### Describe the user interface customization options.
+
 ## App Deployment
 Sandboxes types
 This topic relies on how to maintain your application up to date between different environments.
