@@ -301,10 +301,23 @@ Develop right sized models
 
 ### Trusted AI Principles
 
-1. Responsible
-2. Accountable
-3. Transparent
-4. Empowering
-5. Inclusive
+# Términos de Salesforce AI Associate
+
+### 1. **Responsible (Responsable)**  
+**Responsible** significa que la inteligencia artificial debe diseñarse y utilizarse de manera ética, considerando el impacto en los usuarios y en la sociedad. Esto implica evitar sesgos, garantizar la equidad y seguir principios de IA confiable.  
+
+### 2. **Accountable (Responsabilidad o Rendición de cuentas)**  
+**Accountability** significa que las organizaciones y desarrolladores deben asumir la responsabilidad de cómo se usa la IA, asegurando que haya supervisión humana en las decisiones importantes y que existan mecanismos para corregir errores o impactos negativos.  
+
+### 3. **Transparent (Transparente)**  
+**Transparency** significa que los sistemas de IA deben ser comprensibles para los usuarios. Salesforce enfatiza que los usuarios deben conocer cómo y por qué la IA toma ciertas decisiones, asegurando explicabilidad y claridad en sus modelos.  
+
+### 4. **Empowering (Empoderamiento)**  
+**Empowering** en este contexto significa dar herramientas accesibles a los usuarios para que puedan crear y utilizar IA sin necesidad de conocimientos avanzados en programación. Salesforce AI permite a los usuarios generar modelos de IA mediante herramientas de bajo código o sin código, democratizando el acceso a la inteligencia artificial.  
+
+### 5. **Inclusive (Inclusivo)**  
+**Inclusivity** significa que la IA debe ser accesible y útil para todos, sin importar su origen, nivel técnico o capacidades. Salesforce promueve el desarrollo de IA que funcione para diversas comunidades, reduciendo sesgos y asegurando que todos los usuarios puedan beneficiarse de sus capacidades.  
+
+Estos principios forman parte de la filosofía de **IA responsable de Salesforce**, asegurando que la tecnología sea ética, accesible y beneficiosa para todos.
 
 ![alt text](image.png)
