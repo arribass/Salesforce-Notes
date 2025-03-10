@@ -69,12 +69,30 @@ Por una parte los topics son resumenes o transcripciones de la guia de estudio d
 9: There were a few weird questions about using Rest, Soap or Metadata API.
 
 ## Einstein Trust Layer  
+
+https://help.salesforce.com/s/articleView?id=ai.generative_ai_trust_layer.htm&language=en_US&type=5
+
 El Einstein Trust Layer es crucial para garantizar la seguridad, privacidad y uso ético de la IA dentro de Salesforce. Se evaluará:
 
 - **Características de Seguridad**: Comprensión de cómo Einstein protege los datos mediante encriptación, controles de acceso y otras medidas de seguridad.
 - **Cumplimiento de Privacidad**: Conocimiento de las leyes de privacidad de datos y cómo Salesforce cumple con normativas como el GDPR.
 - **Características de Grounding**: Implementación de modelos de IA de manera que sus resultados sean confiables y explicables para los usuarios finales.
 - **Gestión del Trust Layer**: Dominio en la configuración y monitoreo del Einstein Trust Layer para asegurar la integridad de los datos y minimizar el sesgo en los resultados de IA.
+
+
+**Zero-Data Retention Policy**:
+
+Data is not retained by third party LLMs. Salesforce partners with OpenAI and Azure Open AI to enforce the Zero-Data Retention Policy.
+- No data is used for LLM training or product improvement by third-party LLMs.
+- No data is retained by third-party LLMs.
+- No human being at the third-party LLM provider can access the data.
+
+**Dynamic Grounding with Secured Data Retrieval:**
+
+Qué es Grounding? Dentro del contexto de la IA Generativa, grounding se refiere al proceso de dotar a los modelos de lenguaje de información específica del caso de uso, la cual es relevante pero no está disponible en su conocimiento preexistente.
+
+- Relevant Data from a Salesforce record is merged with the prompt to provide context.
+- 
 
 ## Generative AI en Aplicaciones CRM  
 Esta sección se centra en el uso de IA generativa de Salesforce en los contextos de Ventas y Servicios. Las preguntas cubren:
