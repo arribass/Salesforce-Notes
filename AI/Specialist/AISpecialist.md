@@ -6,6 +6,9 @@
 | 0.1     | 29/04/2024   | Documento de estudio para el examen de Salesforce AI Associate|
 
 [Preguntas examen](https://www.apexhours.com/salesforce-certified-ai-specialist-exam-practice-questions/#h-free-salesforce-certified-ai-specialist-exam-practice-questions)
+
+https://help.salesforce.com/s/articleView?id=ai.generative_ai.htm&type=5
+
 ## Introducción
 to-do cambiar
 El examen de Salesforce Platform Developer I es un examen que evalúa los conocimientos de un desarrollador de Salesforce. En este documento se recogen los conceptos más importantes que se deben conocer para aprobar el examen.
@@ -14,9 +17,9 @@ Por una parte los topics son resumenes o transcripciones de la guia de estudio d
 
 | Concepto  | Descripción |
 | ---       | ---         |
-| Scoring| 65%         |
+| Scoring| 73%         |
 | Time    | 70 minutes |
-| Questions | 40          |
+| Questions | 60          |
 
 | Syllabus                           | Weightage |
 | ---                                | ---       |
@@ -46,6 +49,24 @@ Por una parte los topics son resumenes o transcripciones de la guia de estudio d
 - For most questions, you can easily eliminate one incorrect answer. While the passing score is high, this helps balance the difficulty. 
 - Some questions have two very close answer options, designed to confuse you—so pay attention!
 - **Einstein Trust Layer** and **Sales and Service features** are areas where you can easily score well if you’ve studied the Trailheads properly.
+
+1: The exam has 60 Questions, with each question have three answers passmark is 73%
+
+2: The exam is heavily weighted to the prompt builder
+
+3: Lot of questions about the actual names of solutions
+
+4: Some questions about Hyperparamaters for models
+
+5: Difficulty level of exam: Hardier that AI associate but a bit easier than data cloud consultant.
+
+6: Understand the Standard Co-Pilot Actions
+
+7: Understand what the different groundings are
+
+8: Understand the different prompt templates and when to use.
+
+9: There were a few weird questions about using Rest, Soap or Metadata API.
 
 ## Einstein Trust Layer  
 El Einstein Trust Layer es crucial para garantizar la seguridad, privacidad y uso ético de la IA dentro de Salesforce. Se evaluará:

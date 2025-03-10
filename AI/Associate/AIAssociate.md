@@ -26,7 +26,7 @@ The Salesforce AI Associate exam evaluates foundational knowledge in AI within t
 
 ## AI Capabilities in CRM
 
-Categories fpr the capabilities:
+Categories for the capabilities:
 - Discovery Insights, clarity about Company customer
 - Make Prediction Outcomes
 - Recommend the best action

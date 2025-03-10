@@ -37,32 +37,30 @@ What is a potential source of bias in training data for AI models?
 - B. The data is collected from a diverse range of sources and demographics.
 - **C. The data is skewed toward a particular demographic or source. Most Voted**
 
-Question #21Topic 1
 Which Einstein capability uses emails to create content for Knowledge articles?
 
-A. Predict
-B. Discover
-C. Generate
- 
-Question #22Topic 1
+- A. Predict
+- B. Discover
+- C. Generate
+
 A system admin recognizes the need to put a data management strategy in place.
 What is a key component of a data management strategy?
 
-A. Naming Convention
-B. Color Coding
-C. Data Backup
+- A. Naming Convention
+- B. Color Coding
+- C. Data Backup
  
 Question #23Topic 1
 How does a data quality assessment impact business outcomes for companies using AI?
 
-A. Provides a benchmark for AI predictions
-B. Accelerates the delivery of new AI solutions
-C. Improves the speed of AI recommendations
+- A. Provides a benchmark for AI predictions
+- B. Accelerates the delivery of new AI solutions
+- C. Improves the speed of AI recommendations
  
 Question #24Topic 1
 What is an example of ethical debt?
 
-A. Violating a data privacy law and failing to pay fines
-B. Delaying an AI product launch to retrain an AI data model
-C. Launching an AI feature after discovering a harmful bias
+- A. Violating a data privacy law and failing to pay fines
+- B. Delaying an AI product launch to retrain an AI data model
+- C. Launching an AI feature after discovering a harmful bias
  
