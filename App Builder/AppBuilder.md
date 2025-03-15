@@ -41,18 +41,36 @@ Status
 | App Deployment                        | 0%         | 
 
 ## Business Logic and Process Automation
+
+### Given a scenario, determine the capabilities and use cases for approval processes
+
+Approval Process
+
+What is an approval process?
+- Automated process for approving records in Salesforce
+- Define the steps necessary for a record to be approved
 ## Salesforce Fundamentals
 
 Decide on:
 - when and why to pick an existing Salesforce Solution or search on the AppExchange.
 - Which type of Solution to be chosen. Flow or Trigger.
 
-
 Apex Email Handler
 
 ### Identify the features and capabilities available when creating reports, report types and dashboards
 
 Snapshots que son
+### Apply features and capabilities available to restrict and extend object, record and field access
+
+- Org Access
+
+- Object Access
+- Record Access
+- Field Access
+
+### Describe the customizations and uses cases for Chatter
+
+Chatter is a collaboration tool that allows users to communicate with each other in real time. It is integrated with Salesforce and can be used to share information, files, and updates with other users.
 
 ## Data Modeling and Management
 

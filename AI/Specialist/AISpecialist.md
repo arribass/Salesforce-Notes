@@ -29,11 +29,11 @@ Por una parte los topics son resumenes o transcripciones de la guia de estudio d
 | Einstein Copilot                    | 23%       |
 | Model Builder                       | 8%        |
 
-## Certification Passed Tips
+### Certification Passed Tips
 
 1. **Number of Questions**: The exam has 60 questions, each with three answer options. The pass mark is 73%.
 2. **Exam Focus**: The exam is heavily weighted towards the **Prompt Builder**.
-3. **Naming Conventions**: There are many questions about the actual names of solutions.
+3. **Naming Conventions**: Lot of questions about the actual names of solutions.
 4. **Hyperparameters**: Some questions address **Hyperparameters** for models.
 5. **Difficulty Level**: The exam is more challenging than the AI Associate certification but slightly easier than the Data Cloud Consultant certification.
 6. **Standard Co-Pilot Actions**: Understand the **Standard Co-Pilot Actions** thoroughly.
@@ -41,7 +41,7 @@ Por una parte los topics son resumenes o transcripciones de la guia de estudio d
 8. **Prompt Templates**: Be familiar with the various **Prompt Templates** and when to use them.
 9. **API Questions**: Expect a few questions related to using **REST**, **SOAP**, or **Metadata API**.
 
-## Additional Tips
+### Additional Tips
 
 - Don’t just rely on Trailhead—do as much **hands-on practice** as possible.
 - There are lots of **troubleshooting questions**, like "If X doesn’t work, what steps would you recommend?"
@@ -49,24 +49,6 @@ Por una parte los topics son resumenes o transcripciones de la guia de estudio d
 - For most questions, you can easily eliminate one incorrect answer. While the passing score is high, this helps balance the difficulty. 
 - Some questions have two very close answer options, designed to confuse you—so pay attention!
 - **Einstein Trust Layer** and **Sales and Service features** are areas where you can easily score well if you’ve studied the Trailheads properly.
-
-1: The exam has 60 Questions, with each question have three answers passmark is 73%
-
-2: The exam is heavily weighted to the prompt builder
-
-3: Lot of questions about the actual names of solutions
-
-4: Some questions about Hyperparamaters for models
-
-5: Difficulty level of exam: Hardier that AI associate but a bit easier than data cloud consultant.
-
-6: Understand the Standard Co-Pilot Actions
-
-7: Understand what the different groundings are
-
-8: Understand the different prompt templates and when to use.
-
-9: There were a few weird questions about using Rest, Soap or Metadata API.
 
 ## Einstein Trust Layer  
 
@@ -91,8 +73,17 @@ Data is not retained by third party LLMs. Salesforce partners with OpenAI and Az
 
 Qué es Grounding? Dentro del contexto de la IA Generativa, grounding se refiere al proceso de dotar a los modelos de lenguaje de información específica del caso de uso, la cual es relevante pero no está disponible en su conocimiento preexistente.
 
+En salesforce grounding es (Context + Permissions + Data)
+
 - Relevant Data from a Salesforce record is merged with the prompt to provide context.
-- 
+- Secure data retrieval of Salesforce data for grounding the prompt based on the permissions of the user executing the prompt.
+- Secure data retrieval preserves in place all standard Salesforce role-based controls for user permissions and field-level security when merging grounding data from your CRM instance or Data Cloud.
+
+**Prompt Defense**
+
+Que son las hallucinations? 
+- System policies help limit hallucinations and decrease the likelihood of unintended or harmful outputs by the LLM.
+- System policies can vary for different generative AI features and use cases.
 
 ## Generative AI en Aplicaciones CRM  
 Esta sección se centra en el uso de IA generativa de Salesforce en los contextos de Ventas y Servicios. Las preguntas cubren:
