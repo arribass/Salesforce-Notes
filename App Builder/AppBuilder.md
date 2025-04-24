@@ -37,6 +37,7 @@ Los temas están organizados de acuerdo a la guía oficial de estudio y se inclu
     - [Given a set of requirements, determine the appropriate global, object-specific actions and layouts to optimize the Salesforce mobile user experience](#given-a-set-of-requirements-determine-the-appropriate-global-object-specific-actions-and-layouts-to-optimize-the-salesforce-mobile-user-experience)
     - [Identify common scenarios for extending an org using AppExchange apps.](#identify-common-scenarios-for-extending-an-org-using-appexchange-apps)
     - [Apply features and capabilities available to restrict and extend object, record and field access](#apply-features-and-capabilities-available-to-restrict-and-extend-object-record-and-field-access)
+    - [Given a set of business requirements, determine the appropriate sharing solution.](#given-a-set-of-business-requirements-determine-the-appropriate-sharing-solution)
     - [Describe the customizations and uses cases for Chatter](#describe-the-customizations-and-uses-cases-for-chatter)
   - [Business Logic and Process Automation](#business-logic-and-process-automation)
     - [Given a scenario, demonstrate the use of formula fields to meet stated business requirements](#given-a-scenario-demonstrate-the-use-of-formula-fields-to-meet-stated-business-requirements)
@@ -72,7 +73,7 @@ Apex Email Handler
 
 ### Identify the features and capabilities available when creating reports, report types and dashboards
 
-Snapshots que son
+Snapshots are used to capture the state of a report at a specific point in time. This can be useful for tracking changes in data over time or for creating historical reports.
 
 ### Given a set of requirements, determine the appropriate global, object-specific actions and layouts to optimize the Salesforce mobile user experience
 
@@ -82,7 +83,17 @@ Mobile Navigation
   
 ### Identify common scenarios for extending an org using AppExchange apps.
 
+What is AppExchange?
+
+![alt text](image-8.png)
+
+AppExchange is a marketplace for Salesforce applications and components. It allows users to find, install, and customize applications that extend the functionality of Salesforce.
+
 ### Apply features and capabilities available to restrict and extend object, record and field access
+
+Profiles: Profiles are used to define the permissions and access levels for users in Salesforce. They determine what users can see and do in the system.
+
+Permission Sets: Permission sets are used to grant additional permissions to users beyond what is defined in their profile. They can be used to give users access to specific objects, fields, and records without changing their profile.
 
 A User can get delete access to a record if the user via Profile or permission set.
 
@@ -92,9 +103,11 @@ A User can get delete access to a record if the user via Profile or permission s
 - Record Access
 - Field Access
 
-What are scoping rules?
+**What are scoping rules?**
 
+Scoping rules are used to determine which records are included in a report or dashboard. They can be used to filter records based on specific criteria, such as record type, owner, or date range. todo revisar
 
+### Given a set of business requirements, determine the appropriate sharing solution.
 ### Describe the customizations and uses cases for Chatter
 
 Chatter is a collaboration tool that allows users to communicate with each other in real time. It is integrated with Salesforce and can be used to share information, files, and updates with other users.
@@ -158,6 +171,8 @@ Variables in Flow etc
 
 ## Data Modeling and Management
 
+Data Modeling and Management is the process of designing and managing the data structures and relationships in Salesforce. It includes creating custom objects, fields, and relationships, as well as managing data integrity and security.
+
 ### Given a scenario, determine the appropriate data model
 
 
@@ -172,6 +187,16 @@ Job Position and Candidate
 - An intermediate object is needed to create a many-to-many relationship between Job Position and Candidate. This intermediate object is called a junction object. In this case a Job Application object can be created to store the relationship between Job Position and Candidate.
   
 ![alt text](image-4.png)
+
+Case Scenario for an Object + Lookup Relationship over a Picklist:
+
+Global Containers want to track the location of each container.
+
+Advantages of using a Lookup Relationship over a Picklist:
+- Additional information about the container can be stored in a custom object called Container Location.
+- Larger number of locations can be added to the system without modifying the picklist values.
+- User can add new locations without modifying the picklist values.
+  
 
 ### Given a scenario, determine the considerations when selecting or changing a field data type
 
@@ -220,9 +245,6 @@ What happens when you try to import a file with values that are not in a restric
 **Error**
 ![alt text](image-1.png)
 
-
-
-
 ### Given a scenario, explain the capabilities of the various relationship types and the implications of each on record access, user interface and reporting
 
 What is a relationship in Salesforce?
@@ -259,12 +281,13 @@ On Lightning App Builder you can customize and create the following:
 
 Fields can be arranged in either 1 or 2 columns in Lightning App Builder.
 
+Middle Name and Suffix fields can be disabled on User Interface -> Name Settings
+
 ## App Deployment
-Sandboxes types
+
 This topic relies on how to maintain your application up to date between different environments.
 
-Sandbox Refreshing
-- Interval
+App Deployment is the process of moving customizations and configurations from one Salesforce org to another. This can include moving custom objects, fields, page layouts, and other components.
 
 ### Given a scenario, determine the appropriate deployment plan
 
@@ -272,6 +295,24 @@ What is staging
 
 ### Given a set of business requirements, recommend a solution for key milestones and considerations when managing the application lifecycle and various types of sandboxes
 
+**Sandboxes types**
+
+- Developer Sandbox: A sandbox that is used for development and testing. It contains a copy of the production org's metadata but does not contain any production data.
+- Developer Pro Sandbox: A sandbox that is used for development and testing. It contains a copy of the production org's metadata and a larger storage capacity than a Developer Sandbox.
+- Partial Copy Sandbox: A sandbox that is used for testing and training. It contains a copy of the production org's metadata and a subset of production data.
+- Full Sandbox: A sandbox that is used for testing and training. It contains a complete copy of the production org's metadata and production data.
+
+Table of Sandbox Types
+
+| Sandbox Type        | Description                                                                                   | Storage Limitations |
+| ---                 | ---                                                                                           | ---                 |
+| Developer Sandbox   | A sandbox that is used for development and testing. It contains a copy of the production org's metadata but does not contain any production data. | 200 MB              |
+| Developer Pro Sandbox | A sandbox that is used for development and testing. It contains a copy of the production org's metadata and a larger storage capacity than a Developer Sandbox. | 1 GB                |
+| Partial Copy Sandbox | A sandbox that is used for testing and training. It contains a copy of the production org's metadata and a subset of production data. | 5 GB                |
+| Full Sandbox        | A sandbox that is used for testing and training. It contains a complete copy of the production org's metadata and production data. | 100% of production data |
+
+Sandbox Refreshing
+- Interval
 Integration testing step -> Define
 
 - Integration testing is the process of testing the interaction between different components of a system to ensure that they work together as expected. It is typically done after unit testing and before system testing.
@@ -283,9 +324,15 @@ Release Environments:
 3. **Test Release**: For UAT, the team uses a partial copy sandbox to create a complete replica of production (without production Data)
 4. **Release**: After the release is in production, the team can use the full sandbox to train users without the risk of altering production data. A full sandbox includes a copy of production data.
 
-Logging on to Sandbox environments
+**Logging on to Sandbox environments**
+
+You can log in to a sandbox environment from the production environment by going to Setup -> Sandboxes and clicking on the login link for the sandbox you want to log in to.
+
+You can also log in to a sandbox environment by going to the sandbox URL and entering your production username and password.
 
 Sandbox Templates
+
+- Sandbox templates are used to define the data that is included in a sandbox when it is created. They can be used to include or exclude specific objects, fields, and records from the sandbox.
 ### Given a use case, demonstrate knowledge, viability and troubleshooting when using change sets
 
 **What is a Change Set?**
@@ -314,18 +361,30 @@ Sandbox Templates
 
 
 ### Describe the capabilities and consideration when using change set
-Quick deploy
-run specified tests
+
+- Quick deploy is a feature that allows you to deploy a change set without running all tests. This can be useful when you want to deploy a change set quickly and do not want to wait for all tests to run.
 
 ### Describe the uses cases and considerations when using unmanaged and managed packages
 
+<p align="center">
+  <img src="image-6.png" alt="alt text">
+</p>
+What is a package on Salesforce?
+- A package is a container for components that can be distributed and installed in other Salesforce orgs. Packages can include custom objects, Apex code, Visualforce pages, and other components.
 
-Packages on Salesforce
+![alt text](image-7.png)
+ 
+Unmanaged Package
 
-Managed
-Unmanaged
+- Unmanaged packages are used to distribute open-source projects or applications that are not intended to be upgraded. Unmanaged packages do not include a namespace and can be modified by the recipient org. Once the components are installed in the recipient org, they are no longer associated with the original package and cannot be edited. The developer of the unmanaged package does not have control over the components in the recipient org.
+  
+Managed Package
 
-Naming conflicts
+- Managed packages are used to distribute commercial applications that are intended to be upgraded. Managed packages include a namespace and can be modified by the recipient org. The developer of the managed package has control over the components in the recipient org and can upgrade the package. Managed packages can also include a license agreement and can be sold on the AppExchange.
+
+**Naming conflicts**
+
+- Unmanaged packages do not include a namespace and can cause naming conflicts with other components in the recipient org. Managed packages include a namespace and do not cause naming conflicts with other components in the recipient org.
 
 
 
