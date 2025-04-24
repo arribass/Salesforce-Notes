@@ -99,6 +99,11 @@ What are scoping rules?
 
 Chatter is a collaboration tool that allows users to communicate with each other in real time. It is integrated with Salesforce and can be used to share information, files, and updates with other users.
 
+Features of Chatter:
+
+- Chatter Groups: Users can create and join groups to collaborate on specific topics or projects.
+- Out of Office: Allows users to set their status to out of office and automatically notify other users when they are unavailable.
+
 ## Business Logic and Process Automation
 
 ### Given a scenario, demonstrate the use of formula fields to meet stated business requirements
@@ -184,10 +189,27 @@ How text(encrypted) fields are stored in the database? work
 
 Data Importing and Exporting Tools
 
-- Data Import Wizard	
+- Data Import Wizard
+  - Limited to 50,000 records
 - Data Loader
 - Workbench
 - Apex Data Loader
+
+
+| Tool                | Data Import Wizard | Data Loader | Workbench | Apex Data Loader |
+| ---                 | ---                | ---         | ---       | ---              |
+| Maximum Records     | 50,000             | 5 Million   | 5 Million | 5 Million        |
+| File Formats        | CSV                | CSV         | CSV       | CSV              |
+| Object Types       | Standard and Custom| Standard and Custom | Standard and Custom | Standard and Custom |
+| Bulk API           | No                 | Yes         | Yes       | Yes              |
+
+How to insert records from an external system into Salesforce with unique identifiers?
+- External IDs can be used to insert records from an external system into Salesforce. External IDs are unique identifiers that are used to match records in Salesforce with records in the external system.
+  
+Case Scenario for External IDs:
+SAP system has a unique identifier for each record. This identifier can be used as an external ID in Salesforce to match records in Salesforce with records in the SAP system.
+
+We define the SAP Id as an external ID in Salesforce on the Account object for example. When we import records from the SAP system into Salesforce, we can use the SAP Id as an external ID to match records in Salesforce with records in the SAP system.
 
 What happens when you try to import a file with values that are not in a restricted picklist?
 - The import will fail and the values will not be imported into the system. Errors will be generated for each record that contains a value not in the restricted picklist.
@@ -198,6 +220,9 @@ What happens when you try to import a file with values that are not in a restric
 **Error**
 ![alt text](image-1.png)
 
+
+
+
 ### Given a scenario, explain the capabilities of the various relationship types and the implications of each on record access, user interface and reporting
 
 What is a relationship in Salesforce?
@@ -205,14 +230,19 @@ What is a relationship in Salesforce?
 
 **Master Detail**
 
-Limitations
+A master-detail relationship is a type of relationship in Salesforce that allows you to create a parent-child relationship between two objects. In a master-detail relationship, the detail record is dependent on the master record. This means that if the master record is deleted, all detail records associated with it are also deleted.
 
+![alt text](image-5.png)
+
+- Roll-up summary fields can be created on the master record to summarize data from the detail records.
 - No more than 2 MD relationships to the same object
+- Ownership of the detail record is determined by the master record
 
 Child records in master-detail on custom objects can be reparented to different parent records by selecting the Allow Reparenting checkbox on the master-detail relationship definition.
 
 **Lookup**
 
+A lookup relationship is a type of relationship in Salesforce that allows you to create a link between two objects. In a lookup relationship, the child record is not dependent on the parent record. This means that if the parent record is deleted, the child record is not deleted.
 Limitations
 
 - No Roll-up summary fields
@@ -227,7 +257,7 @@ On Lightning App Builder you can customize and create the following:
 - Home Pages
 - App Pages
 
-
+Fields can be arranged in either 1 or 2 columns in Lightning App Builder.
 
 ## App Deployment
 Sandboxes types
