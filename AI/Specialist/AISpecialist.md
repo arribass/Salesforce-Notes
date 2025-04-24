@@ -34,12 +34,32 @@ Por una parte los topics son resumenes o transcripciones de la guia de estudio d
 1. **Number of Questions**: The exam has 60 questions, each with three answer options. The pass mark is 73%.
 2. **Exam Focus**: The exam is heavily weighted towards the **Prompt Builder**.
 3. **Naming Conventions**: Lot of questions about the actual names of solutions.
-4. **Hyperparameters**: Some questions address **Hyperparameters** for models.
-5. **Difficulty Level**: The exam is more challenging than the AI Associate certification but slightly easier than the Data Cloud Consultant certification.
-6. **Standard Co-Pilot Actions**: Understand the **Standard Co-Pilot Actions** thoroughly.
-7. **Groundings**: Know the different types of **Groundings** and their applications.
-8. **Prompt Templates**: Be familiar with the various **Prompt Templates** and when to use them.
-9. **API Questions**: Expect a few questions related to using **REST**, **SOAP**, or **Metadata API**.
+## Prompt Builder
+El Prompt Builder desempeña un papel clave en la personalización de los resultados de la IA. Esta es la sección más ponderada del examen, y se evaluará tu capacidad para usar esta herramienta de manera efectiva. Se evaluará:
+
+- Given business requirements, identify when it’s appropriate to use Prompt Builder.
+- Identify the right user roles to manage and execute prompt templates.
+- Identify the considerations for creating a prompt template.
+- Given a scenario, identify the appropriate grounding technique.
+- Explain the process for creating, activating, and executing prompt templates.
+  
+
+
+- **Requisitos de Negocio**: Identificar el uso correcto del Prompt Builder según escenarios de negocio específicos, como la creación de respuestas automáticas o contenido personalizado.
+- **Roles y Responsabilidades**: Saber qué roles (por ejemplo, administradores, desarrolladores) son responsables de gestionar y ejecutar plantillas de prompts, y cómo asignar estos roles adecuadamente.
+- **Creación de Plantillas de Prompts**: Comprensión de las mejores prácticas para crear, activar y ejecutar plantillas de prompts, incluyendo consideraciones como las técnicas correctas de grounding (información contextual para garantizar respuestas precisas de IA).
+- **Ejecución de Prompts**: Reconocer los pasos involucrados para garantizar que las plantillas de prompts cumplan con las necesidades empresariales y saber cómo ajustarlas para mejorar su precisión y eficiencia.
+
+1. **Hyperparameters**: Some questions address **Hyperparameters** for models.
+2. **Difficulty Level**: The exam is more challenging than the AI Associate certification but slightly easier than the Data Cloud Consultant certification.
+3. **Standard Co-Pilot Actions**: Understand the **Standard Co-Pilot Actions** thoroughly.
+4. **Groundings**: Know the different types of **Groundings** and their applications.
+
+- Service AI Grounding.
+Obtiene conocimiento de los Cases y Knowledge Articles para generar su contenido.
+
+1. **Prompt Templates**: Be familiar with the various **Prompt Templates** and when to use them.
+2. **API Questions**: Expect a few questions related to using **REST**, **SOAP**, or **Metadata API**.
 
 ### Additional Tips
 
@@ -91,13 +111,8 @@ Esta sección se centra en el uso de IA generativa de Salesforce en los contexto
 - **Einstein para Ventas**: En escenarios específicos, identificar las características correctas de la IA generativa que optimizan procesos de ventas, como automatización de seguimientos, mejora de respuestas por correo y provisión de insights predictivos.
 - **Einstein para Servicios**: Demostrar conocimiento de cómo la IA puede agilizar el servicio al cliente mediante características como resoluciones automatizadas de casos, análisis de sentimiento y sugerencias de respuestas de servicio.
 
-## Prompt Builder  
-El Prompt Builder desempeña un papel clave en la personalización de los resultados de la IA. Esta es la sección más ponderada del examen, y se evaluará tu capacidad para usar esta herramienta de manera efectiva. Se evaluará:
-
-- **Requisitos de Negocio**: Identificar el uso correcto del Prompt Builder según escenarios de negocio específicos, como la creación de respuestas automáticas o contenido personalizado.
-- **Roles y Responsabilidades**: Saber qué roles (por ejemplo, administradores, desarrolladores) son responsables de gestionar y ejecutar plantillas de prompts, y cómo asignar estos roles adecuadamente.
-- **Creación de Plantillas de Prompts**: Comprensión de las mejores prácticas para crear, activar y ejecutar plantillas de prompts, incluyendo consideraciones como las técnicas correctas de grounding (información contextual para garantizar respuestas precisas de IA).
-- **Ejecución de Prompts**: Reconocer los pasos involucrados para garantizar que las plantillas de prompts cumplan con las necesidades empresariales y saber cómo ajustarlas para mejorar su precisión y eficiencia.
+Flex Templates
+- Flex Templates are a type of prompt template that allows you to create a custom prompt template with a custom grounding technique on Custom Objects too.
 
 ## Einstein Copilot  
 El Einstein Copilot permite la automatización y ayuda en acciones en tiempo real dentro de Salesforce. Esta sección evaluará tu conocimiento sobre:
