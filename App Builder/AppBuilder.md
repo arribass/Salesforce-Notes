@@ -1,67 +1,82 @@
-# Salesforce Platform App Builder  
+Salesforce App Builder
+==============
 <!-- Versiones -->
 | Version | Fecha       | Descripción                                          |
 | ---     | ---         | ---                                                  |
-| v1     | 24/10/2024  | Documento de estudio para el examen de Salesforce Platform App Builder |
-| v1     | 24/10/2024  | Documento de estudio para el examen de Salesforce Platform App Builder |
+| v0.1     | 24/10/2024  | Start of Document |
+| v0.2    | 26/04/2025  | Pre-Exam Revision |
 
-## Introduction
+# Introduction
 
-[Guia de estudio](https://developer.salesforce.com/resources2/certification-site/files/SGCertifiedPlatformAppBuilder.pdf)
+[Study Guide](https://developer.salesforce.com/resources2/certification-site/files/SGCertifiedPlatformAppBuilder.pdf)
 
 El examen de Salesforce Platform App Builder es un examen que evalúa los conocimientos necesarios para construir aplicaciones en la plataforma Salesforce, incluyendo lógica empresarial y automatización de procesos. En este documento se recogen los conceptos más importantes que se deben conocer para aprobar el examen.
 
 Los temas están organizados de acuerdo a la guía oficial de estudio y se incluye un desglose del peso de cada sección del examen.
 
-| Concept  | Description       |
-| ---       | ---               |
-| Scoring   | 63%               |
-| Time      | 105 minutes       |
-| Questions | 60                |
-| Cost      | USD $200          |
-| Retake Fee| USD $100          |
+## Exam Details
+
+## Exam Details
+
+- **Scoring:** 63%
+- **Time:** 105 minutes
+- **Questions:** 60
+- **Cost:** USD $200
+- **Retake Fee:** USD $100
+
+## Syllabus Percentages
 
 | Syllabus                           | Weighage |
-| ---                                | ---       |
-| Salesforce Fundamentals                | 23%     |
+| ---                                | :---       |
+| Salesforce Fundamentals                | 23%|
 | Business Logic and Process Automation  | 28%     |
 | Data Modeling and Management           | 22%     |
 | User Interface                         | 17%     |
 | App Deployment                         | 10%     |
 
-**Table of Contents**
-- [Salesforce Platform App Builder](#salesforce-platform-app-builder)
-  - [Introduction](#introduction)
-  - [Salesforce Fundamentals](#salesforce-fundamentals)
-    - [Identify the features and capabilities available when creating reports, report types and dashboards](#identify-the-features-and-capabilities-available-when-creating-reports-report-types-and-dashboards)
-    - [Given a set of requirements, determine the appropriate global, object-specific actions and layouts to optimize the Salesforce mobile user experience](#given-a-set-of-requirements-determine-the-appropriate-global-object-specific-actions-and-layouts-to-optimize-the-salesforce-mobile-user-experience)
-    - [Identify common scenarios for extending an org using AppExchange apps.](#identify-common-scenarios-for-extending-an-org-using-appexchange-apps)
-    - [Apply features and capabilities available to restrict and extend object, record and field access](#apply-features-and-capabilities-available-to-restrict-and-extend-object-record-and-field-access)
-    - [Given a set of business requirements, determine the appropriate sharing solution.](#given-a-set-of-business-requirements-determine-the-appropriate-sharing-solution)
-    - [Describe the customizations and uses cases for Chatter](#describe-the-customizations-and-uses-cases-for-chatter)
-  - [Business Logic and Process Automation](#business-logic-and-process-automation)
-    - [Given a scenario, demonstrate the use of formula fields to meet stated business requirements](#given-a-scenario-demonstrate-the-use-of-formula-fields-to-meet-stated-business-requirements)
-    - [Given a scenario, determine the capabilities and use cases for approval processes](#given-a-scenario-determine-the-capabilities-and-use-cases-for-approval-processes)
-    - [Given a scenario, demonstrate the use of validation rules to meet stated business requirements](#given-a-scenario-demonstrate-the-use-of-validation-rules-to-meet-stated-business-requirements)
-    - [Given a scenario, determine the capabilities and use cases for workflow, Flows and Process Builder](#given-a-scenario-determine-the-capabilities-and-use-cases-for-workflow-flows-and-process-builder)
-      - [Workflow Rules](#workflow-rules)
-      - [Flows](#flows)
-      - [Process Builder](#process-builder)
-  - [Data Modeling and Management](#data-modeling-and-management)
-    - [Given a scenario, determine the appropriate data model](#given-a-scenario-determine-the-appropriate-data-model)
-    - [Given a scenario, determine the considerations when selecting or changing a field data type](#given-a-scenario-determine-the-considerations-when-selecting-or-changing-a-field-data-type)
-    - [Given a scenario, determine the options and considerations when importing and exporting data, including the capabilities of external data sources.](#given-a-scenario-determine-the-options-and-considerations-when-importing-and-exporting-data-including-the-capabilities-of-external-data-sources)
-    - [Given a scenario, explain the capabilities of the various relationship types and the implications of each on record access, user interface and reporting](#given-a-scenario-explain-the-capabilities-of-the-various-relationship-types-and-the-implications-of-each-on-record-access-user-interface-and-reporting)
-  - [User Interface](#user-interface)
-    - [Describe the user interface customization options.](#describe-the-user-interface-customization-options)
-  - [App Deployment](#app-deployment)
-    - [Given a scenario, determine the appropriate deployment plan](#given-a-scenario-determine-the-appropriate-deployment-plan)
-    - [Given a set of business requirements, recommend a solution for key milestones and considerations when managing the application lifecycle and various types of sandboxes](#given-a-set-of-business-requirements-recommend-a-solution-for-key-milestones-and-considerations-when-managing-the-application-lifecycle-and-various-types-of-sandboxes)
-    - [Given a use case, demonstrate knowledge, viability and troubleshooting when using change sets](#given-a-use-case-demonstrate-knowledge-viability-and-troubleshooting-when-using-change-sets)
-    - [Describe the capabilities and consideration when using change set](#describe-the-capabilities-and-consideration-when-using-change-set)
-    - [Describe the uses cases and considerations when using unmanaged and managed packages](#describe-the-uses-cases-and-considerations-when-using-unmanaged-and-managed-packages)
+<div style="page-break-after: always;"></div>
 
-## Salesforce Fundamentals
+**Table of Contents**
+- [Salesforce App Builder](#salesforce-app-builder)
+- [Introduction](#introduction)
+  - [Exam Details](#exam-details)
+  - [Exam Details](#exam-details-1)
+  - [Syllabus Percentages](#syllabus-percentages)
+- [Salesforce Fundamentals](#salesforce-fundamentals)
+  - [Identify the features and capabilities available when creating reports, report types and dashboards](#identify-the-features-and-capabilities-available-when-creating-reports-report-types-and-dashboards)
+  - [Given a set of requirements, determine the appropriate global, object-specific actions and layouts to optimize the Salesforce mobile user experience](#given-a-set-of-requirements-determine-the-appropriate-global-object-specific-actions-and-layouts-to-optimize-the-salesforce-mobile-user-experience)
+  - [Identify common scenarios for extending an org using AppExchange apps.](#identify-common-scenarios-for-extending-an-org-using-appexchange-apps)
+  - [Apply features and capabilities available to restrict and extend object, record and field access](#apply-features-and-capabilities-available-to-restrict-and-extend-object-record-and-field-access)
+  - [Given a set of business requirements, determine the appropriate sharing solution.](#given-a-set-of-business-requirements-determine-the-appropriate-sharing-solution)
+  - [Describe the customizations and uses cases for Chatter](#describe-the-customizations-and-uses-cases-for-chatter)
+- [Business Logic and Process Automation](#business-logic-and-process-automation)
+  - [Given a scenario, determine the tool or action needed to meet business requirements](#given-a-scenario-determine-the-tool-or-action-needed-to-meet-business-requirements)
+  - [Given a scenario, demonstrate the use of formula fields to meet stated business requirements](#given-a-scenario-demonstrate-the-use-of-formula-fields-to-meet-stated-business-requirements)
+  - [Given a scenario, determine the capabilities and use cases for approval processes](#given-a-scenario-determine-the-capabilities-and-use-cases-for-approval-processes)
+  - [Given a scenario, demonstrate the use of validation rules to meet stated business requirements](#given-a-scenario-demonstrate-the-use-of-validation-rules-to-meet-stated-business-requirements)
+  - [Given a scenario, determine the capabilities and use cases for workflow, Flows and Process Builder](#given-a-scenario-determine-the-capabilities-and-use-cases-for-workflow-flows-and-process-builder)
+    - [Workflow Rules](#workflow-rules)
+    - [Flows](#flows)
+    - [Process Builder](#process-builder)
+  - [Given a set of business requirements, recommend a solution to automate business processes while avoiding errors in automation](#given-a-set-of-business-requirements-recommend-a-solution-to-automate-business-processes-while-avoiding-errors-in-automation)
+- [Data Modeling and Management](#data-modeling-and-management)
+  - [Explain the capabilities and considerations of the Schema Builder](#explain-the-capabilities-and-considerations-of-the-schema-builder)
+  - [Given a scenario, determine the appropriate data model](#given-a-scenario-determine-the-appropriate-data-model)
+  - [Given a scenario, determine the considerations when selecting or changing a field data type](#given-a-scenario-determine-the-considerations-when-selecting-or-changing-a-field-data-type)
+  - [Given a scenario, determine the options and considerations when importing and exporting data, including the capabilities of external data sources.](#given-a-scenario-determine-the-options-and-considerations-when-importing-and-exporting-data-including-the-capabilities-of-external-data-sources)
+  - [Given a scenario, explain the capabilities of the various relationship types and the implications of each on record access, user interface and reporting](#given-a-scenario-explain-the-capabilities-of-the-various-relationship-types-and-the-implications-of-each-on-record-access-user-interface-and-reporting)
+- [User Interface](#user-interface)
+  - [Describe the user interface customization options.](#describe-the-user-interface-customization-options)
+- [App Deployment](#app-deployment)
+  - [Given a scenario, determine the appropriate deployment plan](#given-a-scenario-determine-the-appropriate-deployment-plan)
+  - [Given a set of business requirements, recommend a solution for key milestones and considerations when managing the application lifecycle and various types of sandboxes](#given-a-set-of-business-requirements-recommend-a-solution-for-key-milestones-and-considerations-when-managing-the-application-lifecycle-and-various-types-of-sandboxes)
+  - [Given a use case, demonstrate knowledge, viability and troubleshooting when using change sets](#given-a-use-case-demonstrate-knowledge-viability-and-troubleshooting-when-using-change-sets)
+  - [Describe the capabilities and consideration when using change set](#describe-the-capabilities-and-consideration-when-using-change-set)
+  - [Describe the uses cases and considerations when using unmanaged and managed packages](#describe-the-uses-cases-and-considerations-when-using-unmanaged-and-managed-packages)
+
+<div style="page-break-after: always;"></div>
+
+# Salesforce Fundamentals
 
 Salesforce is a cloud-based customer relationship management (CRM) platform that provides a range of tools and services to help businesses manage their customer relationships, sales, marketing, and other business processes.
 
@@ -71,17 +86,17 @@ Decide on:
 
 Apex Email Handler
 
-### Identify the features and capabilities available when creating reports, report types and dashboards
+## Identify the features and capabilities available when creating reports, report types and dashboards
 
 Snapshots are used to capture the state of a report at a specific point in time. This can be useful for tracking changes in data over time or for creating historical reports.
 
-### Given a set of requirements, determine the appropriate global, object-specific actions and layouts to optimize the Salesforce mobile user experience
+## Given a set of requirements, determine the appropriate global, object-specific actions and layouts to optimize the Salesforce mobile user experience
 
 Mobile Navigation
 
 - Smart Search Items
   
-### Identify common scenarios for extending an org using AppExchange apps.
+## Identify common scenarios for extending an org using AppExchange apps.
 
 What is AppExchange?
 
@@ -89,37 +104,80 @@ What is AppExchange?
 
 AppExchange is a marketplace for Salesforce applications and components. It allows users to find, install, and customize applications that extend the functionality of Salesforce.
 
-### Apply features and capabilities available to restrict and extend object, record and field access
+## Apply features and capabilities available to restrict and extend object, record and field access
 
-Profiles: Profiles are used to define the permissions and access levels for users in Salesforce. They determine what users can see and do in the system.
+**Profiles:** Profiles are used to define the permissions and access levels for users in Salesforce. They determine what users can see and do in the system.
 
-Permission Sets: Permission sets are used to grant additional permissions to users beyond what is defined in their profile. They can be used to give users access to specific objects, fields, and records without changing their profile.
+Built-in profiles
+
+<!-- define built in profiles the short way with a table-->
+
+| Profile Name         | Description                                                                                   |
+| ---                 | ---                                                                                           |
+| System Administrator | Full access to all features and settings in Salesforce.                                          |
+| Standard User       | Basic access to standard features and settings in Salesforce.                                     |
+| Read Only           | Read-only access to all features and settings in Salesforce.                                     |
+| Marketing User      | Access to marketing features and settings in Salesforce.                                         |
+| API Only            | Access to the Salesforce API only. No access to the Salesforce user interface.                   |
+
+
+
+**Permission Sets:** Permission sets are used to grant additional permissions to users beyond what is defined in their profile. They can be used to give users access to specific objects, fields, and records without changing their profile.
 
 A User can get delete access to a record if the user via Profile or permission set.
 
 - Org Access
-
 - Object Access
 - Record Access
 - Field Access
 
+Organization-wide defaults (OWD) are used to define the default access level for records in Salesforce. They determine who can see and edit records in the system.
+- Public Read/Write: All users can see and edit all records.
+- Public Read Only: All users can see all records, but only the owner can edit them.
+- Private: Only
+- Controlled by Parent: The access level is determined by the parent record.
+  - This option is only available for master-detail relationships. f.e Case and Account. 
+  
 **What are scoping rules?**
 
 Scoping rules are used to determine which records are included in a report or dashboard. They can be used to filter records based on specific criteria, such as record type, owner, or date range. todo revisar
 
-### Given a set of business requirements, determine the appropriate sharing solution.
-### Describe the customizations and uses cases for Chatter
+## Given a set of business requirements, determine the appropriate sharing solution.
+
+## Describe the customizations and uses cases for Chatter
 
 Chatter is a collaboration tool that allows users to communicate with each other in real time. It is integrated with Salesforce and can be used to share information, files, and updates with other users.
 
-Features of Chatter:
+**Features of Chatter:**
 
 - Chatter Groups: Users can create and join groups to collaborate on specific topics or projects.
 - Out of Office: Allows users to set their status to out of office and automatically notify other users when they are unavailable.
 
-## Business Logic and Process Automation
+**Chatter Settings:**
+- Allow Users to edit posts and comments.
+- Allow Records in Groups: Allows users to share records in Chatter groups and collaborate on them.
+  
+![alt text](image-12.png)
+![alt text](image-11.png)
+ 
+**Permissions for Chatter:**
+- Edit my Own Posts: Allows users to edit their own posts in Chatter.
 
-### Given a scenario, demonstrate the use of formula fields to meet stated business requirements
+# Business Logic and Process Automation
+
+## Given a scenario, determine the tool or action needed to meet business requirements
+
+Use of prebuilt solutions and its customization
+
+Prebuilt solutions are ready-to-use applications or components that can be installed in Salesforce to extend its functionality. They can be customized to meet specific business requirements.
+
+Example of prebuilt solutions:
+
+Create a Case Flow: There is a prebuilt solution that allows users to create a case in Salesforce using a **Screen Flow**. This can be used to automate the process of creating cases and reduce the time it takes to create them.
+
+In case the prebuilt solution does not meet the business requirements, it can be customized using the Flow Builder to add Screen Elements, Decision Elements, and other components to the flow.
+
+## Given a scenario, demonstrate the use of formula fields to meet stated business requirements
 
 What is a formula field?
 
@@ -137,7 +195,7 @@ What fields cannot be used in formula fields?
 - Rich Text Area fields cannot be used in formula fields.
 - Long Text Area fields cannot be used in formula fields.
   
-### Given a scenario, determine the capabilities and use cases for approval processes
+## Given a scenario, determine the capabilities and use cases for approval processes
 
 Approval Process
 
@@ -152,7 +210,7 @@ Who can edit a record while submitted for approval?
 
 - Define the steps necessary for a record to be approved
 
-### Given a scenario, demonstrate the use of validation rules to meet stated business requirements
+## Given a scenario, demonstrate the use of validation rules to meet stated business requirements
 
 What is a validation rule?
 
@@ -160,21 +218,37 @@ A validation rule is a rule that verifies that the data entered in a record meet
 
 VLOOKUP use to-do
 
-### Given a scenario, determine the capabilities and use cases for workflow, Flows and Process Builder
-#### Workflow Rules
-#### Flows
-- Flow is a powerful tool that allows you to automate business processes in Salesforce. It can be used to create complex workflows, automate data entry, and integrate with external systems.
+## Given a scenario, determine the capabilities and use cases for workflow, Flows and Process Builder
+
+  
+### Workflow Rules
+### Flows
+Flow is a powerful tool that allows you to automate business processes in Salesforce. It can be used to create complex workflows, automate data entry, and integrate with external systems.
 
 Variables in Flow etc
 - Flow variables are used to store data that can be used in the flow. They can be used to store input data, output data, and intermediate data.
-#### Process Builder
+### Process Builder
 
-## Data Modeling and Management
+Process Builder is a powerful tool that allows you to automate business processes in Salesforce. It can be used to create complex workflows, automate data entry, and integrate with external systems.
+## Given a set of business requirements, recommend a solution to automate business processes while avoiding errors in automation
+
+Queues and Approval Processes
+
+- Queues are used to manage and assign records to groups of users. They can be used to assign records to a specific group of users based on specific criteria, such as record type or owner.
+- Approval processes are used to automate the approval of records in Salesforce. They can be used to define the steps necessary for a record to be approved, including the approvers and the criteria for approval.
+
+# Data Modeling and Management
 
 Data Modeling and Management is the process of designing and managing the data structures and relationships in Salesforce. It includes creating custom objects, fields, and relationships, as well as managing data integrity and security.
+## Explain the capabilities and considerations of the Schema Builder
 
-### Given a scenario, determine the appropriate data model
+Schema Builder is a tool that allows you to visualize and manage the data model in Salesforce. It provides a graphical representation of the objects, fields, and relationships in the system.
 
+When creating a field in Schema Builder it wont be added automatically to the page layout. You need to add it manually.
+
+![alt text](image-9.png)
+
+## Given a scenario, determine the appropriate data model
 
 Person Account cannot have hierarchical structure.
 
@@ -198,7 +272,7 @@ Advantages of using a Lookup Relationship over a Picklist:
 - User can add new locations without modifying the picklist values.
   
 
-### Given a scenario, determine the considerations when selecting or changing a field data type
+## Given a scenario, determine the considerations when selecting or changing a field data type
 
 All Types of fields:
 
@@ -210,7 +284,7 @@ How text(encrypted) fields are stored in the database? work
 - Encrypted text fields are stored in the database as encrypted values. The original value is not stored in the database, only the encrypted value is stored. 
 - Mask can be applied to the field to hide the original value. The mask is applied when the field is displayed in the user interface. The original value is not displayed in the user interface, only the masked value is displayed.
 
-### Given a scenario, determine the options and considerations when importing and exporting data, including the capabilities of external data sources.
+## Given a scenario, determine the options and considerations when importing and exporting data, including the capabilities of external data sources.
 
 Data Importing and Exporting Tools
 
@@ -245,7 +319,7 @@ What happens when you try to import a file with values that are not in a restric
 **Error**
 ![alt text](image-1.png)
 
-### Given a scenario, explain the capabilities of the various relationship types and the implications of each on record access, user interface and reporting
+## Given a scenario, explain the capabilities of the various relationship types and the implications of each on record access, user interface and reporting
 
 What is a relationship in Salesforce?
 - A relationship is a link between two objects that allows you to associate records in one object with records in another object.
@@ -269,9 +343,28 @@ Limitations
 
 - No Roll-up summary fields
 
-## User Interface
+**Hierarchical**
 
-### Describe the user interface customization options.
+A hierarchical relationship is a type of relationship in Salesforce that allows you to create a link between two objects. In a hierarchical relationship, the child record is dependent on the parent record. This means that if the parent record is deleted, the child record is also deleted.
+
+- Hierarchical relationships are only available on the User object. They allow you to create a hierarchy of users in Salesforce.
+
+**Indirect Lookup**
+
+todo
+
+# User Interface
+
+## Describe the user interface customization options.
+
+**Layouts**
+
+Layouts are a way to customize the user interface in Salesforce. They allow you to define the layout and organization of fields, sections, and related lists on a record page.
+
+There are different types of layouts in Salesforce:
+- Page Layouts: Page layouts are used to define the layout and organization of fields, sections, and related lists on a record page. They can be used to customize the user interface for different profiles or record types.
+- Compact Layouts: Compact layouts are used to define the layout and organization of fields on a record page in the Salesforce mobile app. They can be used to customize the user interface for different profiles or record types.
+- Search Layouts: Search layouts are used to define the layout and organization of fields on a search results page. They can be used to customize the user interface for different profiles or record types.
 
 On Lightning App Builder you can customize and create the following:
 - Lightning Pages
@@ -283,17 +376,34 @@ Fields can be arranged in either 1 or 2 columns in Lightning App Builder.
 
 Middle Name and Suffix fields can be disabled on User Interface -> Name Settings
 
-## App Deployment
+**Field Properties**
+
+![alt text](image-10.png)
+
+On a Page Layout you can set the following properties for a field:
+- Required: The field is required and must be filled out before the record can be saved.
+- Read-Only: The field is read-only and cannot be edited by the user.
+
+Note that the field properties set on a page layout do not affect the field properties set on the field itself. For example, if a field is set to Read-Only on the field itself, it will take values from API or other sources, even if it is set to Editable on the page layout.
+
+To set a field to Read-Only on the page layout, you need to set the field-level security settings for the field.
+
+**Use of Dynamic Related List**
+- Dynamic related lists are used to display related records in a list format. They can be used to display related records based on specific criteria, such as record type or owner.
+
+This kind of related list provide persistence of filters and sorting when navigating between records and sessions.
+
+# App Deployment
 
 This topic relies on how to maintain your application up to date between different environments.
 
 App Deployment is the process of moving customizations and configurations from one Salesforce org to another. This can include moving custom objects, fields, page layouts, and other components.
 
-### Given a scenario, determine the appropriate deployment plan
+## Given a scenario, determine the appropriate deployment plan
 
 What is staging
 
-### Given a set of business requirements, recommend a solution for key milestones and considerations when managing the application lifecycle and various types of sandboxes
+## Given a set of business requirements, recommend a solution for key milestones and considerations when managing the application lifecycle and various types of sandboxes
 
 **Sandboxes types**
 
@@ -333,7 +443,7 @@ You can also log in to a sandbox environment by going to the sandbox URL and ent
 Sandbox Templates
 
 - Sandbox templates are used to define the data that is included in a sandbox when it is created. They can be used to include or exclude specific objects, fields, and records from the sandbox.
-### Given a use case, demonstrate knowledge, viability and troubleshooting when using change sets
+## Given a use case, demonstrate knowledge, viability and troubleshooting when using change sets
 
 **What is a Change Set?**
 
@@ -344,6 +454,7 @@ Sandbox Templates
 - Cannot be rolled back once deployed
 - Validation is not required but recommended
 - Can go from sandbox to production or production to sandbox
+  - But they need to be affiliated with the same production org
   
 **Inbound and Outbound**
 - Inbound change set: A change set that is received by an org. Inbound change sets are used to deploy components from a source org to a target org.
@@ -360,11 +471,11 @@ Sandbox Templates
 7. View component details
 
 
-### Describe the capabilities and consideration when using change set
+## Describe the capabilities and consideration when using change set
 
 - Quick deploy is a feature that allows you to deploy a change set without running all tests. This can be useful when you want to deploy a change set quickly and do not want to wait for all tests to run.
 
-### Describe the uses cases and considerations when using unmanaged and managed packages
+## Describe the uses cases and considerations when using unmanaged and managed packages
 
 <p align="center">
   <img src="image-6.png" alt="alt text">
