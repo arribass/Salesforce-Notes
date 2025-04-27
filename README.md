@@ -8,11 +8,10 @@ Welcome to the Salesforce Certification Notes repository! Here, you will find a 
 
 This repository contains study notes for the following Salesforce certifications:
 
-- [Salesforce Administrator](Admin.md)
-- [Salesforce App Builder](AppBuilder.md)
+- [Salesforce Administrator](Admin/Admin.md)
+- [Salesforce App Builder](AppBuilder/AppBuilder.md)
 - [Salesforce AI Associate](AI/Associate/AIAssociate.md)
-- [Salesforce Platform Developer I](PD1/PlatformDeveloperI.md)
-- [Salesforce Platform Developer II](PlatformDeveloperII.md)
+- [Salesforce Platform Developer I](PlatformDeveloper/PD1/PlatformDeveloperI.md)
 
 ## 📘 Certification Path
 
