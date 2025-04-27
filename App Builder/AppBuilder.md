@@ -16,8 +16,6 @@ Los temas están organizados de acuerdo a la guía oficial de estudio y se inclu
 
 ## Exam Details
 
-## Exam Details
-
 - **Scoring:** 63%
 - **Time:** 105 minutes
 - **Questions:** 60
@@ -40,7 +38,6 @@ Los temas están organizados de acuerdo a la guía oficial de estudio y se inclu
 - [Salesforce App Builder](#salesforce-app-builder)
 - [Introduction](#introduction)
   - [Exam Details](#exam-details)
-  - [Exam Details](#exam-details-1)
   - [Syllabus Percentages](#syllabus-percentages)
 - [Salesforce Fundamentals](#salesforce-fundamentals)
   - [Identify the features and capabilities available when creating reports, report types and dashboards](#identify-the-features-and-capabilities-available-when-creating-reports-report-types-and-dashboards)
@@ -50,14 +47,14 @@ Los temas están organizados de acuerdo a la guía oficial de estudio y se inclu
   - [Given a set of business requirements, determine the appropriate sharing solution.](#given-a-set-of-business-requirements-determine-the-appropriate-sharing-solution)
   - [Describe the customizations and uses cases for Chatter](#describe-the-customizations-and-uses-cases-for-chatter)
 - [Business Logic and Process Automation](#business-logic-and-process-automation)
-  - [Given a scenario, determine the tool or action needed to meet business requirements](#given-a-scenario-determine-the-tool-or-action-needed-to-meet-business-requirements)
-  - [Given a scenario, demonstrate the use of formula fields to meet stated business requirements](#given-a-scenario-demonstrate-the-use-of-formula-fields-to-meet-stated-business-requirements)
-  - [Given a scenario, determine the capabilities and use cases for approval processes](#given-a-scenario-determine-the-capabilities-and-use-cases-for-approval-processes)
-  - [Given a scenario, demonstrate the use of validation rules to meet stated business requirements](#given-a-scenario-demonstrate-the-use-of-validation-rules-to-meet-stated-business-requirements)
   - [Given a scenario, determine the capabilities and use cases for workflow, Flows and Process Builder](#given-a-scenario-determine-the-capabilities-and-use-cases-for-workflow-flows-and-process-builder)
     - [Workflow Rules](#workflow-rules)
     - [Flows](#flows)
     - [Process Builder](#process-builder)
+  - [Given a scenario, determine the tool or action needed to meet business requirements](#given-a-scenario-determine-the-tool-or-action-needed-to-meet-business-requirements)
+  - [Given a scenario, demonstrate the use of formula fields to meet stated business requirements](#given-a-scenario-demonstrate-the-use-of-formula-fields-to-meet-stated-business-requirements)
+  - [Given a scenario, determine the capabilities and use cases for approval processes](#given-a-scenario-determine-the-capabilities-and-use-cases-for-approval-processes)
+  - [Given a scenario, demonstrate the use of validation rules to meet stated business requirements](#given-a-scenario-demonstrate-the-use-of-validation-rules-to-meet-stated-business-requirements)
   - [Given a set of business requirements, recommend a solution to automate business processes while avoiding errors in automation](#given-a-set-of-business-requirements-recommend-a-solution-to-automate-business-processes-while-avoiding-errors-in-automation)
 - [Data Modeling and Management](#data-modeling-and-management)
   - [Explain the capabilities and considerations of the Schema Builder](#explain-the-capabilities-and-considerations-of-the-schema-builder)
@@ -67,6 +64,7 @@ Los temas están organizados de acuerdo a la guía oficial de estudio y se inclu
   - [Given a scenario, explain the capabilities of the various relationship types and the implications of each on record access, user interface and reporting](#given-a-scenario-explain-the-capabilities-of-the-various-relationship-types-and-the-implications-of-each-on-record-access-user-interface-and-reporting)
 - [User Interface](#user-interface)
   - [Describe the user interface customization options.](#describe-the-user-interface-customization-options)
+  - [Given a scenario, determine the declarative options available for incorporating Lightning components in an Application](#given-a-scenario-determine-the-declarative-options-available-for-incorporating-lightning-components-in-an-application)
 - [App Deployment](#app-deployment)
   - [Given a scenario, determine the appropriate deployment plan](#given-a-scenario-determine-the-appropriate-deployment-plan)
   - [Given a set of business requirements, recommend a solution for key milestones and considerations when managing the application lifecycle and various types of sandboxes](#given-a-set-of-business-requirements-recommend-a-solution-for-key-milestones-and-considerations-when-managing-the-application-lifecycle-and-various-types-of-sandboxes)
@@ -88,6 +86,47 @@ Apex Email Handler
 
 ## Identify the features and capabilities available when creating reports, report types and dashboards
 
+First of all you need to understand how all of these elements are stored and shared between users.
+
+All of these elements are stored in folders. Folders are used to organize and manage reports, dashboards, and other components in Salesforce. They can be used to control access to reports and dashboards based on user profiles or roles.
+Folders can be shared with users, roles, or public groups to control access to the reports and dashboards within them.
+
+Access levels for folders are as follows:
+<!-- view, edit, manage -->
+- View: Users can view the reports and dashboards in the folder, but cannot edit or delete them.
+- Edit: Users can view and edit the reports and dashboards in the folder, but cannot delete them.
+- Manage: Users can view, edit, and delete the reports and dashboards in the folder.
+
+Access can be granted using hierarchies when selecting the Roles and Subordinates option.
+<!-- center image-14 -->
+
+<p align="center">
+  <img src="image-14.png" alt="alt text">
+</p>
+
+**Reports**
+
+A report is a list of records that meet specific criteria. Reports can be used to analyze data, track performance, and identify trends in the data.
+
+**Report Types**
+
+Salesforce provides a range of standard report types that can be used to create reports. These report types are based on the objects and fields in Salesforce and can be used to create reports on specific data sets.
+
+When some of the standard report types do not meet the business requirements, custom report types can be created. Custom report types allow you to define the objects and fields that are included in the report and can be used to create reports on specific data sets.
+
+<!-- to-do add image -->
+
+It is important to note that Standard Report Types are not editable. You can only create new custom report types based on them. However custom fields for the Objects included in the report are automatically included in the report type. For example if you create a new field on the Opportunity object, it will be automatically included in the Opportunity with Products report type.
+
+**Dashboards**
+
+A dashboard is a visual representation of data from one or more reports. It can be used to display key performance indicators (KPIs), trends, and other important metrics.
+
+It is composed of different widgets that can be used to display data in different formats, such as charts, graphs, and tables.
+
+These widgets are organized in a grid layout and can be customized to display specific data from the underlying reports. (Minimum size is 1x1)
+
+**Snapshots**
 Snapshots are used to capture the state of a report at a specific point in time. This can be useful for tracking changes in data over time or for creating historical reports.
 
 ## Given a set of requirements, determine the appropriate global, object-specific actions and layouts to optimize the Salesforce mobile user experience
@@ -165,6 +204,25 @@ Chatter is a collaboration tool that allows users to communicate with each other
 
 # Business Logic and Process Automation
 
+Salesforce provides a range of tools and features to automate business processes and logic. These tools can be used to create workflows, automate data entry, and integrate with external systems.
+
+## Given a scenario, determine the capabilities and use cases for workflow, Flows and Process Builder
+  
+### Workflow Rules
+
+Workflow rules are used to automate business processes in Salesforce. They can be used to create tasks, send email alerts, and update fields based on specific criteria.
+
+They are not going to be used for new implementations. They are going to be deprecated in the future.
+
+### Flows
+Flow is a powerful tool that allows you to automate business processes in Salesforce. It can be used to create complex workflows, automate data entry, and integrate with external systems.
+
+Variables in Flow etc
+- Flow variables are used to store data that can be used in the flow. They can be used to store input data, output data, and intermediate data.
+
+### Process Builder
+
+Process Builder is a powerful tool that allows you to automate business processes in Salesforce. It can be used to create complex workflows, automate data entry, and integrate with external systems.
 ## Given a scenario, determine the tool or action needed to meet business requirements
 
 Use of prebuilt solutions and its customization
@@ -177,6 +235,10 @@ Create a Case Flow: There is a prebuilt solution that allows users to create a c
 
 In case the prebuilt solution does not meet the business requirements, it can be customized using the Flow Builder to add Screen Elements, Decision Elements, and other components to the flow.
 
+**Email Notification**
+
+Email notifications can be sent with Flow Actions. These notifications can be used to notify users of important events or changes in the system.
+d 
 ## Given a scenario, demonstrate the use of formula fields to meet stated business requirements
 
 What is a formula field?
@@ -210,29 +272,48 @@ Who can edit a record while submitted for approval?
 
 - Define the steps necessary for a record to be approved
 
+What can an Approval Process do when a record is approved?
+
+- Send an email notification to the approver and the record owner
+- Update the record with the approval status
+- Create a task for the approver
+- Send an outbound message to an external system
+
+How is the approval request triggered?
+
+- By having a User click on a button or Link
+- By submitting the request using a Process
+- By submitting the request using a Flow
+  - Submit for Approval core action in Flow
+- By submitting the request using Apex
+  - Programattically using ProcessRequest and ProcessResult classes
+
 ## Given a scenario, demonstrate the use of validation rules to meet stated business requirements
 
 What is a validation rule?
 
 A validation rule is a rule that verifies that the data entered in a record meets the specified criteria before the record can be saved.
 
-VLOOKUP use to-do
 
-## Given a scenario, determine the capabilities and use cases for workflow, Flows and Process Builder
+Validation Rules Tips 
 
-  
-### Workflow Rules
-### Flows
-Flow is a powerful tool that allows you to automate business processes in Salesforce. It can be used to create complex workflows, automate data entry, and integrate with external systems.
+<!-- Functions table html -->
 
-Variables in Flow etc
-- Flow variables are used to store data that can be used in the flow. They can be used to store input data, output data, and intermediate data.
-### Process Builder
+- REGEX(): 
+  - Regular expression function that can be used to validate the format of a field. For example, it can be used to validate the format of an email address or phone number.
+  - REGEX()
+- ISBLANK(): 
+  - Function that checks if a field is blank or empty. It can be used to validate that a field is required and must be filled out before the record can be saved.
+- ISCHANGED():
+  - Function that checks if a field has been changed. It can be used to validate that a field is required only when it has been changed.
+- ISPICKVAL():
+  - Function that checks if a picklist field has a specific value. It can be used to validate that a field is required only when the picklist field has a specific value.
+- ISNEW(): 
+  - Function that checks if a record is new or has been changed. It can be used to validate that a field is required only for new records or only for changed records.
 
-Process Builder is a powerful tool that allows you to automate business processes in Salesforce. It can be used to create complex workflows, automate data entry, and integrate with external systems.
 ## Given a set of business requirements, recommend a solution to automate business processes while avoiding errors in automation
 
-Queues and Approval Processes
+**Queues and Approval Processes**
 
 - Queues are used to manage and assign records to groups of users. They can be used to assign records to a specific group of users based on specific criteria, such as record type or owner.
 - Approval processes are used to automate the approval of records in Salesforce. They can be used to define the steps necessary for a record to be approved, including the approvers and the criteria for approval.
@@ -250,7 +331,19 @@ When creating a field in Schema Builder it wont be added automatically to the pa
 
 ## Given a scenario, determine the appropriate data model
 
-Person Account cannot have hierarchical structure.
+**Person Accounts**
+
+Person Accounts are a special type of account in Salesforce that are used to represent individual consumers or customers. They are used to manage data for individuals rather than businesses or organizations.
+
+Specifics of Person Accounts:
+
+- Person Account cannot have hierarchical structure.
+- This feature cannot be disabled once enabled.
+
+
+**Junction Object**
+
+A junction object is a custom object that is used to create a many-to-many relationship between two objects. It is used to link two objects together and allow them to share data.
 
 Case Scenario for a Junction Object:
 
@@ -393,6 +486,27 @@ To set a field to Read-Only on the page layout, you need to set the field-level 
 
 This kind of related list provide persistence of filters and sorting when navigating between records and sessions.
 
+## Given a scenario, determine the declarative options available for incorporating Lightning components in an Application
+
+What is a Lightning component?
+
+A Lightning component is a reusable building block for creating user interfaces in Salesforce. Lightning components can be used to create custom pages, apps, and components in Salesforce.
+
+When added you can set the input properties and attributes easily in the Lightning App Builder.
+
+![alt text](image-13.png)
+
+These can be added to the following:
+- Lightning App Page
+- Lightning Experience Home Page
+- Lightning Experience Record Page
+
+You can add Standard Components and Global Actions
+
+**Dynamic Actions**
+
+Dynamic actions are used to display or hide actions on a record page based on specific criteria. They can be used to customize the user interface for different profiles or record types.
+
 # App Deployment
 
 This topic relies on how to maintain your application up to date between different environments.
@@ -401,7 +515,19 @@ App Deployment is the process of moving customizations and configurations from o
 
 ## Given a scenario, determine the appropriate deployment plan
 
-What is staging
+**Product Deployment Plan Steps:**
+
+  - Announce Maintenance Window
+- Validate Change Sets
+- Lock Out Users
+- Deploy Change Sets
+- Perform Post-Deployment Steps (Manually)
+- Verify Functional Changes
+- Unlock Users
+
+Steps may vary depending on the type of deployment and the components being deployed.
+
+What is Staging
 
 ## Given a set of business requirements, recommend a solution for key milestones and considerations when managing the application lifecycle and various types of sandboxes
 
@@ -421,7 +547,12 @@ Table of Sandbox Types
 | Partial Copy Sandbox | A sandbox that is used for testing and training. It contains a copy of the production org's metadata and a subset of production data. | 5 GB                |
 | Full Sandbox        | A sandbox that is used for testing and training. It contains a complete copy of the production org's metadata and production data. | 100% of production data |
 
-Sandbox Refreshing
+**Sandbox Refreshing**
+
+Sandboxes can be refreshed to update the metadata and data in the sandbox. This can be done by going to Setup -> Sandboxes and clicking on the Refresh link for the sandbox you want to refresh.
+
+Users in the Sandbox organization will adopt the same permissions as in the production organization. Also his new usernames will be the same as in production but with a suffix added to the username. For example, if the production username is john.doe@salesforce.com the sandbox username will be john.doe@salesforce.com.sandboxname.
+
 - Interval
 Integration testing step -> Define
 
@@ -480,6 +611,7 @@ Sandbox Templates
 <p align="center">
   <img src="image-6.png" alt="alt text">
 </p>
+
 What is a package on Salesforce?
 - A package is a container for components that can be distributed and installed in other Salesforce orgs. Packages can include custom objects, Apex code, Visualforce pages, and other components.
 
