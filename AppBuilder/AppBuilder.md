@@ -64,6 +64,9 @@ Los temas están organizados de acuerdo a la guía oficial de estudio y se inclu
   - [Given a scenario, explain the capabilities of the various relationship types and the implications of each on record access, user interface and reporting](#given-a-scenario-explain-the-capabilities-of-the-various-relationship-types-and-the-implications-of-each-on-record-access-user-interface-and-reporting)
 - [User Interface](#user-interface)
   - [Describe the user interface customization options.](#describe-the-user-interface-customization-options)
+    - [**Layouts**](#layouts)
+    - [Tabs](#tabs)
+  - [Demonstrate the capabilities and use cases for custom buttons, links and actions](#demonstrate-the-capabilities-and-use-cases-for-custom-buttons-links-and-actions)
   - [Given a scenario, determine the declarative options available for incorporating Lightning components in an Application](#given-a-scenario-determine-the-declarative-options-available-for-incorporating-lightning-components-in-an-application)
 - [App Deployment](#app-deployment)
   - [Given a scenario, determine the appropriate deployment plan](#given-a-scenario-determine-the-appropriate-deployment-plan)
@@ -181,7 +184,19 @@ Organization-wide defaults (OWD) are used to define the default access level for
 
 Scoping rules are used to determine which records are included in a report or dashboard. They can be used to filter records based on specific criteria, such as record type, owner, or date range. todo revisar
 
+Restriction Rules 
+
+2 per object on Enterprise and Developer
+
 ## Given a set of business requirements, determine the appropriate sharing solution.
+
+Case
+
+![alt text](image-15.png)
+
+Ownership Sharing Rule can eb created to give access horizontally.
+
+Some extreme Cases may require manual sharing to a specific User.
 
 ## Describe the customizations and uses cases for Chatter
 
@@ -210,7 +225,10 @@ Salesforce provides a range of tools and features to automate business processes
   
 ### Workflow Rules
 
-Workflow rules are used to automate business processes in Salesforce. They can be used to create tasks, send email alerts, and update fields based on specific criteria.
+Workflow rules are used to automate business processes in Salesforce. They can be used to create tasks, send email alerts, and update fields based on specific criteria. Although order on individual actions and types cannot be guaranteed field updates are executed first. 
+
+Each Workflow Rule applies to one single object. 
+
 
 They are not going to be used for new implementations. They are going to be deprecated in the future.
 
@@ -290,7 +308,7 @@ How is the approval request triggered?
 
 ## Given a scenario, demonstrate the use of validation rules to meet stated business requirements
 
-What is a validation rule?
+What is a Validation Rule?
 
 A validation rule is a rule that verifies that the data entered in a record meets the specified criteria before the record can be saved.
 
@@ -298,10 +316,10 @@ A validation rule is a rule that verifies that the data entered in a record meet
 Validation Rules Tips 
 
 <!-- Functions table html -->
-
+Useful Functions:
 - REGEX(): 
   - Regular expression function that can be used to validate the format of a field. For example, it can be used to validate the format of an email address or phone number.
-  - REGEX()
+  - Example: REGEX(Email, "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$") returns true if the email address is in the correct format.
 - ISBLANK(): 
   - Function that checks if a field is blank or empty. It can be used to validate that a field is required and must be filled out before the record can be saved.
 - ISCHANGED():
@@ -310,6 +328,11 @@ Validation Rules Tips
   - Function that checks if a picklist field has a specific value. It can be used to validate that a field is required only when the picklist field has a specific value.
 - ISNEW(): 
   - Function that checks if a record is new or has been changed. It can be used to validate that a field is required only for new records or only for changed records.
+- FIND():
+  - Finds a text string within another text string. It can be used to validate that a field contains a specific value.
+  - Example: FIND("Salesforce", "Salesforce is a CRM") returns 1, because "Salesforce" is found at position 1 in the string.
+- CONTAINS():
+  - Function that checks if a field contains a specific value. It can be used to validate that a field is required only when the field contains a specific value.
 
 ## Given a set of business requirements, recommend a solution to automate business processes while avoiding errors in automation
 
@@ -331,6 +354,12 @@ When creating a field in Schema Builder it wont be added automatically to the pa
 
 ## Given a scenario, determine the appropriate data model
 
+It is important to know how some Objects works by default to avoid complex customizations when some OOTB can be used.
+
+Accounts 
+
+Most of the time we understand Accounts as some sort of Company or Enterpris. but sometines we define our customers as an indiviual not an enterprise. However despite this difference the Account entity still suits the requirement almost completely. 
+
 **Person Accounts**
 
 Person Accounts are a special type of account in Salesforce that are used to represent individual consumers or customers. They are used to manage data for individuals rather than businesses or organizations.
@@ -340,6 +369,20 @@ Specifics of Person Accounts:
 - Person Account cannot have hierarchical structure.
 - This feature cannot be disabled once enabled.
 
+Opportunity
+
+We understand opportunities as an approach to a Sale related to some Customer on the platform. With this said we can define some other needs for it that may not be as an standard. 
+
+Salesforce offers a variety of features that may fill most of the requirements a customer need when making a sales process.
+
+- Team Selling -> Opportunity Teams
+- Quote Creation
+- Ability to define multiple Sales Processes
+- Cloning
+  - Basic - Not many customizations here
+
+
+Modeling
 
 **Junction Object**
 
@@ -370,9 +413,10 @@ Advantages of using a Lookup Relationship over a Picklist:
 All Types of fields:
 
 Case Picklist to Multipicklist
-values retain
 
-How text(encrypted) fields are stored in the database? work
+When changing from Picklist to Multipicklist selected values retain.
+
+How text(encrypted) fields are stored in the database? 
 
 - Encrypted text fields are stored in the database as encrypted values. The original value is not stored in the database, only the encrypted value is stored. 
 - Mask can be applied to the field to hide the original value. The mask is applied when the field is displayed in the user interface. The original value is not displayed in the user interface, only the masked value is displayed.
@@ -412,6 +456,17 @@ What happens when you try to import a file with values that are not in a restric
 **Error**
 ![alt text](image-1.png)
 
+Salesforce Connect
+
+Is a tool that connects systems
+
+- External Objects support lookup relationships
+- External Object Data can be viewed together with data from within Salesforce on the same page
+  - External Objects are available on List views
+- External objects can be created for any data source that supports OData 2.0, OData 4.0, OData 4.0.1
+- External Objects are available on Global Search
+- External Objects are available on Mobile App
+
 ## Given a scenario, explain the capabilities of the various relationship types and the implications of each on record access, user interface and reporting
 
 What is a relationship in Salesforce?
@@ -450,7 +505,7 @@ todo
 
 ## Describe the user interface customization options.
 
-**Layouts**
+### **Layouts**
 
 Layouts are a way to customize the user interface in Salesforce. They allow you to define the layout and organization of fields, sections, and related lists on a record page.
 
@@ -485,6 +540,28 @@ To set a field to Read-Only on the page layout, you need to set the field-level 
 - Dynamic related lists are used to display related records in a list format. They can be used to display related records based on specific criteria, such as record type or owner.
 
 This kind of related list provide persistence of filters and sorting when navigating between records and sessions.
+
+### Tabs
+
+Tabs are used to organize and display different types of records in Salesforce. They can be used to create custom tabs for custom objects, web pages, and Visualforce pages.
+
+Tabs can be created for the following:
+- Visualforce
+- Lightning Page
+- Custom Components
+
+> :warning: **If you are using mobile browser**: Be very careful here!
+
+Tabs cannot be created for Standard Objects. Standard objects are automatically created when the object is created in Salesforce.
+
+## Demonstrate the capabilities and use cases for custom buttons, links and actions
+
+A Standard Button (New, View, Edit) can be overridden for Salesforce Classic, Lightning Experience and Mobile on the Same Screen.
+
+![alt text](image-16.png)
+
+- Save and Cancel cannot be overridden.
+- When overriding delete with a VF Page is up to it to determine if delete triggers are fired and how.
 
 ## Given a scenario, determine the declarative options available for incorporating Lightning components in an Application
 
