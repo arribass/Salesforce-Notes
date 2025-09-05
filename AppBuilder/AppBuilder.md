@@ -64,7 +64,7 @@ Los temas están organizados de acuerdo a la guía oficial de estudio y se inclu
   - [Given a scenario, explain the capabilities of the various relationship types and the implications of each on record access, user interface and reporting](#given-a-scenario-explain-the-capabilities-of-the-various-relationship-types-and-the-implications-of-each-on-record-access-user-interface-and-reporting)
 - [User Interface](#user-interface)
   - [Describe the user interface customization options.](#describe-the-user-interface-customization-options)
-    - [**Layouts**](#layouts)
+    - [Layouts](#layouts)
     - [Tabs](#tabs)
   - [Demonstrate the capabilities and use cases for custom buttons, links and actions](#demonstrate-the-capabilities-and-use-cases-for-custom-buttons-links-and-actions)
   - [Given a scenario, determine the declarative options available for incorporating Lightning components in an Application](#given-a-scenario-determine-the-declarative-options-available-for-incorporating-lightning-components-in-an-application)
@@ -72,7 +72,7 @@ Los temas están organizados de acuerdo a la guía oficial de estudio y se inclu
   - [Given a scenario, determine the appropriate deployment plan](#given-a-scenario-determine-the-appropriate-deployment-plan)
   - [Given a set of business requirements, recommend a solution for key milestones and considerations when managing the application lifecycle and various types of sandboxes](#given-a-set-of-business-requirements-recommend-a-solution-for-key-milestones-and-considerations-when-managing-the-application-lifecycle-and-various-types-of-sandboxes)
   - [Given a use case, demonstrate knowledge, viability and troubleshooting when using change sets](#given-a-use-case-demonstrate-knowledge-viability-and-troubleshooting-when-using-change-sets)
-  - [Describe the capabilities and consideration when using change set](#describe-the-capabilities-and-consideration-when-using-change-set)
+  - [Describe the capabilities and consideration when using change sets](#describe-the-capabilities-and-consideration-when-using-change-sets)
   - [Describe the uses cases and considerations when using unmanaged and managed packages](#describe-the-uses-cases-and-considerations-when-using-unmanaged-and-managed-packages)
 
 <div style="page-break-after: always;"></div>
@@ -129,6 +129,8 @@ It is composed of different widgets that can be used to display data in differen
 
 These widgets are organized in a grid layout and can be customized to display specific data from the underlying reports. (Minimum size is 1x1)
 
+Refreshing Dashboards - to-do
+
 **Snapshots**
 Snapshots are used to capture the state of a report at a specific point in time. This can be useful for tracking changes in data over time or for creating historical reports.
 
@@ -147,6 +149,9 @@ What is AppExchange?
 AppExchange is a marketplace for Salesforce applications and components. It allows users to find, install, and customize applications that extend the functionality of Salesforce.
 
 ## Apply features and capabilities available to restrict and extend object, record and field access
+
+
+![alt text](image-17.png)
 
 **Profiles:** Profiles are used to define the permissions and access levels for users in Salesforce. They determine what users can see and do in the system.
 
@@ -505,7 +510,7 @@ todo
 
 ## Describe the user interface customization options.
 
-### **Layouts**
+### Layouts
 
 Layouts are a way to customize the user interface in Salesforce. They allow you to define the layout and organization of fields, sections, and related lists on a record page.
 
@@ -550,9 +555,8 @@ Tabs can be created for the following:
 - Lightning Page
 - Custom Components
 
-> :warning: **If you are using mobile browser**: Be very careful here!
-
-Tabs cannot be created for Standard Objects. Standard objects are automatically created when the object is created in Salesforce.
+> [!WARNING]
+> Tabs cannot be created for Standard Objects. Standard objects are automatically created when the object is created in Salesforce.
 
 ## Demonstrate the capabilities and use cases for custom buttons, links and actions
 
@@ -584,6 +588,11 @@ You can add Standard Components and Global Actions
 
 Dynamic actions are used to display or hide actions on a record page based on specific criteria. They can be used to customize the user interface for different profiles or record types.
 
+Case Feed
+
+- Case Feed is a special type of record page that is used to display related records in a list format. It can be used to display related records based on specific criteria, such as record type or owner.
+  
+![alt text](image-18.png)
 # App Deployment
 
 This topic relies on how to maintain your application up to date between different environments.
@@ -679,9 +688,13 @@ Sandbox Templates
 7. View component details
 
 
-## Describe the capabilities and consideration when using change set
+## Describe the capabilities and consideration when using change sets
 
+Quick Deploy
 - Quick deploy is a feature that allows you to deploy a change set without running all tests. This can be useful when you want to deploy a change set quickly and do not want to wait for all tests to run.
+
+Quick Deploy is only available when components have been validated successfully on the previous 10 days and they meet overall code coverage.
+
 
 ## Describe the uses cases and considerations when using unmanaged and managed packages
 

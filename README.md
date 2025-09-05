@@ -16,6 +16,18 @@ This repository contains study notes for the following Salesforce certifications
 ## 📘 Certification Path
 
 The diagram above highlights the recommended certification path to help you strategically progress through Salesforce certifications. For a comprehensive overview, refer to this [Salesforce Certifications Guide](https://www.linkedin.com/pulse/9-best-salesforce-certifications-2023-s2-labs-by-shrey-sharma/).
+## Salesforce Ideas
+
+- Flow Record Insert error parser
+  - The idea is to create a tool that can parse and interpret error messages generated during record insertions in Salesforce Flows. This tool would help users quickly identify the root cause of the error and provide actionable suggestions for resolution.
+- Logical parser for Salesforce field
+  - The idea is to develop a parser that can read a formula validation stored in Salesforce fields, evaluate its logic and return the result of the evaluation. This would be useful to store rules in custom metadata and evaluate them in Apex or Flows.
+- Reactive Display Text for Flow
+    - The idea is to create a component that can display text in a Flow that updates dynamically based on user input or other variables within the Flow. This would enhance user experience by providing real-time feedback and information as users interact with the Flow.
+- Test Data Factory
+    - The idea is to build a tool that can generate test data for Salesforce environments based on predefined templates or rules. This would help developers and testers quickly populate their orgs with relevant data for testing purposes, improving efficiency and accuracy in the testing process.
+    - This tool could be used for all people on the company to generate test data for their sandboxes.
+    - Use metadatas to define examples of data to generate.
 
 ## 🌐 Objective
 
