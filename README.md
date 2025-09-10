@@ -13,6 +13,10 @@ This repository contains study notes for the following Salesforce certifications
 - [Salesforce AI Associate](AI/Associate/AIAssociate.md)
 - [Salesforce Platform Developer I](PlatformDeveloper/PD1/PlatformDeveloperI.md)
 
+## My Certifications 
+
+
+
 ## 📘 Certification Path
 
 The diagram above highlights the recommended certification path to help you strategically progress through Salesforce certifications. For a comprehensive overview, refer to this [Salesforce Certifications Guide](https://www.linkedin.com/pulse/9-best-salesforce-certifications-2023-s2-labs-by-shrey-sharma/).
@@ -28,6 +32,11 @@ The diagram above highlights the recommended certification path to help you stra
     - The idea is to build a tool that can generate test data for Salesforce environments based on predefined templates or rules. This would help developers and testers quickly populate their orgs with relevant data for testing purposes, improving efficiency and accuracy in the testing process.
     - This tool could be used for all people on the company to generate test data for their sandboxes.
     - Use metadatas to define examples of data to generate.
+- Picklist Flow retriever
+    - Given an object and field, retrieve the picklist and return them as a String 
+    - Format: "value1;value2;value3"
+    - This can be used in a Flow to retrieve picklist values dynamically. Used in other components
+  - Either subflow or invocable Apex can do the job
 
 ## 🌐 Objective
 
