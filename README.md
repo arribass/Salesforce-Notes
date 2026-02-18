@@ -1,6 +1,6 @@
 # Salesforce Certification Notes Repository
 
-![Certification Path](salesforceCertifications.png)
+![Certification Path](resources/salesforce_certifications.png)
 
 Welcome to the Salesforce Certification Notes repository! Here, you will find a curated collection of notes designed to aid in the preparation for key Salesforce certifications.
 
