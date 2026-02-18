@@ -10,6 +10,9 @@
 - [Help](https://help.salesforce.com/s/articleView?id=ai.generative_ai.htm&type=5)
 - [Glossary](https://help.salesforce.com/s/articleView?id=ai.copilot_glossary.htm&type=5)
 - [Exam Dumps](https://www.apexhours.com/salesforce-certified-ai-specialist-exam-practice-questions/#h-free-salesforce-certified-ai-specialist-exam-practice-questions)
+[Preguntas examen](https://www.apexhours.com/salesforce-certified-ai-specialist-exam-practice-questions/#h-free-salesforce-certified-ai-specialist-exam-practice-questions)
+
+https://help.salesforce.com/s/articleView?id=ai.generative_ai.htm&type=5
 
 ## Introducción
 to-do cambiar
@@ -46,6 +49,8 @@ El Prompt Builder desempeña un papel clave en la personalización de los result
 - Explain the process for creating, activating, and executing prompt templates.
   
 Other Requirements:
+
+
 - **Requisitos de Negocio**: Identificar el uso correcto del Prompt Builder según escenarios de negocio específicos, como la creación de respuestas automáticas o contenido personalizado.
 - **Roles y Responsabilidades**: Saber qué roles (por ejemplo, administradores, desarrolladores) son responsables de gestionar y ejecutar plantillas de prompts, y cómo asignar estos roles adecuadamente.
 - **Creación de Plantillas de Prompts**: Comprensión de las mejores prácticas para crear, activar y ejecutar plantillas de prompts, incluyendo consideraciones como las técnicas correctas de grounding (información contextual para garantizar respuestas precisas de IA).
@@ -84,6 +89,15 @@ Einsteins Trust Layer is a set of features and practices that ensure the respons
 - **Grounding Features**: Implementing AI models in a way that their outputs are reliable and explainable to end-users.
 - **Trust Layer Management**: Proficiency in configuring and monitoring the Einstein Trust Layer to ensure data integrity and minimize bias in AI outputs.
 - **Data Privacy and Security**: Understanding how Salesforce ensures data privacy and security when using generative AI, including encryption, access controls, and compliance with regulations like GDPR.
+https://help.salesforce.com/s/articleView?id=ai.generative_ai_trust_layer.htm&language=en_US&type=5
+
+El Einstein Trust Layer es crucial para garantizar la seguridad, privacidad y uso ético de la IA dentro de Salesforce. Se evaluará:
+
+- **Características de Seguridad**: Comprensión de cómo Einstein protege los datos mediante encriptación, controles de acceso y otras medidas de seguridad.
+- **Cumplimiento de Privacidad**: Conocimiento de las leyes de privacidad de datos y cómo Salesforce cumple con normativas como el GDPR.
+- **Características de Grounding**: Implementación de modelos de IA de manera que sus resultados sean confiables y explicables para los usuarios finales.
+- **Gestión del Trust Layer**: Dominio en la configuración y monitoreo del Einstein Trust Layer para asegurar la integridad de los datos y minimizar el sesgo en los resultados de IA.
+
 
 **Zero-Data Retention Policy**:
 
@@ -125,6 +139,7 @@ Response
 - Audit Trail and Feedback
 
 ## Generative AI in CRM Applications  
+## Generative AI en Aplicaciones CRM  
 Esta sección se centra en el uso de IA generativa de Salesforce en los contextos de Ventas y Servicios. Las preguntas cubren:
 
 - **Einstein para Ventas**: En escenarios específicos, identificar las características correctas de la IA generativa que optimizan procesos de ventas, como automatización de seguimientos, mejora de respuestas por correo y provisión de insights predictivos.

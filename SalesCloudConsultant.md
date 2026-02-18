@@ -7,3 +7,7 @@ Salesforce Sales Cloud Consultant Exam Guide
 
 # Introduction
 This document serves as a comprehensive guide for individuals preparing for the Salesforce Sales Cloud Consultant certification exam. It outlines the key topics, skills, and knowledge areas that candidates should focus on to successfully pass the exam.
+
+## Data Management
+
+Given a scenario outline the scalability implications of solution

@@ -4,23 +4,36 @@ body {
     padding: 0;
 }
 
+/* Estilos para la barra de navegación */
 .navbar {
-    background-color: #333;
-    overflow: hidden;
+    background-color: #333; /* Color de fondo de la barra de navegación */
+    overflow: hidden; /* Para manejar elementos flotantes */
+    position: fixed; /* Hacer la barra de navegación fija */
+    width: 100%; /* Asegurarse de que la barra de navegación ocupe todo el ancho de la ventana */
+    top: 0; /* Alinear la barra de navegación en la parte superior de la ventana */
+    z-index: 1000; /* Asegurarse de que la barra de navegación esté por encima de otros elementos */
 }
 
+/* Estilos para los enlaces de la barra de navegación */
 .navbar a {
-    float: left;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+    float: left; /* Colocar los enlaces en línea */
+    display: block; /* Mostrar los enlaces como bloques */
+    color: white; /* Color del texto de los enlaces */
+    text-align: center; /* Alinear el texto al centro */
+    padding: 14px 16px; /* Espaciado interior de los enlaces */
+    text-decoration: none; /* Quitar subrayado de los enlaces */
+    transition: background-color 0.3s; /* Animación de cambio de color de fondo */
 }
 
+/* Estilos para los enlaces de la barra de navegación al pasar el mouse */
 .navbar a:hover {
-    background-color: #ddd;
-    color: black;
+    background-color: #ddd; /* Cambiar color de fondo al pasar el mouse */
+    color: black; /* Cambiar color del texto al pasar el mouse */
+}
+
+/* Estilos para el contenido debajo de la barra de navegación */
+.content {
+    margin-top: 60px; /* Ajustar este valor según la altura de la barra de navegación */
 }
 
 .container {
@@ -63,3 +76,4 @@ body {
 .content h1 {
     margin-top: 0;
 }
+
