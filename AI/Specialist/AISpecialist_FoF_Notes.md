@@ -10,9 +10,6 @@
 - [Help](https://help.salesforce.com/s/articleView?id=ai.generative_ai.htm&type=5)
 - [Glossary](https://help.salesforce.com/s/articleView?id=ai.copilot_glossary.htm&type=5)
 - [Exam Dumps](https://www.apexhours.com/salesforce-certified-ai-specialist-exam-practice-questions/#h-free-salesforce-certified-ai-specialist-exam-practice-questions)
-[Preguntas examen](https://www.apexhours.com/salesforce-certified-ai-specialist-exam-practice-questions/#h-free-salesforce-certified-ai-specialist-exam-practice-questions)
-
-https://help.salesforce.com/s/articleView?id=ai.generative_ai.htm&type=5
 
 ## Introducción
 to-do cambiar
@@ -49,8 +46,6 @@ El Prompt Builder desempeña un papel clave en la personalización de los result
 - Explain the process for creating, activating, and executing prompt templates.
   
 Other Requirements:
-
-
 - **Requisitos de Negocio**: Identificar el uso correcto del Prompt Builder según escenarios de negocio específicos, como la creación de respuestas automáticas o contenido personalizado.
 - **Roles y Responsabilidades**: Saber qué roles (por ejemplo, administradores, desarrolladores) son responsables de gestionar y ejecutar plantillas de prompts, y cómo asignar estos roles adecuadamente.
 - **Creación de Plantillas de Prompts**: Comprensión de las mejores prácticas para crear, activar y ejecutar plantillas de prompts, incluyendo consideraciones como las técnicas correctas de grounding (información contextual para garantizar respuestas precisas de IA).
@@ -89,15 +84,6 @@ Einsteins Trust Layer is a set of features and practices that ensure the respons
 - **Grounding Features**: Implementing AI models in a way that their outputs are reliable and explainable to end-users.
 - **Trust Layer Management**: Proficiency in configuring and monitoring the Einstein Trust Layer to ensure data integrity and minimize bias in AI outputs.
 - **Data Privacy and Security**: Understanding how Salesforce ensures data privacy and security when using generative AI, including encryption, access controls, and compliance with regulations like GDPR.
-https://help.salesforce.com/s/articleView?id=ai.generative_ai_trust_layer.htm&language=en_US&type=5
-
-El Einstein Trust Layer es crucial para garantizar la seguridad, privacidad y uso ético de la IA dentro de Salesforce. Se evaluará:
-
-- **Características de Seguridad**: Comprensión de cómo Einstein protege los datos mediante encriptación, controles de acceso y otras medidas de seguridad.
-- **Cumplimiento de Privacidad**: Conocimiento de las leyes de privacidad de datos y cómo Salesforce cumple con normativas como el GDPR.
-- **Características de Grounding**: Implementación de modelos de IA de manera que sus resultados sean confiables y explicables para los usuarios finales.
-- **Gestión del Trust Layer**: Dominio en la configuración y monitoreo del Einstein Trust Layer para asegurar la integridad de los datos y minimizar el sesgo en los resultados de IA.
-
 
 **Zero-Data Retention Policy**:
 
@@ -139,7 +125,6 @@ Response
 - Audit Trail and Feedback
 
 ## Generative AI in CRM Applications  
-## Generative AI en Aplicaciones CRM  
 Esta sección se centra en el uso de IA generativa de Salesforce en los contextos de Ventas y Servicios. Las preguntas cubren:
 
 - **Einstein para Ventas**: En escenarios específicos, identificar las características correctas de la IA generativa que optimizan procesos de ventas, como automatización de seguimientos, mejora de respuestas por correo y provisión de insights predictivos.
@@ -162,3 +147,60 @@ Model Builder permite a los usuarios crear y personalizar modelos de IA para cas
 - **Casos de Uso**: Identificación de escenarios donde el Model Builder es necesario para crear modelos de IA personalizados o ajustar modelos existentes a objetivos organizacionales específicos.
 - **Configuración de Modelos**: Demostrar dominio en la configuración de modelos generativos estándar, personalizados y Bring Your Own Large Language Model (BYOLLM) para cumplir con los objetivos empresariales.
 - **Requisitos de Negocio**: Comprender cómo alinear los modelos de IA con las estrategias de negocio para optimizar el rendimiento, ya sea mejorando la previsión de ventas, automatizando interacciones con clientes o impulsando campañas de marketing.
+
+# Focus on Force notes
+
+Test totales hechos: 13
+Errores: 5
+Aciertos: 8
+Score: 8/13
+
+## Data Cloud for Agentforce
+How should a custom retriever be configured to increase the relevance of retrieved content?
+- Apply filters to narrow down the search results based on specific conditions
+
+## Development Lifecycles
+
+Create dashboards to gain insights into default agents adoption and performance.
+
+Which data Cloud Object to use
+- Copilot for Salesforce Apps Events
+
+## Multi Agent Interoperability
+
+A2A
+It is a vendor-agnostic standard that lets agents from different stacks discover, authenticate, and communicate with each other.
+
+MCP
+Vendor-agnostic protocol that allows agents to connect with external tools, systems, and data. It lets agents find external services, read their schemas/auth and call them.
+
+Agent API 
+
+Exposes REST endpoints that allow external systems(such as website or external apps) to create sessions, send messages to agents, and receive responses. Suitable for chat UI
+
+What is the purpose of Multi-Agent Interoperability (MAI) in Data Cloud for Agentforce?
+
+## Prompt Engineering 
+
+Choosing the right template
+
+- Flex 
+- Field Generation
+- Record Summary 
+
+Grounding techniques
+
+- Apex Merge Field
+  - Complex Cases
+- Record Snapshot Merge Field
+  - Simple Records
+- Retrieval Augmented Generation (RAG)
+  - Unstructured Data
+
+Explain the process for creating, activating, and executing prompt templates.
+
+Draft email generation Adjustments
+- Make Shorter
+- Make Longer
+- Make More Formal
+- Make Less Formal
