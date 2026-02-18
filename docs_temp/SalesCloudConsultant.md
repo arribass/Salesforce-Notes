@@ -11,3 +11,10 @@ This document serves as a comprehensive guide for individuals preparing for the 
 ## Data Management
 
 Given a scenario outline the scalability implications of solution
+
+
+## Sales Lifecycle
+
+given a scenario discuss common sales and marketing processes and anticipate key implementation considerations
+
+Customer Centric Selling
