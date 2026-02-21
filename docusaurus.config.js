@@ -10,15 +10,6 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 
-module.exports = {
-  url: 'https://arribass.github.io', // Your GitHub Pages URL
-  baseUrl: '/Salesforce-Notes/', // The repository name, preceded by a slash
-  organizationName: 'aarribas', // Your GitHub username
-  projectName: 'Salesforce-Notes', // Your repository name
-  deploymentBranch: "gh-pages", // Deployment branch for GitHub Pages
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
-};
 const config = {
   title: 'Salesforce Notes',
   tagline: 'A collection of notes and resources about Salesforce.',
