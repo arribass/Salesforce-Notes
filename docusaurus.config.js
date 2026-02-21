@@ -151,4 +151,13 @@ const config = {
     }),
 };
 
+module.exports = {
+  url: 'https://arribass.github.io', // Your GitHub Pages URL
+  baseUrl: '/Salesforce-Notes/', // The repository name, preceded by a slash
+  organizationName: 'aarribas', // Your GitHub username
+  projectName: 'Salesforce-Notes', // Your repository name
+  deploymentBranch: "gh-pages", // Deployment branch for GitHub Pages
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
+};
 export default config;
