@@ -1,8 +1,9 @@
 {
-  "label": "Salesforce",
+  "label": "Developer",
   "position": 2,
   "link": {
     "type": "generated-index",
-    "description": "5 minutes to learn the most important Salesforce concepts."
+    "title": "Salesforce Developer",
+    "description": "Technical notes covering Apex, LWC, SOQL, integrations, testing, and governor limits. Designed for real-world development and certification preparation."
   }
 }

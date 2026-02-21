@@ -1,47 +1,68 @@
 ---
-sidebar_position: 4
+sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Salesforce Notes
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Bienvenido a **Salesforce Notes**, una colección estructurada de apuntes, resúmenes técnicos y quizzes interactivos para preparar certificaciones y reforzar conocimientos prácticos.
 
-## Getting Started
+Aquí encontrarás contenido claro, directo y enfocado en lo que realmente importa en el día a día de Salesforce.
 
-Get started by **creating a new site**.
+---
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+## 🎯 ¿Qué encontrarás aquí?
 
-### What you'll need
+Esta plataforma está organizada por roles y certificaciones:
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+- 🛠 **Administrator**
+- 👨‍💻 **Developer**
+- 📊 **Analyst**
+- 🤖 **AI Associate**
 
-## Generate a new site
+Cada sección incluye:
 
-Generate a new Docusaurus site using the **classic template**.
+- Conceptos clave explicados de forma clara
+- Ejemplos prácticos
+- Resúmenes para examen
+- Quizzes para validar conocimientos
 
-The classic template will automatically be added to your project after you run the command:
+---
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+## 🧠 Cómo usar esta web
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+Puedes utilizarla de tres formas:
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+### 1️⃣ Como documentación rápida
+Si necesitas repasar un concepto concreto (SOQL, Flows, Triggers, Seguridad…), ve directamente a la sección correspondiente.
 
-## Start your site
+### 2️⃣ Como guía de estudio
+Sigue el orden de los temas dentro de cada certificación y termina con el **quiz** para comprobar tu nivel.
 
-Run the development server:
+### 3️⃣ Como práctica de examen
+En la sección **Practice Exams** encontrarás simulacros y preguntas tipo certificación.
 
-```bash
-cd my-website
-npm run start
-```
+---
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+## 🚀 Objetivo del proyecto
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+El objetivo es crear una plataforma de aprendizaje práctica y estructurada que permita:
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+- Consolidar conocimientos técnicos
+- Preparar certificaciones oficiales
+- Tener un repositorio personal de referencia
+- Practicar con quizzes interactivos
+
+---
+
+## 📌 Recomendación
+
+Si estás empezando, te recomiendo comenzar por:
+
+- Administrator → Fundamentos
+- O directamente Developer si ya trabajas con Apex y LWC
+
+Y terminar siempre con el quiz de cada módulo.
+
+---
+
+Happy learning ⚡
