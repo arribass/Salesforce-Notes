@@ -29,7 +29,7 @@ export default function Quiz() {
 
   const fireConfetti = () => {
     confetti({
-      particleCount: 500,
+      particleCount: 600,
       spread: 90,
       origin: { y: 0.6 },
     });
