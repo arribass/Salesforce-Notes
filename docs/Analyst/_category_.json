@@ -2,6 +2,8 @@
   "label": "Analyst",
   "position": 3,
   "link": {
-    "type": "generated-index"
+    "type": "generated-index",
+    "title": "Salesforce Analyst",
+    "description": "Technical notes covering the Analyst role within Salesforce, including data analysis, reporting, and insights generation to support informed decision-making and strategic planning."
   }
 }
