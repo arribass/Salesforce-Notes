@@ -86,12 +86,12 @@ const config = {
           src: 'img/logo.svg',
         },
         items: [
-          {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Salesforce Knowledge',
-          },
+          // {
+          //   type: 'docSidebar',
+          //   sidebarId: 'tutorialSidebar',
+          //   position: 'left',
+          //   label: 'Salesforce Knowledge',
+          // },
           // {to: '/blog', label: 'Blog', position: 'left'}, // uncomment if you want to add a blog
           {
             href: 'https://github.com/arribass/Salesforce-Notes',
