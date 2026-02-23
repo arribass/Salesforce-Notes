@@ -1,0 +1,9 @@
+{
+  "label": "Consultant",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "title": "Salesforce Consultant",
+    "description": "Technical notes covering the Consultant role within Salesforce, including implementation, configuration, and customization to meet client business requirements."
+  }
+}
