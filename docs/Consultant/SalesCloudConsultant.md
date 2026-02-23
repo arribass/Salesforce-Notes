@@ -1,4 +1,4 @@
-Salesforce Sales Cloud Consultant Exam Guide
+Exam Guide
 =======================================
 <!-- Versiones -->
 | Version | Date       | Description                                          |

@@ -32,7 +32,7 @@ Los temas están organizados de acuerdo a la guía oficial de estudio y se inclu
 | User Interface                         | 17%     |
 | App Deployment                         | 10%     |
 
-<div style="page-break-after: always;"></div>
+<!-- <div style="page-break-after: always;"></div> -->
 
 **Table of Contents**
 - [Salesforce App Builder](#salesforce-app-builder)
@@ -75,7 +75,7 @@ Los temas están organizados de acuerdo a la guía oficial de estudio y se inclu
   - [Describe the capabilities and consideration when using change sets](#describe-the-capabilities-and-consideration-when-using-change-sets)
   - [Describe the uses cases and considerations when using unmanaged and managed packages](#describe-the-uses-cases-and-considerations-when-using-unmanaged-and-managed-packages)
 
-<div style="page-break-after: always;"></div>
+<!-- <div style="page-break-after: always;"></div> -->
 
 # Salesforce Fundamentals
 
