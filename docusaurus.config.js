@@ -47,7 +47,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/arribass/Salesforce-Notes',
+            'https://github.com/arribass/Salesforce-Notes/tree/dev',
         },
         blog: {
           showReadingTime: true,
@@ -58,7 +58,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/arribass/Salesforce-Notes',
+            'https://github.com/arribass/Salesforce-Notes/tree/dev',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -94,7 +94,7 @@ const config = {
           // },
           // {to: '/blog', label: 'Blog', position: 'left'}, // uncomment if you want to add a blog
           {
-            href: 'https://github.com/arribass/Salesforce-Notes',
+            href: 'https://github.com/arribass/Salesforce-Notes/tree/dev',
             label: 'GitHub',
             position: 'right',
           },

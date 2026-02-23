@@ -1,0 +1,9 @@
+{
+  "label": "App Builder",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "title": "Salesforce App Builder",
+    "description": "Technical notes covering declarative development, including flows, process builder, validation rules, formulas, and more. Designed for real-world application and certification preparation."
+  }
+}

@@ -1,5 +1,5 @@
 
----------
+# Question Bank II
 Preguntas sobre codigo, objetos, relaciones, etc
 
 #### Herramientas de Salesforce
@@ -533,7 +533,7 @@ Como evitarlo en Salesforce
   * Deployment
   * Performance
 
-Cosas de API etc<>
+<!-- Cosas de API etc<> -->
 Cosas sobre los packages etc sandboxes
 #### Testing 
 

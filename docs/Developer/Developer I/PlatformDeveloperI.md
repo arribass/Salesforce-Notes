@@ -448,19 +448,19 @@ Apex Code can be used to build more complex business logic for Apps. An invocabl
 Apex can be used for integration with external systems. It can also be used to perform server-side actions for custom Visualforce pages and Lightning Components.
 
 ##### Visualforce
-Visualforce is a framework that can be used to build custom UI, mainly for SF Classic. It uses tag-based markup language that consists of Visualforce tags, HTML, JS or any other Web-enable code embedded within a single <apex:page> tag. Visualforce pages can be used to override standard buttons, define custom tabs, create dashboard components, etc...
+<!-- Visualforce is a framework that can be used to build custom UI, mainly for SF Classic. It uses tag-based markup language that consists of Visualforce tags, HTML, JS or any other Web-enable code embedded within a single <apex:page> tag. Visualforce pages can be used to override standard buttons, define custom tabs, create dashboard components, etc... -->
 
 Using apex
 
-// An Apex class is allowed to have one (1) invocable method 
-``` C++
+<!-- // An Apex class is allowed to have one (1) invocable method  -->
+<!-- ``` C++
 public classCustomBusinessLogic {
   @InvocableMethod
   public static void processAccounts() {
     // perform logic or process which a declarative tool is not capable of achieving...   
     }
   }
-```
+``` -->
 The following Apex class contains an invocable method which can beinvoked from declarative toolssuch as Flow Builder or Process Builder.
 
 If the label attribute of the Apex invocable method is not defined, the Apex class nameis specified in the Apex action type
@@ -1029,22 +1029,22 @@ Map: Javascript based maps can be displayed using Visualforce.
 - **INFO WINDOWS**
 - **MAP MARKERS**
 - **ENABLE SETTING**
-``` HTML
+<!-- ``` HTML
 <apex:page standardController="Account">
     <!-- Display the address on a map -->
     <apex:map width="600px" height="400px" mapType="roadmap" zoomLevel="17"
     center="{!Account.BillingStreet},{!Account.BillingCity},{!Account.BillingState}">
     </apex:map>
-</apex:page>
-```
+<!-- </apex:page> -->
+<!-- ``` --> -->
 
 Chart: 
 
-Global Data: It can be referenced using Visualforce Expression Syntax to be evaluated. For example {\!$User.FirstName}, etc. Also Static Resources can be uploaded separately as standalone files or as an archive such as a zip file, and referenced in a Visualforce page like this {\$Resource.\<resourceName>}. 
+<!-- Global Data: It can be referenced using Visualforce Expression Syntax to be evaluated. For example {\!$User.FirstName}, etc. Also Static Resources can be uploaded separately as standalone files or as an archive such as a zip file, and referenced in a Visualforce page like this {\$Resource.\<resourceName>}.  -->
 
-You can combine this with URLFOR function in conjunction with $Resource global variable to reference a static resource that is contained in an archive. For example, URLFOR(\$Resource.<resourceName>, 'images/icons/white.png') this returns the URL to a specific image in the zip file.
+<!-- You can combine this with URLFOR function in conjunction with $Resource global variable to reference a static resource that is contained in an archive. For example, URLFOR(\$Resource.<resourceName>, 'images/icons/white.png') this returns the URL to a specific image in the zip file. -->
 
-Snippet for the code
+<!-- Snippet for the code
 ``` HTML
 <apex:outputTextvalue="{!$Profile.Name}" /><apex:outputTextvalue="{!$UserRole.Name}"/>
 ```
@@ -1056,24 +1056,24 @@ Some data from detail can be removed using different attributes. Subject control
 
 ```HTML
 <apex:pagestandardController="Account"lightningStylesheets="true"><apex:detailsubject="{!Account.Id}"/></apex:page>
-```
+``` -->
 
-![alt text](image-25.png)
+<!-- ![alt text](image-25.png)
 
 Related Lists Data:
 You can show Related list two ways: 
 - <apex:detail relatedList="true">
     Controller decides
 - <apex:relatedList list="Opportunities" />
-    Specify Object
+    Specify Object -->
 
 Visualforce provides several components to display data in table format. Two common components are:
 
-\<apex:column>: Defines a column within a table.
+<!-- \<apex:column>: Defines a column within a table.
 \<apex:pageBlockTable>: Displays a table in the context of a page block, used for organizing data.
-When working with relationships between objects, you can merge fields across multiple levels of related objects. 
+When working with relationships between objects, you can merge fields across multiple levels of related objects.  -->
 
-Related Data
+<!-- Related Data
 
 Visualforce allows you to traverse up to 5 levels in a parent-child relationship using merge fields. This means you can pull data from related objects like this:
 
@@ -1088,7 +1088,7 @@ The $<apex:pageBlockTable$> components are used to display rows of records in a 
 - VAR ATTRIBUTE The var attribute is used to assign each record in the list to a variable.
 - VALUE ATTRIBUTEThe value attribute is used to set the listof records that <apex:pageBlockTable> can work with
 
-Como alternativa se puede usar $<apex:dataTable$>
+Como alternativa se puede usar $<apex:dataTable$> -->
 
 #### VisualForce Controllers
 
