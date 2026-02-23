@@ -1,4 +1,4 @@
-
+# Question Bank
 [Trailhead Verified] - A sales team wants to use Prompt Builder to quickly draft personalized emails for contacts or leads.
 
 Which prompt template type should the team use?

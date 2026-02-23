@@ -1,3 +1,6 @@
+# Question Bank
+
+
 Cloud Kicks wants to use an AI model to predict the demand for shoes using historical data on sales and regional characteristics.
 What is an essential data quality dimension to achieve this goal?
 
