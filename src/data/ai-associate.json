@@ -1,0 +1,25 @@
+[
+  {
+    "question": "Cloud Kicks wants to use an AI model to predict demand...",
+    "options": ["Age", "Reliability", "Volume"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Why is it critical to consider privacy concerns?",
+    "options": [
+      "Ensures compliance with laws and regulations",
+      "Confirms data accessibility",
+      "Increases volume of data"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "What is a potential source of bias?",
+    "options": [
+      "Real-time data",
+      "Diverse demographics",
+      "Skewed toward a demographic"
+    ],
+    "correctIndex": 2
+  }
+]
