@@ -11,7 +11,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 
 const config = {
-  title: 'Salesforce Notes',
+  title: 'Force Notes',
   tagline: 'A collection of notes and resources about Salesforce.',
   favicon: 'img/favicon.ico',
 
@@ -80,7 +80,7 @@ const config = {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        title: 'Salesforce Notes',
+        title: 'Force Notes',
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo.svg',
@@ -139,7 +139,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Salesforce Notes, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Force Notes, Inc. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,

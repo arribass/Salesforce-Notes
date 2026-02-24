@@ -2,9 +2,9 @@
 sidebar_position: 1
 ---
 
-# Salesforce Notes
+# force Notes
 
-Bienvenido a **Salesforce Notes**, una colección estructurada de apuntes, resúmenes técnicos y quizzes interactivos para preparar certificaciones y reforzar conocimientos prácticos.
+Bienvenido a **force Notes**, una colección estructurada de apuntes, resúmenes técnicos y quizzes interactivos para preparar certificaciones y reforzar conocimientos prácticos.
 
 Aquí encontrarás contenido claro, directo y enfocado en lo que realmente importa en el día a día de Salesforce.
 

@@ -1,0 +1,88 @@
+[
+  {
+    "question": "Cloud Kicks wants to use an AI model to predict demand using historical sales data. What is an essential data quality dimension to ensure accurate predictions?",
+    "options": ["Age", "Reliability", "Volume"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Why is it critical to consider privacy concerns when working with AI and CRM data?",
+    "options": [
+      "Ensures compliance with laws and regulations",
+      "Confirms the data is accessible to all users",
+      "Increases the total volume of collected data"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "What is a potential source of bias in AI training data?",
+    "options": [
+      "Data collected in real time",
+      "Data collected from diverse demographics",
+      "Data skewed toward a specific demographic group"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Which best describes predictive AI?",
+    "options": [
+      "AI that generates new content from text prompts",
+      "AI that classifies or predicts outcomes based on input data",
+      "AI that only processes structured data"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Which best describes generative AI?",
+    "options": [
+      "AI that predicts future trends only",
+      "AI that generates new content such as text or images from input prompts",
+      "AI that stores large volumes of data"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "What is ethical debt?",
+    "options": [
+      "Violating privacy laws and not paying fines",
+      "Delaying a product launch to improve fairness",
+      "Launching an AI feature despite discovering harmful bias"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "What is a key challenge of human-AI collaboration?",
+    "options": [
+      "Improved decision-making accuracy",
+      "Over-reliance on AI leading to reduced critical thinking",
+      "Elimination of human oversight"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "What is an important principle of responsible AI?",
+    "options": [
+      "Maximizing automation at all costs",
+      "Ensuring transparency and explainability",
+      "Collecting as much data as possible"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "How can organizations reduce bias in AI systems?",
+    "options": [
+      "Limit data sources to internal systems only",
+      "Use diverse and representative datasets",
+      "Remove human oversight completely"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Why is data governance important for AI initiatives?",
+    "options": [
+      "It increases the number of AI models deployed",
+      "It ensures data accuracy, security, and compliance",
+      "It reduces the need for monitoring"
+    ],
+    "correctIndex": 1
+  }
+]
