@@ -39,45 +39,45 @@ Los temas están organizados de acuerdo a la guía oficial de estudio y se inclu
 - [Introduction](#introduction)
   - [Exam Details](#exam-details)
   - [Syllabus Percentages](#syllabus-percentages)
-- [Salesforce Fundamentals](#salesforce-fundamentals)
-  - [Identify the features and capabilities available when creating reports, report types and dashboards](#identify-the-features-and-capabilities-available-when-creating-reports-report-types-and-dashboards)
-  - [Given a set of requirements, determine the appropriate global, object-specific actions and layouts to optimize the Salesforce mobile user experience](#given-a-set-of-requirements-determine-the-appropriate-global-object-specific-actions-and-layouts-to-optimize-the-salesforce-mobile-user-experience)
-  - [Identify common scenarios for extending an org using AppExchange apps.](#identify-common-scenarios-for-extending-an-org-using-appexchange-apps)
-  - [Apply features and capabilities available to restrict and extend object, record and field access](#apply-features-and-capabilities-available-to-restrict-and-extend-object-record-and-field-access)
-  - [Given a set of business requirements, determine the appropriate sharing solution.](#given-a-set-of-business-requirements-determine-the-appropriate-sharing-solution)
-  - [Describe the customizations and uses cases for Chatter](#describe-the-customizations-and-uses-cases-for-chatter)
+  - [Salesforce Fundamentals](#salesforce-fundamentals)
+      - [Identify the features and capabilities available when creating reports, report types and dashboards](#identify-the-features-and-capabilities-available-when-creating-reports-report-types-and-dashboards)
+      - [Given a set of requirements, determine the appropriate global, object-specific actions and layouts to optimize the Salesforce mobile user experience](#given-a-set-of-requirements-determine-the-appropriate-global-object-specific-actions-and-layouts-to-optimize-the-salesforce-mobile-user-experience)
+      - [Identify common scenarios for extending an org using AppExchange apps.](#identify-common-scenarios-for-extending-an-org-using-appexchange-apps)
+      - [Apply features and capabilities available to restrict and extend object, record and field access](#apply-features-and-capabilities-available-to-restrict-and-extend-object-record-and-field-access)
+      - [Given a set of business requirements, determine the appropriate sharing solution.](#given-a-set-of-business-requirements-determine-the-appropriate-sharing-solution)
+      - [Describe the customizations and uses cases for Chatter](#describe-the-customizations-and-uses-cases-for-chatter)
 - [Business Logic and Process Automation](#business-logic-and-process-automation)
-  - [Given a scenario, determine the capabilities and use cases for workflow, Flows and Process Builder](#given-a-scenario-determine-the-capabilities-and-use-cases-for-workflow-flows-and-process-builder)
+      - [Given a scenario, determine the capabilities and use cases for workflow, Flows and Process Builder](#given-a-scenario-determine-the-capabilities-and-use-cases-for-workflow-flows-and-process-builder)
     - [Workflow Rules](#workflow-rules)
     - [Flows](#flows)
     - [Process Builder](#process-builder)
-  - [Given a scenario, determine the tool or action needed to meet business requirements](#given-a-scenario-determine-the-tool-or-action-needed-to-meet-business-requirements)
-  - [Given a scenario, demonstrate the use of formula fields to meet stated business requirements](#given-a-scenario-demonstrate-the-use-of-formula-fields-to-meet-stated-business-requirements)
-  - [Given a scenario, determine the capabilities and use cases for approval processes](#given-a-scenario-determine-the-capabilities-and-use-cases-for-approval-processes)
-  - [Given a scenario, demonstrate the use of validation rules to meet stated business requirements](#given-a-scenario-demonstrate-the-use-of-validation-rules-to-meet-stated-business-requirements)
-  - [Given a set of business requirements, recommend a solution to automate business processes while avoiding errors in automation](#given-a-set-of-business-requirements-recommend-a-solution-to-automate-business-processes-while-avoiding-errors-in-automation)
-- [Data Modeling and Management](#data-modeling-and-management)
-  - [Explain the capabilities and considerations of the Schema Builder](#explain-the-capabilities-and-considerations-of-the-schema-builder)
-  - [Given a scenario, determine the appropriate data model](#given-a-scenario-determine-the-appropriate-data-model)
-  - [Given a scenario, determine the considerations when selecting or changing a field data type](#given-a-scenario-determine-the-considerations-when-selecting-or-changing-a-field-data-type)
-  - [Given a scenario, determine the options and considerations when importing and exporting data, including the capabilities of external data sources.](#given-a-scenario-determine-the-options-and-considerations-when-importing-and-exporting-data-including-the-capabilities-of-external-data-sources)
-  - [Given a scenario, explain the capabilities of the various relationship types and the implications of each on record access, user interface and reporting](#given-a-scenario-explain-the-capabilities-of-the-various-relationship-types-and-the-implications-of-each-on-record-access-user-interface-and-reporting)
-- [User Interface](#user-interface)
-  - [Describe the user interface customization options.](#describe-the-user-interface-customization-options)
+      - [Given a scenario, determine the tool or action needed to meet business requirements](#given-a-scenario-determine-the-tool-or-action-needed-to-meet-business-requirements)
+      - [Given a scenario, demonstrate the use of formula fields to meet stated business requirements](#given-a-scenario-demonstrate-the-use-of-formula-fields-to-meet-stated-business-requirements)
+      - [Given a scenario, determine the capabilities and use cases for approval processes](#given-a-scenario-determine-the-capabilities-and-use-cases-for-approval-processes)
+      - [Given a scenario, demonstrate the use of validation rules to meet stated business requirements](#given-a-scenario-demonstrate-the-use-of-validation-rules-to-meet-stated-business-requirements)
+      - [Given a set of business requirements, recommend a solution to automate business processes while avoiding errors in automation](#given-a-set-of-business-requirements-recommend-a-solution-to-automate-business-processes-while-avoiding-errors-in-automation)
+  - [Data Modeling and Management](#data-modeling-and-management)
+    - [Explain the capabilities and considerations of the Schema Builder](#explain-the-capabilities-and-considerations-of-the-schema-builder)
+      - [Given a scenario, determine the appropriate data model](#given-a-scenario-determine-the-appropriate-data-model)
+      - [Given a scenario, determine the considerations when selecting or changing a field data type](#given-a-scenario-determine-the-considerations-when-selecting-or-changing-a-field-data-type)
+      - [Given a scenario, determine the options and considerations when importing and exporting data, including the capabilities of external data sources.](#given-a-scenario-determine-the-options-and-considerations-when-importing-and-exporting-data-including-the-capabilities-of-external-data-sources)
+      - [Given a scenario, explain the capabilities of the various relationship types and the implications of each on record access, user interface and reporting](#given-a-scenario-explain-the-capabilities-of-the-various-relationship-types-and-the-implications-of-each-on-record-access-user-interface-and-reporting)
+  - [User Interface](#user-interface)
+    - [Describe the user interface customization options.](#describe-the-user-interface-customization-options)
     - [Layouts](#layouts)
     - [Tabs](#tabs)
-  - [Demonstrate the capabilities and use cases for custom buttons, links and actions](#demonstrate-the-capabilities-and-use-cases-for-custom-buttons-links-and-actions)
-  - [Given a scenario, determine the declarative options available for incorporating Lightning components in an Application](#given-a-scenario-determine-the-declarative-options-available-for-incorporating-lightning-components-in-an-application)
-- [App Deployment](#app-deployment)
-  - [Given a scenario, determine the appropriate deployment plan](#given-a-scenario-determine-the-appropriate-deployment-plan)
-  - [Given a set of business requirements, recommend a solution for key milestones and considerations when managing the application lifecycle and various types of sandboxes](#given-a-set-of-business-requirements-recommend-a-solution-for-key-milestones-and-considerations-when-managing-the-application-lifecycle-and-various-types-of-sandboxes)
-  - [Given a use case, demonstrate knowledge, viability and troubleshooting when using change sets](#given-a-use-case-demonstrate-knowledge-viability-and-troubleshooting-when-using-change-sets)
-  - [Describe the capabilities and consideration when using change sets](#describe-the-capabilities-and-consideration-when-using-change-sets)
-  - [Describe the uses cases and considerations when using unmanaged and managed packages](#describe-the-uses-cases-and-considerations-when-using-unmanaged-and-managed-packages)
+      - [Demonstrate the capabilities and use cases for custom buttons, links and actions](#demonstrate-the-capabilities-and-use-cases-for-custom-buttons-links-and-actions)
+      - [Given a scenario, determine the declarative options available for incorporating Lightning components in an Application](#given-a-scenario-determine-the-declarative-options-available-for-incorporating-lightning-components-in-an-application)
+  - [App Deployment](#app-deployment)
+      - [Given a scenario, determine the appropriate deployment plan](#given-a-scenario-determine-the-appropriate-deployment-plan)
+      - [Given a set of business requirements, recommend a solution for key milestones and considerations when managing the application lifecycle and various types of sandboxes](#given-a-set-of-business-requirements-recommend-a-solution-for-key-milestones-and-considerations-when-managing-the-application-lifecycle-and-various-types-of-sandboxes)
+      - [Given a use case, demonstrate knowledge, viability and troubleshooting when using change sets](#given-a-use-case-demonstrate-knowledge-viability-and-troubleshooting-when-using-change-sets)
+      - [Describe the capabilities and consideration when using change sets](#describe-the-capabilities-and-consideration-when-using-change-sets)
+      - [Describe the uses cases and considerations when using unmanaged and managed packages](#describe-the-uses-cases-and-considerations-when-using-unmanaged-and-managed-packages)
 
 <!-- <div style="page-break-after: always;"></div> -->
 
-# Salesforce Fundamentals
+## Salesforce Fundamentals
 
 Salesforce is a cloud-based customer relationship management (CRM) platform that provides a range of tools and services to help businesses manage their customer relationships, sales, marketing, and other business processes.
 
@@ -87,7 +87,7 @@ Decide on:
 
 Apex Email Handler
 
-## Identify the features and capabilities available when creating reports, report types and dashboards
+#### Identify the features and capabilities available when creating reports, report types and dashboards
 
 First of all you need to understand how all of these elements are stored and shared between users.
 
@@ -134,13 +134,13 @@ Refreshing Dashboards - to-do
 **Snapshots**
 Snapshots are used to capture the state of a report at a specific point in time. This can be useful for tracking changes in data over time or for creating historical reports.
 
-## Given a set of requirements, determine the appropriate global, object-specific actions and layouts to optimize the Salesforce mobile user experience
+#### Given a set of requirements, determine the appropriate global, object-specific actions and layouts to optimize the Salesforce mobile user experience
 
 Mobile Navigation
 
 - Smart Search Items
   
-## Identify common scenarios for extending an org using AppExchange apps.
+#### Identify common scenarios for extending an org using AppExchange apps.
 
 What is AppExchange?
 
@@ -148,7 +148,7 @@ What is AppExchange?
 
 AppExchange is a marketplace for Salesforce applications and components. It allows users to find, install, and customize applications that extend the functionality of Salesforce.
 
-## Apply features and capabilities available to restrict and extend object, record and field access
+#### Apply features and capabilities available to restrict and extend object, record and field access
 
 
 ![alt text](image-17.png)
@@ -193,7 +193,7 @@ Restriction Rules
 
 2 per object on Enterprise and Developer
 
-## Given a set of business requirements, determine the appropriate sharing solution.
+#### Given a set of business requirements, determine the appropriate sharing solution.
 
 Case
 
@@ -203,7 +203,7 @@ Ownership Sharing Rule can eb created to give access horizontally.
 
 Some extreme Cases may require manual sharing to a specific User.
 
-## Describe the customizations and uses cases for Chatter
+#### Describe the customizations and uses cases for Chatter
 
 Chatter is a collaboration tool that allows users to communicate with each other in real time. It is integrated with Salesforce and can be used to share information, files, and updates with other users.
 
@@ -226,7 +226,7 @@ Chatter is a collaboration tool that allows users to communicate with each other
 
 Salesforce provides a range of tools and features to automate business processes and logic. These tools can be used to create workflows, automate data entry, and integrate with external systems.
 
-## Given a scenario, determine the capabilities and use cases for workflow, Flows and Process Builder
+#### Given a scenario, determine the capabilities and use cases for workflow, Flows and Process Builder
   
 ### Workflow Rules
 
@@ -246,7 +246,7 @@ Variables in Flow etc
 ### Process Builder
 
 Process Builder is a powerful tool that allows you to automate business processes in Salesforce. It can be used to create complex workflows, automate data entry, and integrate with external systems.
-## Given a scenario, determine the tool or action needed to meet business requirements
+#### Given a scenario, determine the tool or action needed to meet business requirements
 
 Use of prebuilt solutions and its customization
 
@@ -262,7 +262,7 @@ In case the prebuilt solution does not meet the business requirements, it can be
 
 Email notifications can be sent with Flow Actions. These notifications can be used to notify users of important events or changes in the system.
 d 
-## Given a scenario, demonstrate the use of formula fields to meet stated business requirements
+#### Given a scenario, demonstrate the use of formula fields to meet stated business requirements
 
 What is a formula field?
 
@@ -280,7 +280,7 @@ What fields cannot be used in formula fields?
 - Rich Text Area fields cannot be used in formula fields.
 - Long Text Area fields cannot be used in formula fields.
   
-## Given a scenario, determine the capabilities and use cases for approval processes
+#### Given a scenario, determine the capabilities and use cases for approval processes
 
 Approval Process
 
@@ -311,7 +311,7 @@ How is the approval request triggered?
 - By submitting the request using Apex
   - Programattically using ProcessRequest and ProcessResult classes
 
-## Given a scenario, demonstrate the use of validation rules to meet stated business requirements
+#### Given a scenario, demonstrate the use of validation rules to meet stated business requirements
 
 What is a Validation Rule?
 
@@ -339,17 +339,17 @@ Useful Functions:
 - CONTAINS():
   - Function that checks if a field contains a specific value. It can be used to validate that a field is required only when the field contains a specific value.
 
-## Given a set of business requirements, recommend a solution to automate business processes while avoiding errors in automation
+#### Given a set of business requirements, recommend a solution to automate business processes while avoiding errors in automation
 
 **Queues and Approval Processes**
 
 - Queues are used to manage and assign records to groups of users. They can be used to assign records to a specific group of users based on specific criteria, such as record type or owner.
 - Approval processes are used to automate the approval of records in Salesforce. They can be used to define the steps necessary for a record to be approved, including the approvers and the criteria for approval.
 
-# Data Modeling and Management
+## Data Modeling and Management
 
 Data Modeling and Management is the process of designing and managing the data structures and relationships in Salesforce. It includes creating custom objects, fields, and relationships, as well as managing data integrity and security.
-## Explain the capabilities and considerations of the Schema Builder
+### Explain the capabilities and considerations of the Schema Builder
 
 Schema Builder is a tool that allows you to visualize and manage the data model in Salesforce. It provides a graphical representation of the objects, fields, and relationships in the system.
 
@@ -357,7 +357,7 @@ When creating a field in Schema Builder it wont be added automatically to the pa
 
 ![alt text](image-9.png)
 
-## Given a scenario, determine the appropriate data model
+#### Given a scenario, determine the appropriate data model
 
 It is important to know how some Objects works by default to avoid complex customizations when some OOTB can be used.
 
@@ -413,7 +413,7 @@ Advantages of using a Lookup Relationship over a Picklist:
 - User can add new locations without modifying the picklist values.
   
 
-## Given a scenario, determine the considerations when selecting or changing a field data type
+#### Given a scenario, determine the considerations when selecting or changing a field data type
 
 All Types of fields:
 
@@ -426,7 +426,7 @@ How text(encrypted) fields are stored in the database?
 - Encrypted text fields are stored in the database as encrypted values. The original value is not stored in the database, only the encrypted value is stored. 
 - Mask can be applied to the field to hide the original value. The mask is applied when the field is displayed in the user interface. The original value is not displayed in the user interface, only the masked value is displayed.
 
-## Given a scenario, determine the options and considerations when importing and exporting data, including the capabilities of external data sources.
+#### Given a scenario, determine the options and considerations when importing and exporting data, including the capabilities of external data sources.
 
 Data Importing and Exporting Tools
 
@@ -472,7 +472,7 @@ Is a tool that connects systems
 - External Objects are available on Global Search
 - External Objects are available on Mobile App
 
-## Given a scenario, explain the capabilities of the various relationship types and the implications of each on record access, user interface and reporting
+#### Given a scenario, explain the capabilities of the various relationship types and the implications of each on record access, user interface and reporting
 
 What is a relationship in Salesforce?
 - A relationship is a link between two objects that allows you to associate records in one object with records in another object.
@@ -506,9 +506,9 @@ A hierarchical relationship is a type of relationship in Salesforce that allows 
 
 todo
 
-# User Interface
+## User Interface
 
-## Describe the user interface customization options.
+### Describe the user interface customization options.
 
 ### Layouts
 
@@ -558,7 +558,7 @@ Tabs can be created for the following:
 > [!WARNING]
 > Tabs cannot be created for Standard Objects. Standard objects are automatically created when the object is created in Salesforce.
 
-## Demonstrate the capabilities and use cases for custom buttons, links and actions
+#### Demonstrate the capabilities and use cases for custom buttons, links and actions
 
 A Standard Button (New, View, Edit) can be overridden for Salesforce Classic, Lightning Experience and Mobile on the Same Screen.
 
@@ -567,7 +567,7 @@ A Standard Button (New, View, Edit) can be overridden for Salesforce Classic, Li
 - Save and Cancel cannot be overridden.
 - When overriding delete with a VF Page is up to it to determine if delete triggers are fired and how.
 
-## Given a scenario, determine the declarative options available for incorporating Lightning components in an Application
+#### Given a scenario, determine the declarative options available for incorporating Lightning components in an Application
 
 What is a Lightning component?
 
@@ -593,13 +593,13 @@ Case Feed
 - Case Feed is a special type of record page that is used to display related records in a list format. It can be used to display related records based on specific criteria, such as record type or owner.
   
 ![alt text](image-18.png)
-# App Deployment
+## App Deployment
 
 This topic relies on how to maintain your application up to date between different environments.
 
 App Deployment is the process of moving customizations and configurations from one Salesforce org to another. This can include moving custom objects, fields, page layouts, and other components.
 
-## Given a scenario, determine the appropriate deployment plan
+#### Given a scenario, determine the appropriate deployment plan
 
 **Product Deployment Plan Steps:**
 
@@ -615,7 +615,7 @@ Steps may vary depending on the type of deployment and the components being depl
 
 What is Staging
 
-## Given a set of business requirements, recommend a solution for key milestones and considerations when managing the application lifecycle and various types of sandboxes
+#### Given a set of business requirements, recommend a solution for key milestones and considerations when managing the application lifecycle and various types of sandboxes
 
 **Sandboxes types**
 
@@ -660,7 +660,7 @@ You can also log in to a sandbox environment by going to the sandbox URL and ent
 Sandbox Templates
 
 - Sandbox templates are used to define the data that is included in a sandbox when it is created. They can be used to include or exclude specific objects, fields, and records from the sandbox.
-## Given a use case, demonstrate knowledge, viability and troubleshooting when using change sets
+#### Given a use case, demonstrate knowledge, viability and troubleshooting when using change sets
 
 **What is a Change Set?**
 
@@ -688,7 +688,7 @@ Sandbox Templates
 7. View component details
 
 
-## Describe the capabilities and consideration when using change sets
+#### Describe the capabilities and consideration when using change sets
 
 Quick Deploy
 - Quick deploy is a feature that allows you to deploy a change set without running all tests. This can be useful when you want to deploy a change set quickly and do not want to wait for all tests to run.
@@ -696,7 +696,7 @@ Quick Deploy
 Quick Deploy is only available when components have been validated successfully on the previous 10 days and they meet overall code coverage.
 
 
-## Describe the uses cases and considerations when using unmanaged and managed packages
+#### Describe the uses cases and considerations when using unmanaged and managed packages
 
 <!-- <p align="center">
   <img src="image-6.png" alt="alt text">
