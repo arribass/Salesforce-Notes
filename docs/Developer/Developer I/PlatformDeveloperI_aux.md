@@ -830,7 +830,7 @@ que podemos ver y hacer
 - Query Editor
 - Progress
 - Problems
-![Tabs de Developer Console](image.png)
+![Tabs de Developer Console](img/image.png)
 
 ## Checkpoin Inspector
 - **Checkpoint Inspector:** Permite ver los checkpoints de un Flow
@@ -997,10 +997,10 @@ b Enable 'Launch Flow on Rejection' for the Next Best Action component in Lightn
 
 A recommendation can only invoke one and the same flow when it is either accepted or rejected by the user. By default, a recommendation only launches the flow when it is accepted. To also launch the flow when it is rejected, a Decision element is added to the flow that specifically uses an "isRecommendationAccepted" boolean variable for determining whether the recommendation that launched it was approved or rejected, and then perform the necessary logic in the flow accordingly. Also, the 'Launch Flow on Rejection' settings for the Next Best Action component must be enabled in Lightning App Builder.
 
-dolar contentAssetGlobal puede contener imagenes, archivos de texto, videos, etc.
+dolar contentAssetGlobal puede contener img/imagenes, archivos de texto, videos, etc.
 - JavaScript
 - CSS
-- Images
+- img/images
 
 Donde podemos usar Visualforce
  - Custom App
@@ -1101,10 +1101,10 @@ import { updateRecord } from 'lightning/uiRecordApi';
   -  Permite hacer comunicación en tiempo real en Visualforce
   -  Permite hacer comunicación en tiempo real en Lightning Web Components 
 
-#### IMAGEPROXYURL
+#### img/imagePROXYURL
 
 QUE ES
-- **IMAGEPROXYURL:** Permite mostrar imágenes en Salesforce
+- **img/imagePROXYURL:** Permite mostrar imágenes en Salesforce
   -  Permite mostrar imágenes en Aura Components
   -  Permite mostrar imágenes en Visualforce
   -  Permite mostrar imágenes en Lightning Web Components

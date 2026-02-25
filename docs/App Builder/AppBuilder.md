@@ -101,10 +101,10 @@ Access levels for folders are as follows:
 - Manage: Users can view, edit, and delete the reports and dashboards in the folder.
 
 Access can be granted using hierarchies when selecting the Roles and Subordinates option.
-<!-- center image-14 -->
+<!-- center img/image-14 -->
 
 <!-- <p align="center">
-  <img src="image-14.png" alt="alt text">
+  <img src="img/image-14.png" alt="alt text">
 </p> -->
 
 **Reports**
@@ -117,7 +117,7 @@ Salesforce provides a range of standard report types that can be used to create 
 
 When some of the standard report types do not meet the business requirements, custom report types can be created. Custom report types allow you to define the objects and fields that are included in the report and can be used to create reports on specific data sets.
 
-<!-- to-do add image -->
+<!-- to-do add img/image -->
 
 It is important to note that Standard Report Types are not editable. You can only create new custom report types based on them. However custom fields for the Objects included in the report are automatically included in the report type. For example if you create a new field on the Opportunity object, it will be automatically included in the Opportunity with Products report type.
 
@@ -144,14 +144,14 @@ Mobile Navigation
 
 What is AppExchange?
 
-![alt text](image-8.png)
+![alt text](img/image-8.png)
 
 AppExchange is a marketplace for Salesforce applications and components. It allows users to find, install, and customize applications that extend the functionality of Salesforce.
 
 #### Apply features and capabilities available to restrict and extend object, record and field access
 
 
-![alt text](image-17.png)
+![alt text](img/image-17.png)
 
 **Profiles:** Profiles are used to define the permissions and access levels for users in Salesforce. They determine what users can see and do in the system.
 
@@ -197,7 +197,7 @@ Restriction Rules
 
 Case
 
-![alt text](image-15.png)
+![alt text](img/image-15.png)
 
 Ownership Sharing Rule can eb created to give access horizontally.
 
@@ -216,8 +216,8 @@ Chatter is a collaboration tool that allows users to communicate with each other
 - Allow Users to edit posts and comments.
 - Allow Records in Groups: Allows users to share records in Chatter groups and collaborate on them.
   
-![alt text](image-12.png)
-![alt text](image-11.png)
+![alt text](img/image-12.png)
+![alt text](img/image-11.png)
  
 **Permissions for Chatter:**
 - Edit my Own Posts: Allows users to edit their own posts in Chatter.
@@ -284,7 +284,7 @@ What fields cannot be used in formula fields?
 
 Approval Process
 
-![alt text](image-3.png)
+![alt text](img/image-3.png)
 
 What is an approval process?
 - Automated process for approving records in Salesforce
@@ -355,7 +355,7 @@ Schema Builder is a tool that allows you to visualize and manage the data model 
 
 When creating a field in Schema Builder it wont be added automatically to the page layout. You need to add it manually.
 
-![alt text](image-9.png)
+![alt text](img/image-9.png)
 
 #### Given a scenario, determine the appropriate data model
 
@@ -401,7 +401,7 @@ Job Position and Candidate
 - A Candidate can apply for many Job Positions
 - An intermediate object is needed to create a many-to-many relationship between Job Position and Candidate. This intermediate object is called a junction object. In this case a Job Application object can be created to store the relationship between Job Position and Candidate.
   
-![alt text](image-4.png)
+![alt text](img/image-4.png)
 
 Case Scenario for an Object + Lookup Relationship over a Picklist:
 
@@ -456,10 +456,10 @@ What happens when you try to import a file with values that are not in a restric
 - The import will fail and the values will not be imported into the system. Errors will be generated for each record that contains a value not in the restricted picklist.
 
 **Setting**
-![alt text](image.png)
+![alt text](img/image.png)
 
 **Error**
-![alt text](image-1.png)
+![alt text](img/image-1.png)
 
 Salesforce Connect
 
@@ -481,7 +481,7 @@ What is a relationship in Salesforce?
 
 A master-detail relationship is a type of relationship in Salesforce that allows you to create a parent-child relationship between two objects. In a master-detail relationship, the detail record is dependent on the master record. This means that if the master record is deleted, all detail records associated with it are also deleted.
 
-![alt text](image-5.png)
+![alt text](img/image-5.png)
 
 - Roll-up summary fields can be created on the master record to summarize data from the detail records.
 - No more than 2 MD relationships to the same object
@@ -531,7 +531,7 @@ Middle Name and Suffix fields can be disabled on User Interface -> Name Settings
 
 **Field Properties**
 
-![alt text](image-10.png)
+![alt text](img/image-10.png)
 
 On a Page Layout you can set the following properties for a field:
 - Required: The field is required and must be filled out before the record can be saved.
@@ -562,7 +562,7 @@ Tabs can be created for the following:
 
 A Standard Button (New, View, Edit) can be overridden for Salesforce Classic, Lightning Experience and Mobile on the Same Screen.
 
-![alt text](image-16.png)
+![alt text](img/image-16.png)
 
 - Save and Cancel cannot be overridden.
 - When overriding delete with a VF Page is up to it to determine if delete triggers are fired and how.
@@ -575,7 +575,7 @@ A Lightning component is a reusable building block for creating user interfaces 
 
 When added you can set the input properties and attributes easily in the Lightning App Builder.
 
-![alt text](image-13.png)
+![alt text](img/image-13.png)
 
 These can be added to the following:
 - Lightning App Page
@@ -592,7 +592,7 @@ Case Feed
 
 - Case Feed is a special type of record page that is used to display related records in a list format. It can be used to display related records based on specific criteria, such as record type or owner.
   
-![alt text](image-18.png)
+![alt text](img/image-18.png)
 ## App Deployment
 
 This topic relies on how to maintain your application up to date between different environments.
@@ -664,7 +664,7 @@ Sandbox Templates
 
 **What is a Change Set?**
 
-![alt text](image-2.png)
+![alt text](img/image-2.png)
 
 - A change set is a container for components that you want to deploy from one Salesforce org to another. Change sets are used to move customizations between related orgs, such as from a sandbox to a production org.
 - When a change set fails the entire transaction is rolled back
@@ -699,13 +699,13 @@ Quick Deploy is only available when components have been validated successfully 
 #### Describe the uses cases and considerations when using unmanaged and managed packages
 
 <!-- <p align="center">
-  <img src="image-6.png" alt="alt text">
+  <img src="img/image-6.png" alt="alt text">
 </p> -->
 
 What is a package on Salesforce?
 - A package is a container for components that can be distributed and installed in other Salesforce orgs. Packages can include custom objects, Apex code, Visualforce pages, and other components.
 
-![alt text](image-7.png)
+![alt text](img/image-7.png)
  
 Unmanaged Package
 

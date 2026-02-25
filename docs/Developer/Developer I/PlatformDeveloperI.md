@@ -44,7 +44,7 @@ Por una parte los topics son resumenes o transcripciones de la guia de estudio d
 
 ## Developer Fundamentals
 
-### Understande Multi-tenant concepts and design frameworks, such as MVC arquitecture and Lightning Component Framework
+#### Understande Multi-tenant concepts and design frameworks, such as MVC arquitecture and Lightning Component Framework
 Introduction
 
 Salesforce is built upon a multi-tenant architecture and consists of features and characteristics such as cloud computing, shared system resources,automatic system updates, and metadata-driven kernel. In effect, development in this environment impose different considerations compared to traditional development.
@@ -55,7 +55,7 @@ Solutions can be developed in the platform using several built-in declarative to
 
 
 Salesforce Multitenant Architecture consist of the following key elements and features:
-![alt text](image-3.png)
+![alt text](img/image-3.png)
 
 #### Cloud Computing
 
@@ -104,7 +104,7 @@ Deployment: Deployment of new or updated metadata components to production is st
 
 Governor limits ensures tenants do not monopolize shared resources. If exceeded, these limits throw exceptions that cannot be handled and should always be taken in account during developing.
 
-![alt text](image-4.png)
+![alt text](img/image-4.png)
 
 Description	Synchronous Limit	Asynchronous Limit
 Total number of SOQL queries issued1	100	200
@@ -191,7 +191,7 @@ The Lightning Component Framework is not strictly based on the MVC architecture.
 - CONTROLLER (SERVER-SIDE) The Apex controller on the server side is used to perform database operations. The JavaScript controller is used to call methods in the Apex controller.
 - CONTROLLER (CLIENT-SIDE) The JavaScript controller on the client side is used to perform client-side operations and also acts as the intermediary between the server and the UI.
 
-![alt text](image-5.png)
+![alt text](img/image-5.png)
 
 #### App Manager Page 24
 
@@ -214,36 +214,36 @@ Creating an App
 
 When creating a new Lightning App, the App Name and Developer Name are required. Other details such as its description and branding can also be specified.
 
-![alt text](image-10.png)
+![alt text](img/image-10.png)
 
 
 In the App Options configuration page, the navigation style and form factors that the app will support are specified. Other options are related to setup and personalization settings.
 
-![alt text](image-9.png)
+![alt text](img/image-9.png)
 
 In the App Options configuration page, the navigation styleand form factorsthat the app will support are specified. 
 
-![alt text](image-11.png)
+![alt text](img/image-11.png)
 
 The navigation style determines the personalization settings available for the App
 
-![alt text](image-12.png)
+![alt text](img/image-12.png)
 
 Utility Items can be added to a utility bar, which is a feature that is only available to desktop devices.
 
-![alt text](image-13.png)
+![alt text](img/image-13.png)
 
 The items that are added to the Selected Itemscolumn will appear in the navigation bar of the Lightning App.
 
-![alt text](image-14.png)
+![alt text](img/image-14.png)
 
 The Navigation Rules option, which is only available when using the Console navigation style, determines whether records are opened as a workspace tab or subtab of another record.
 
-![alt text](image-15.png)
+![alt text](img/image-15.png)
 
 Profiles are assigned to the Lightning App by adding them to the Selected Profilescolumn. Only users assigned to these profiles will be able to access the Lightning App.
 
-![alt text](image-16.png)
+![alt text](img/image-16.png)
 
 
 
@@ -264,7 +264,7 @@ Lightning App Builder is a declarative tool that can be utilized to create and c
 
 Lightning App Builder can be used to build Lightning pages for using Standard, Custom and Third-party Lightning components.
 
-![alt text](image-17.png)
+![alt text](img/image-17.png)
 #### Declarative Tools
 
 Salesforce provides various declarative tools that can be used to build and extend apps.
@@ -390,7 +390,7 @@ Lightning App Builder can be used for building and customizing single-page apps,
 QUICK ACTIONS
 Object-specific and global quick actions can be created to allow users to invoke custom functionality when using the UI. For example, they can use a quick action to quickly send an email to a customer.
 
-![alt text](image-6.png)
+![alt text](img/image-6.png)
 
 ##### DATA MANAGEMENT
 
@@ -465,7 +465,7 @@ The following Apex class contains an invocable method which can beinvoked from d
 
 If the label attribute of the Apex invocable method is not defined, the Apex class nameis specified in the Apex action type
 
-![alt text](image-7.png)
+![alt text](img/image-7.png)
 
 The programmatic features offered by Salesforce include Apex, Visualforce and Lightning Components which are used when a required functionality cannot be achieved using declarative tools
 
@@ -493,14 +493,14 @@ Salesforce also offers a wide range of useful APIs that can be used in different
 - APEX SOAP APISimilar to Apex REST API, Apex SOAP API allows Apex classes to be exposed and invoked by external application as SOAP web services. Use this API when it is required to run Apex code from an external application via SOAP API.
 - TOOLING APITooling API provides the ability to write SOQL query for many metadata types in an org. This API provides SOAP and REST interfaces and can be used in creating custom Lightning Platform development tools or apps. 
 
-### Given an scenario, identify common usea cases and best practices for declarative vs Programatic customizations, including Governor limits, formula fields, and Roll-up summaries
+#### Given an scenario, identify common usea cases and best practices for declarative vs Programatic customizations, including Governor limits, formula fields, and Roll-up summaries
 
 Rollup summaries allow calculations (SUM, COUNT, MIN, MAX) on related records in master-detail relationships. When rolling up currency fields, the master record's currency is used, ensuring consistent currency values.
 
 The lookup relationship between Account and Opportunity behaves like a master-detail in some aspects where the Account is the master, allowing rollup summaries and also cascade deletion. This means that when an Account is deleted, all related Opportunities can be automatically deleted as well, similar to how it works in a master-detail relationship. Also Account for an Opportunity is not required.
 
 
-### Identify Scenarios - Given a scenario, determine, create, and access the appropriate data model including objects, fields, relationships, and external IDs.
+#### Identify Scenarios - Given a scenario, determine, create, and access the appropriate data model including objects, fields, relationships, and external IDs.
 
 Including object, fields, relationships and External IDs
 
@@ -513,12 +513,11 @@ ROLLup sumarias for currencies master record currency applies
 
 account opp es lookup pero tiene propiedades de master detail permite rollips
 
-### Identify Scenarios - Options and Considerations on Importing and Exporting Data
-
+#### Identify Scenarios - Options and Considerations on Importing and Exporting Data
 
 ## Process Automation and Logic
 
-### Identify the capabilities of the Declarative Process automation features
+#### Identify the capabilities of the Declarative Process automation features
 
 > **_1_** In Winter ’23 and Summer ’23, the creation of new workflow rules and processes have been blocked respectively. Their creation is only allowed in Developer Edition orgs for use in managed packages.
 
@@ -530,11 +529,11 @@ account opp es lookup pero tiene propiedades de master detail permite rollips
   
 Declarative Features
 
-![alt text](image-18.png)
+![alt text](img/image-18.png)
 
 **Workflow Rule** acts as a single if/then statement manner and is used to automate approval processes in an org.
 
-![alt text](image-19.png)
+![alt text](img/image-19.png)
 
 They can be evaluated in 3 cases:
 - Created
@@ -545,15 +544,15 @@ They can be evaluated in 3 cases:
 
 Approval processes provide the same set of workflow actions as the workflow rule.
 
-![alt text](image-20.png)
+![alt text](img/image-20.png)
 
 Diagram for all the capablities and tools Approvals offers
 
-![alt text](image-24.png)
+![alt text](img/image-24.png)
 
 **Process Builder** can perform actions based on multiple if/then statements.
 
-![alt text](image-21.png)
+![alt text](img/image-21.png)
 
 Allows comunication via Platform Events. A process publish and other one subscribes to it allowing the comunication
 Called Event Process
@@ -567,8 +566,8 @@ Other Capabilities
 **Flow Builder** can perform actions based on multiple if/then statements and more advanced Logic. Basically it overrides
 any other automation except for approvals.(which thay can invoke too)
 
-![alt text](image-22.png)
-![alt text](image-23.png)
+![alt text](img/image-22.png)
+![alt text](img/image-23.png)
 
 
 The Automation Lightning App allows flow admins to efficiently view, monitor, create, and manage flows, offering enhanced features like list views, search, filters, and access to learning resources.
@@ -611,11 +610,11 @@ ADDITIONAL EMAILS p to five more email addresses can be added for recipients who
 ‘SEND EMAIL’ FLOW CORE ACTION
 Send Email is a Flow Core Action used to send an automated email, just like the Email Alert Action. It is set up within Flow Builder, unlike the Email Alert action which is created outside and used in a Flow.It can be configured to log emailsautomatically to a record's Activity Timeline and use Lightning and Classic email templates in combination with merge fields.
 
-### Given a scenario, use declarative functionality  and Apex together to automate business logic
+#### Given a scenario, use declarative functionality  and Apex together to automate business logic
 
 Llamar apex desde flow hay q poner anotacon de InvocableMethod
 
-### Declare variables, constants, methods and use modifiers and Apex interfaces.
+#### Declare variables, constants, methods and use modifiers and Apex interfaces.
 
 Apex is a strongly typed language and its important to know how to declare them. The types available are the next ones:
 
@@ -645,7 +644,7 @@ public class myOuterClass {
 }
 ```
 
-### Given a scenario use and apply Apex control flow statements
+#### Given a scenario use and apply Apex control flow statements
 
 Semantica de if else
 
@@ -668,7 +667,7 @@ if (x <= 0) {
     }
 }
 ```
-### Given a scenario write SOSL , SOQL and DML statements in Apex
+#### Given a scenario write SOSL , SOQL and DML statements in Apex
 
 A SOQL query is the equivalent of a Select SQL statement and searches through the org database. SOSL is a programmatic way of performing a text-based search against the search index.
 
@@ -732,10 +731,10 @@ List<Child> results5 = [SELECT Name FROM Child__c WHERE FavoriteDessert__c INCLU
 ```
 
 Records on the system
-![alt text](image-28.png)
+![alt text](img/image-28.png)
 
 Code Execution
-![alt text](image-30.png)
+![alt text](img/image-30.png)
 
 It's important to understand how Database.insert and SaveResult work when allOrNone is set to false. In this scenario, partial inserts are allowed, meaning some records may succeed while others fail. The SaveResult object provides the status for each record, and you can check the indexes of the results to handle any errors or successes accordingly.
 
@@ -773,7 +772,7 @@ SOQL for loops differ from standard SOQL statements because of the method they u
 
 Advanced Topics
 
-### Given a scenario, follow best practices to write Apex classes and triggers.
+#### Given a scenario, follow best practices to write Apex classes and triggers.
 
 This is the syntax for an Apex class definition:
 ``` C++
@@ -920,7 +919,7 @@ You can substitute the previous code with a single row.
 return [SELECT Name FROM Account WHERE Id = :accId]?.Name;
 ```
 
-### Given a scenario, identify the implications of governor limits on Apex transactions
+#### Given a scenario, identify the implications of governor limits on Apex transactions
 
 What counts as a DML for limits
 
@@ -932,26 +931,26 @@ Database.emptyRecycleBin(listOfsObject) // 1 statement
 System.debug(Limits.getDMLStatements() + 'out of' + Limits.getLimitDMLStatements() + ' DML Statements used');
 ```
 
-### Describe the relationship between Apex transactions, the save order of execution, and the potential for recursion and/or cascading
+#### Describe the relationship between Apex transactions, the save order of execution, and the potential for recursion and/or cascading
 
  Infographic for Order of Execution
-![alt text](image-29.png)
+![alt text](img/image-29.png)
 
-### Implement exception handling in Apex, including custom exceptions as needed
+##### Implement exception handling in Apex, including custom exceptions as needed
 
 In case of unhandled exception on DML full transaction is rolled back even successful ones. Setpoints can be used.
 ### Knowledge Check
 
 ## User Interface
 
-### Given a scenario, display content or modify Salesforce data using a Visualforce page and the appropiate controllers or extensions as needed
+#### Given a scenario, display content or modify Salesforce data using a Visualforce page and the appropiate controllers or extensions as needed
 
 Visualforce page uses a markup language that is similar to HTML and supports common types of web content including HTML.
 
 1. **HTML** code can be added to Visualforce pages, HTML tags are generated automatically by Visualforce, generated HTML tags can be overridden, and inline **CSS** can be defined for them.
 2. **CSS Stylesheets** can be added via `<apex:stylesheet>`, sheets are uploaded as static resources and referenced using the `$Resource` variable. The `styleClass` attribute defines the name of the style class.
 3. **JavaScript** can be added via `<apex:includeScript>`. Also loaded as a static resource, the `script` tags can be used to access functions, and the `$Resource` variable can be used to access the file.
-4. Other components such as `<apex:image>` can be loaded as a static resource or from URL maps and `iframe`.
+4. Other components such as `<apex:img/image>` can be loaded as a static resource or from URL maps and `iframe`.
 
 
 HTML en Visualforce
@@ -1042,7 +1041,7 @@ Chart:
 
 <!-- Global Data: It can be referenced using Visualforce Expression Syntax to be evaluated. For example {\!$User.FirstName}, etc. Also Static Resources can be uploaded separately as standalone files or as an archive such as a zip file, and referenced in a Visualforce page like this {\$Resource.\<resourceName>}.  -->
 
-<!-- You can combine this with URLFOR function in conjunction with $Resource global variable to reference a static resource that is contained in an archive. For example, URLFOR(\$Resource.<resourceName>, 'images/icons/white.png') this returns the URL to a specific image in the zip file. -->
+<!-- You can combine this with URLFOR function in conjunction with $Resource global variable to reference a static resource that is contained in an archive. For example, URLFOR(\$Resource.<resourceName>, 'img/images/icons/white.png') this returns the URL to a specific img/image in the zip file. -->
 
 <!-- Snippet for the code
 ``` HTML
@@ -1058,7 +1057,7 @@ Some data from detail can be removed using different attributes. Subject control
 <apex:pagestandardController="Account"lightningStylesheets="true"><apex:detailsubject="{!Account.Id}"/></apex:page>
 ``` -->
 
-<!-- ![alt text](image-25.png)
+<!-- ![alt text](img/image-25.png)
 
 Related Lists Data:
 You can show Related list two ways: 
@@ -1096,7 +1095,7 @@ A Visualforce controller is a set of instructions that specify what happens when
 
 Controller are available for every object that can be queried using the LP API.
 
-![alt text](image-26.png)
+![alt text](img/image-26.png)
 
 There are 2 main types:
 - Standard
@@ -1152,7 +1151,7 @@ Reference vs value variables
 
 Profiles and roles can be consulted as global info
 
-### Describe the Lightning Component framework, its benefits, and the types of content that can be contained in a Lightning web component
+#### Describe the Lightning Component framework, its benefits, and the types of content that can be contained in a Lightning web component
 
 Lightning Component Bundle contains:
 - JS Code
@@ -1193,7 +1192,7 @@ Display it on SPA
   </template>
 </template>
 ```
-### Given a scenario, prevent user interface and data access security Vulnerabilities
+#### Given a scenario, prevent user interface and data access security Vulnerabilities
 
 What is XSS
 Salesforce implements filters that screen out harmful characters as an antiXSS defense. Nearly all tags escape the XSS vulnerable characters but it can be disabled with escape='false'
@@ -1204,14 +1203,14 @@ PAGE 32
 
 Useful Methods
 
-Securely fetch images
-- IMAGEPROXYURL allows secure retrieval of external iamges and prevents unauthorized request for user credentials
+Securely fetch img/images
+- img/imagePROXYURL allows secure retrieval of external iamges and prevents unauthorized request for user credentials
 
 Use
 
 ```
-<apex:image id="salesforce-twitter" 
-    value="{!IMAGEPROXYURL("https://pbs.twimg.com/profile_images/1014182734606897153/JfveQU3Z_400x400.jpg")}" 
+<apex:img/image id="salesforce-twitter" 
+    value="{!img/imagePROXYURL("https://pbs.twimg.com/profile_img/images/1014182734606897153/JfveQU3Z_400x400.jpg")}" 
 alt="Salesforce on Twitter" />
 ```
 Can be used on src too
@@ -1236,7 +1235,7 @@ FIELD-LEVEL
  
 E.g: check if user can update the Company field on the Lead object:Schema.sObjectType.Lead.fields.Company.isUpdateable()
 
-### Given a scenario, display and use a custom user interface components, including Lightning Components, Flow, and Visualforce
+#### Given a scenario, display and use a custom user interface components, including Lightning Components, Flow, and Visualforce
 
 Retrive data from Payload.
 
@@ -1334,7 +1333,7 @@ Parámetros:
 type: El tipo de página, en este caso una página de registro (standard__recordPage).
 attributes: Contiene el ID del registro (recordId), el objeto (objectApiName), y la acción (en este caso, view para ver el registro).
 
-### Describe the use cases and best practices for Lightning Web Component events
+#### Describe the use cases and best practices for Lightning Web Component events
 to-do aqui leer el topic
 
 Types of Events:
@@ -1477,13 +1476,13 @@ Remember that events load from the innermost component
 
 To expose an event within a Custom Page use event and schema to-do
 
-### Given a scenario, implement Apex to work with various types of page components, including Lightning Components, Flow, Next Best Actions, etc.
+#### Given a scenario, implement Apex to work with various types of page components, including Lightning Components, Flow, Next Best Actions, etc.
 
 Dynamic Forms allow to break details into fields and sections
 
 ## Testing, Debugging and Deployment 
 
-### Write and execute tests for triggers, controllers, classes flows and processes using various sources of data
+#### Write and execute tests for triggers, controllers, classes flows and processes using various sources of data
 
 Running test on the Dev Console offers an Overall Code Coverage panel with percentage of coverage for each class, allows to [Rerun Failed Tests], and if there are multiple classes on the run, test are run async.
 
@@ -1552,9 +1551,9 @@ public class TestAssertClass {
 }
 ```
 
-### Knowdlegde Check
+#### Knowdlegde Check
 
-### Describe how to approach debugging system issues and monitoring flows, processes, and asynchronous and batch jobs, etc.
+#### Describe how to approach debugging system issues and monitoring flows, processes, and asynchronous and batch jobs, etc.
 
 What is the Platform Integration User
 
@@ -1585,12 +1584,12 @@ Trace Flags are assigned to debug levels to activate debug logs for users and Ap
 
 They contain debug level, start and end time and log type
 
-### Given a scenario, know how and when to use the Salesforce Developer tools such as Salesforce DX, Salesforce CLI, and Developer Console
+#### Given a scenario, know how and when to use the Salesforce Developer tools such as Salesforce DX, Salesforce CLI, and Developer Console
 to-do2 repasar con chatgpt 
 
 You can consult checkpoints in developer console and given information is namespace, class, line and date for the checkpoint
 
-![alt text](image-31.png)
+![alt text](img/image-31.png)
 
 Workbench
 - Describe metadata and data
@@ -1598,7 +1597,7 @@ Workbench
 - Executing SOSL and SOQL
 
 
-### Describe the environments, requirements, and process for deploying code and associated configurations
+#### Describe the environments, requirements, and process for deploying code and associated configurations
 
 There are four types of sandboxes:
 - Developer
