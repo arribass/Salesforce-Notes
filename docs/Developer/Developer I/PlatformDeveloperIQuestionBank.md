@@ -266,7 +266,7 @@ public class MyController {
 
 ### Explanation:
 
-![alt text](image-27.png)
+![alt text](img/image-27.png)
 
 #### Metadata information about certain custom apps in a Salesforce org is required in order to render them in the user interface of a mobile app. Which of the following can be used by a developer to return the metadata for this requirement?
 
