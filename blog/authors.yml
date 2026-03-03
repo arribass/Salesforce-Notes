@@ -1,3 +1,12 @@
+aarribas:
+  name: Adrian Arribas
+  title: Salesforce Developer
+  url: https://www.linkedin.com/in/adrian-arribas-garcia-5470791b4/
+  image_url: https://github.com/arribass.png
+  page: true
+  socials:
+    linkedin: adrian-arribas-garcia-5470791b4
+    github: arribass
 yangshun:
   name: Yangshun Tay
   title: Ex-Meta Staff Engineer, Co-founder GreatFrontEnd
