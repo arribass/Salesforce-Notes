@@ -1,3 +1,6 @@
+---
+sidebar_item: false
+---
 Exam Guide
 =======================================
 <!-- Versiones -->
@@ -11,7 +14,6 @@ This document serves as a comprehensive guide for individuals preparing for the 
 ## Data Management
 
 Given a scenario outline the scalability implications of solution
-
 
 ## Sales Lifecycle
 
