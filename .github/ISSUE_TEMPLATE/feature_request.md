@@ -3,18 +3,25 @@ name: Feature request
 about: Suggest an idea for this project
 title: ''
 labels: ''
-assignees: ''
+assignees: arribass
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+# Issue: [Título corto del issue]
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+## 1️⃣ Request
+**Descripción del problema / feature request:**
+- [ ] Qué se espera que suceda
+- [ ] Por qué es importante
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+## 2️⃣ Análisis
+**Detalles y contexto:**
+- [ ] Información técnica relevante
+- [ ] Casos de uso / ejemplos
+- [ ] Restricciones o dependencias
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+## 3️⃣ Diseño
+**Propuesta de solución:**
+- [ ] Ideas o pasos a seguir
+- [ ] Mockups / diagramas (si aplica)
+- [ ] Consideraciones de implementación
