@@ -1,6 +1,3 @@
----
-sidebar_item: false
----
 Exam Guide
 =======================================
 <!-- Versiones -->
