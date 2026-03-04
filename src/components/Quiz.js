@@ -1,8 +1,9 @@
 import React, { useState, useMemo } from 'react';
 import confetti from 'canvas-confetti';
+import './Quiz.css';
 
-export default function Quiz({ 
-  questions = [], 
+export default function Quiz({
+  questions = [],
   maxQuestions = 5,
   passingPercentage = 0.7 // 70% para aprobar
 }) {
@@ -71,8 +72,8 @@ export default function Quiz({
           ? acc + 1
           : acc;
       }, 0) + (
-        answers[current] === selectedQuestions[current].correctIndex ? 1 : 0
-      );
+          answers[current] === selectedQuestions[current].correctIndex ? 1 : 0
+        );
 
       if (finalScore >= passingScore) {
         setTimeout(() => {
@@ -96,12 +97,12 @@ export default function Quiz({
 
   if (showResults) {
     return (
-      <div style={{ marginTop: '20px' }}>
+      <div className="quiz-container quiz-results">
         <h3>{passed ? '🎉 You Passed!' : '❌ Try Again'}</h3>
         <p>
           You scored {score} / {selectedQuestions.length}
         </p>
-        <button onClick={resetQuiz}>
+        <button className="quiz-retry-btn" onClick={resetQuiz}>
           Retry (new random 5)
         </button>
       </div>
@@ -111,41 +112,30 @@ export default function Quiz({
   const question = selectedQuestions[current];
 
   return (
-    <div style={{ marginTop: '20px' }}>
+    <div className="quiz-container">
 
       {/* 🔵 Progreso circular */}
-      <div style={{ display: 'flex', gap: '8px', marginBottom: '20px' }}>
+      <div className="quiz-progress">
         {selectedQuestions.map((_, index) => {
 
-          let bg = '#e0e0e0';
+          let statusClass = 'unanswered';
 
           if (answers[index] !== undefined) {
-            bg =
+            statusClass =
               answers[index] === selectedQuestions[index].correctIndex
-                ? '#2e8555'
-                : '#d9534f';
+                ? 'correct'
+                : 'incorrect';
           }
 
           if (index === current) {
-            bg = '#3578e5';
+            statusClass = 'current';
           }
 
           return (
             <div
               key={index}
               onClick={() => setCurrent(index)}
-              style={{
-                width: '35px',
-                height: '35px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                borderRadius: '50%',
-                cursor: 'pointer',
-                background: bg,
-                color: 'white',
-                fontWeight: 'bold'
-              }}
+              className={`quiz-progress-item ${statusClass}`}
             >
               {index + 1}
             </div>
@@ -153,21 +143,13 @@ export default function Quiz({
         })}
       </div>
 
-      <h3>{question.question}</h3>
+      <h3 className="quiz-question-title">{question.question}</h3>
 
       {question.options.map((option, index) => (
-        <div key={index} style={{ marginBottom: '8px' }}>
+        <div key={index} className="quiz-option">
           <button
             onClick={() => handleAnswer(index)}
-            style={{
-              width: '100%',
-              padding: '8px',
-              background:
-                answers[current] === index ? '#3578e5' : '#f0f0f0',
-              color: answers[current] === index ? 'white' : 'black',
-              border: '1px solid #ccc',
-              cursor: 'pointer'
-            }}
+            className={`quiz-option-btn ${answers[current] === index ? 'selected' : ''}`}
           >
             {option}
           </button>
@@ -175,9 +157,9 @@ export default function Quiz({
       ))}
 
       <button
+        className="quiz-action-btn"
         onClick={nextQuestion}
         disabled={answers[current] === undefined}
-        style={{ marginTop: '10px' }}
       >
         {current === selectedQuestions.length - 1 ? 'Finish' : 'Next'}
       </button>

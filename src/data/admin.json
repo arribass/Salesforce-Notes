@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "question": "What is the primary function of a Junction Object in Salesforce?",
+        "options": [
+            "To create a Many-to-Many relationship between two objects.",
+            "To enforce field-level security on records.",
+            "To automate workflow rules across different apps.",
+            "To link a standard object to an external database."
+        ],
+        "correctIndex": 0,
+        "explanation": "A Junction Object is a custom object with two master-detail relationships, allowing it to connect two objects in a many-to-many relationship."
+    },
+    {
+        "id": 2,
+        "question": "Which feature is used to grant record access to users based on their role hierarchy?",
+        "options": [
+            "Profiles",
+            "Permission Sets",
+            "Organization-Wide Defaults (OWD)",
+            "Role Hierarchy"
+        ],
+        "correctIndex": 3,
+        "explanation": "The Role Hierarchy allows users higher in the hierarchy to access records owned by users below them, provided 'Grant Access Using Hierarchies' is enabled for the object."
+    }
+]
