@@ -65,4 +65,43 @@ Y terminar siempre con el quiz de cada módulo.
 
 ---
 
+
+Force Notes
+│
+├── AI for Salesforce
+
+│   ├── What is AI?
+
+│   ├── AI & Data Ethics Quiz
+
+│   └── Topic (Markdown / Downloads)
+
+│
+├── Administrador
+
+│   └── Under Construction
+│
+
+├── Consultor
+│   └── Under Construction
+│
+├── Desarrollador
+
+│   ├── Salesforce Developer
+
+│   │   ├── Developer I
+│   │   │   ├── Salesforce Platform Developer I
+│   │   │   └── Question Bank I
+
+│   │   └── Developer II
+│   │       └── Question Bank II
+
+│   └── App Builder
+│       ├── Salesforce App Builder
+│       ├── AppBuilder Question Bank
+│       └── App Builder Quiz
+│
+
+└── Exam Guide
+
 Happy learning ⚡
