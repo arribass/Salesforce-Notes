@@ -118,7 +118,7 @@ const config = {
               },
               {
                 label: 'AI Notes',
-                to: '/docs/AI/Associate/AI_copy',
+                to: '/docs/AI/Associate/AI_Topic',
               },
             ],
           },
