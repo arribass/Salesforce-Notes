@@ -1,12 +1,21 @@
-.latest-commit-details {
+.commit-timeline-wrapper {
     margin: 40px auto;
     max-width: 800px;
+}
+
+/* Base styling for Details wrapper */
+.latest-commit-details {
     background-color: var(--ifm-background-surface-color);
     border: 1px solid var(--ifm-color-emphasis-200);
     border-left: 4px solid var(--ifm-color-primary);
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     transition: box-shadow 0.3s ease;
+    margin-bottom: 0;
+    /* Reset for timeline connection */
+    position: relative;
+    z-index: 2;
+    /* Pop over the timeline line */
 }
 
 [data-theme='dark'] .latest-commit-details {
@@ -14,12 +23,17 @@
 }
 
 .latest-commit-details>summary {
-    padding: 16px 24px;
-    background-color: var(--ifm-color-emphasis-100);
+    padding: 24px;
+    background-color: transparent;
     border-radius: 8px 8px 0 0;
     cursor: pointer;
     list-style: none;
     /* Hide default arrow in some browsers */
+}
+
+.latest-commit-details[open]>summary {
+    background-color: var(--ifm-color-emphasis-100);
+    border-bottom: 1px solid var(--ifm-color-emphasis-200);
 }
 
 /* Hide default marker for webkit */
@@ -27,13 +41,25 @@
     display: none;
 }
 
-.latest-commit-summary {
-    display: inline-flex;
+/* Card Summary Restored styling */
+.latest-commit-card-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.summary-header {
+    display: flex;
     align-items: center;
     gap: 10px;
+}
+
+.summary-title {
     font-size: 1.1rem;
     font-weight: 600;
-    color: var(--ifm-color-content);
+    color: var(--ifm-color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .commit-icon {
@@ -41,6 +67,44 @@
     height: 20px;
     color: var(--ifm-color-primary);
     flex-shrink: 0;
+}
+
+.commit-icon.pulse {
+    animation: pulse-icon 2s infinite;
+}
+
+@keyframes pulse-icon {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.summary-message {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--ifm-color-content);
+    line-height: 1.4;
+}
+
+.summary-meta {
+    color: var(--ifm-color-content-secondary);
+    font-size: 0.95rem;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .latest-commit-body {
@@ -138,4 +202,81 @@
     color: var(--ifm-color-content-secondary);
     font-style: italic;
     padding: 0;
+}
+
+/* Timeline specific styles */
+.previous-commits-timeline {
+    display: flex;
+    flex-direction: column;
+    padding-top: 16px;
+    position: relative;
+    margin-left: 20px;
+    /* Offset the timeline globally */
+}
+
+.previous-commits-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 6px;
+    /* Center the line */
+    width: 2px;
+    background-color: var(--ifm-color-emphasis-200);
+    z-index: 0;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 24px;
+    position: relative;
+    z-index: 1;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-node {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--ifm-background-surface-color);
+    border: 2px solid var(--ifm-color-emphasis-400);
+    margin-top: 6px;
+    /* align with first line of text */
+    flex-shrink: 0;
+    transition: border-color 0.2s ease;
+}
+
+.timeline-item:hover .timeline-node {
+    border-color: var(--ifm-color-primary);
+}
+
+.timeline-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.timeline-message {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--ifm-color-content);
+    line-height: 1.4;
+}
+
+.timeline-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--ifm-color-content-secondary);
+}
+
+.timeline-meta .commit-hash {
+    padding: 2px 4px;
+    /* Slightly smaller for timeline */
+    font-size: 0.8rem;
 }

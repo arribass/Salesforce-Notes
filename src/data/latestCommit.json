@@ -1,39 +1,75 @@
 {
-  "shortHash": "077e5c2",
-  "hash": "077e5c2b8ef669c94a603c00214a5ea0fb74dbf1",
-  "author": "arribass",
-  "email": "55694226+arribass@users.noreply.github.com",
-  "relativeDate": "5 minutes ago",
-  "exactDate": "Wed, 4 Mar 2026 17:26:19 +0100",
-  "message": "feat: Display the latest git commit information on the homepage using a new generation script and component.",
-  "files": [
+  "commits": [
     {
-      "status": "M",
-      "name": "docs/intro.md"
+      "shortHash": "3f09071",
+      "hash": "3f09071134391b5b7f8e464304b863576d1e02c4",
+      "author": "arribass",
+      "email": "55694226+arribass@users.noreply.github.com",
+      "relativeDate": "7 minutes ago",
+      "exactDate": "Wed, 4 Mar 2026 17:33:04 +0100",
+      "message": "feat: Introduce LatestCommit component to display recent Git commit details and update Docusaurus navigation.",
+      "files": [
+        {
+          "status": "M",
+          "name": "docusaurus.config.js"
+        },
+        {
+          "status": "M",
+          "name": "scripts/generate-commit-info.js"
+        },
+        {
+          "status": "M",
+          "name": "src/components/LatestCommit.css"
+        },
+        {
+          "status": "M",
+          "name": "src/components/LatestCommit.js"
+        },
+        {
+          "status": "M",
+          "name": "src/data/latestCommit.json"
+        }
+      ]
     },
     {
-      "status": "M",
-      "name": "package.json"
+      "shortHash": "077e5c2",
+      "hash": "077e5c2b8ef669c94a603c00214a5ea0fb74dbf1",
+      "author": "arribass",
+      "email": "55694226+arribass@users.noreply.github.com",
+      "relativeDate": "13 minutes ago",
+      "exactDate": "Wed, 4 Mar 2026 17:26:19 +0100",
+      "message": "feat: Display the latest git commit information on the homepage using a new generation script and component.",
+      "files": []
     },
     {
-      "status": "A",
-      "name": "scripts/generate-commit-info.js"
+      "shortHash": "ef308a0",
+      "hash": "ef308a0c69c88f510ad5c8f0a0eedfc63a267032",
+      "author": "arribass",
+      "email": "55694226+arribass@users.noreply.github.com",
+      "relativeDate": "20 minutes ago",
+      "exactDate": "Wed, 4 Mar 2026 17:19:47 +0100",
+      "message": "feat: Add Salesforce Admin documentation section with an interactive quiz component.",
+      "files": []
     },
     {
-      "status": "A",
-      "name": "src/components/LatestCommit.css"
+      "shortHash": "deb1f1b",
+      "hash": "deb1f1ba481b5b17d160a4e340799777d0fd97fa",
+      "author": "arribass",
+      "email": "55694226+arribass@users.noreply.github.com",
+      "relativeDate": "19 hours ago",
+      "exactDate": "Tue, 3 Mar 2026 22:21:38 +0100",
+      "message": "removed unused authors",
+      "files": []
     },
     {
-      "status": "A",
-      "name": "src/components/LatestCommit.js"
-    },
-    {
-      "status": "A",
-      "name": "src/data/latestCommit.json"
-    },
-    {
-      "status": "M",
-      "name": "src/pages/index.js"
+      "shortHash": "a572b5b",
+      "hash": "a572b5bd5c551827c5cd2ad91539acc4b5cb5563",
+      "author": "arribass",
+      "email": "55694226+arribass@users.noreply.github.com",
+      "relativeDate": "20 hours ago",
+      "exactDate": "Tue, 3 Mar 2026 22:03:18 +0100",
+      "message": "delete welcome blog Post",
+      "files": []
     }
   ],
   "success": true
