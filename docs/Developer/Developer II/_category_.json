@@ -2,7 +2,7 @@
   "label": "Developer II",
   "position": 3,
   "link": {
-    "type": "doc",
-    "id": "Developer/Developer II/under-construction"
+    "type": "generated-index",
+    "description": "Technical notes for Salesforce Platform Developer II."
   }
 }
