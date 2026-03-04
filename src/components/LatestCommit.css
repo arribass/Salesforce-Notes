@@ -1,27 +1,38 @@
-.latest-commit-container {
+.latest-commit-details {
     margin: 40px auto;
     max-width: 800px;
-    padding: 24px;
     background-color: var(--ifm-background-surface-color);
     border: 1px solid var(--ifm-color-emphasis-200);
     border-left: 4px solid var(--ifm-color-primary);
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    transition: box-shadow 0.3s ease;
 }
 
-[data-theme='dark'] .latest-commit-container {
+[data-theme='dark'] .latest-commit-details {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.latest-commit-header {
-    display: flex;
+.latest-commit-details>summary {
+    padding: 16px 24px;
+    background-color: var(--ifm-color-emphasis-100);
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+    list-style: none;
+    /* Hide default arrow in some browsers */
+}
+
+/* Hide default marker for webkit */
+.latest-commit-details>summary::-webkit-details-marker {
+    display: none;
+}
+
+.latest-commit-summary {
+    display: inline-flex;
     align-items: center;
     gap: 10px;
     font-size: 1.1rem;
-    font-weight: bold;
+    font-weight: 600;
     color: var(--ifm-color-content);
 }
 
@@ -29,37 +40,102 @@
     width: 20px;
     height: 20px;
     color: var(--ifm-color-primary);
+    flex-shrink: 0;
 }
 
 .latest-commit-body {
+    padding: 24px;
+}
+
+.commit-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.meta-item {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
 }
 
-.commit-message {
-    font-size: 1.2rem;
-    font-weight: 500;
-    margin: 0;
-}
-
-.commit-meta {
+.meta-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: bold;
     color: var(--ifm-color-content-secondary);
-    font-size: 0.95rem;
-    display: flex;
-    gap: 8px;
-    align-items: center;
+    letter-spacing: 0.5px;
+}
+
+.meta-value {
+    font-size: 1.05rem;
+    color: var(--ifm-color-content);
 }
 
 .commit-hash {
     font-family: var(--ifm-font-family-monospace);
     background-color: var(--ifm-color-emphasis-100);
-    padding: 2px 6px;
+    padding: 4px 8px;
     border-radius: 4px;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: var(--ifm-color-emphasis-800);
+    display: inline-block;
+    width: fit-content;
 }
 
 [data-theme='dark'] .commit-hash {
     color: var(--ifm-color-emphasis-200);
+}
+
+.commit-divider {
+    border: none;
+    height: 1px;
+    background-color: var(--ifm-color-emphasis-200);
+    margin: 20px 0;
+}
+
+.commit-files {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.file-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background-color: var(--ifm-color-emphasis-100);
+    border-radius: 6px;
+    font-family: var(--ifm-font-family-monospace);
+    font-size: 0.9rem;
+}
+
+.file-status {
+    font-size: 1.1rem;
+}
+
+.file-name {
+    color: var(--ifm-color-content);
+    word-break: break-all;
+}
+
+.file-item.empty {
+    background-color: transparent;
+    font-family: var(--ifm-font-family-base);
+    color: var(--ifm-color-content-secondary);
+    font-style: italic;
+    padding: 0;
 }

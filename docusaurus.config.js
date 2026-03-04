@@ -4,7 +4,7 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from 'prism-react-renderer';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -94,7 +94,7 @@ const config = {
             position: 'left',
             label: 'Salesforce Knowledge',
           },
-          {to: '/blog', label: 'Blog', position: 'left'}, // uncomment if you want to add a blog
+          { to: '/blog', label: 'Blog', position: 'left' }, // uncomment if you want to add a blog
           {
             href: 'https://github.com/arribass/Salesforce-Notes/tree/dev',
             label: 'GitHub',
@@ -112,30 +112,25 @@ const config = {
                 label: 'Tutorial',
                 to: '/docs/intro',
               },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              // {
-              //   label: 'Stack Overflow',
-              //   href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              // },
-              // {
-              //   label: 'X',
-              //   href: 'https://x.com/docusaurus',
-              // },
+              {
+                label: 'Administrator Notes',
+                to: '/docs/Admin/Admin_Topic',
+              },
+              {
+                label: 'AI Notes',
+                to: '/docs/AI/Associate/AI_copy',
+              },
             ],
           },
           {
             title: 'More',
             items: [
-              // {
-              //   label: 'Blog',
-              //   to: '/blog',
-              // },
               {
-                label: 'GitHub',
+                label: 'GitHub Repository',
+                href: 'https://github.com/arribass/Salesforce-Notes/tree/dev',
+              },
+              {
+                label: 'Docusaurus',
                 href: 'https://github.com/facebook/docusaurus',
               },
             ],
@@ -149,5 +144,5 @@ const config = {
       },
     }),
 };
-  
+
 export default config;
