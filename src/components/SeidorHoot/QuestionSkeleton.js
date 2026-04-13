@@ -35,21 +35,26 @@ export default function QuestionSkeleton({ questions = [], onFinish }) {
 
   return (
     <div className="hoot-question-view">
-      <div className="hoot-timer">{timer}</div>
-      <h2 className="hoot-question-text">{question.question}</h2>
+      <div className="hoot-timer-container">
+        <div className="hoot-timer">{timer}</div>
+      </div>
+      
+      <div className="astra-card">
+        <h2 className="hoot-question-text">{question.question}</h2>
+      </div>
 
       <div className="hoot-options-grid">
         {question.options.map((opt, i) => (
           <div 
             key={i} 
-            className={`hoot-option-card ${
-              ['hoot-option-red', 'hoot-option-blue', 'hoot-option-yellow', 'hoot-option-green'][i]
+            className={`hoot-option-card astra-card ${
+              ['astra-opt-0', 'astra-opt-1', 'astra-opt-2', 'astra-opt-3'][i]
             } ${showAnswer && i === question.correctIndex ? 'correct-highlight' : ''}`}
             onClick={() => setShowAnswer(true)}
           >
-            <span className="hoot-option-symbol">
-              {['▲', '◆', '●', '■'][i]}
-            </span>
+            <div className="hoot-indicator">
+              {['A', 'B', 'C', 'D'][i]}
+            </div>
             {opt}
           </div>
         ))}
@@ -58,7 +63,7 @@ export default function QuestionSkeleton({ questions = [], onFinish }) {
       {showAnswer && (
         <button 
           className="hoot-action-btn"
-          style={{ alignSelf: 'center', padding: '1rem 3rem', background: 'white', color: '#1a1a2e', fontWeight: 'bold', border: 'none', borderRadius: '10px', marginTop: '2rem' }}
+          style={{ alignSelf: 'center', marginTop: '2rem' }}
           onClick={handleNext}
         >
           {currentIdx < questions.length - 1 ? 'Next Question' : 'Finish Game'}

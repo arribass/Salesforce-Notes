@@ -1,0 +1,363 @@
+/* Profile & Prize Store - Astra-Modern Styles */
+
+:root {
+  --astra-blue: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  --astra-cyan: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+  --astra-emerald: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+  --astra-rose: linear-gradient(135deg, #f43f5e 0%, #8b5cf6 100%);
+  --astra-gold: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+  --astra-glass: rgba(255, 255, 255, 0.07);
+  --astra-glass-heavy: rgba(255, 255, 255, 0.15);
+  --astra-border: rgba(255, 255, 255, 0.12);
+  --astra-text: #f8fafc;
+  --astra-text-muted: #94a3b8;
+}
+
+.profile-page-container {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 80vh;
+  font-family: 'Outfit', 'Inter', sans-serif;
+  color: var(--astra-text);
+  background: #0f172a; /* Force dark background for premium feel */
+  border-radius: 40px;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+/* --- Shared Architecture --- */
+.astra-card {
+  background: var(--astra-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--astra-border);
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.astra-card:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  background: var(--astra-glass-heavy);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* --- Header Card --- */
+.profile-header-card {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 3rem;
+  background: radial-gradient(circle at top left, #1e1b4b, #2e1065, #0f172a);
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-header-card::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.profile-avatar {
+  position: relative;
+}
+
+.profile-avatar img, .avatar-placeholder {
+  width: 120px;
+  height: 120px;
+  border-radius: 30px;
+  border: 3px solid var(--astra-border);
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.4);
+}
+
+.avatar-placeholder {
+  background: var(--astra-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.level-orbit-badge {
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  background: var(--astra-gold);
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  border: 3px solid #1a1a2e;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.5);
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-info h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(to right, #fff, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.xp-container {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 1.5rem;
+}
+
+.xp-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.xp-bar-bg {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.xp-bar-fill {
+  height: 100%;
+  background: var(--astra-cyan);
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.5);
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.points-card {
+  background: var(--astra-glass);
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  border: 1px solid var(--astra-border);
+  text-align: center;
+}
+
+.points-value {
+  display: block;
+  font-size: 2.2rem;
+  font-weight: 900;
+  background: var(--astra-cyan);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.points-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.6;
+}
+
+/* --- Badge Gallery --- */
+.badge-gallery-section {
+  margin-bottom: 5rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.badge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+.badge-astra-card {
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.badge-icon-wrap {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 15px rgba(255,255,255,0.2));
+}
+
+.badge-astra-card h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.badge-astra-card p {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+/* --- Prize Store --- */
+.prize-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.prize-image-wrap {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px 24px 0 0;
+}
+
+.prize-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.prize-astra-content {
+  padding: 2rem;
+}
+
+.prize-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.prize-cost-tag {
+  background: var(--astra-glass-heavy);
+  padding: 0.4rem 1rem;
+  border-radius: 10px;
+  color: #06b6d4;
+  font-weight: 800;
+  border: 1px solid rgba(6, 182, 212, 0.2);
+}
+
+.auth-placeholder {
+  text-align: center;
+  padding: 5rem;
+  background: var(--astra-glass);
+  border-radius: 32px;
+  border: 1px dashed var(--astra-border);
+}
+
+.success-notification {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--astra-emerald);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  font-weight: 800;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  animation: astraPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1000;
+}
+
+.error-message {
+  color: #f43f5e;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .profile-header-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+  .signout-btn {
+    margin-left: 0;
+  }
+  .xp-container {
+    margin: 1.5rem auto 0;
+  }
+}
+
+/* --- Auth Forms --- */
+.auth-container {
+  max-width: 450px;
+  margin: 2rem auto;
+  padding: 3rem;
+  text-align: center;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.astra-input-group {
+  text-align: left;
+}
+
+.astra-input-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  opacity: 0.7;
+}
+
+.astra-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--astra-border);
+  border-radius: 12px;
+  padding: 1rem;
+  color: white;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.astra-input:focus {
+  outline: none;
+  border-color: #6366f1;
+  background: rgba(99, 102, 241, 0.05);
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
+}
+
+.auth-mode-toggle {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.auth-mode-link {
+  color: #6366f1;
+  font-weight: 700;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+

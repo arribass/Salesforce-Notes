@@ -6,6 +6,8 @@
 
 import { themes as prismThemes } from 'prism-react-renderer';
 
+import 'dotenv/config'; // Load .env file
+
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 /** @type {import('@docusaurus/types').Config} */
@@ -28,6 +30,11 @@ const config = {
   deploymentBranch: "gh-pages", // Deployment branch for GitHub Pages
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
+
+  customFields: {
+    supabaseUrl: process.env.SUPABASE_URL,
+    supabaseAnonKey: process.env.SUPABASE_ANON_KEY,
+  },
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -94,11 +101,18 @@ const config = {
             position: 'left',
             label: 'Salesforce Knowledge',
           },
-          { to: '/blog', label: 'Blog', position: 'left' }, // uncomment if you want to add a blog
+          { to: '/blog', label: 'Blog', position: 'left' },
+          { to: '/seidorhoot', label: 'Session Quiz', position: 'left', className: 'navbar-quiz-link' }, // uncomment if you want to add a blog
           {
             href: 'https://github.com/arribass/Salesforce-Notes/tree/dev',
             label: 'GitHub',
             position: 'right',
+          },
+          {
+            to: '/profile',
+            label: 'Profile',
+            position: 'right',
+            className: 'navbar-profile-link',
           },
         ],
       },

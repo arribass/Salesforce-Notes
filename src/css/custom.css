@@ -40,3 +40,45 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+.navbar-quiz-link {
+  background: linear-gradient(135deg, #08b47b 0%, #00d2ff 100%);
+  color: white !important;
+  font-weight: 600;
+  padding: 6px 16px !important;
+  border-radius: 50px;
+  margin-left: 8px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(8, 180, 123, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+}
+
+.navbar-quiz-link:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(8, 180, 123, 0.4);
+  text-decoration: none !important;
+  filter: brightness(1.1);
+}
+
+.navbar-quiz-link:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Specific styling for when it's the active link */
+.navbar-quiz-link.navbar__link--active {
+  background: linear-gradient(135deg, #069c6a 0%, #00b8e6 100%);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 996px) {
+  .navbar-quiz-link {
+    margin: 8px 15px;
+    justify-content: center;
+  }
+}
