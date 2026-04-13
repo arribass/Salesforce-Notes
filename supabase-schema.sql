@@ -6,6 +6,7 @@
 CREATE TABLE IF NOT EXISTS public.profiles (
   id uuid PRIMARY KEY REFERENCES auth.users ON DELETE CASCADE,
   username text UNIQUE,
+  email text UNIQUE,
   avatar_url text,
   points integer DEFAULT 0,
   last_check_in timestamptz,
@@ -78,8 +79,13 @@ ON CONFLICT DO NOTHING;
 CREATE OR REPLACE FUNCTION public.handle_new_user()
 RETURNS trigger AS $$
 BEGIN
-  INSERT INTO public.profiles (id, username, avatar_url)
-  VALUES (new.id, new.raw_user_meta_data->>'full_name', new.raw_user_meta_data->>'avatar_url');
+  INSERT INTO public.profiles (id, username, email, avatar_url)
+  VALUES (
+    new.id, 
+    COALESCE(new.raw_user_meta_data->>'username', new.raw_user_meta_data->>'full_name'), 
+    new.email,
+    new.raw_user_meta_data->>'avatar_url'
+  );
   RETURN new;
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;

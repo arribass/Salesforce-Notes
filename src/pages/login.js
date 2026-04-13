@@ -27,23 +27,41 @@ export default function LoginPage() {
     setLoading(true);
     setMessage(null);
 
+    let finalEmail = email;
+
+    // Login Bridge: Resolve username to email if necessary
+    if (!isSignUp && !email.includes('@')) {
+      const { data: profileData, error: profileError } = await supabase
+        .from('profiles')
+        .select('email')
+        .eq('username', email)
+        .single();
+
+      if (profileError || !profileData?.email) {
+        setMessage({ type: 'error', text: 'Target handle not found in database.' });
+        setLoading(false);
+        return;
+      }
+      finalEmail = profileData.email;
+    }
+
     const { error } = isSignUp 
       ? await supabase.auth.signUp({ 
-          email, 
+          email: finalEmail, 
           password,
           options: {
             data: {
               username: username,
-              full_name: username, // Matching the internal trigger expectation
+              full_name: username,
             }
           }
         })
-      : await supabase.auth.signInWithPassword({ email, password });
+      : await supabase.auth.signInWithPassword({ email: finalEmail, password });
 
     if (error) {
       setMessage({ type: 'error', text: error.message });
     } else if (isSignUp) {
-      setMessage({ type: 'success', text: 'Account created! Please check your email for confirmation.' });
+      setMessage({ type: 'success', text: 'Registration successful! Check your email for confirmation.' });
     }
     
     setLoading(false);
@@ -77,9 +95,9 @@ export default function LoginPage() {
             )}
 
             <div className="astra-input-group">
-              <label>Email Address</label>
+              <label>Username or Email</label>
               <input 
-                type="email" 
+                type="text" 
                 className="astra-input" 
                 placeholder="pilot@salesforce.com"
                 value={email}
