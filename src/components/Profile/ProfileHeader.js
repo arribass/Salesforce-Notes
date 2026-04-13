@@ -1,9 +1,13 @@
 import React from 'react';
 import { useAuth } from '../../utils/AuthProvider';
+import { useHistory } from '@docusaurus/router';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import './styles.css';
 
 export default function ProfileHeader() {
   const { user, profile, loading, signOut } = useAuth();
+  const history = useHistory();
+  const loginUrl = useBaseUrl('/login');
 
   if (loading) return <div className="profile-skeleton">Loading...</div>;
 
@@ -16,7 +20,7 @@ export default function ProfileHeader() {
         </p>
         <button 
           className="hoot-action-btn" 
-          onClick={() => window.location.href='/login'}
+          onClick={() => history.push(loginUrl)}
         >
           Access Command Center
         </button>
