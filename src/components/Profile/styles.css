@@ -188,34 +188,62 @@
 
 .badge-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
   gap: 1.5rem;
+  align-items: center; /* Prevent items from stretching to the height of the tallest one */
+  justify-items: center;
 }
 
 .badge-astra-card {
-  padding: 2rem;
+  width: 100%;
+  aspect-ratio: 1 / 1 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 0.75rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .badge-icon-wrap {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  filter: drop-shadow(0 0 15px rgba(255,255,255,0.2));
+  font-size: 2.2rem;
+  margin-bottom: 0.8rem;
+  filter: drop-shadow(0 0 10px rgba(255,255,255,0.15));
 }
 
 .badge-astra-card h4 {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   font-weight: 700;
+  line-height: 1.2;
 }
 
 .badge-astra-card p {
-  margin-top: 0.5rem;
-  font-size: 0.85rem;
-  opacity: 0.6;
+  display: none; /* Hide description to keep it perfectly square and simple */
+}
+
+.badge-astra-card:hover p {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.8);
+  padding: 0.5rem;
+  margin: 0;
+  font-size: 0.65rem;
+  animation: slideUp 0.2s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
 }
 
 /* --- Prize Store --- */
@@ -353,11 +381,63 @@
   opacity: 0.7;
 }
 
-.auth-mode-link {
+.auth-mode-link:hover {
+  opacity: 0.8;
+}
+
+/* --- Redeemed Prizes Section --- */
+.status-badge {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+}
+
+.status-pending {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.status-approved {
+  background: rgba(99, 102, 241, 0.15);
   color: #6366f1;
-  font-weight: 700;
-  cursor: pointer;
-  margin-left: 0.5rem;
-  text-decoration: underline;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.status-delivered {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.redemption-item {
+  transition: all 0.3s ease !important;
+}
+
+.redemption-item:hover {
+  background: var(--astra-glass-heavy) !important;
+  transform: translateX(8px) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+@media (max-width: 600px) {
+  .redemption-item {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 1rem !important;
+    padding: 1.5rem !important;
+  }
+  
+  .redemption-meta {
+    text-align: left !important;
+    align-items: flex-start !important;
+    width: 100%;
+    flex-direction: row-reverse !important;
+    justify-content: space-between;
+  }
 }
 

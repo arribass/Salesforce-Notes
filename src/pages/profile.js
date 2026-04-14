@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import Layout from '@theme/Layout';
 import ProfileHeader from '@site/src/components/Profile/ProfileHeader';
-import PrizeCard from '@site/src/components/Profile/PrizeCard';
 import BadgeGallery from '@site/src/components/Profile/BadgeGallery';
-import { usePrizes } from '@site/src/utils/hooks';
+import PrizeCard from '@site/src/components/Profile/PrizeCard';
+import RedeemedPrizes from '@site/src/components/Profile/RedeemedPrizes';
+import { usePrizes, useRedemptions } from '@site/src/utils/hooks';
 import { useAuth } from '@site/src/utils/AuthProvider';
 import '@site/src/components/Profile/styles.css';
 
@@ -11,9 +12,11 @@ export default function ProfilePage() {
   const { prizes, loading: prizesLoading } = usePrizes();
   const { user, loading: authLoading } = useAuth();
   const [successMessage, setSuccessMessage] = useState(null);
+  const [refreshCounter, setRefreshCounter] = useState(0);
 
   const handleRedeemSuccess = (prize) => {
     setSuccessMessage(`¡Éxito! Has canjeado: ${prize.name}`);
+    setRefreshCounter(prev => prev + 1);
     setTimeout(() => setSuccessMessage(null), 3000);
   };
 
@@ -25,6 +28,8 @@ export default function ProfilePage() {
         {user && (
           <>
             <BadgeGallery />
+
+            <RedeemedPrizes userId={user.id} key={`redemptions-${refreshCounter}`} />
 
             <section id="rewards" className="prize-store-section">
               <div className="section-header">
