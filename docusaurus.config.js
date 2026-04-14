@@ -99,20 +99,39 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Salesforce Knowledge',
+            label: 'Conocimientos Salesforce',
           },
           { to: '/blog', label: 'Blog', position: 'left' },
-          { to: '/seidorhoot', label: 'Session Quiz', position: 'left', className: 'navbar-quiz-link' }, // uncomment if you want to add a blog
+          { to: '/seidorhoot', label: 'Quiz de Sesión', position: 'left', className: 'navbar-quiz-link' }, // uncomment if you want to add a blog
           {
-            href: 'https://github.com/arribass/Salesforce-Notes/tree/dev',
-            label: 'GitHub',
-            position: 'right',
-          },
-          {
-            to: '/profile',
-            label: 'Profile',
+            type: 'dropdown',
+            label: 'Mi Perfil',
             position: 'right',
             className: 'navbar-profile-link',
+            items: [
+              {
+                label: 'Dashboard',
+                to: '/profile',
+                activeBaseRegex: '^/profile$',
+              },
+              {
+                label: 'Clasificación',
+                to: '/leaderboard',
+              },
+              {
+                label: 'Tienda de Premios',
+                to: '/profile#rewards',
+                activeBaseRegex: '^/profile#rewards$',
+              },
+              {
+                type: 'html',
+                value: '<hr style="margin: 0.5rem 0; opacity: 0.2; border-color: rgba(255,255,255,0.2)">',
+              },
+              {
+                type: 'html',
+                value: '<a class="dropdown__link" href="/Salesforce-Notes/logout" style="color: #ff4d4d; display: flex; align-items: center; gap: 0.6rem; font-weight: bold;"><span style="font-size: 1.1rem;">⏻</span> Cerrar Sesión</a>',
+              },
+            ],
           },
         ],
       },

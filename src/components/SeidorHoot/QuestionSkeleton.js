@@ -6,9 +6,10 @@ export default function QuestionSkeleton({ questions = [], onFinish }) {
   const [currentIdx, setCurrentIdx] = useState(0);
   const [timer, setTimer] = useState(20);
   const [showAnswer, setShowAnswer] = useState(false);
+  const [points, setPoints] = useState(0);
 
   if (!questions || questions.length === 0) {
-    return <div>No questions found for this category.</div>;
+    return <div>No se han encontrado preguntas para esta categoría.</div>;
   }
 
   const question = questions[currentIdx];
@@ -22,6 +23,14 @@ export default function QuestionSkeleton({ questions = [], onFinish }) {
     }
   }, [timer, showAnswer]);
 
+  const handleOptionClick = (idx) => {
+    if (showAnswer) return;
+    if (idx === question.correctIndex) {
+      setPoints(prev => prev + 50);
+    }
+    setShowAnswer(true);
+  };
+
   const handleNext = () => {
     if (currentIdx < questions.length - 1) {
       setCurrentIdx(currentIdx + 1);
@@ -29,7 +38,7 @@ export default function QuestionSkeleton({ questions = [], onFinish }) {
       setShowAnswer(false);
     } else {
       confetti();
-      onFinish();
+      onFinish(points);
     }
   };
 
@@ -37,6 +46,9 @@ export default function QuestionSkeleton({ questions = [], onFinish }) {
     <div className="hoot-question-view">
       <div className="hoot-timer-container">
         <div className="hoot-timer">{timer}</div>
+        <div style={{ position: 'absolute', top: '-40px', right: '0', fontSize: '1.2rem', fontWeight: '800', color: 'var(--astra-gold)' }}>
+          Puntos: {points}
+        </div>
       </div>
       
       <div className="astra-card">
@@ -50,7 +62,7 @@ export default function QuestionSkeleton({ questions = [], onFinish }) {
             className={`hoot-option-card astra-card ${
               ['astra-opt-0', 'astra-opt-1', 'astra-opt-2', 'astra-opt-3'][i]
             } ${showAnswer && i === question.correctIndex ? 'correct-highlight' : ''}`}
-            onClick={() => setShowAnswer(true)}
+            onClick={() => handleOptionClick(i)}
           >
             <div className="hoot-indicator">
               {['A', 'B', 'C', 'D'][i]}
@@ -66,7 +78,7 @@ export default function QuestionSkeleton({ questions = [], onFinish }) {
           style={{ alignSelf: 'center', marginTop: '2rem' }}
           onClick={handleNext}
         >
-          {currentIdx < questions.length - 1 ? 'Next Question' : 'Finish Game'}
+          {currentIdx < questions.length - 1 ? 'Siguiente Pregunta' : 'Finalizar Partida'}
         </button>
       )}
     </div>

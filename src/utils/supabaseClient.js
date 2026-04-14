@@ -1,9 +1,13 @@
 import { createClient } from '@supabase/supabase-js';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
+let supabaseInstance = null;
+
 export const useSupabase = () => {
   const { siteConfig: { customFields } } = useDocusaurusContext();
   
+  if (supabaseInstance) return supabaseInstance;
+
   const supabaseUrl = customFields.supabaseUrl;
   const supabaseAnonKey = customFields.supabaseAnonKey;
 
@@ -12,7 +16,8 @@ export const useSupabase = () => {
     return null;
   }
 
-  return createClient(supabaseUrl, supabaseAnonKey);
+  supabaseInstance = createClient(supabaseUrl, supabaseAnonKey);
+  return supabaseInstance;
 };
 
 // For non-hook usage (if needed)

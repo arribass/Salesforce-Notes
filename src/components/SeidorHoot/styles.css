@@ -9,8 +9,8 @@
   --astra-glass: rgba(255, 255, 255, 0.07);
   --astra-glass-heavy: rgba(255, 255, 255, 0.15);
   --astra-border: rgba(255, 255, 255, 0.12);
-  --astra-text: #f8fafc;
-  --astra-text-muted: #94a3b8;
+  --astra-text: #ffffff;
+  --astra-text-muted: #cbd5e1;
 }
 
 .hoot-container {
@@ -166,12 +166,11 @@
   border-radius: 24px;
 }
 
-.hoot-option-card:nth-child(even) {
-  margin-top: 3rem;
-}
-
+/* Aligned Grid (Removed staggered margins) */
+.hoot-option-card:nth-child(even),
 .hoot-option-card:nth-child(odd) {
-  margin-bottom: 3rem;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 /* New Modern Indicators */

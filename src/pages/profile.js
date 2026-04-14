@@ -13,12 +13,12 @@ export default function ProfilePage() {
   const [successMessage, setSuccessMessage] = useState(null);
 
   const handleRedeemSuccess = (prize) => {
-    setSuccessMessage(`Success! You redeemed: ${prize.name}`);
+    setSuccessMessage(`¡Éxito! Has canjeado: ${prize.name}`);
     setTimeout(() => setSuccessMessage(null), 3000);
   };
 
   return (
-    <Layout title="Your Profile" description="Manage your Salesforce points and rewards">
+    <Layout title="Tu Perfil" description="Gestiona tus puntos y recompensas de Salesforce">
       <main className="profile-page-container">
         <ProfileHeader />
 
@@ -26,15 +26,15 @@ export default function ProfilePage() {
           <>
             <BadgeGallery />
 
-            <section className="prize-store-section">
+            <section id="rewards" className="prize-store-section">
               <div className="section-header">
                 <span style={{ fontSize: '2rem' }}>🎁</span>
-                <h2>Office Prize Store</h2>
+                <h2>Tienda de Premios</h2>
               </div>
               
               {prizesLoading ? (
                 <div className="prize-loading" style={{ textAlign: 'center', padding: '3rem', opacity: 0.5 }}>
-                  Synthesizing perks...
+                  Sintezando ventajas...
                 </div>
               ) : (
                 <div className="prize-grid">

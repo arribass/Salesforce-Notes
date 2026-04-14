@@ -9,20 +9,20 @@ export default function ProfileHeader() {
   const history = useHistory();
   const loginUrl = useBaseUrl('/login');
 
-  if (loading) return <div className="profile-skeleton">Loading...</div>;
+  if (loading) return <div className="profile-skeleton">Cargando...</div>;
 
   if (!user) {
     return (
       <div className="auth-placeholder">
-        <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }}>Welcome, Trailblazer! 🚀</h2>
+        <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }}>¡Bienvenido, Trailblazer! 🚀</h2>
         <p style={{ fontSize: '1.2rem', opacity: 0.7, marginBottom: '2.5rem' }}>
-          Sign in to track your mastery, earn badges, and redeem office perks.
+          Inicia sesión para seguir tu progreso, ganar insignias y canjear premios de oficina.
         </p>
         <button 
           className="hoot-action-btn" 
           onClick={() => history.push(loginUrl)}
         >
-          Access Command Center
+          Acceder al Centro de Mando
         </button>
       </div>
     );
@@ -42,7 +42,7 @@ export default function ProfileHeader() {
         ) : (
           <div className="avatar-placeholder">{profile?.username?.[0] || 'U'}</div>
         )}
-        <div className="level-orbit-badge" title="Current Level">
+        <div className="level-orbit-badge" title="Nivel Actual">
           {level}
         </div>
       </div>
@@ -50,12 +50,12 @@ export default function ProfileHeader() {
       <div className="profile-info">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
           <h1>{profile?.username || user.email.split('@')[0]}</h1>
-          <button className="signout-btn" onClick={signOut}>Logout</button>
+          <button className="signout-btn" onClick={signOut}>Cerrar Sesión</button>
         </div>
 
         <div className="xp-container">
           <div className="xp-header">
-            <span>Level {level} Master</span>
+            <span>Maestro Nivel {level}</span>
             <span>{xpCurrent} / 500 XP</span>
           </div>
           <div className="xp-bar-bg">
@@ -66,7 +66,7 @@ export default function ProfileHeader() {
 
       <div className="points-card">
         <span className="points-value">{totalPoints}</span>
-        <span className="points-label">Total Points</span>
+        <span className="points-label">Puntos Totales</span>
       </div>
     </div>
   );

@@ -49,6 +49,9 @@ CREATE POLICY "Public profiles are viewable by everyone" ON public.profiles FOR 
 DROP POLICY IF EXISTS "Users can update own profile" ON public.profiles;
 CREATE POLICY "Users can update own profile" ON public.profiles FOR UPDATE USING (auth.uid() = id);
 
+DROP POLICY IF EXISTS "Users can insert own profile" ON public.profiles;
+CREATE POLICY "Users can insert own profile" ON public.profiles FOR INSERT WITH CHECK (auth.uid() = id);
+
 -- Prizes Policies
 DROP POLICY IF EXISTS "Prizes are viewable by everyone" ON public.prizes;
 CREATE POLICY "Prizes are viewable by everyone" ON public.prizes FOR SELECT USING (true);
@@ -65,11 +68,7 @@ CREATE POLICY "Users can insert own redemptions" ON public.redemptions FOR INSER
 -- ==========================================
 
 INSERT INTO public.prizes (name, description, cost, image_url, stock) VALUES
-('Premium Office Coffee', 'A specialty bag of coffee beans for the office kitchen.', 500, 'img/prizes/coffee.png', 5),
-('Extra Monitor Day', 'Rent an extra monitor for your workspace for a full day.', 1200, 'img/prizes/monitor.png', 2),
-('Standing Desk Pass', 'Access to a standing desk for a week.', 2000, 'img/prizes/standing-desk.png', 1),
-('Lunch with the Boss', 'A free lunch with a company executive to talk strategy.', 5000, 'img/prizes/lunch.png', 3),
-('Custom Swag Pack', 'A hoodie and water bottle with the company logo.', 3000, 'img/prizes/swag.png', 10)
+('Cangrejo de Oficina', 'Cangrejo de oficina - para sujetar tu boli.', 1000, '/Salesforce-Notes/img/cangrejo.png', 10)
 ON CONFLICT DO NOTHING;
 
 -- ==========================================

@@ -11,7 +11,7 @@ export default function PrizeCard({ prize, onRedeem }) {
 
   const handleRedeem = async () => {
     if (!profile || profile.points < prize.cost) {
-      setError('Not enough points');
+      setError('Puntos insuficientes');
       return;
     }
 
@@ -70,7 +70,7 @@ export default function PrizeCard({ prize, onRedeem }) {
             disabled={loading || profile?.points < prize.cost}
             onClick={handleRedeem}
           >
-            {loading ? 'Processing...' : profile?.points < prize.cost ? 'Locked' : 'Redeem Perk'}
+            {loading ? 'Procesando...' : profile?.points < prize.cost ? 'Bloqueado' : 'Canjear Premio'}
           </button>
           
           {error && <span className="error-message">⚠️ {error}</span>}
