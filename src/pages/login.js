@@ -74,10 +74,10 @@ export default function LoginPage() {
       <main className="profile-page-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <div className="auth-container astra-card">
           <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🔐</div>
-          <h1 style={{ fontWeight: '900', fontSize: '2.5rem', marginBottom: '0.5rem' }}>
+          <h1 style={{ fontWeight: '900', fontSize: '2.5rem', marginBottom: '0.5rem', color: '#1e293b' }}>
             {isSignUp ? 'Únete a la Flota' : 'Centro de Mando'}
           </h1>
-          <p style={{ opacity: 0.6, marginBottom: '2rem' }}>
+          <p style={{ color: '#475569', marginBottom: '2rem', fontWeight: '500' }}>
             {isSignUp ? 'Crea tus credenciales para empezar tu misión.' : 'Accede a tu perfil de maestría de Salesforce.'}
           </p>
 
@@ -139,9 +139,9 @@ export default function LoginPage() {
           </div>
         )}
 
-        <div className="auth-mode-toggle">
+        <div className="auth-mode-toggle" style={{ color: '#475569', fontWeight: '500' }}>
           {isSignUp ? '¿Ya tienes una cuenta?' : '¿Nuevo Trailblazer?'}
-          <span className="auth-mode-link" onClick={() => { setIsSignUp(!isSignUp); setMessage(null); }}>
+          <span className="auth-mode-link" style={{ color: '#08b47b', fontWeight: '800', marginLeft: '0.5rem', cursor: 'pointer' }} onClick={() => { setIsSignUp(!isSignUp); setMessage(null); }}>
             {isSignUp ? 'Acceder al Login' : 'Crear Credenciales'}
           </span>
         </div>

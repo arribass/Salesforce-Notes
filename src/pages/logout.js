@@ -12,10 +12,12 @@ export default function LogoutPage() {
   useEffect(() => {
     const performLogout = async () => {
       await signOut();
-      history.push(homePath);
+      // Use window.location for a hard redirect to the home path to ensure 
+      // the project root is loaded correctly on GitHub Pages
+      window.location.href = homePath;
     };
     performLogout();
-  }, [signOut, history, homePath]);
+  }, [signOut, homePath]);
 
   return (
     <Layout title="Cerrando Sesión">
@@ -23,12 +25,14 @@ export default function LogoutPage() {
         display: 'flex', 
         alignItems: 'center', 
         justifyContent: 'center', 
-        height: '50vh',
-        color: '#ffffff',
-        fontSize: '1.5rem',
-        opacity: 0.5
+        flexDirection: 'column',
+        height: '60vh',
+        color: '#1e293b',
+        fontSize: '1.2rem',
+        background: '#f3f3f2'
       }}>
-        Desconectando de la flota...
+        <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>👋</div>
+        Desconectando del Centro de Mando...
       </div>
     </Layout>
   );
