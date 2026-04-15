@@ -57,28 +57,25 @@ export default function RedeemedPrizes({ userId }) {
             </div>
             
             <div className="redemption-details" style={{ flex: 1 }}>
-              <h4 style={{ margin: 0, fontSize: '1.2rem', fontWeight: '800' }}>{redemption.prizes?.name}</h4>
+              <h4 style={{ margin: 0, fontSize: '1.2rem', fontWeight: '800', color: '#1e293b' }}>{redemption.prizes?.name}</h4>
               <p className="redemption-date" style={{ 
                 margin: '0.4rem 0 0', 
-                opacity: 0.8, 
+                opacity: 0.9, 
                 fontSize: '0.8rem',
-                color: '#94a3b8',
+                color: '#475569',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '0.5rem'
               }}>
                 <span style={{ fontSize: '1rem' }}>📅</span>
-                <strong>Fecha:</strong> {formatDate(redemption.redeemed_at)}
+                <strong style={{ color: '#1e293b' }}>Fecha:</strong> {formatDate(redemption.redeemed_at)}
               </p>
             </div>
 
             <div className="redemption-meta" style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'flex-end' }}>
-              <div className="redemption-points" style={{ color: '#f43f5e', fontWeight: '800', fontSize: '0.9rem' }}>
+              <div className="redemption-points" style={{ color: '#e11d48', fontWeight: '800', fontSize: '1rem' }}>
                 -{redemption.prizes?.cost} XP
               </div>
-              <span className={`status-badge status-${redemption.status}`}>
-                {getStatusLabel(redemption.status)}
-              </span>
             </div>
           </div>
         ))}

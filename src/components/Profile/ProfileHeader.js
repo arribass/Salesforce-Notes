@@ -35,7 +35,7 @@ export default function ProfileHeader() {
   const xpPercentage = (xpCurrent / 500) * 100;
 
   return (
-    <div className="profile-header-card astra-card">
+    <div className="profile-header-card">
       <div className="profile-avatar">
         {profile?.avatar_url ? (
           <img src={profile.avatar_url} alt={profile.username} />

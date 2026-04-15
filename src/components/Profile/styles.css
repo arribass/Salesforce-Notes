@@ -1,16 +1,16 @@
 /* Profile & Prize Store - Astra-Modern Styles */
 
 :root {
-  --astra-blue: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-  --astra-cyan: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
-  --astra-emerald: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
-  --astra-rose: linear-gradient(135deg, #f43f5e 0%, #8b5cf6 100%);
+  --astra-green: linear-gradient(135deg, #08b47b 0%, #10b981 100%);
+  --astra-mint: linear-gradient(135deg, #34d399 0%, #059669 100%);
+  --astra-emerald: linear-gradient(135deg, #10b981 0%, #08b47b 100%);
+  --astra-forest: linear-gradient(135deg, #064e3b 0%, #08b47b 100%);
   --astra-gold: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
-  --astra-glass: rgba(255, 255, 255, 0.07);
-  --astra-glass-heavy: rgba(255, 255, 255, 0.15);
-  --astra-border: rgba(255, 255, 255, 0.12);
-  --astra-text: #f8fafc;
-  --astra-text-muted: #94a3b8;
+  --astra-glass: #ffffff;
+  --astra-glass-heavy: #ffffff;
+  --astra-border: rgba(8, 180, 123, 0.4);
+  --astra-text: #1e293b; /* Safe dark slate */
+  --astra-text-muted: #475569;
 }
 
 .profile-page-container {
@@ -20,20 +20,18 @@
   min-height: 80vh;
   font-family: 'Outfit', 'Inter', sans-serif;
   color: var(--astra-text);
-  background: #0f172a; /* Force dark background for premium feel */
+  background: #f3f3f2; /* Exact background gray */
   border-radius: 40px;
   margin-top: 2rem;
   margin-bottom: 4rem;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.03);
 }
 
-/* --- Shared Architecture --- */
 .astra-card {
-  background: var(--astra-glass);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: #ffffff; /* Solid white background for cards */
   border: 1px solid var(--astra-border);
   border-radius: 24px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Sophisticated light shadow */
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -50,9 +48,13 @@
   align-items: center;
   gap: 3rem;
   padding: 3rem;
-  background: radial-gradient(circle at top left, #1e1b4b, #2e1065, #0f172a);
+  background: linear-gradient(to bottom, #064e3b 0%, #08b47b 60%, #10b981 85%, #f3f3f2 100%); 
+  border: 1px solid var(--astra-border);
+  border-bottom: none; 
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
   position: relative;
   overflow: hidden;
+  color: #ffffff; /* Contrast text for the header */
 }
 
 .profile-header-card::before {
@@ -74,8 +76,8 @@
   width: 120px;
   height: 120px;
   border-radius: 30px;
-  border: 3px solid var(--astra-border);
-  box-shadow: 0 0 30px rgba(99, 102, 241, 0.4);
+  border: 3px solid #ffffff; /* Brighter border against the green header */
+  box-shadow: 0 0 30px rgba(8, 180, 123, 0.4); /* Green shadow instead of purple */
 }
 
 .avatar-placeholder {
@@ -111,9 +113,8 @@
   font-size: 3rem;
   font-weight: 800;
   margin-bottom: 0.5rem;
-  background: linear-gradient(to right, #fff, #94a3b8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ffffff !important; /* Force white text in the dark green header */
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 .xp-container {
@@ -126,37 +127,40 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.5rem;
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #ffffff !important;
 }
 
 .xp-bar-bg {
-  height: 8px;
-  background: rgba(255, 255, 255, 0.1);
+  height: 12px;
+  background: rgba(0, 0, 0, 0.3); /* Stronger track background */
   border-radius: 10px;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .xp-bar-fill {
   height: 100%;
-  background: var(--astra-cyan);
-  box-shadow: 0 0 15px rgba(6, 182, 212, 0.5);
+  background: var(--astra-mint);
+  box-shadow: 0 0 15px rgba(52, 211, 153, 0.5);
   transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .points-card {
-  background: var(--astra-glass);
+  background: #ffffff; /* Solid white points card */
   padding: 1rem 2rem;
   border-radius: 20px;
   border: 1px solid var(--astra-border);
   text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .points-value {
   display: block;
   font-size: 2.2rem;
   font-weight: 900;
-  background: var(--astra-cyan);
+  background: var(--astra-green);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -165,7 +169,8 @@
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  opacity: 0.6;
+  opacity: 1;
+  color: #475569; /* Explicitly dark muted text */
 }
 
 /* --- Badge Gallery --- */
@@ -184,6 +189,7 @@
   font-size: 2rem;
   font-weight: 800;
   margin: 0;
+  color: #1e293b !important; /* Hardcoded dark contrast */
 }
 
 .badge-grid {
@@ -220,12 +226,13 @@
 .badge-astra-card h4 {
   margin: 0;
   font-size: 0.95rem;
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.2;
+  color: #1e293b !important; /* Hardcoded dark contrast */
 }
 
 .badge-astra-card p {
-  display: none; /* Hide description to keep it perfectly square and simple */
+  display: none; /* Keep simple */
 }
 
 .badge-astra-card:hover p {
@@ -268,6 +275,7 @@
 
 .prize-astra-content {
   padding: 2rem;
+  color: #1e293b !important;
 }
 
 .prize-header {
@@ -278,32 +286,33 @@
 }
 
 .prize-cost-tag {
-  background: var(--astra-glass-heavy);
+  background: var(--astra-green);
   padding: 0.4rem 1rem;
   border-radius: 10px;
-  color: #06b6d4;
+  color: white;
   font-weight: 800;
-  border: 1px solid rgba(6, 182, 212, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .auth-placeholder {
   text-align: center;
   padding: 5rem;
-  background: var(--astra-glass);
+  background: #ffffff;
   border-radius: 32px;
-  border: 1px dashed var(--astra-border);
+  border: 4px dashed rgba(8, 180, 123, 0.4); /* Stronger border */
+  color: #1e293b; 
 }
 
 .success-notification {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  background: var(--astra-emerald);
+  background: var(--astra-green);
   color: white;
   padding: 1rem 2rem;
   border-radius: 20px;
   font-weight: 800;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   animation: astraPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   z-index: 1000;
 }
@@ -354,16 +363,17 @@
   font-size: 0.85rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  opacity: 0.7;
+  color: var(--astra-text);
+  opacity: 0.8;
 }
 
 .astra-input {
   width: 100%;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(8, 180, 123, 0.05);
   border: 1px solid var(--astra-border);
   border-radius: 12px;
   padding: 1rem;
-  color: white;
+  color: var(--astra-text);
   font-family: inherit;
   transition: all 0.3s ease;
 }

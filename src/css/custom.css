@@ -82,3 +82,51 @@
     justify-content: center;
   }
 }
+
+/** 
+ * Dynamic Auth Navbar toggles
+ * Requires .auth-logged-in / .auth-logged-out on html element
+ */
+/* --- DYNAMIC AUTH NAV -- */
+
+/* --- DYNAMIC AUTH NAV -- */
+
+/* 1. Hide Profile elements by default or if not logged in */
+.navbar-profile-link,
+html:not(.auth-logged-in) .navbar-profile-link,
+body:not(.auth-logged-in) .navbar-profile-link,
+.navbar__item:has(.navbar-profile-link):not(.auth-logged-in) {
+  display: none !important;
+}
+
+/* 2. Show Profile ONLY when explicitly logged in */
+.auth-logged-in .navbar-profile-link,
+.auth-logged-in .navbar__item:has(.navbar-profile-link) {
+  display: flex !important;
+}
+
+/* 3. Hide Login item when logged in (TOTAL REMOVAL) */
+.auth-logged-in .navbar-login-link,
+body.auth-logged-in .navbar-login-link,
+.auth-logged-in .navbar__item:has(.navbar-login-link),
+.auth-logged-in [class*="navbar-login-link"] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+/* 4. Show Login link when logged out */
+html:not(.auth-logged-in) .navbar-login-link,
+body:not(.auth-logged-in) .navbar-login-link,
+.navbar__item:has(.navbar-login-link):not(.auth-logged-in) {
+  display: flex !important;
+}
+
+/* Base styling for Login link to match buttons if needed */
+.navbar-login-link {
+  font-weight: bold;
+}

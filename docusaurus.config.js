@@ -29,9 +29,7 @@ const config = {
   projectName: 'Salesforce-Notes', // Your repository name
   deploymentBranch: "gh-pages", // Deployment branch for GitHub Pages
   onBrokenLinks: 'throw',
-  markdown: {
-    onBrokenMarkdownLinks: 'warn',
-  },
+  onBrokenMarkdownLinks: 'warn',
 
   customFields: {
     supabaseUrl: process.env.SUPABASE_URL,
@@ -105,6 +103,7 @@ const config = {
           },
           { to: '/blog', label: 'Blog', position: 'left' },
           { to: '/seidorhoot', label: 'Quiz de Sesión', position: 'left', className: 'navbar-quiz-link' }, // uncomment if you want to add a blog
+          { to: '/login', label: 'Iniciar Sesión', position: 'right', className: 'navbar-login-link' },
           {
             type: 'dropdown',
             label: 'Mi Perfil',

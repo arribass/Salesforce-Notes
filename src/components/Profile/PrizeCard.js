@@ -55,11 +55,11 @@ export default function PrizeCard({ prize, onRedeem }) {
       
       <div className="prize-astra-content">
         <div className="prize-header">
-          <h3 style={{ fontSize: '1.4rem', fontWeight: '800', margin: 0 }}>{prize.name}</h3>
+          <h3 style={{ fontSize: '1.4rem', fontWeight: '800', margin: 0, color: '#1e293b' }}>{prize.name}</h3>
           <div className="prize-cost-tag">{prize.cost} XP</div>
         </div>
         
-        <p style={{ opacity: 0.7, fontSize: '0.95rem', margin: '1rem 0 2rem', lineHeight: '1.5', minHeight: '3rem' }}>
+        <p style={{ color: '#445469', fontSize: '0.95rem', margin: '1rem 0 2rem', lineHeight: '1.5', minHeight: '3rem' }}>
           {prize.description}
         </p>
 
