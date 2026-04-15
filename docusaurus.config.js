@@ -104,7 +104,7 @@ const config = {
           { to: '/blog', label: 'Blog', position: 'left' },
           { to: '/seidorhoot', label: 'Quiz de Sesión', position: 'left', className: 'navbar-quiz-link' }, // uncomment if you want to add a blog
           {
-            type: 'dropdown',
+            type: 'authProfile',
             label: 'Mi Perfil',
             position: 'right',
             className: 'navbar-profile-link',
