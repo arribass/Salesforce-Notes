@@ -186,10 +186,10 @@ export default function LeaderboardPage() {
                   Aceptar el Desafío
                 </a>
               </div>
-              </div> {/* Closes inner container (line 94) */}
-            </div> {/* Closes leaderboard-wrap (line 87) */}
-          )}
-        </div> {/* Closes leaderboard-content (line 74) */}
+            </div>
+          </div>
+        )}
+      </div>
       </main>
     </Layout>
   );
