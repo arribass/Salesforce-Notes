@@ -56,3 +56,44 @@ export const useRedemptions = (userId) => {
 
   return { redemptions, loading, refreshRedemptions };
 };
+
+export const useAllBadges = () => {
+  const supabase = useSupabase();
+  const [badges, setBadges] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!supabase) return;
+    const fetchBadges = async () => {
+      const { data, error } = await supabase
+        .from('badges')
+        .select('*');
+      if (!error) setBadges(data);
+      setLoading(false);
+    };
+    fetchBadges();
+  }, [supabase]);
+
+  return { badges, loading };
+};
+
+export const useUserBadges = (userId) => {
+  const supabase = useSupabase();
+  const [userBadges, setUserBadges] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!supabase || !userId) return;
+    const fetchUserBadges = async () => {
+      const { data, error } = await supabase
+        .from('user_badges')
+        .select('badge_id')
+        .eq('user_id', userId);
+      if (!error) setUserBadges(data.map(ub => ub.badge_id));
+      setLoading(false);
+    };
+    fetchUserBadges();
+  }, [supabase, userId]);
+
+  return { userBadges, loading };
+};

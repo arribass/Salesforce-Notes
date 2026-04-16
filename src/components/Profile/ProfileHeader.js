@@ -4,7 +4,7 @@ import { useHistory } from '@docusaurus/router';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import './styles.css';
 
-export default function ProfileHeader() {
+export default function ProfileHeader({ onEdit }) {
   const { user, profile, loading, signOut } = useAuth();
   const history = useHistory();
   const loginUrl = useBaseUrl('/login');
@@ -29,10 +29,11 @@ export default function ProfileHeader() {
   }
 
   // Calculate Level and XP (500 points per level)
-  const totalPoints = profile?.points || 0;
-  const level = Math.floor(totalPoints / 500) + 1;
-  const xpCurrent = totalPoints % 500;
-  const xpPercentage = (xpCurrent / 500) * 100;
+  const totalXp = profile?.xp || 0;
+  const currentPoints = profile?.points || 0;
+  const level = Math.floor(totalXp / 500) + 1;
+  const xpInLevel = totalXp % 500;
+  const xpPercentage = (xpInLevel / 500) * 100;
 
   return (
     <div className="profile-header-card">
@@ -49,14 +50,24 @@ export default function ProfileHeader() {
 
       <div className="profile-info">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
-          <h1>{profile?.username || user.email.split('@')[0]}</h1>
-          <button className="signout-btn" onClick={signOut}>Cerrar Sesión</button>
+          <div>
+            <h1>{profile?.username || user.email.split('@')[0]}</h1>
+            {profile?.office && (
+              <div className="profile-office-tag">
+                <span className="office-icon">🏢</span>
+                Sede {profile.office}
+              </div>
+            )}
+          </div>
+          <button className="edit-profile-btn" onClick={onEdit}>
+            <span>✏️</span> Editar Perfil
+          </button>
         </div>
 
         <div className="xp-container">
           <div className="xp-header">
-            <span>Maestro Nivel {level}</span>
-            <span>{xpCurrent} / 500 XP</span>
+            <span>Rango: Trailblazer Lvl {level}</span>
+            <span>{xpInLevel} / 500 XP</span>
           </div>
           <div className="xp-bar-bg">
             <div className="xp-bar-fill" style={{ width: `${xpPercentage}%` }}></div>
@@ -65,8 +76,8 @@ export default function ProfileHeader() {
       </div>
 
       <div className="points-card">
-        <span className="points-value">{totalPoints}</span>
-        <span className="points-label">Puntos Totales</span>
+        <span className="points-value">{currentPoints}</span>
+        <span className="points-label">Puntos Canjeables</span>
       </div>
     </div>
   );

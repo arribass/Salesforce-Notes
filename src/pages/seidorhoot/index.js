@@ -43,7 +43,7 @@ export default function SeidorHootPage() {
         // Obtenemos los puntos más recientes antes de sumar para evitar sobreescrituras
         const { data: latestProfile, error: fetchError } = await supabase
           .from('profiles')
-          .select('id, points')
+          .select('id, points, xp')
           .eq('id', user.id)
           .maybeSingle();
         
@@ -53,16 +53,20 @@ export default function SeidorHootPage() {
         }
 
         const currentPoints = latestProfile?.points ?? 0;
-        const newTotal = currentPoints + points;
+        const currentXP = latestProfile?.xp ?? 0;
+        const newTotalPoints = currentPoints + points;
+        const newTotalXP = currentXP + points;
         
-        console.log(`[SeidorHoot] Calculating: ${currentPoints} (old) + ${points} (new) = ${newTotal} (final)`);
+        console.log(`[SeidorHoot] Calculating Puntos: ${currentPoints} (old) + ${points} (new) = ${newTotalPoints} (final)`);
+        console.log(`[SeidorHoot] Calculating XP: ${currentXP} (old) + ${points} (new) = ${newTotalXP} (final)`);
 
         // Usamos UPSERT en lugar de update para crear el perfil si no existe durante el guardado
         const { data: updatedData, error: updateError } = await supabase
           .from('profiles')
           .upsert({ 
             id: user.id, 
-            points: newTotal,
+            points: newTotalPoints,
+            xp: newTotalXP,
             email: user.email,
             username: profile?.username || user.user_metadata?.username || user.email?.split('@')[0],
             updated_at: new Date().toISOString()
@@ -81,6 +85,20 @@ export default function SeidorHootPage() {
 
         console.log('[SeidorHoot] Update Success! Row returned:', updatedData[0]);
         
+        // --- 🏆 Award "First Mission" Badge ---
+        const { error: badgeError } = await supabase
+          .from('user_badges')
+          .insert({ 
+            user_id: user.id, 
+            badge_id: 'first_mission' 
+          });
+        
+        if (badgeError && badgeError.code !== '23505') { // 23505 is unique violation
+          console.warn('[SeidorHoot] Failed to award First Mission badge:', badgeError);
+        } else if (!badgeError) {
+          console.log('[SeidorHoot] Badge "First Mission" awarded successfully!');
+        }
+
         // Refrescamos el perfil global
         await refreshProfile();
       } catch (err) {

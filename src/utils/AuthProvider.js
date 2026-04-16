@@ -93,6 +93,8 @@ export const AuthProvider = ({ children }) => {
         email: currentUser?.email,
         username: currentUser?.user_metadata?.username || currentUser?.email?.split('@')[0],
         points: 0,
+        xp: 0,
+        office: null,
       };
 
       const { data: createdData, error: createError } = await supabase

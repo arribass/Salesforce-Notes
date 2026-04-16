@@ -9,6 +9,8 @@ CREATE TABLE IF NOT EXISTS public.profiles (
   email text UNIQUE,
   avatar_url text,
   points integer DEFAULT 0,
+  xp integer DEFAULT 0,
+  office text,
   last_check_in timestamptz,
   updated_at timestamptz DEFAULT now()
 );
@@ -34,6 +36,24 @@ CREATE TABLE IF NOT EXISTS public.redemptions (
   redeemed_at timestamptz DEFAULT now()
 );
 
+-- 4. Badges Table (Achievement Catalog)
+CREATE TABLE IF NOT EXISTS public.badges (
+  id text PRIMARY KEY,
+  name text NOT NULL,
+  description text,
+  icon text NOT NULL,
+  created_at timestamptz DEFAULT now()
+);
+
+-- 5. User Badges Table (Earned Achievements)
+CREATE TABLE IF NOT EXISTS public.user_badges (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id uuid REFERENCES auth.users ON DELETE CASCADE NOT NULL,
+  badge_id text REFERENCES public.badges(id) ON DELETE CASCADE NOT NULL,
+  earned_at timestamptz DEFAULT now(),
+  UNIQUE(user_id, badge_id)
+);
+
 -- ==========================================
 -- RLS (ROW LEVEL SECURITY)
 -- ==========================================
@@ -41,6 +61,8 @@ CREATE TABLE IF NOT EXISTS public.redemptions (
 ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.prizes ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.redemptions ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.badges ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.user_badges ENABLE ROW LEVEL SECURITY;
 
 -- Profiles Policies
 DROP POLICY IF EXISTS "Public profiles are viewable by everyone" ON public.profiles;
@@ -63,13 +85,36 @@ CREATE POLICY "Users can view own redemptions" ON public.redemptions FOR SELECT 
 DROP POLICY IF EXISTS "Users can insert own redemptions" ON public.redemptions;
 CREATE POLICY "Users can insert own redemptions" ON public.redemptions FOR INSERT WITH CHECK (auth.uid() = user_id);
 
+-- Badges Policies
+DROP POLICY IF EXISTS "Badges are viewable by everyone" ON public.badges;
+CREATE POLICY "Badges are viewable by everyone" ON public.badges FOR SELECT USING (true);
+
+-- User Badges Policies
+DROP POLICY IF EXISTS "Users can view own badges" ON public.user_badges;
+CREATE POLICY "Users can view own badges" ON public.user_badges FOR SELECT USING (auth.uid() = user_id);
+
+DROP POLICY IF EXISTS "System can insert user badges" ON public.user_badges;
+CREATE POLICY "System can insert user badges" ON public.user_badges FOR INSERT WITH CHECK (auth.uid() = user_id);
+
 -- ==========================================
--- SEED INITIAL PRIZES
+-- SEED INITIAL DATA
 -- ==========================================
 
+-- Seed Prizes
 INSERT INTO public.prizes (name, description, cost, image_url, stock) VALUES
 ('Cangrejo de Oficina', 'Cangrejo de oficina - para sujetar tu boli.', 1000, '/Salesforce-Notes/img/cangrejo.png', 10)
 ON CONFLICT DO NOTHING;
+
+-- Seed Badges
+INSERT INTO public.badges (id, name, description, icon) VALUES
+('first_mission', 'Primera Misión', 'Completaste tu primer SeidorHoot', '🎖️'),
+('quiz_master', 'Maestro del Quiz', 'Respondiste correctamente a 50 preguntas', '🧠'),
+('on_fire', '¡En racha!', '3 respuestas correctas seguidas', '🔥'),
+('early_bird', 'Madrugador', 'Completaste un quiz antes de las 9 AM', '🌅')
+ON CONFLICT (id) DO UPDATE SET 
+  name = EXCLUDED.name, 
+  description = EXCLUDED.description, 
+  icon = EXCLUDED.icon;
 
 -- ==========================================
 -- TRIGGER FOR NEW USERS

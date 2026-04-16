@@ -13,8 +13,8 @@ export default function LeaderboardPage() {
     async function fetchLeaders() {
       const { data, error } = await supabase
         .from('profiles')
-        .select('username, points, avatar_url')
-        .order('points', { ascending: false })
+        .select('username, xp, avatar_url')
+        .order('xp', { ascending: false })
         .limit(20);
 
       if (!error && data) {
@@ -27,113 +27,169 @@ export default function LeaderboardPage() {
 
   const podium = leaders.slice(0, 3);
   const others = leaders.slice(3);
+  
+  const thStyle = {
+    padding: '1.2rem',
+    fontSize: '0.9rem',
+    fontWeight: '800',
+    textTransform: 'uppercase',
+    letterSpacing: '1.5px',
+    color: '#64748b',
+    textAlign: 'center'
+  };
+
+  const tdStyle = {
+    padding: '1.2rem',
+    textAlign: 'center',
+    verticalAlign: 'middle'
+  };
 
   return (
     <Layout title="Clasificación Global" description="Mira quién lidera la flota de Salesforce">
-      <main className="profile-page-container hoot-container" style={{ 
-        maxWidth: '1200px', 
-        margin: '2rem auto', 
-        background: '#0f172a', /* Force solid dark background */
-        boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
-        minHeight: '100vh',
-        border: '1px solid rgba(255,255,255,0.1)'
+      <main className="profile-page-container" style={{ 
+        padding: 0, 
+        margin: 0, 
+        width: '100%', 
+        display: 'flex', 
+        flexDirection: 'column', 
+        alignItems: 'center',
+        background: '#f3f3f2'
       }}>
-        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-          <h1 style={{ fontSize: '3.5rem', fontWeight: '900', color: '#ffffff', textShadow: '0 4px 12px rgba(0,0,0,0.5)' }}>🏆 Clasificación Global</h1>
-          <p style={{ fontSize: '1.4rem', color: '#ffffff', opacity: 1, fontWeight: '600' }}>Los Trailblazers más legendarios de la flota</p>
+        {/* Header Section with Gradient - Wide */}
+        <div className="profile-header-card" style={{ 
+          background: 'linear-gradient(to bottom, #064e3b 0%, #08b47b 60%, #10b981 85%, #f3f3f2 100%)',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          textAlign: 'center',
+          padding: '6rem 2rem',
+          borderBottom: 'none',
+          width: '100%'
+        }}>
+          <h1 style={{ fontSize: '4rem', fontWeight: '900', color: '#ffffff', textShadow: '0 4px 15px rgba(0,0,0,0.4)', margin: 0 }}>🏆 Clasificación Global</h1>
+          <p style={{ fontSize: '1.5rem', color: '#ffffff', opacity: 1, fontWeight: '600', marginTop: '1.5rem', maxWidth: '800px' }}>Los Trailblazers más legendarios de la flota de Salesforce</p>
         </div>
 
-        {loading ? (
-          <div style={{ textAlign: 'center', padding: '5rem', fontSize: '1.5rem', color: '#ffffff', opacity: 0.5 }}>
-            Sincronizando el podio...
-          </div>
-        ) : (
-          <div className="leaderboard-wrap">
-            {/* Podium Section */}
-            <div className="podium-container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', gap: '2rem', marginBottom: '5rem', minHeight: '300px' }}>
-              
-              {/* Silver - 2nd Place */}
-              {podium[1] && (
-                <div className="podium-spot silver astra-card" style={{ width: '180px', height: '220px', textAlign: 'center', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', position: 'relative', background: 'linear-gradient(135deg, #94a3b8 0%, #475569 100%)', border: '1px solid #94a3b8' }}>
-                  <div style={{ position: 'absolute', top: '-40px', left: '50%', transform: 'translateX(-50%)', fontSize: '3rem' }}>🥈</div>
-                  <div className="avatar-placeholder" style={{ width: '60px', height: '60px', margin: '0 auto 1rem', background: '#e2e8f0', color: '#1e293b', fontWeight: 'bold', fontSize: '1.5rem' }}>
-                    {podium[1].username?.[0] || 'U'}
-                  </div>
-                  <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', color: '#ffffff', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>{podium[1].username}</h3>
-                  <div style={{ color: '#e2e8f0', fontWeight: '900', fontSize: '1.1rem' }}>{podium[1].points} pts</div>
-                </div>
-              )}
-
-              {/* Gold - 1st Place */}
-              {podium[0] && (
-                <div className="podium-spot gold astra-card" style={{ width: '220px', height: '280px', textAlign: 'center', padding: '2rem', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', position: 'relative', background: 'linear-gradient(135deg, #fbbf24 0%, #b45309 100%)', border: '2px solid #fbbf24', boxShadow: '0 0 30px rgba(251, 191, 36, 0.4)' }}>
-                  <div style={{ position: 'absolute', top: '-60px', left: '50%', transform: 'translateX(-50%)', fontSize: '4.5rem', filter: 'drop-shadow(0 0 15px #fbbf24)' }}>🥇</div>
-                  <div className="avatar-placeholder" style={{ width: '80px', height: '80px', margin: '0 auto 1.5rem', background: '#fef3c7', color: '#78350f', fontWeight: 'bold', fontSize: '2.5rem', boxShadow: '0 0 20px rgba(251, 191, 36, 0.5)' }}>
-                    {podium[0].username?.[0] || 'U'}
-                  </div>
-                  <h3 style={{ fontSize: '1.4rem', marginBottom: '0.5rem', color: '#ffffff', textShadow: '0 2px 4px rgba(0,0,0,0.7)' }}>{podium[0].username}</h3>
-                  <div style={{ color: '#fef3c7', fontWeight: '900', fontSize: '1.4rem' }}>{podium[0].points} pts</div>
-                </div>
-              )}
-
-              {/* Bronze - 3rd Place */}
-              {podium[2] && (
-                <div className="podium-spot bronze astra-card" style={{ width: '180px', height: '180px', textAlign: 'center', padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', position: 'relative', background: 'linear-gradient(135deg, #d97706 0%, #78350f 100%)', border: '1px solid #d97706' }}>
-                  <div style={{ position: 'absolute', top: '-30px', left: '50%', transform: 'translateX(-50%)', fontSize: '2.5rem' }}>🥉</div>
-                  <div className="avatar-placeholder" style={{ width: '50px', height: '50px', margin: '0 auto 1rem', background: '#ffedd5', color: '#78350f', fontWeight: 'bold', fontSize: '1.2rem' }}>
-                    {podium[2].username?.[0] || 'U'}
-                  </div>
-                  <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', color: '#ffffff', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>{podium[2].username}</h3>
-                  <div style={{ color: '#ffedd5', fontWeight: '900', fontSize: '1.1rem' }}>{podium[2].points} pts</div>
-                </div>
-              )}
+        <div className="leaderboard-content" style={{ 
+          padding: '0 2rem 5rem 2rem', 
+          width: '100%', 
+          maxWidth: '1200px', 
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center'
+        }}>
+          {loading ? (
+            <div style={{ textAlign: 'center', padding: '10rem 2rem', fontSize: '1.5rem', color: '#1e293b', opacity: 0.5 }}>
+              Sincronizando el podio...
             </div>
+          ) : (
+            <div className="leaderboard-wrap" style={{ 
+              display: 'flex', 
+              flexDirection: 'column', 
+              alignItems: 'center', 
+              width: '100%', 
+              paddingBottom: '5rem' 
+            }}>
+              <div style={{ width: '100%', maxWidth: '1000px' }}> {/* Inner container to keep podium and table aligned */}
+              {/* Podium Section */}
+              <div className="podium-container" style={{ 
+                display: 'flex', 
+                justifyContent: 'center', 
+                alignItems: 'flex-end', 
+                gap: '2.5rem', 
+                marginBottom: '6rem', 
+                minHeight: '350px',
+                paddingTop: '2rem',
+                flexWrap: 'wrap'
+              }}>
+                
+                {/* Silver - 2nd Place */}
+                {podium[1] && (
+                  <div className="podium-spot silver astra-card" style={{ width: '220px', height: '240px', textAlign: 'center', padding: '1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', position: 'relative', background: '#ffffff', border: '1px solid #94a3b8' }}>
+                    <div style={{ position: 'absolute', top: '-45px', fontSize: '3.5rem' }}>🥈</div>
+                    <div className="avatar-placeholder" style={{ width: '70px', height: '70px', margin: '0 auto 1rem', background: '#e2e8f0', color: '#1e293b', fontWeight: 'bold', fontSize: '1.8rem', borderRadius: '20px' }}>
+                      {podium[1].username?.[0] || 'U'}
+                    </div>
+                    <h3 style={{ fontSize: '1.2rem', marginBottom: '0.5rem', color: '#1e293b', fontWeight: '800' }}>{podium[1].username}</h3>
+                    <div style={{ color: '#445469', fontWeight: '900', fontSize: '1.2rem' }}>{podium[1].xp} XP</div>
+                  </div>
+                )}
 
-            {/* Ranking List */}
-            <div className="astra-card" style={{ padding: '1rem', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(15, 23, 42, 0.4)', backdropFilter: 'blur(20px)' }}>
-              {leaders.length === 0 ? (
-                <p style={{ textAlign: 'center', padding: '2rem', opacity: 0.5 }}>Aún no hay puntuaciones. ¡Sé el primero!</p>
-              ) : (
-                <table style={{ width: '100%', borderCollapse: 'collapse', color: '#ffffff' }}>
+                {/* Gold - 1st Place */}
+                {podium[0] && (
+                  <div className="podium-spot gold astra-card" style={{ width: '260px', height: '300px', textAlign: 'center', padding: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', position: 'relative', background: '#ffffff', border: '3px solid #fbbf24', boxShadow: '0 10px 40px rgba(251, 191, 36, 0.2)', zIndex: 10 }}>
+                    <div style={{ position: 'absolute', top: '-70px', fontSize: '5rem', filter: 'drop-shadow(0 0 15px #fbbf24)' }}>🥇</div>
+                    <div className="avatar-placeholder" style={{ width: '90px', height: '90px', margin: '0 auto 1.5rem', background: '#fef3c7', color: '#78350f', fontWeight: 'bold', fontSize: '2.5rem', borderRadius: '25px', boxShadow: '0 0 20px rgba(251, 191, 36, 0.4)' }}>
+                      {podium[0].username?.[0] || 'U'}
+                    </div>
+                    <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem', color: '#1e293b', fontWeight: '900' }}>{podium[0].username}</h3>
+                    <div style={{ color: '#b45309', fontWeight: '900', fontSize: '1.5rem' }}>{podium[0].xp} XP</div>
+                  </div>
+                )}
+
+                {/* Bronze - 3rd Place */}
+                {podium[2] && (
+                  <div className="podium-spot bronze astra-card" style={{ width: '220px', height: '200px', textAlign: 'center', padding: '1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', position: 'relative', background: '#ffffff', border: '1px solid #d97706' }}>
+                    <div style={{ position: 'absolute', top: '-35px', fontSize: '2.8rem' }}>🥉</div>
+                    <div className="avatar-placeholder" style={{ width: '60px', height: '60px', margin: '0 auto 1rem', background: '#ffedd5', color: '#78350f', fontWeight: 'bold', fontSize: '1.5rem', borderRadius: '18px' }}>
+                      {podium[2].username?.[0] || 'U'}
+                    </div>
+                    <h3 style={{ fontSize: '1.2rem', marginBottom: '0.5rem', color: '#1e293b', fontWeight: '800' }}>{podium[2].username}</h3>
+                    <div style={{ color: '#92400e', fontWeight: '900', fontSize: '1.2rem' }}>{podium[2].xp} XP</div>
+                  </div>
+                )}
+              </div>
+
+              {/* Ranking List Table - Perfectly Centered */}
+              <div style={{ width: '100%', maxWidth: '800px', margin: '0 auto', padding: '0 1rem' }}>
+                <table style={{ width: '100%', borderCollapse: 'separate', borderSpacing: '0 0.75rem' }}>
                   <thead>
-                    <tr style={{ borderBottom: '2px solid rgba(255,255,255,0.2)', textAlign: 'left', background: 'rgba(255,255,255,0.05)' }}>
-                      <th style={{ padding: '1.5rem', fontSize: '1.1rem', fontWeight: '900' }}>Posición</th>
-                      <th style={{ fontSize: '1.1rem', fontWeight: '900' }}>Usuario</th>
-                      <th style={{ textAlign: 'right', paddingRight: '1.5rem', fontSize: '1.1rem', fontWeight: '900' }}>Puntos</th>
+                    <tr>
+                      <th style={thStyle}>Posición</th>
+                      <th style={thStyle}>Trailblazer</th>
+                      <th style={thStyle}>Puntuación</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {leaders.map((player, index) => (
-                      <tr key={index} style={{ borderBottom: '1px solid rgba(255,255,255,0.1)', background: index % 2 === 0 ? 'rgba(255,255,255,0.03)' : 'transparent', transition: 'background 0.2s' }}>
-                        <td style={{ padding: '1.2rem 1.5rem', fontWeight: '900', color: index < 3 ? 'var(--astra-gold)' : '#ffffff' }}>
-                          #{index + 1}
-                        </td>
-                        <td>
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                            <div className="avatar-placeholder" style={{ width: '36px', height: '36px', fontSize: '0.9rem', background: 'rgba(255,255,255,0.1)', color: '#ffffff', border: '1px solid rgba(255,255,255,0.2)' }}>
-                               {player.username?.[0] || 'U'}
-                            </div>
-                            <span style={{ fontWeight: index < 3 ? '900' : '600', fontSize: '1.05rem' }}>{player.username}</span>
-                          </div>
-                        </td>
-                        <td style={{ textAlign: 'right', paddingRight: '1.5rem', fontWeight: '900', fontSize: '1.1rem', color: index === 0 ? '#fbbf24' : '#ffffff' }}>
-                          {player.points.toLocaleString()} XP
-                        </td>
+                    {leaders.length === 0 ? (
+                      <tr>
+                        <td colSpan="3" style={{ textAlign: 'center', padding: '4rem', opacity: 0.5, color: '#1e293b' }}>Aún no hay puntuaciones en el radar.</td>
                       </tr>
-                    ))}
+                    ) : (
+                      others.map((player, index) => (
+                        <tr key={index}>
+                          <td style={{ ...tdStyle, fontWeight: '900', color: '#64748b', width: '100px' }}>
+                            #{index + 4}
+                          </td>
+                          <td style={tdStyle}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem', justifyContent: 'center' }}>
+                              <div className="avatar-placeholder" style={{ width: '45px', height: '45px', fontSize: '1.1rem', background: '#ffffff', color: '#1e293b', border: '1px solid #e2e8f0', borderRadius: '14px', boxShadow: '0 4px 6px rgba(0,0,0,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                                 {player.username?.[0] || 'U'}
+                              </div>
+                              <span style={{ fontWeight: '700', fontSize: '1.15rem', color: '#1e293b' }}>{player.username}</span>
+                            </div>
+                          </td>
+                          <td style={{ ...tdStyle, fontWeight: '900', fontSize: '1.15rem', color: '#08b47b', width: '150px' }}>
+                            {player.xp?.toLocaleString() || 0} <span style={{ fontSize: '0.8rem', opacity: 0.7 }}>XP</span>
+                          </td>
+                        </tr>
+                      ))
+                    )}
                   </tbody>
                 </table>
-              )}
-            </div>
+              </div>
 
-            <div style={{ textAlign: 'center', marginTop: '4rem' }}>
-              <p style={{ opacity: 0.5, marginBottom: '1.5rem' }}>¡Participa en los SeidorHoots para escalar posiciones!</p>
-              <a href="/Salesforce-Notes/seidorhoot" className="hoot-action-btn" style={{ textDecoration: 'none' }}>
-                Ir al Quiz de Sesión
-              </a>
-            </div>
-          </div>
-        )}
+              <div style={{ textAlign: 'center', marginTop: '5rem' }}>
+                <p style={{ color: '#475569', fontWeight: '600', marginBottom: '2rem' }}>¿Quieres aparecer aquí? ¡Participa en los quizzes!</p>
+                <a href="/Salesforce-Notes/seidorhoot" className="hoot-action-btn" style={{ textDecoration: 'none', padding: '1.2rem 3rem', fontSize: '1.1rem' }}>
+                  Aceptar el Desafío
+                </a>
+              </div>
+              </div> {/* Closes inner container (line 94) */}
+            </div> {/* Closes leaderboard-wrap (line 87) */}
+          )}
+        </div> {/* Closes leaderboard-content (line 74) */}
       </main>
     </Layout>
   );

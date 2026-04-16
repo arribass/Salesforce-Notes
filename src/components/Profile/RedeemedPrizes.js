@@ -74,7 +74,7 @@ export default function RedeemedPrizes({ userId }) {
 
             <div className="redemption-meta" style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'flex-end' }}>
               <div className="redemption-points" style={{ color: '#e11d48', fontWeight: '800', fontSize: '1rem' }}>
-                -{redemption.prizes?.cost} XP
+                -{redemption.prizes?.cost} PTS
               </div>
             </div>
           </div>
