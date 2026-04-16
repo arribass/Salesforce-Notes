@@ -84,7 +84,7 @@ export default function SeidorHootPage() {
       .maybeSingle();
 
     if (error || !session) {
-      setJoinError('Pin no válido o sala ya iniciada.');
+      setJoinError('Pin no válido o no hay ninguna sala activa con este código.');
       return;
     }
 
