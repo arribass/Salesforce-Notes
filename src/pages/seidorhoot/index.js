@@ -218,10 +218,10 @@ export default function SeidorHootPage() {
         return (
           <div style={{ textAlign: 'center', padding: '2rem 0' }}>
             <h1 style={{ fontSize: '4.5rem', marginBottom: '1.5rem', fontWeight: '900', letterSpacing: '-1px' }}>
-              Seidor<span style={{ color: '#818cf8' }}>Hoot</span>! 🚀
+              Seidor<span style={{ color: '#818cf8' }}>Hoot</span>!
             </h1>
             <p style={{ fontSize: '1.5rem', opacity: 1, maxWidth: '600px', margin: '0 auto 4rem', color: '#ffffff' }}>
-              Sesiones de conocimiento de Salesforce profesionales y gamificadas para equipos de élite.
+              Aprende y compite con tu equipo en tiempo real.
             </p>
             <div style={{ display: 'flex', gap: '2rem', justifyContent: 'center', flexWrap: 'wrap' }}>
               <button 
@@ -230,8 +230,8 @@ export default function SeidorHootPage() {
                 onClick={() => setGameState('CATEGORY_SELECT')}
               >
                 <div style={{ fontSize: '3.5rem', marginBottom: '1.5rem' }}>📡</div>
-                <h2 style={{ fontSize: '2rem', fontWeight: '800', marginBottom: '0.5rem', color: '#ffffff' }}>Anfitrión de Sesión</h2>
-                <p style={{ opacity: 0.9, color: '#ffffff' }}>Proyecta esto en la pantalla grande</p>
+                <h2 style={{ fontSize: '2rem', fontWeight: '800', marginBottom: '0.5rem', color: '#ffffff' }}>Crear Partida</h2>
+                <p style={{ opacity: 0.9, color: '#ffffff' }}>Para proyectar en la oficina</p>
               </button>
               <button 
                 className="hoot-pin-card astra-card" 
@@ -239,8 +239,8 @@ export default function SeidorHootPage() {
                 onClick={() => setGameState('JOIN_PIN')}
               >
                 <div style={{ fontSize: '3.5rem', marginBottom: '1.5rem' }}>📱</div>
-                <h2 style={{ fontSize: '2rem', fontWeight: '800', marginBottom: '0.5rem', color: '#ffffff' }}>Unirse a una Sesión</h2>
-                <p style={{ opacity: 0.9, color: '#ffffff' }}>Introduce el PIN desde tu móvil</p>
+                <h2 style={{ fontSize: '2rem', fontWeight: '800', marginBottom: '0.5rem', color: '#ffffff' }}>Unirse con PIN</h2>
+                <p style={{ opacity: 0.9, color: '#ffffff' }}>Entra a la sala desde tu móvil</p>
               </button>
             </div>
           </div>
