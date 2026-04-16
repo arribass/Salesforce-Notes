@@ -4,7 +4,7 @@ import { useSupabase } from '../../utils/supabaseClient';
 import { useAuth } from '../../utils/AuthProvider';
 import './styles.css';
 
-export default function QuestionSkeleton({ questions = [], onFinish, sessionInfo, isHost }) {
+export default function HootQuestion({ questions = [], onFinish, sessionInfo, isHost }) {
   const [currentIdx, setCurrentIdx] = useState(0);
   const [timer, setTimer] = useState(20);
   const [showAnswer, setShowAnswer] = useState(false);

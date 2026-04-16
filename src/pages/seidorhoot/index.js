@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '@theme/Layout';
-import LobbySkeleton from '../../components/SeidorHoot/LobbySkeleton';
-import QuestionSkeleton from '../../components/SeidorHoot/QuestionSkeleton';
+import HootLobby from '../../components/SeidorHoot/HootLobby';
+import HootQuestion from '../../components/SeidorHoot/HootQuestion';
 import { useAuth } from '../../utils/AuthProvider';
 import { useSupabase } from '../../utils/supabaseClient';
 import '../../components/SeidorHoot/styles.css';
@@ -32,8 +32,9 @@ export default function SeidorHootPage() {
   const { user, profile, refreshProfile } = useAuth();
   const supabase = useSupabase();
 
-  // Helper: Generar PIN de 6 dígitos
-  const generatePin = () => Math.floor(100000 + Math.random() * 900000).toString();
+  // Helper: Generar PIN de 4 dígitos (7777 para pruebas o aleatorio)
+  const generatePin = () => "7777"; // Simplificado para pruebas según petición
+  // const generatePin = () => Math.floor(1000 + Math.random() * 9000).toString(); // 4 dígitos aleatorios
 
   // Crear sesión como Host
   const createHostSession = async (category, count) => {
@@ -252,10 +253,10 @@ export default function SeidorHootPage() {
               <input 
                 className="astra-input"
                 style={{ fontSize: '2.5rem', textAlign: 'center', letterSpacing: '8px', fontWeight: '900', marginBottom: '1.5rem' }}
-                placeholder="000 000"
+                placeholder="0000"
                 value={joinPin}
                 onChange={(e) => setJoinPin(e.target.value.toUpperCase())}
-                maxLength={7}
+                maxLength={4}
               />
               {joinError && <p style={{ color: '#ef4444', fontWeight: '700' }}>{joinError}</p>}
               <button 
@@ -332,7 +333,7 @@ export default function SeidorHootPage() {
         );
       case 'LOBBY':
         return (
-          <LobbySkeleton 
+          <HootLobby 
             categoryName={selectedCategory?.name} 
             onStart={() => setGameState('PLAYING')} 
             sessionInfo={sessionInfo}
@@ -342,7 +343,7 @@ export default function SeidorHootPage() {
       case 'PLAYING':
         const slicedQuestions = selectedCategory?.data?.slice(0, selectedCount) || [];
         return (
-          <QuestionSkeleton 
+          <HootQuestion 
             questions={slicedQuestions} 
             onFinish={handleFinish} 
             sessionInfo={sessionInfo}

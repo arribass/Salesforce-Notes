@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSupabase } from '../../utils/supabaseClient';
 import './styles.css';
 
-export default function LobbySkeleton({ onStart, categoryName, sessionInfo, isHost }) {
+export default function HootLobby({ onStart, categoryName, sessionInfo, isHost }) {
   const [players, setPlayers] = useState([]);
   const supabase = useSupabase();
 
@@ -69,9 +69,7 @@ export default function LobbySkeleton({ onStart, categoryName, sessionInfo, isHo
     if (!error) onStart();
   };
 
-  const displayPin = sessionInfo?.pin 
-    ? `${sessionInfo.pin.slice(0, 3)} ${sessionInfo.pin.slice(3)}`
-    : "------";
+  const displayPin = sessionInfo?.pin || "----";
 
   return (
     <div className="hoot-lobby">
