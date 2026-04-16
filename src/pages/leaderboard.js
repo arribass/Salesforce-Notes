@@ -27,22 +27,6 @@ export default function LeaderboardPage() {
 
   const podium = leaders.slice(0, 3);
   const others = leaders.slice(3);
-  
-  const thStyle = {
-    padding: '1.2rem',
-    fontSize: '0.9rem',
-    fontWeight: '800',
-    textTransform: 'uppercase',
-    letterSpacing: '1.5px',
-    color: '#64748b',
-    textAlign: 'center'
-  };
-
-  const tdStyle = {
-    padding: '1.2rem',
-    textAlign: 'center',
-    verticalAlign: 'middle'
-  };
 
   return (
     <Layout title="Clasificación Global" description="Mira quién lidera la flota de Salesforce">
@@ -141,43 +125,34 @@ export default function LeaderboardPage() {
                 )}
               </div>
 
-              {/* Ranking List Table - Perfectly Centered */}
-              <div style={{ width: '100%', maxWidth: '800px', margin: '0 auto', padding: '0 1rem' }}>
-                <table style={{ width: '100%', borderCollapse: 'separate', borderSpacing: '0 0.75rem' }}>
-                  <thead>
-                    <tr>
-                      <th style={thStyle}>Posición</th>
-                      <th style={thStyle}>Trailblazer</th>
-                      <th style={thStyle}>Puntuación</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {leaders.length === 0 ? (
-                      <tr>
-                        <td colSpan="3" style={{ textAlign: 'center', padding: '4rem', opacity: 0.5, color: '#1e293b' }}>Aún no hay puntuaciones en el radar.</td>
-                      </tr>
-                    ) : (
-                      others.map((player, index) => (
-                        <tr key={index}>
-                          <td style={{ ...tdStyle, fontWeight: '900', color: '#64748b', width: '100px' }}>
-                            #{index + 4}
-                          </td>
-                          <td style={tdStyle}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem', justifyContent: 'center' }}>
-                              <div className="avatar-placeholder" style={{ width: '45px', height: '45px', fontSize: '1.1rem', background: '#ffffff', color: '#1e293b', border: '1px solid #e2e8f0', borderRadius: '14px', boxShadow: '0 4px 6px rgba(0,0,0,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                                 {player.username?.[0] || 'U'}
-                              </div>
-                              <span style={{ fontWeight: '700', fontSize: '1.15rem', color: '#1e293b' }}>{player.username}</span>
-                            </div>
-                          </td>
-                          <td style={{ ...tdStyle, fontWeight: '900', fontSize: '1.15rem', color: '#08b47b', width: '150px' }}>
-                            {player.xp?.toLocaleString() || 0} <span style={{ fontSize: '0.8rem', opacity: 0.7 }}>XP</span>
-                          </td>
-                        </tr>
-                      ))
-                    )}
-                  </tbody>
-                </table>
+              {/* Ranking List Table - Premium Card-based Modern UI */}
+              <div className="rank-cards-list">
+                {leaders.length === 0 ? (
+                  <div style={{ textAlign: 'center', padding: '4rem', opacity: 0.5, color: '#1e293b' }}>
+                    Aún no hay puntuaciones en el radar.
+                  </div>
+                ) : (
+                  others.map((player, index) => (
+                    <div key={index} className="rank-row-card">
+                      <div className="rank-main-info">
+                        <div className="rank-position-badge">
+                          #{index + 4}
+                        </div>
+                        <div className="rank-user-info">
+                          <div className="rank-avatar">
+                            {player.username?.[0] || 'U'}
+                          </div>
+                          <span className="rank-username">{player.username}</span>
+                        </div>
+                      </div>
+                      <div className="rank-score-info">
+                        <div className="rank-xp-tag">
+                          {player.xp?.toLocaleString() || 0} <span>XP</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                )}
               </div>
 
               <div style={{ textAlign: 'center', marginTop: '5rem' }}>
