@@ -102,7 +102,7 @@ const config = {
             label: 'Conocimientos Salesforce',
           },
           { to: '/blog', label: 'Blog', position: 'left' },
-          { to: '/seidorhoot', label: 'Quiz de Sesión', position: 'left', className: 'navbar-quiz-link' }, // uncomment if you want to add a blog
+          { to: '/seidorhoot', label: 'Quiz', position: 'right', className: 'navbar-quiz-link' }, // Link to quiz page
           { to: '/login', label: 'Iniciar Sesión', position: 'right', className: 'navbar-login-link' },
           {
             type: 'dropdown',

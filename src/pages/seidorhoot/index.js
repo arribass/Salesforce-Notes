@@ -5,6 +5,7 @@ import HootQuestion from '../../components/SeidorHoot/HootQuestion';
 import { useAuth } from '../../utils/AuthProvider';
 import { useSupabase } from '../../utils/supabaseClient';
 import '../../components/SeidorHoot/styles.css';
+import { toast } from 'sonner';
 
 // Importar datos de preguntas
 import adminData from '../../data/admin.json';
@@ -32,32 +33,48 @@ export default function SeidorHootPage() {
   const { user, profile, refreshProfile } = useAuth();
   const supabase = useSupabase();
 
-  // Helper: Generar PIN de 4 dígitos (7777 para pruebas o aleatorio)
-  const generatePin = () => "7777"; // Simplificado para pruebas según petición
-  // const generatePin = () => Math.floor(1000 + Math.random() * 9000).toString(); // 4 dígitos aleatorios
+  // Generar PIN de 4 dígitos aleatorio
+  const generatePin = () => Math.floor(1000 + Math.random() * 9000).toString();
 
   // Crear sesión como Host
   const createHostSession = async (category, count) => {
-    if (!user) return alert('Debes iniciar sesión para ser anfitrión.');
+    if (!user) return toast.error('Debes iniciar sesión para ser anfitrión.');
     
-    const pin = generatePin();
-    const { data: session, error } = await supabase
-      .from('hoot_sessions')
-      .insert({
-        pin,
-        host_id: user.id,
-        category_id: category.id,
-        question_count: count,
-        status: 'LOBBY'
-      })
-      .select()
-      .single();
+    let session = null;
+    let attempts = 0;
+    const maxAttempts = 5;
 
-    if (error) {
-      console.error('Error creating session:', error);
-      alert('Error al crear la sala. Reintenta.');
+    while (!session && attempts < maxAttempts) {
+      const pin = generatePin();
+      const { data, error } = await supabase
+        .from('hoot_sessions')
+        .insert({
+          pin,
+          host_id: user.id,
+          category_id: category.id,
+          question_count: count,
+          status: 'LOBBY'
+        })
+        .select()
+        .single();
+      
+      if (!error) {
+        session = data;
+      } else if (error.code === '23505') { // PIN Collision
+        attempts++;
+      } else {
+        console.error('Error creating session:', error);
+        toast.error('Error al crear la sala. Reintenta.');
+        return;
+      }
+    }
+
+    if (!session) {
+      toast.error('No se pudo generar un PIN único. Inténtalo de nuevo.');
       return;
     }
+
+    toast.success(`¡Sala creada con éxito! PIN: ${session.pin}`);
 
     // Unirse automáticamente como participante
     await supabase.from('hoot_participants').insert({
@@ -73,7 +90,7 @@ export default function SeidorHootPage() {
 
   // Unirse como Jugador
   const joinPlayerSession = async (pin) => {
-    if (!user) return alert('Debes iniciar sesión para unirte.');
+    if (!user) return toast.error('Debes iniciar sesión para unirte.');
     setJoinError(null);
 
     const { data: session, error } = await supabase

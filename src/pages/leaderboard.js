@@ -14,6 +14,8 @@ export default function LeaderboardPage() {
       const { data, error } = await supabase
         .from('profiles')
         .select('username, xp, avatar_url')
+        .not('username', 'ilike', '%pilot%') // Filter out pilot users
+        .not('username', 'eq', 'aarribas123') // Filter out specific test user
         .order('xp', { ascending: false })
         .limit(20);
 
@@ -37,7 +39,8 @@ export default function LeaderboardPage() {
         display: 'flex', 
         flexDirection: 'column', 
         alignItems: 'center',
-        background: '#f3f3f2'
+        background: '#f3f3f2',
+        minHeight: 'auto'
       }}>
         {/* Header Section with Gradient - Wide */}
         <div className="profile-header-card" style={{ 
@@ -52,11 +55,10 @@ export default function LeaderboardPage() {
           width: '100%'
         }}>
           <h1 style={{ fontSize: '4rem', fontWeight: '900', color: '#ffffff', textShadow: '0 4px 15px rgba(0,0,0,0.4)', margin: 0 }}>🏆 Clasificación Global</h1>
-          <p style={{ fontSize: '1.5rem', color: '#ffffff', opacity: 1, fontWeight: '600', marginTop: '1.5rem', maxWidth: '800px' }}>Los Trailblazers más legendarios de la flota de Salesforce</p>
         </div>
 
         <div className="leaderboard-content" style={{ 
-          padding: '0 2rem 5rem 2rem', 
+          padding: '0 2rem 0rem 2rem', 
           width: '100%', 
           maxWidth: '1200px', 
           display: 'flex',
@@ -73,7 +75,7 @@ export default function LeaderboardPage() {
               flexDirection: 'column', 
               alignItems: 'center', 
               width: '100%', 
-              paddingBottom: '5rem' 
+              paddingBottom: '0rem' 
             }}>
               <div style={{ width: '100%', maxWidth: '1000px' }}> {/* Inner container to keep podium and table aligned */}
               {/* Podium Section */}
@@ -154,17 +156,10 @@ export default function LeaderboardPage() {
                   ))
                 )}
               </div>
-
-              <div style={{ textAlign: 'center', marginTop: '5rem' }}>
-                <p style={{ color: '#475569', fontWeight: '600', marginBottom: '2rem' }}>¿Quieres aparecer aquí? ¡Participa en los quizzes!</p>
-                <a href="/Salesforce-Notes/seidorhoot" className="hoot-action-btn" style={{ textDecoration: 'none', padding: '1.2rem 3rem', fontSize: '1.1rem' }}>
-                  Aceptar el Desafío
-                </a>
               </div>
             </div>
-          </div>
-        )}
-      </div>
+          )}
+        </div>
       </main>
     </Layout>
   );

@@ -45,17 +45,24 @@ export const AuthProvider = ({ children }) => {
       if (typeof document !== 'undefined') {
         const root = document.documentElement;
         const body = document.body;
+
+        // Reset all classes first
+        root.classList.remove('auth-loading', 'auth-logged-in', 'auth-logged-out');
+        body.classList.remove('auth-loading', 'auth-logged-in', 'auth-logged-out');
+
+        if (loading) {
+          root.classList.add('auth-loading');
+          body.classList.add('auth-loading');
+          return;
+        }
+
         if (user) {
           root.classList.add('auth-logged-in');
-          root.classList.remove('auth-logged-out');
           body.classList.add('auth-logged-in');
-          body.classList.remove('auth-logged-out');
           console.log('[Auth] DOM Classes updated: LOGGED_IN');
         } else {
           root.classList.add('auth-logged-out');
-          root.classList.remove('auth-logged-in');
           body.classList.add('auth-logged-out');
-          body.classList.remove('auth-logged-in');
           console.log('[Auth] DOM Classes updated: LOGGED_OUT');
         }
       }
@@ -65,7 +72,7 @@ export const AuthProvider = ({ children }) => {
     // Safety check after a short delay for Docusaurus hydration
     const timer = setTimeout(updateAuthClasses, 100);
     return () => clearTimeout(timer);
-  }, [user]);
+  }, [user, loading]);
 
   const fetchProfile = async (userId) => {
     if (!userId) return null;

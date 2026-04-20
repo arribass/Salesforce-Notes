@@ -7,6 +7,7 @@ import RedeemedPrizes from '@site/src/components/Profile/RedeemedPrizes';
 import { usePrizes, useRedemptions } from '@site/src/utils/hooks';
 import { useAuth } from '@site/src/utils/AuthProvider';
 import { useSupabase } from '@site/src/utils/supabaseClient';
+import { toast } from 'sonner';
 import '@site/src/components/Profile/styles.css';
 
 export default function ProfilePage() {
@@ -52,10 +53,9 @@ export default function ProfilePage() {
       
       await refreshProfile();
       setIsEditModalOpen(false);
-      setSuccessMessage('Perfil actualizado correctamente ✨');
-      setTimeout(() => setSuccessMessage(null), 3000);
+      toast.success('Perfil actualizado correctamente ✨');
     } catch (err) {
-      alert(`Error al actualizar: ${err.message}`);
+      toast.error(`Error al actualizar: ${err.message}`);
     } finally {
       setIsSaving(false);
     }
