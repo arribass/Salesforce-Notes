@@ -141,9 +141,18 @@ CREATE POLICY "Participants are viewable by everyone" ON public.hoot_participant
 DROP POLICY IF EXISTS "Users can manage own participation" ON public.hoot_participants;
 CREATE POLICY "Users can manage own participation" ON public.hoot_participants FOR ALL USING (auth.uid() = user_id);
 
--- Enable Realtime for multiplayer sync
-ALTER PUBLICATION supabase_realtime ADD TABLE public.hoot_sessions;
-ALTER PUBLICATION supabase_realtime ADD TABLE public.hoot_participants;
+-- Enable Realtime for multiplayer sync (Indempotent addition)
+DO $$
+BEGIN
+  IF EXISTS (SELECT 1 FROM pg_publication WHERE pubname = 'supabase_realtime') THEN
+    IF NOT EXISTS (SELECT 1 FROM pg_publication_tables WHERE pubname = 'supabase_realtime' AND tablename = 'hoot_sessions') THEN
+      ALTER PUBLICATION supabase_realtime ADD TABLE public.hoot_sessions;
+    END IF;
+    IF NOT EXISTS (SELECT 1 FROM pg_publication_tables WHERE pubname = 'supabase_realtime' AND tablename = 'hoot_participants') THEN
+      ALTER PUBLICATION supabase_realtime ADD TABLE public.hoot_participants;
+    END IF;
+  END IF;
+END $$;
 
 -- ==========================================
 -- SEED INITIAL DATA
@@ -151,7 +160,9 @@ ALTER PUBLICATION supabase_realtime ADD TABLE public.hoot_participants;
 
 -- Seed Prizes
 INSERT INTO public.prizes (name, description, cost, image_url, stock) VALUES
-('Cangrejo de Oficina', 'Cangrejo de oficina - para sujetar tu boli.', 1000, '/Salesforce-Notes/img/cangrejo.png', 10)
+('Cangrejo de Oficina', 'Cangrejo de oficina - para sujetar tu boli.', 1000, '/Salesforce-Notes/img/cangrejo.png', 10),
+('Taza Force Notes', 'Una taza cerámica de alta calidad para tus sesiones de estudio.', 2000, '/Salesforce-Notes/img/taza.png', 15),
+('Pegatinas Trailblazer', 'Set de pegatinas exclusivas para decorar tu portátil.', 100, '/Salesforce-Notes/img/pegatinas.png', 100)
 ON CONFLICT DO NOTHING;
 
 -- Seed Badges

@@ -1,74 +1,106 @@
 {
   "commits": [
     {
-      "shortHash": "3f09071",
-      "hash": "3f09071134391b5b7f8e464304b863576d1e02c4",
+      "shortHash": "8ef7383",
+      "hash": "8ef7383eea249dacc7487c46d419a0c379ed69bf",
       "author": "arribass",
       "email": "55694226+arribass@users.noreply.github.com",
-      "relativeDate": "7 minutes ago",
-      "exactDate": "Wed, 4 Mar 2026 17:33:04 +0100",
-      "message": "feat: Introduce LatestCommit component to display recent Git commit details and update Docusaurus navigation.",
+      "relativeDate": "3 days ago",
+      "exactDate": "Mon, 20 Apr 2026 15:42:18 +0200",
+      "message": "feat: enhanced leaderboard page, quiz system, and authentication provider with associated UI components",
       "files": [
+        {
+          "status": "A",
+          "name": "blog/2026-04-20-quizes-available.md"
+        },
         {
           "status": "M",
           "name": "docusaurus.config.js"
         },
         {
           "status": "M",
-          "name": "scripts/generate-commit-info.js"
+          "name": "package-lock.json"
         },
         {
           "status": "M",
-          "name": "src/components/LatestCommit.css"
+          "name": "package.json"
         },
         {
           "status": "M",
-          "name": "src/components/LatestCommit.js"
+          "name": "src/css/custom.css"
         },
         {
           "status": "M",
-          "name": "src/data/latestCommit.json"
+          "name": "src/pages/leaderboard.js"
+        },
+        {
+          "status": "M",
+          "name": "src/pages/profile.js"
+        },
+        {
+          "status": "M",
+          "name": "src/pages/seidorhoot/index.js"
+        },
+        {
+          "status": "M",
+          "name": "src/theme/Root.js"
+        },
+        {
+          "status": "M",
+          "name": "src/utils/AuthProvider.js"
+        },
+        {
+          "status": "A",
+          "name": "static/img/blog/quizzes/categories.png"
+        },
+        {
+          "status": "A",
+          "name": "static/img/blog/quizzes/landing.png"
+        },
+        {
+          "status": "A",
+          "name": "static/img/blog/quizzes/modern_notifications.png"
         }
       ]
     },
     {
-      "shortHash": "077e5c2",
-      "hash": "077e5c2b8ef669c94a603c00214a5ea0fb74dbf1",
+      "shortHash": "bccce7e",
+      "hash": "bccce7e2fa79966c6882a76bf0e9aea9974f3e91",
       "author": "arribass",
       "email": "55694226+arribass@users.noreply.github.com",
-      "relativeDate": "13 minutes ago",
-      "exactDate": "Wed, 4 Mar 2026 17:26:19 +0100",
-      "message": "feat: Display the latest git commit information on the homepage using a new generation script and component.",
+      "relativeDate": "7 days ago",
+      "exactDate": "Thu, 16 Apr 2026 17:49:25 +0200",
+      "message": "feat: implement SeidorHoot game page with real-time session management and Supabase integration",
       "files": []
     },
     {
-      "shortHash": "ef308a0",
-      "hash": "ef308a0c69c88f510ad5c8f0a0eedfc63a267032",
+      "shortHash": "f10c4b0",
+      "hash": "f10c4b01e10e8963ad99719d77c0e02938201e0c",
       "author": "arribass",
       "email": "55694226+arribass@users.noreply.github.com",
-      "relativeDate": "20 minutes ago",
-      "exactDate": "Wed, 4 Mar 2026 17:19:47 +0100",
-      "message": "feat: Add Salesforce Admin documentation section with an interactive quiz component.",
+      "relativeDate": "7 days ago",
+      "exactDate": "Thu, 16 Apr 2026 17:47:31 +0200",
+      "message": "feat: implement SeidorHoot game page with lobby, session management, and score synchronization",
       "files": []
     },
     {
-      "shortHash": "deb1f1b",
-      "hash": "deb1f1ba481b5b17d160a4e340799777d0fd97fa",
+      "shortHash": "4aea6f8",
+      "hash": "4aea6f878793f9fa55148174a1181af8fec28550",
       "author": "arribass",
       "email": "55694226+arribass@users.noreply.github.com",
-      "relativeDate": "19 hours ago",
-      "exactDate": "Tue, 3 Mar 2026 22:21:38 +0100",
-      "message": "removed unused authors",
+      "relativeDate": "7 days ago",
+      "exactDate": "Thu, 16 Apr 2026 17:12:14 +0200",
+      "message": "feat: implement SeidorHoot game module with real-time session management and profile point synchronization",
       "files": []
     },
     {
-      "shortHash": "a572b5b",
-      "hash": "a572b5bd5c551827c5cd2ad91539acc4b5cb5563",
+      "shortHash": "183ea41",
+      "hash": "183ea411cd30b8f392c4555eec53698b02091faf",
       "author": "arribass",
       "email": "55694226+arribass@users.noreply.github.com",
-      "relativeDate": "20 hours ago",
-      "exactDate": "Tue, 3 Mar 2026 22:03:18 +0100",
-      "message": "delete welcome blog Post",
+      "relativeDate": "7 days ago",
+      "exactDate": "Thu, 16 Apr 2026 17:08:16 +0200",
+      "message": "feat: add database schema and RLS policies for Hoot multiplayer sessions and participants",
       "files": []
     }
   ],

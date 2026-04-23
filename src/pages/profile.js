@@ -21,6 +21,8 @@ export default function ProfilePage() {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [editUsername, setEditUsername] = useState('');
   const [editOffice, setEditOffice] = useState('');
+  const [avatarFile, setAvatarFile] = useState(null);
+  const [avatarPreview, setAvatarPreview] = useState(null);
   const [isSaving, setIsSaving] = useState(false);
 
   const handleRedeemSuccess = (prize) => {
@@ -32,7 +34,17 @@ export default function ProfilePage() {
   const openEditModal = () => {
     setEditUsername(profile?.username || '');
     setEditOffice(profile?.office || '');
+    setAvatarPreview(profile?.avatar_url || null);
+    setAvatarFile(null);
     setIsEditModalOpen(true);
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setAvatarFile(file);
+      setAvatarPreview(URL.createObjectURL(file));
+    }
   };
 
   const handleSaveProfile = async (e) => {
@@ -40,11 +52,31 @@ export default function ProfilePage() {
     setIsSaving(true);
     
     try {
+      let finalAvatarUrl = profile?.avatar_url;
+
+      if (avatarFile) {
+        const fileExt = avatarFile.name.split('.').pop();
+        const filePath = `${user.id}/${Math.random()}.${fileExt}`;
+
+        const { error: uploadError } = await supabase.storage
+          .from('avatars')
+          .upload(filePath, avatarFile);
+
+        if (uploadError) throw uploadError;
+
+        const { data: { publicUrl } } = supabase.storage
+          .from('avatars')
+          .getPublicUrl(filePath);
+        
+        finalAvatarUrl = publicUrl;
+      }
+
       const { error } = await supabase
         .from('profiles')
         .update({
           username: editUsername,
           office: editOffice,
+          avatar_url: finalAvatarUrl,
           updated_at: new Date().toISOString()
         })
         .eq('id', user.id);
@@ -115,6 +147,29 @@ export default function ProfilePage() {
               <h2 style={{ fontSize: '1.8rem', fontWeight: '800', marginBottom: '1.5rem', color: '#1e293b' }}>Editar Perfil</h2>
               
               <form onSubmit={handleSaveProfile} className="auth-form">
+                <div className="avatar-edit-section">
+                  <div className="avatar-preview-container">
+                    {avatarPreview ? (
+                      <img src={avatarPreview} alt="Preview" className="edit-avatar-preview" />
+                    ) : (
+                      <div className="edit-avatar-placeholder">
+                        {editUsername?.[0] || user?.email?.[0] || 'U'}
+                      </div>
+                    )}
+                    <label htmlFor="avatar-upload" className="avatar-upload-label">
+                      <span>📸</span>
+                    </label>
+                  </div>
+                  <input 
+                    id="avatar-upload"
+                    type="file" 
+                    accept="image/*"
+                    onChange={handleFileChange}
+                    style={{ display: 'none' }}
+                  />
+                  <p className="avatar-tip">Haz clic en la cámara para cambiar tu foto</p>
+                </div>
+
                 <div className="astra-input-group">
                   <label>Nombre de Usuario</label>
                   <input 
